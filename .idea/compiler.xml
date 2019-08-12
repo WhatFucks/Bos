@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Bos" />
+        <module name="Bos-dev" />
         <module name="base" />
       </profile>
     </annotationProcessing>
