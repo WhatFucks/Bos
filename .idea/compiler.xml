@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Bos" />
+        <module name="项目测试" />
         <module name="base" />
         <module name="bos-div" />
       </profile>
