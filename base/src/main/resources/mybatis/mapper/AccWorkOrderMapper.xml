@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lm.mapper.acc.AccWorkOrderMapper">
-  <resultMap id="BaseResultMap" type="com.lm.entity.acc.AccWorkOrder">
+  <resultMap id="BaseResultMap" type="com.lyb.entity.AccWorkOrder">
     <id column="ID" jdbcType="INTEGER" property="id" />
     <result column="BusinessNoticeNo" jdbcType="VARCHAR" property="businessnoticeno" />
     <result column="JobNo" jdbcType="VARCHAR" property="jobno" />
@@ -77,7 +77,7 @@
     ID, BusinessNoticeNo, JobNo, JobType, PickupStatus, ShortMessageInt, WorkGenerationTime, 
     AfterSingleNum, SmallMemberNum, PickupUnit, PickupTime, SortingCode
   </sql>
-  <select id="selectByExample" parameterType="com.lm.entity.acc.AccWorkOrderExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.lyb.entity.AccWorkOrderExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -101,13 +101,13 @@
     delete from acc_workorder
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.lm.entity.acc.AccWorkOrderExample">
+  <delete id="deleteByExample" parameterType="com.lyb.entity.AccWorkOrderExample">
     delete from acc_workorder
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.lm.entity.acc.AccWorkOrder">
+  <insert id="insert" parameterType="com.lyb.entity.AccWorkOrder">
     insert into acc_workorder (ID, BusinessNoticeNo, JobNo, 
       JobType, PickupStatus, ShortMessageInt, 
       WorkGenerationTime, AfterSingleNum, SmallMemberNum, 
@@ -119,7 +119,7 @@
       #{pickupunit,jdbcType=INTEGER}, #{pickuptime,jdbcType=TIMESTAMP}, #{sortingcode,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.lm.entity.acc.AccWorkOrder">
+  <insert id="insertSelective" parameterType="com.lyb.entity.AccWorkOrder">
     insert into acc_workorder
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -198,7 +198,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.lm.entity.acc.AccWorkOrderExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.lyb.entity.AccWorkOrderExample" resultType="java.lang.Long">
     select count(*) from acc_workorder
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -266,7 +266,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lm.entity.acc.AccWorkOrder">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lyb.entity.AccWorkOrder">
     update acc_workorder
     <set>
       <if test="businessnoticeno != null">
@@ -305,7 +305,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lm.entity.acc.AccWorkOrder">
+  <update id="updateByPrimaryKey" parameterType="com.lyb.entity.AccWorkOrder">
     update acc_workorder
     set BusinessNoticeNo = #{businessnoticeno,jdbcType=VARCHAR},
       JobNo = #{jobno,jdbcType=VARCHAR},
@@ -320,25 +320,4 @@
       SortingCode = #{sortingcode,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <!--查询工作单 -->
-  <select id="SelectAccWorkOrder" parameterType="string" resultType="com.lm.entity.acc.Acc">
-   select  ws.WorkSheetNo,ws.JobNo WsJobNo,ws.ProductTime,ws.Destination,wo.BusinessNoticeNo WoBusinessNoticeNo,u.id uid,u.username,wo.PickupTime WoPickupTime,ba.CustomName,ba.Linkman
-from acc_workorder wo
-inner join acc_worksheet ws on  ws.JobNo= wo.JobNo
-inner join acc_businessadmissibility ba on ba.BusinessNoticeNo=wo.BusinessNoticeNo
-inner join sys_user u on  u.id = ba.PickerInfo
-  </select>
-  <!--调度  查询 -->
-  <select id="selectDispatch" parameterType="dispatch" resultType="com.lm.entity.acc.Dispatch">
-    select  JobType,JobNo,ShortMessageInt,aw.BusinessNoticeNo AwBusinessNoticeNo,WorkGenerationTime,SendAddress,Linkman,TelPhone,AfterSingleNum,PickupUnit from acc_workorder aw
-    INNER  JOIN acc_businessadmissibility ba on aw.BusinessNoticeNo = ba.BusinessNoticeNo  WHERE JobType &lt;&gt;3
-    <trim  suffixOverrides=",">
-    <if test="JobNo!= null and JobNo!=''">
-      and JobNo = #{JobNo},
-    </if>
-    <if test="TelPhone != null and TelPhone!=''">
-      and TelPhone = #{TelPhone},
-    </if>
-    </trim>
-  </select>
 </mapper>
