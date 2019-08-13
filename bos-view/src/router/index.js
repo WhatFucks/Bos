@@ -7,10 +7,6 @@ Vue.use(Router)
 import Layout from '@/layout'
 
 /* Router Modules */
-import componentsRouter from './modules/components'
-import chartsRouter from './modules/charts'
-import tableRouter from './modules/table'
-import nestedRouter from './modules/nested'
 
 /**
  * 注意: 子菜单只有在 route children.length >= 1 才出现
@@ -107,52 +103,54 @@ export const asyncRoutes = [
         path: 'user',
         component: () => import('@/views/sys/user'),
         name: '用户管理',
-        meta: { title: '用户管理',roles: ['admin','dev','test'] }
+        meta: { title: '用户管理', roles: ['admin', 'dev', 'test'] }
       },
       {
         path: 'role',
         component: () => import('@/views/sys/role'),
         name: '角色管理',
-        meta: { title: '角色管理',roles: ['admin'] }
+        meta: { title: '角色管理', roles: ['admin'] }
       },
       {
         path: 'menu',
         component: () => import('@/views/sys/menu'),
         name: '菜单管理',
-        meta: { title: '菜单管理',roles: ['admin'] }
+        meta: { title: '菜单管理', roles: ['admin'] }
       },
       {
         path: 'dept',
         component: () => import('@/views/sys/dept'),
         name: '部门管理',
-        meta: { title: '部门管理',roles: ['admin'] }
+        meta: { title: '部门管理', roles: ['admin'] }
       }
     ]
-  },{
+  },
+  {
     path: '/packagSet',
     component: Layout,
     alwaysShow: true,
-    name:'包装设置',
-    meta:{
-      title:'包装设置',
+    name: '包装设置',
+    meta: {
+      title: '包装设置',
       icon: 'clipboard',
-      roles:['admin','dev']
+      roles: ['admin', 'dev']
     },
-    children:[
+    children: [
       {
-        path:'PackagingInformationInput',
+        path: 'PackagingInformationInput',
         component: () => import('@/views/body/lyb/PackagingInformationInput'),
-        name:'包装信息录入',
-        meta: { title: '包装信息录入',roles: ['admin','dev'] }
+        name: '包装信息录入',
+        meta: { title: '包装信息录入', roles: ['admin', 'dev'] }
       },
       {
-        path:'PackagingInformationInquiry',
+        path: 'PackagingInformationInquiry',
         component: () => import('@/views/body/lyb/PackagingInformationInquiry'),
-        name:'包装信息查询',
-        meta: { title: '包装信息查询',roles: ['admin','dev'] }
+        name: '包装信息查询',
+        meta: { title: '包装信息查询', roles: ['admin', 'dev'] }
       }
     ]
-  },{
+  },
+  {
     path: '/ReturnGoodsManagement',
     component: Layout,
     name: '返货管理',
@@ -166,19 +164,19 @@ export const asyncRoutes = [
         path: 'ReturnApply',
         component: () => import('@/views/body/lyb/ReturnApply'),
         name: '返货申请',
-        meta: { title: '返货申请',roles: ['admin','dev'] }
+        meta: { title: '返货申请', roles: ['admin', 'dev'] }
       },
       {
         path: 'ReturnApplyAffirm',
         component: () => import('@/views/body/lyb/ReturnApplyAffirm'),
         name: '返货申请确认',
-        meta: { title: '返货申请确认',roles: ['admin','dev'] }
+        meta: { title: '返货申请确认', roles: ['admin', 'dev'] }
       },
       {
         path: 'CreateReturnInvoice',
         component: () => import('@/views/body/lyb/CreateReturnInvoice'),
-        name: '生产返货单',
-        meta: { title: '生产返货单',roles: ['admin','dev'] }
+        name: '生成返货单',
+        meta: { title: '生成返货单', roles: ['admin', 'dev'] }
       }
     ]
   },

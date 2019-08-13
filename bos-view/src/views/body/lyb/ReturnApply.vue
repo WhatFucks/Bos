@@ -52,11 +52,6 @@
           <span>{{ scope.row.aploss }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="进港时间" width="100" align="center">
-        <template slot-scope="scope">
-          <span>{{ scope.row.entrytime | parseTime('{y}-{m}-{d} {h}:{i}:{s}') }}</span>
-        </template>
-      </el-table-column>
       <el-table-column label="接收单位" width="100" align="center">
         <template slot-scope="scope">
           <div v-for="dept in deptList" :key="dept.id">
@@ -89,10 +84,15 @@
           <span>{{ scope.row.personname }}</span>
         </template>
       </el-table-column>
+      <el-table-column label="进港时间" width="100" align="center">
+        <template slot-scope="scope">
+          <span>{{ scope.row.entrytime | parseTime('{y}-{m}-{d}') }}</span>
+        </template>
+      </el-table-column>
       <el-table-column label="操作" align="center" width="150" class-name="small-padding fixed-width">
         <template slot-scope="{row}">
             <el-button type="primary" size="mini" @click="handleUpdate(row)">编辑</el-button>
-            <el-button size="mini" type="danger" @click="deleteReturn(row.id)">作废</el-button>
+            <el-button size="mini" type="danger" @click="deleteReturn(row)">作废</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -322,39 +322,48 @@
           }
         })
       },
-      deleteReturn (id) {
-        this.$confirm("确认作废该申请单吗？","温馨提示").then(_ => {
-          this.listLoading = true
-          deleteRetReturnlist(id).then((res) => {
-            const success = res.data.success
-            if(success  === true){
+      deleteReturn (row) {
+        if(row.invalidatesign == 1){
+          this.$confirm("确认作废该申请单吗？","温馨提示").then(_ => {
+            this.listLoading = true
+            deleteRetReturnlist(row.id).then((res) => {
+              const success = res.data.success
+              if(success  === true){
+                this.listLoading = false
+                this.$message({
+                  center: true,
+                  message: '已作废！',
+                  type: 'success'
+                });
+                this.getList()
+              }else{
+                this.listLoading = false
+                this.$message({
+                  center: true,
+                  message: '作废失败！',
+                  type: 'warning'
+                });
+              }
+            }).catch((err) => {
               this.listLoading = false
-              this.$message({
-                center: true,
-                message: '已作废！',
-                type: 'success'
-              });
-              this.getList()
-            }else{
-              this.listLoading = false
-              this.$message({
-                center: true,
-                message: '作废失败！',
-                type: 'warning'
-              });
-            }
-          }).catch((err) => {
+              this.$message.error('系统繁忙，请稍后再试！');
+            })
+          }).catch(_ => {
             this.listLoading = false
-            this.$message.error('系统繁忙，请稍后再试！');
+            this.$message({
+              center: true,
+              message: '用户取消操作！',
+              type: 'warning'
+            });
           })
-        }).catch(_ => {
-          this.listLoading = false
+        }else{
           this.$message({
             center: true,
-            message: '用户取消操作！',
+            message: '当前返货单已作废！',
             type: 'warning'
           });
-        })
+        }
+
       }
     }
   }

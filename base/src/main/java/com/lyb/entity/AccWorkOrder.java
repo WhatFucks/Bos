@@ -2,10 +2,9 @@ package com.lyb.entity;
 
 import lombok.Data;
 
-import java.io.Serializable;
 import java.util.Date;
 @Data
-public class AccWorkOrder implements Serializable {
+public class AccWorkOrder{
     private Integer id;
 
     private String businessnoticeno;

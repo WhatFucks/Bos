@@ -4,7 +4,8 @@
     <div class="filter-container">
       <div>
         工作单号：
-        <el-input v-model="listQuery.worksheetno" clearable placeholder="请输入工作单号..." style="width: 200px;" class="filter-item"/>
+        <el-input v-model="listQuery.worksheetno" clearable placeholder="请输入工作单号..." style="width: 200px;"
+                  class="filter-item"/>
         当前状态：
         <el-select v-model="listQuery.invalidatesign" clearable placeholder="请选择状态...">
           <el-option value=1 label="正常"></el-option>
@@ -14,8 +15,8 @@
         <el-select v-model="listQuery.apreturnstatus" clearable placeholder="请选择执行状态...">
           <el-option v-for="item in select3" :key="item.value" :value="item.value" :label="item.name"></el-option>
         </el-select>
-        申请状态：
-        <el-select v-model="listQuery.treatmentstate" clearable placeholder="请选择申请状态...">
+        处理状态：
+        <el-select v-model="listQuery.treatmentstate" clearable placeholder="请选择处理状态...">
           <el-option v-for="item in select1" :key="item.value" :value="item.value" :label="item.name"></el-option>
         </el-select>
         <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-search" @click="getList">
@@ -38,6 +39,26 @@
       <el-table-column label="工作单号" fit="true" align="center">
         <template slot-scope="scope">
           <span class="link-type">{{ scope.row.worksheetno }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="品名" fit="true" align="center">
+        <template slot-scope="scope">
+          <span class="link-type">{{ scope.row.accWorksheet.producttime }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="件数" fit="true" align="center">
+        <template slot-scope="scope">
+          <span class="link-type">{{ scope.row.accWorksheet.total }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="体积" fit="true" align="center">
+        <template slot-scope="scope">
+          <span class="link-type">{{ scope.row.accWorksheet.weight }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="到达地" fit="true" align="center">
+        <template slot-scope="scope">
+          <span class="link-type">{{ scope.row.accWorksheet.destination }}</span>
         </template>
       </el-table-column>
       <el-table-column label="返货处理状态" fit="true" align="center">
@@ -63,49 +84,71 @@
 
       <el-table-column label="操作" align="center" width="220" class-name="small-padding fixed-width">
         <template slot-scope="{row}">
-          <div v-if="row.treatmentstate === 1 & row.invalidatesign === 1">
-            <el-button size="mini" type="danger" @click="ret(row)">详细</el-button>
-            <el-button size="mini" type="warning" @click="refuse(row)">作废</el-button>
-          </div>
-          <div v-else>
-            <el-button type="info" size="mini">无操作</el-button>
-          </div>
+            <el-button size="mini" type="danger" @click="particular(row)">详细</el-button>
+            <el-button size="mini" type="warning" @click="deleteRetReturnlist(row)">作废</el-button>
         </template>
       </el-table-column>
     </el-table>
-    <pagination v-show="total>0" :total="total" :page.sync="listQuery.pageNum" :limit.sync="listQuery.pageSize" :page-sizes="[5,10,15,20]" @pagination="getList" />
+    <pagination v-show="total>0" :total="total" :page.sync="listQuery.pageNum" :limit.sync="listQuery.pageSize"
+                :page-sizes="[5,10,15,20]" @pagination="getList"/>
+    <el-dialog title="反货单详情" :visible.sync="dialogFormVisible" center>
+      <el-row :gutter="20">
+        <el-col :span="6">
+          <div class="grid-content bg-purple-light" align="center">返货单状态：</div>
+        </el-col>
+        <el-col :span="6">
+          <div class="grid-content bg-purple" align="center">
+            <span v-show="temp.treatmentstate === 1">未确认</span>
+            <span v-show="temp.treatmentstate === 2">同意返货</span>
+            <span v-show="temp.treatmentstate === 3">已拒绝</span>
+            <span v-show="temp.treatmentstate === 4">同意转发</span>
+          </div>
+        </el-col>
+        <el-col :span="6">
+          <div class="grid-content bg-purple-light" align="center"></div>
+        </el-col>
+        <el-col :span="6">
+          <div class="grid-content bg-purple" align="center"></div>
+        </el-col>
+      </el-row>
+
+      <span slot="footer" class="dialog-footer">
+          <el-button @click="dialogFormVisible = false">返 回</el-button>
+     </span>
+    </el-dialog>
   </div>
 </template>
 
 <script>
-  import { getRetReturnlist,refuse,confirm } from '@/api/body/retReturnlist'
-  import { getDeptList2} from "@/api/sys/dept";
+  import {getRetReturnlist, deleteRetReturnlist} from '@/api/body/retReturnlist'
+  import {getDeptList2} from "@/api/sys/dept"
   import waves from '@/directive/waves' // waves directive
-  import { parseTime } from '@/utils'
+  import {parseTime} from '@/utils'
   import Pagination from '@/components/Pagination'
 
   export default {
     name: 'returnApplyTable',
-    components: { Pagination },
-    directives: { waves },
+    components: {Pagination},
+    directives: {waves},
     data() {
       return {
         select1: [
-          {value: 1,name:"未确认"},
-          {value: 2,name:"同意返货"},
-          {value: 3,name:"拒绝"},
-          {value: 3,name:"同意转发"}
+          {value: 1, name: "未确认"},
+          {value: 2, name: "同意返货"},
+          {value: 3, name: "拒绝"},
+          {value: 3, name: "同意转发"}
         ],
         select2: [
-          {value: 1,name:"原因一"},
-          {value: 2,name:"原因二"},
-          {value: 3,name:"原因三"}
+          {value: 1, name: "原因一"},
+          {value: 2, name: "原因二"},
+          {value: 3, name: "原因三"}
         ],
         select3: [
-          {value: 1,name:"未执行"},
-          {value: 2,name:"已转发"},
-          {value: 3,name:"已反货"}
+          {value: 1, name: "待返货"},
+          {value: 2, name: "已转发"},
+          {value: 3, name: "已反货"}
         ],
+        dialogFormVisible: false,
         tableKey: 0,
         list: null, // 需要显示的数据集合
         total: 0, // 总记录数
@@ -118,7 +161,40 @@
           treatmentstate: '', // 返货处理状态
           apreturnstatus: '' // 返货执行状态
         },
-        deptList: []
+        deptList: [],
+        temp: {
+          accWorksheet: {
+            destination: '',
+            id: '',
+            jobno: '',
+            producttime: '',
+            stowagerequirements: '',
+            total: '',
+            weight: '',
+            worksheetno: '',
+          },
+          aploss: '',
+          applicationno: '',
+          apremark: '',
+          apreturnstatus: '',
+          confirmationpersonname: '',
+          confirmationtime: '',
+          confirmationunit: '',
+          denialtype: '',
+          entrytime: '',
+          entryunit: '',
+          handlingopinions: '',
+          id: '',
+          identificationsign: '',
+          invalidatesign: '',
+          personname: '',
+          receivegunit: '',
+          recordingtime: '',
+          returntype: '',
+          returnunit: '',
+          treatmentstate: '',
+          worksheetno: ''
+        }
       }
     },
     created() {
@@ -126,76 +202,59 @@
       this.getDeptList()
     },
     methods: {
-      ret (row) { // 确认返货
-        this.$confirm("您确认返货吗？","温馨提示").then(_ => {
-          this.listLoading = true
-          confirm(row.id).then((res) => {
+      particular (row) {
+        this.temp = Object.assign({}, row)
+        console.debug(this.temp)
+        this.dialogFormVisible = true
+      },
+      deleteRetReturnlist (row) {
+        if(row.invalidatesign == 1){
+          this.$confirm("您确定作废该返货单吗？","温馨提示").then(_ => {
+            this.listLoading = true
+            deleteRetReturnlist(row.id).then((res) => {
+              this.listLoading = false
+              if(res.data.success === true){
+                this.$message({
+                  center: true,
+                  message: '已作废！',
+                  type: 'success'
+                });
+              }else{
+                this.$message({
+                  center: true,
+                  message: '作废失败！',
+                  type: 'warning'
+                });
+              }
+              this.getList()
+            }).catch((err) => {
+              this.listLoading = false
+              this.$message('系统繁忙，请稍后再试！','温馨提示')
+            })
+          }).catch(_ => {
             this.listLoading = false
-            if(res.data.success === true){
-              this.$message({
-                center: true,
-                message: '确认返货成功！',
-                type: 'success'
-              });
-            }else{
-              this.$message({
-                center: true,
-                message: '确认返货失败！',
-                type: 'warning'
-              });
-            }
-            this.getList()
-          }).catch((err) => {
-            this.listLoading = false
-            this.$message('系统繁忙，请稍后再试！','温馨提示')
+            this.$message({
+              center: true,
+              message: '用户取消操作！',
+              type: 'warning'
+            });
           })
-        }).catch(_ => {
-          this.listLoading = false
+        }else{
           this.$message({
             center: true,
-            message: '用户取消操作！',
+            message: '当前返货单已作废！',
             type: 'warning'
           });
-        })
+        }
       },
-      refuse (row) { // 拒绝返货
-        this.$confirm("您确认拒绝该返货申请吗？","温馨提示").then(_ => {
-          refuse(row.id).then((res) => {
-            this.listLoading = false
-            if(res.data.success === true){
-              this.$message({
-                center: true,
-                message: '拒绝返货成功！',
-                type: 'success'
-              });
-            }else{
-              this.$message({
-                center: true,
-                message: '拒绝返货失败！',
-                type: 'warning'
-              });
-            }
-            this.getList()
-          }).catch((err) => {
-            this.listLoading = false
-            this.$message('系统繁忙，请稍后再试！','温馨提示')
-          })
-        }).catch(_ => {
-          this.$message({
-            center: true,
-            message: '用户取消操作！',
-            type: 'warning'
-          });
-        })
-      },
-      getDeptList () {
+      getDeptList() {
         this.listLoading = true
         getDeptList2().then((res) => {
           this.listLoading = false
           this.deptList = res.data.items
         }).catch((err) => {
           this.listLoading = false
-          console.debug("获取部门信息出错")
+          this.$message.error('获取部门信息出错！');
         })
       },
       getList() {
@@ -203,7 +262,7 @@
         getRetReturnlist(this.listQuery).then(response => {
           this.list = response.data.items
           this.total = response.data.total
-          this.listLoading = false;
+          this.listLoading = false
         }).catch((err) => {
           this.listLoading = false
           this.$message.error('系统繁忙，请稍后再试！');
@@ -212,3 +271,31 @@
     }
   }
 </script>
+<style>
+  .el-row {
+    margin-bottom: 20px;
+  &:last-child {
+     margin-bottom: 0;
+   }
+  }
+  .el-col {
+    border-radius: 4px;
+  }
+  .bg-purple-dark {
+    background: #99a9bf;
+  }
+  .bg-purple {
+    background: #d3dce6;
+  }
+  .bg-purple-light {
+    background: #e5e9f2;
+  }
+  .grid-content {
+    border-radius: 4px;
+    min-height: 36px;
+  }
+  .row-bg {
+    padding: 10px 0;
+    background-color: #f9fafc;
+  }
+</style>

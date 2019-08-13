@@ -60,7 +60,8 @@
 <!--        <table schema="" tableName="pac_stock" domainObjectName="PacStock" />-->
 <!--        <table schema="" tableName="pac_stockitem" domainObjectName="PacStockitem" />-->
 <!--        <table schema="" tableName="pac_stockout" domainObjectName="PacStockout" />-->
-        <table schema="" tableName="ret_returnlist" domainObjectName="RetReturnlist" />
+<!--        <table schema="" tableName="ret_returnlist" domainObjectName="RetReturnlist" />-->
+        <table schema="" tableName="acc_worksheet" domainObjectName="AccWorksheet" />
         <!--  <table schema="scott" tableName="product" domainObjectName="Product" />-->
         <!-- 指定数据库表 去除Example例子
         <table schema="scott" tableName="product" domainObjectName="Product"

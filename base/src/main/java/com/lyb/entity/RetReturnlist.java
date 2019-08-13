@@ -7,6 +7,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.util.Date;
 @Data
 public class RetReturnlist {
+    private AccWorksheet accWorksheet;// 返货对应的工作单
+
     private Integer id;
 
     private String applicationno;

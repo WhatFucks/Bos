@@ -23,6 +23,7 @@
     <result column="IdentificationSign" jdbcType="INTEGER" property="identificationsign" />
     <result column="HandlingOpinions" jdbcType="VARCHAR" property="handlingopinions" />
     <result column="DenialType" jdbcType="VARCHAR" property="denialtype" />
+    <association property="accWorksheet" column="WorkSheetNo" select="com.lyb.mapper.AccWorksheetMapper.selectByWorkSheetNo"/>
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>

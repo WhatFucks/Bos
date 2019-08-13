@@ -40,23 +40,6 @@
           <span class="link-type">{{ scope.row.worksheetno }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="确认时间" fit="true" align="center">
-        <template slot-scope="scope">
-          <span>{{ scope.row.confirmationtime | parseTime('{y}-{m}-{d} {h}:{i}:{s}') }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="确认单位" fit="true" align="center">
-        <template slot-scope="scope">
-          <div v-for="dept in deptList" :key="dept.id">
-            <span v-show="scope.row.confirmationunit === dept.id">{{ dept.name }}</span>
-          </div>
-        </template>
-      </el-table-column>
-      <el-table-column label="确认人" fit="true" align="center">
-        <template slot-scope="scope">
-          <span>{{ scope.row.confirmationpersonname }}</span>
-        </template>
-      </el-table-column>
       <el-table-column label="返货处理状态" fit="true" align="center">
         <template slot-scope="scope">
           <span v-show="scope.row.treatmentstate === 1">未确认</span>
@@ -75,15 +58,27 @@
           <span>{{ scope.row.handlingopinions }}</span>
         </template>
       </el-table-column>
+      <el-table-column label="确认单位" fit="true" align="center">
+        <template slot-scope="scope">
+          <div v-for="dept in deptList" :key="dept.id">
+            <span v-show="scope.row.confirmationunit === dept.id">{{ dept.name }}</span>
+          </div>
+        </template>
+      </el-table-column>
+      <el-table-column label="确认人" fit="true" align="center">
+        <template slot-scope="scope">
+          <span>{{ scope.row.confirmationpersonname }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="确认时间" fit="true" align="center">
+        <template slot-scope="scope">
+          <span>{{ scope.row.confirmationtime | parseTime('{y}-{m}-{d} {h}:{i}:{s}') }}</span>
+        </template>
+      </el-table-column>
       <el-table-column label="操作" align="center" width="220" class-name="small-padding fixed-width">
         <template slot-scope="{row}">
-          <div v-if="row.treatmentstate === 1 & row.invalidatesign === 1">
             <el-button size="mini" type="danger" @click="ret(row)">返货</el-button>
             <el-button size="mini" type="warning" @click="refuse(row)">拒绝</el-button>
-          </div>
-          <div v-else>
-            <el-button type="info" size="mini">无操作</el-button>
-          </div>
         </template>
       </el-table-column>
     </el-table>
@@ -107,8 +102,8 @@
         select1: [
           {value: 1,name:"未确认"},
           {value: 2,name:"同意返货"},
-          {value: 3,name:"拒绝"},
-          {value: 3,name:"同意转发"}
+          {value: 3,name:"已拒绝"},
+          {value: 4,name:"同意转发"}
         ],
         select2: [
           {value: 1,name:"原因一"},
@@ -141,66 +136,83 @@
     },
     methods: {
       ret (row) { // 确认返货
-        this.$confirm("您确认返货吗？","温馨提示").then(_ => {
-          this.listLoading = true
-          confirm(row.id).then((res) => {
+        if(row.treatmentstate == 1){
+          this.$confirm("您确认返货吗？","温馨提示").then(_ => {
+            this.listLoading = true
+            confirm(row.id).then((res) => {
+              this.listLoading = false
+              if(res.data.success === true){
+                this.$message({
+                  center: true,
+                  message: '确认返货成功！',
+                  type: 'success'
+                });
+              }else{
+                this.$message({
+                  center: true,
+                  message: '确认返货失败！',
+                  type: 'warning'
+                });
+              }
+              this.getList()
+            }).catch((err) => {
+              this.listLoading = false
+              this.$message('系统繁忙，请稍后再试！','温馨提示')
+            })
+          }).catch(_ => {
             this.listLoading = false
-            if(res.data.success === true){
-              this.$message({
-                center: true,
-                message: '确认返货成功！',
-                type: 'success'
-              });
-            }else{
-              this.$message({
-                center: true,
-                message: '确认返货失败！',
-                type: 'warning'
-              });
-            }
-            this.getList()
-          }).catch((err) => {
-            this.listLoading = false
-            this.$message('系统繁忙，请稍后再试！','温馨提示')
+            this.$message({
+              center: true,
+              message: '用户取消操作！',
+              type: 'warning'
+            });
           })
-        }).catch(_ => {
-          this.listLoading = false
+        }else{
           this.$message({
             center: true,
-            message: '用户取消操作！',
+            message: '只有未确认的返货单才能确认返货！',
             type: 'warning'
           });
-        })
+        }
       },
       refuse (row) { // 拒绝返货
-        this.$confirm("您确认拒绝该返货申请吗？","温馨提示").then(_ => {
-          refuse(row.id).then((res) => {
-            this.listLoading = false
-            if(res.data.success === true){
-              this.$message({
-                center: true,
-                message: '拒绝返货成功！',
-                type: 'success'
-              });
-            }else{
-              this.$message({
-                center: true,
-                message: '拒绝返货失败！',
-                type: 'warning'
-              });
-            }
-            this.getList()
-          }).catch((err) => {
-            this.listLoading = false
-            this.$message('系统繁忙，请稍后再试！','温馨提示')
+        console.debug(row)
+        if(row.treatmentstate == 1){
+          this.$confirm("您确认拒绝该返货申请吗？","温馨提示").then(_ => {
+            refuse(row.id).then((res) => {
+              this.listLoading = false
+              if(res.data.success === true){
+                this.$message({
+                  center: true,
+                  message: '拒绝返货成功！',
+                  type: 'success'
+                });
+              }else{
+                this.$message({
+                  center: true,
+                  message: '拒绝返货失败！',
+                  type: 'warning'
+                });
+              }
+              this.getList()
+            }).catch((err) => {
+              this.listLoading = false
+              this.$message('系统繁忙，请稍后再试！','温馨提示')
+            })
+          }).catch(_ => {
+            this.$message({
+              center: true,
+              message: '用户取消操作！',
+              type: 'warning'
+            });
           })
-        }).catch(_ => {
+        }else{
           this.$message({
             center: true,
-            message: '用户取消操作！',
+            message: '只有未确认的返货单才能拒绝返货！',
             type: 'warning'
           });
-        })
+        }
       },
       getDeptList () {
         this.listLoading = true

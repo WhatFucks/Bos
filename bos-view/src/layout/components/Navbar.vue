@@ -20,7 +20,7 @@
 
       <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
         <div class="avatar-wrapper">
-          <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">
+          <img :src="iconUrl" class="user-avatar">
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown">
@@ -62,6 +62,11 @@ export default {
     Screenfull,
     SizeSelect,
     Search
+  },
+  data () {
+    return {
+      iconUrl: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565711548030&di=0d826c20fbd351c7fc5ac926da2568c7&imgtype=0&src=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_gif%2FlIpibqXEpYwyO2GDS1DzDHGQHeko80qWYGpTfYfbBQVvCCSu8Uluv4bOUoUsOR36icfq9yo1woJTBAT72ic8roBYA%2F640%3Fwx_fmt%3Dgif'
+    }
   },
   computed: {
     ...mapGetters([
