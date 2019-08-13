@@ -15,7 +15,7 @@ public class BaseApplicationTests {
 
     @Test
     public void contextLoads() {
-        sysUserService.getUserNo();
+        System.out.println("坨坨大傻逼");
     }
 
 }
