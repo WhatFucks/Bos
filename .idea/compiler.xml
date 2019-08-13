@@ -9,6 +9,7 @@
         <module name="Bos" />
         <module name="Bos-dev" />
         <module name="base" />
+        <module name="Bos-test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
