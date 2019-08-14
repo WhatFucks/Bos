@@ -342,12 +342,6 @@ export const asyncRoutes = [
         component: () => import('@/views/body/lm/dis/NoSignforentry'),
         name: ' 取消签收申请录入',
         meta: { title: ' 取消签收申请录入', roles: ['dev', 'admin'] }
-      },
-      {
-        path: 'bus',
-        component: () => import('@/views/body/lm/acc/workOrder'),
-        name: ' 宣传任务',
-        meta: { title: ' 宣传任务', roles: ['dev', 'admin'] }
       }
     ]
   },
