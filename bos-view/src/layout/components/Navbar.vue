@@ -64,8 +64,8 @@ export default {
     Search
   },
   data () {
-    return {
-      iconUrl: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565711548030&di=0d826c20fbd351c7fc5ac926da2568c7&imgtype=0&src=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_gif%2FlIpibqXEpYwyO2GDS1DzDHGQHeko80qWYGpTfYfbBQVvCCSu8Uluv4bOUoUsOR36icfq9yo1woJTBAT72ic8roBYA%2F640%3Fwx_fmt%3Dgif'
+    return { // https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565711548030&di=0d826c20fbd351c7fc5ac926da2568c7&imgtype=0&src=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_gif%2FlIpibqXEpYwyO2GDS1DzDHGQHeko80qWYGpTfYfbBQVvCCSu8Uluv4bOUoUsOR36icfq9yo1woJTBAT72ic8roBYA%2F640%3Fwx_fmt%3Dgif
+      iconUrl: 'http://img.mp.itc.cn/upload/20170425/20730b23dfb44e5aa1dd4ce13bd6ae1e.gif'
     }
   },
   computed: {

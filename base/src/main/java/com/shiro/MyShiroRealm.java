@@ -1,4 +1,4 @@
-package com.lyb.shiro;
+package com.shiro;
 
 import com.lyb.entity.SysMenu;
 import com.lyb.entity.SysRole;

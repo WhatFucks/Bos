@@ -3,7 +3,7 @@ package com.lyb.controller;
 import com.lyb.entity.PacStock;
 import com.lyb.entity.SysUser;
 import com.lyb.general.PageEntity;
-import com.lyb.general.ResponseResult;
+import com.util.ResponseResult;
 import com.lyb.service.PacStockService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;

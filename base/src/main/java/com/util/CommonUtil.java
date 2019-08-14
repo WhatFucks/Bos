@@ -1,10 +1,7 @@
-package com.lyb.util;
+package com.util;
 
-import com.lyb.service.SysUserService;
-import com.lyb.service.impl.SysUserServiceImpl;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.Md5Hash;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class CommonUtil {
     private CommonUtil(){}

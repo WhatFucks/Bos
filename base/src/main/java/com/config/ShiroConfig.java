@@ -1,6 +1,6 @@
 package com.config;
 
-import com.lyb.shiro.MyShiroRealm;
+import com.shiro.MyShiroRealm;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;

@@ -1,4 +1,4 @@
-package com.lyb.general;
+package com.util;
 
 import lombok.Data;
 

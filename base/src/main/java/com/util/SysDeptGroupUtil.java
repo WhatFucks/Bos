@@ -1,4 +1,4 @@
-package com.lyb.util;
+package com.util;
 
 import com.lyb.entity.SysDept;
 import java.util.ArrayList;
