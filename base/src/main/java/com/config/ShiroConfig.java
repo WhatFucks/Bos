@@ -1,4 +1,4 @@
-package com.lyb.config;
+package com.config;
 
 import com.lyb.shiro.MyShiroRealm;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
