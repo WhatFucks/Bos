@@ -125,6 +125,63 @@ export const asyncRoutes = [
       }
     ]
   },
+  //  hsq  基础数据
+  {
+    path: '/recordHsq',
+    component: Layout,
+    redirect: '/recordHsq/page',
+    alwaysShow: true, // 总是显示总菜单
+    name: '基础档案',
+    meta: {
+      title: '基础档案',
+      icon: 'example',
+      roles: ['admin', 'editor'] // 可以在根导航中设置角色
+    },
+    children: [
+      {
+        path: 'basicArchives',
+        component: () => import('@/views/body/hsq/basicArchives'),
+        name: '基础档案设置',
+        meta: { title: '基础档案设置', roles: ['admin', 'dev'] }
+      },
+      {
+        path: 'deliveryStandard',
+        component: () => import('@/views/body/hsq/deliveryStandard'),
+        name: '收派标准',
+        meta: { title: '收派标准', roles: ['admin', 'dev'] }
+      },
+      {
+        path: 'shuttleBus',
+        component: () => import('@/views/body/hsq/shuttleBus'),
+        name: '班车设置',
+        meta: { title: '班车设置', roles: ['admin', 'dev'] }
+      },
+      {
+        path: 'substitute',
+        component: () => import('@/views/body/hsq/substitute'),
+        name: '取派员设置',
+        meta: { title: '取派员设置', roles: ['admin', 'dev'] }
+      },
+      {
+        path: 'area',
+        component: () => import('@/views/body/hsq/area'),
+        name: '区域设置',
+        meta: { title: '区域设置', roles: ['admin', 'dev'] }
+      },
+      {
+        path: 'partition',
+        component: () => import('@/views/body/hsq/partition'),
+        name: '管理分区',
+        meta: { title: '管理分区', roles: ['admin', 'dev'] }
+      },
+      {
+        path: 'zoneInfo',
+        component: () => import('@/views/body/hsq/zoneInfo'),
+        name: '管理定区',
+        meta: { title: '管理定区', roles: ['admin', 'dev'] }
+      }
+    ]
+  },
   {
     path: '/packagSet',
     component: Layout,
