@@ -1,4 +1,4 @@
-import request from '@/utils/request'
+import request from '@/utils/HcRequest'
 
 export function list(sorPackage, pageSize, pageNum) {
   return request({

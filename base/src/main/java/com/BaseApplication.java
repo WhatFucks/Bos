@@ -1,4 +1,4 @@
-package com.lyb;
+package com;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;

@@ -1,4 +1,4 @@
-import request from '@/utils/request'
+import request from '@/utils/HcRequest'
 
 export function insertToSorAbnormal(sorAbnormal) {
   return request({
