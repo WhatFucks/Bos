@@ -10,7 +10,8 @@ public interface RetReturnlistService {
     public Boolean addRetReturnlist(RetReturnlist ret);
     public Boolean updateRetReturnlist(RetReturnlist ret);
     public Boolean deleteRetReturnlist(Integer id);
-    public Boolean confirm(Integer id);
+    public Boolean confirm(RetReturnlist ret);
     public Boolean refuse(Integer id);
+    public RetReturnlist findByID(Integer id);
     public String getApplicationNo();
 }
