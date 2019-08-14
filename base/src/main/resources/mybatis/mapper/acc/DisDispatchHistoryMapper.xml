@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lm.mapper.acc.DisDispatchHistoryMapper">
+  <resultMap id="BaseResultMap" type="com.lm.entity.acc.DisDispatchHistory">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="DispatchSequence" jdbcType="INTEGER" property="dispatchsequence" />
+    <result column="TransferredUnit" jdbcType="INTEGER" property="transferredunit" />
+    <result column="OperatorID" jdbcType="INTEGER" property="operatorid" />
+    <result column="OperationUnitID" jdbcType="INTEGER" property="operationunitid" />
+    <result column="OperationTime" jdbcType="TIMESTAMP" property="operationtime" />
+    <result column="Remark" jdbcType="VARCHAR" property="remark" />
+    <result column="Status" jdbcType="INTEGER" property="status" />
+    <result column="Reason" jdbcType="VARCHAR" property="reason" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, DispatchSequence, TransferredUnit, OperatorID, OperationUnitID, OperationTime, 
+    Remark, Status, Reason
+  </sql>
+  <select id="selectByExample" parameterType="com.lm.entity.acc.DisDispatchHistoryExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from dis_dispatchhistory
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dis_dispatchhistory
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from dis_dispatchhistory
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lm.entity.acc.DisDispatchHistoryExample">
+    delete from dis_dispatchhistory
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lm.entity.acc.DisDispatchHistory">
+    insert into dis_dispatchhistory (ID, DispatchSequence, TransferredUnit, 
+      OperatorID, OperationUnitID, OperationTime, 
+      Remark, Status, Reason
+      )
+    values (#{id,jdbcType=INTEGER}, #{dispatchsequence,jdbcType=INTEGER}, #{transferredunit,jdbcType=INTEGER}, 
+      #{operatorid,jdbcType=INTEGER}, #{operationunitid,jdbcType=INTEGER}, #{operationtime,jdbcType=TIMESTAMP}, 
+      #{remark,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{reason,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lm.entity.acc.DisDispatchHistory">
+    insert into dis_dispatchhistory
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="dispatchsequence != null">
+        DispatchSequence,
+      </if>
+      <if test="transferredunit != null">
+        TransferredUnit,
+      </if>
+      <if test="operatorid != null">
+        OperatorID,
+      </if>
+      <if test="operationunitid != null">
+        OperationUnitID,
+      </if>
+      <if test="operationtime != null">
+        OperationTime,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+      <if test="status != null">
+        Status,
+      </if>
+      <if test="reason != null">
+        Reason,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="dispatchsequence != null">
+        #{dispatchsequence,jdbcType=INTEGER},
+      </if>
+      <if test="transferredunit != null">
+        #{transferredunit,jdbcType=INTEGER},
+      </if>
+      <if test="operatorid != null">
+        #{operatorid,jdbcType=INTEGER},
+      </if>
+      <if test="operationunitid != null">
+        #{operationunitid,jdbcType=INTEGER},
+      </if>
+      <if test="operationtime != null">
+        #{operationtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="reason != null">
+        #{reason,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lm.entity.acc.DisDispatchHistoryExample" resultType="java.lang.Long">
+    select count(*) from dis_dispatchhistory
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update dis_dispatchhistory
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.dispatchsequence != null">
+        DispatchSequence = #{record.dispatchsequence,jdbcType=INTEGER},
+      </if>
+      <if test="record.transferredunit != null">
+        TransferredUnit = #{record.transferredunit,jdbcType=INTEGER},
+      </if>
+      <if test="record.operatorid != null">
+        OperatorID = #{record.operatorid,jdbcType=INTEGER},
+      </if>
+      <if test="record.operationunitid != null">
+        OperationUnitID = #{record.operationunitid,jdbcType=INTEGER},
+      </if>
+      <if test="record.operationtime != null">
+        OperationTime = #{record.operationtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.remark != null">
+        Remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        Status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.reason != null">
+        Reason = #{record.reason,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update dis_dispatchhistory
+    set ID = #{record.id,jdbcType=INTEGER},
+      DispatchSequence = #{record.dispatchsequence,jdbcType=INTEGER},
+      TransferredUnit = #{record.transferredunit,jdbcType=INTEGER},
+      OperatorID = #{record.operatorid,jdbcType=INTEGER},
+      OperationUnitID = #{record.operationunitid,jdbcType=INTEGER},
+      OperationTime = #{record.operationtime,jdbcType=TIMESTAMP},
+      Remark = #{record.remark,jdbcType=VARCHAR},
+      Status = #{record.status,jdbcType=INTEGER},
+      Reason = #{record.reason,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lm.entity.acc.DisDispatchHistory">
+    update dis_dispatchhistory
+    <set>
+      <if test="dispatchsequence != null">
+        DispatchSequence = #{dispatchsequence,jdbcType=INTEGER},
+      </if>
+      <if test="transferredunit != null">
+        TransferredUnit = #{transferredunit,jdbcType=INTEGER},
+      </if>
+      <if test="operatorid != null">
+        OperatorID = #{operatorid,jdbcType=INTEGER},
+      </if>
+      <if test="operationunitid != null">
+        OperationUnitID = #{operationunitid,jdbcType=INTEGER},
+      </if>
+      <if test="operationtime != null">
+        OperationTime = #{operationtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        Status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="reason != null">
+        Reason = #{reason,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lm.entity.acc.DisDispatchHistory">
+    update dis_dispatchhistory
+    set DispatchSequence = #{dispatchsequence,jdbcType=INTEGER},
+      TransferredUnit = #{transferredunit,jdbcType=INTEGER},
+      OperatorID = #{operatorid,jdbcType=INTEGER},
+      OperationUnitID = #{operationunitid,jdbcType=INTEGER},
+      OperationTime = #{operationtime,jdbcType=TIMESTAMP},
+      Remark = #{remark,jdbcType=VARCHAR},
+      Status = #{status,jdbcType=INTEGER},
+      Reason = #{reason,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
