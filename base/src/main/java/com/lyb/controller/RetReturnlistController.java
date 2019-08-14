@@ -44,6 +44,8 @@ public class RetReturnlistController {
         Subject subject = SecurityUtils.getSubject();
         Session session = subject.getSession();
         SysUser loginUser = (SysUser) session.getAttribute("USER_SESSION");
+        // 申请单号
+        ret.setApplicationno(retReturnlistService.getApplicationNo());
         if(loginUser != null ){
             // 接收单位
             ret.setReceivegunit(loginUser.getDeptId());

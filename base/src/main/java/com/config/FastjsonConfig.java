@@ -1,4 +1,4 @@
-package com.lyb.config;
+package com.config;
 
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;

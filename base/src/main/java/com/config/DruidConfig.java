@@ -1,4 +1,4 @@
-package com.lyb.config;
+package com.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;

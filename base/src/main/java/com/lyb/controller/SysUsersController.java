@@ -5,6 +5,7 @@ import com.lyb.general.PageEntity;
 import com.lyb.general.ResponseResult;
 import com.lyb.service.SysUserService;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
@@ -36,9 +37,15 @@ public class SysUsersController {
         // 获得登录的主题
         Subject subject = SecurityUtils.getSubject();
         // 调用登录方法
-        subject.login(token);
+        try{
+            subject.login(token);
+            result.getData().put("token",subject.getSession().getId());
+        }catch (IncorrectCredentialsException e){
+            e.printStackTrace();
+            result.setCode(20001);
+            result.setMessage("登陆失败，请检查账号密码后重试！");
+        }
         // 返回给前台的toke，唯一标识用户
-        result.getData().put("token",subject.getSession().getId());
         return result;
     }
 

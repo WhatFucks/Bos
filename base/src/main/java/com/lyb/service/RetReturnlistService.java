@@ -12,4 +12,5 @@ public interface RetReturnlistService {
     public Boolean deleteRetReturnlist(Integer id);
     public Boolean confirm(Integer id);
     public Boolean refuse(Integer id);
+    public String getApplicationNo();
 }

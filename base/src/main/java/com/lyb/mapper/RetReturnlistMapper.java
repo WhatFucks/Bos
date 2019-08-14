@@ -2,10 +2,14 @@ package com.lyb.mapper;
 
 import com.lyb.entity.RetReturnlist;
 import com.lyb.entity.RetReturnlistExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface RetReturnlistMapper {
+    // 获取当前最大申请单号
+    String getMaxApplicationNo();
+
     long countByExample(RetReturnlistExample example);
 
     int deleteByExample(RetReturnlistExample example);

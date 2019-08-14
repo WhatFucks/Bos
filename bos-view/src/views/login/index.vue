@@ -71,6 +71,9 @@ export default {
       }
     }
     const validatePassword = (rule, value, callback) => {
+      if(value.length > 12){
+        callback(new Error('密码最多只能12位！'))
+      }
       if (value.length < 5) {
         callback(new Error('密码不能少于6位！'))
       } else {
@@ -83,7 +86,7 @@ export default {
         password: '123456'
       },
       loginRules: {
-        username: [{ required: true, trigger: 'blur', validator: validateUsername }],
+        username: [{ required: true, trigger: 'blur', message:'请输入用户名！' }],
         password: [{ required: true, trigger: 'blur', validator: validatePassword }]
       },
       passwordType: 'password',

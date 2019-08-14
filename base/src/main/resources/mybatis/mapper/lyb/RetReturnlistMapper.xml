@@ -464,4 +464,7 @@
       DenialType = #{denialtype,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=INTEGER}
   </update>
+  <select id="getMaxApplicationNo" resultType="java.lang.String">
+    select ApplicationNo from ret_returnlist where id = (select MAX(id) from ret_returnlist)
+  </select>
 </mapper>
