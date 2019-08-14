@@ -106,6 +106,18 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.58</version>
         </dependency>
+         <!--阿里云-->
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-core</artifactId>
+            <version>3.2.8</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
+            <version>1.1.0</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -115,7 +127,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>1.5.21.RELEASE</version>
                 <configuration><!-- 指定该Main Class为全局的唯一入口 -->
-                    <mainClass>com.lyb.BaseApplication</mainClass>
+                    <mainClass>com.BaseApplication</mainClass>
                     <layout>ZIP</layout>
                 </configuration>
                 <executions>

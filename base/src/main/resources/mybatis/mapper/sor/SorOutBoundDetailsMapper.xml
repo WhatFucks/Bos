@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sor.mapper.SorOutBoundDetailsMapper">
+  <resultMap id="BaseResultMap" type="com.sor.entity.SorOutBoundDetails">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="PackageID" jdbcType="VARCHAR" property="packageid" />
+    <result column="Weight" jdbcType="DECIMAL" property="weight" />
+    <result column="Volume" jdbcType="DECIMAL" property="volume" />
+    <result column="ScanDate" jdbcType="TIMESTAMP" property="scandate" />
+    <result column="IsScan" jdbcType="BIT" property="isscan" />
+    <result column="IsNextStorage" jdbcType="BIT" property="isnextstorage" />
+    <result column="IsDoubleStorage" jdbcType="BIT" property="isdoublestorage" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, PackageID, Weight, Volume, ScanDate, IsScan, IsNextStorage, IsDoubleStorage
+  </sql>
+  <select id="selectByExample" parameterType="com.sor.entity.SorOutBoundDetailsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sor_outbounddetails
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sor_outbounddetails
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from sor_outbounddetails
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.sor.entity.SorOutBoundDetailsExample">
+    delete from sor_outbounddetails
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sor.entity.SorOutBoundDetails">
+    insert into sor_outbounddetails (id, PackageID, Weight, 
+      Volume, ScanDate, IsScan, 
+      IsNextStorage, IsDoubleStorage,sorOutBoundId)
+    values (#{id,jdbcType=VARCHAR}, #{packageid,jdbcType=VARCHAR}, #{weight,jdbcType=DECIMAL}, 
+      #{volume,jdbcType=DECIMAL}, #{scandate,jdbcType=TIMESTAMP}, #{isscan,jdbcType=BIT}, 
+      #{isnextstorage,jdbcType=BIT}, #{isdoublestorage,jdbcType=BIT},#{sorOutBoundId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sor.entity.SorOutBoundDetails">
+    insert into sor_outbounddetails
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="packageid != null">
+        PackageID,
+      </if>
+      <if test="weight != null">
+        Weight,
+      </if>
+      <if test="volume != null">
+        Volume,
+      </if>
+      <if test="scandate != null">
+        ScanDate,
+      </if>
+      <if test="isscan != null">
+        IsScan,
+      </if>
+      <if test="isnextstorage != null">
+        IsNextStorage,
+      </if>
+      <if test="isdoublestorage != null">
+        IsDoubleStorage,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="packageid != null">
+        #{packageid,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="volume != null">
+        #{volume,jdbcType=DECIMAL},
+      </if>
+      <if test="scandate != null">
+        #{scandate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isscan != null">
+        #{isscan,jdbcType=BIT},
+      </if>
+      <if test="isnextstorage != null">
+        #{isnextstorage,jdbcType=BIT},
+      </if>
+      <if test="isdoublestorage != null">
+        #{isdoublestorage,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sor.entity.SorOutBoundDetailsExample" resultType="java.lang.Long">
+    select count(*) from sor_outbounddetails
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update sor_outbounddetails
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.packageid != null">
+        PackageID = #{record.packageid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.weight != null">
+        Weight = #{record.weight,jdbcType=DECIMAL},
+      </if>
+      <if test="record.volume != null">
+        Volume = #{record.volume,jdbcType=DECIMAL},
+      </if>
+      <if test="record.scandate != null">
+        ScanDate = #{record.scandate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isscan != null">
+        IsScan = #{record.isscan,jdbcType=BIT},
+      </if>
+      <if test="record.isnextstorage != null">
+        IsNextStorage = #{record.isnextstorage,jdbcType=BIT},
+      </if>
+      <if test="record.isdoublestorage != null">
+        IsDoubleStorage = #{record.isdoublestorage,jdbcType=BIT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update sor_outbounddetails
+    set id = #{record.id,jdbcType=VARCHAR},
+      PackageID = #{record.packageid,jdbcType=VARCHAR},
+      Weight = #{record.weight,jdbcType=DECIMAL},
+      Volume = #{record.volume,jdbcType=DECIMAL},
+      ScanDate = #{record.scandate,jdbcType=TIMESTAMP},
+      IsScan = #{record.isscan,jdbcType=BIT},
+      IsNextStorage = #{record.isnextstorage,jdbcType=BIT},
+      IsDoubleStorage = #{record.isdoublestorage,jdbcType=BIT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sor.entity.SorOutBoundDetails">
+    update sor_outbounddetails
+    <set>
+      <if test="packageid != null">
+        PackageID = #{packageid,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        Weight = #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="volume != null">
+        Volume = #{volume,jdbcType=DECIMAL},
+      </if>
+      <if test="scandate != null">
+        ScanDate = #{scandate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isscan != null">
+        IsScan = #{isscan,jdbcType=BIT},
+      </if>
+      <if test="isnextstorage != null">
+        IsNextStorage = #{isnextstorage,jdbcType=BIT},
+      </if>
+      <if test="isdoublestorage != null">
+        IsDoubleStorage = #{isdoublestorage,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sor.entity.SorOutBoundDetails">
+    update sor_outbounddetails
+    set PackageID = #{packageid,jdbcType=VARCHAR},
+      Weight = #{weight,jdbcType=DECIMAL},
+      Volume = #{volume,jdbcType=DECIMAL},
+      ScanDate = #{scandate,jdbcType=TIMESTAMP},
+      IsScan = #{isscan,jdbcType=BIT},
+      IsNextStorage = #{isnextstorage,jdbcType=BIT},
+      IsDoubleStorage = #{isdoublestorage,jdbcType=BIT}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

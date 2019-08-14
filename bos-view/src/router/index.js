@@ -180,6 +180,177 @@ export const asyncRoutes = [
       }
     ]
   },
+  // 胡侘
+  {
+    path: '/sor',
+    component: Layout,
+    redirect: '/sor/page',
+    alwaysShow: true, // will always show the root menu
+    name: 'sor',
+    meta: {
+      title: '分拣管理',
+      icon: 'lock',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'storage',
+        component: () => import('@/views/sor/storage'),
+        name: '入库',
+        meta: {
+          title: '入库',
+          roles: ['admin'] // or you can only set roles in sub nav
+        }
+      },
+      {
+        path: 'outBound',
+        component: () => import('@/views/sor/outBound'),
+        name: '出库',
+        meta: {
+          title: '出库',
+          // if do not set roles, means: this page does not require permission
+          roles: ['dev', 'admin']
+        }
+      },
+      {
+        path: 'checkBound',
+        component: () => import('@/views/sor/checkBound'),
+        name: '盘库',
+        meta: {
+          title: '盘库',
+          roles: ['dev', 'admin']
+        }
+      },
+      {
+        path: 'package',
+        component: () => import('@/views/sor/package'),
+        name: '合包',
+        meta: {
+          title: '合包',
+          roles: ['admin']
+        }
+      },
+      {
+        path: 'unpack',
+        component: () => import('@/views/sor/unpack'),
+        name: '拆包',
+        meta: {
+          title: '拆包',
+          roles: ['admin']
+        }
+      },
+      {
+        path: 'storageQuery',
+        component: () => import('@/views/sor/storageQuery'),
+        name: '出入库查询',
+        meta: {
+          title: '出入库查询',
+          roles: ['admin']
+        }
+      }, {
+        path: 'InventoryQuery',
+        component: () => import('@/views/sor/InventoryQuery'),
+        name: '库存查询',
+        meta: {
+          title: '库存查询',
+          roles: ['dev']
+        }
+      }, {
+        path: 'packageQuery',
+        component: () => import('@/views/sor/packageQuery'),
+        name: '合包查询',
+        meta: {
+          title: '合包查询',
+          roles: ['admin']
+        }
+      }, {
+        path: 'abnormal',
+        component: () => import('@/views/sor/abnormal'),
+        name: '单货异常查询',
+        meta: {
+          title: '单货异常查询',
+          roles: ['admin']
+        }
+      }
+    ]
+  },
+  // Li.明
+  {
+    path: '/record',
+    component: Layout,
+    redirect: '/record/page',
+    alwaysShow: true, // will always show the root menu
+    name: '受理',
+    meta: {
+      title: '受理',
+      icon: 'example',
+      roles: ['editor','admin'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'recordset',
+        component: () => import('@/views/body/lm/acc/reception'),
+        name: '业务受理',
+        meta: { title: '业务受理',roles: ['dev','admin'] },
+      },
+      {
+        path: 'pick',
+        component: () => import('@/views/body/lm/acc/workSheet'),
+        name: '工作单快速录入',
+        meta: { title: '工作单快速录入',roles: ['dev','admin'] },
+      },
+      {
+        path: 'bus',
+        component: () => import('@/views/body/lm/acc/workOrder'),
+        name: ' 工作单查询',
+        meta: { title: ' 工作单查询',roles: ['dev','admin'] },
+      }
+    ]
+  },
+  {
+    path: '/dispatch',
+    component: Layout,
+    redirect: '/dispatch/page',
+    alwaysShow: true, // will always show the root menu
+    name: '调度',
+    meta: {
+      title: '调度',
+      icon: 'example',
+      roles: ['editor','admin'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'recordset',
+        component: () => import('@/views/body/lm/dis/transfer'),
+        name: '查台转单',
+        meta: { title: '查台转单',roles: ['dev','admin'] },
+      },
+      {
+        path: 'pick',
+        component: () => import('@/views/body/lm/dis/artificial'),
+        name: '人工调度',
+        meta: { title: '人工调度',roles: ['dev','admin'] },
+      },
+      {
+        path: 'sig',
+        component: () => import('@/views/body/lm/dis/Signforentry'),
+        name: ' 签收录入',
+        meta: { title: ' 签收录入',roles: ['dev','admin'] },
+      },
+      {
+        path: 'nosig',
+        component: () => import('@/views/body/lm/dis/NoSignforentry'),
+        name: ' 取消签收申请录入',
+        meta: { title: ' 取消签收申请录入',roles: ['dev','admin'] },
+      },
+      {
+        path: 'bus',
+        component: () => import('@/views/body/lm/acc/workOrder'),
+        name: ' 宣传任务',
+        meta: { title: ' 宣传任务',roles: ['dev','admin'] },
+      }
+    ]
+  },
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]
