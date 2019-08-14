@@ -87,7 +87,7 @@
 <script>
   //insertPackage
   import { insertPackage } from '@/api/sor/package'
-  import { getByWorkId } from '@/api/sor/storageDetails'
+  import { getByWorkIdPackage } from '@/api/sor/storageDetails'
   import { list,insertsorStorage,userlist } from '@/api/sor/storage'
   import Pagination from '@/components/Pagination' // 分页组件
   export default {
@@ -169,7 +169,7 @@
       // 根据单号查询 信息
       getByWork(item){
 
-        getByWorkId(item.id).then(response => {
+        getByWorkIdPackage(item.id).then(response => {
 
           var index = this.dynamicValidateForm.domains.indexOf(item)
           if (index !== -1) {
@@ -177,6 +177,7 @@
             console.debug(response.data.worck)
             domain.weight=response.data.worck.weight
             domain.cargoint=response.data.worck.total
+            domain.warename=response.data.worck.productTime
             domain.importanthints=response.data.worck.stowageRequirements
             domain.id=item.id
             this.dynamicValidateForm.domains.splice(index, 1,domain)

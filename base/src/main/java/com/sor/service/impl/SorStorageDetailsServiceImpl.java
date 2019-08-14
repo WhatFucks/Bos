@@ -13,6 +13,7 @@ import com.sor.mapper.SorStorageDetailsMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -26,10 +27,52 @@ public class SorStorageDetailsServiceImpl implements SorStorageDetailsService {
     @Autowired
     private SorOutBoundDetailsMapper sorOutBoundDetailsMapper;
 
-
+    /**
+     * 根据id查询单号
+     * @param id
+     * @return
+     */
     @Override
     public SorWorksheet getByworksheetId(String id) {
-        return sorStorageDetailsMapper.getByWorksheetId(id);
+      SorStorageDetails sorStorageDetails=  sorStorageDetailsMapper.getDetailById(id);
+        SorWorksheet sorWorksheet=new SorWorksheet();
+        // 先查询入库详情表，如果有该单号
+     if(sorStorageDetails != null){
+         sorWorksheet.setWorkSheetNo(sorStorageDetails.getId());
+         sorWorksheet.setWeight(BigDecimal.valueOf(sorStorageDetails.getWeight()));
+         sorWorksheet.setJobNo(sorStorageDetails.getPackageid());
+         sorWorksheet.setStowageRequirements(sorStorageDetails.getOutboundid());
+     }else{
+         // 否则就查询上游包装过来的
+         sorWorksheet=sorStorageDetailsMapper.getByWorksheetId(id);
+         sorWorksheet.setJobNo("");
+         sorWorksheet.setStowageRequirements("");
+     }
+      return sorWorksheet;
+    }
+
+    /**
+     * 根据id查询单号
+     * @param id
+     * @return
+     */
+    @Override
+    public SorWorksheet getByworksheetIdHB(String id) {
+        SorWorksheet sorWorksheet=new SorWorksheet();
+         sorWorksheet=sorStorageDetailsMapper.getByWorksheetId(id);
+        // 先查询入库详情表，如果有该单号
+        if(sorWorksheet != null){
+            // 否则就查询上游包装过来的
+            sorWorksheet.setJobNo("");
+
+        }else{
+            SorStorageDetails sorStorageDetails=  sorStorageDetailsMapper.getDetailById(id);
+            sorWorksheet.setWorkSheetNo(sorStorageDetails.getId());
+            sorWorksheet.setWeight(BigDecimal.valueOf(sorStorageDetails.getWeight()));
+            sorWorksheet.setJobNo(sorStorageDetails.getPackageid());
+            sorWorksheet.setStowageRequirements(sorStorageDetails.getOutboundid());
+        }
+        return sorWorksheet;
     }
 
     @Override
@@ -87,8 +130,12 @@ public class SorStorageDetailsServiceImpl implements SorStorageDetailsService {
 
                 if(sd.getState()==null){
                     sd.setState(4);
-
+// 业务处理：如果单号初始入库（先查询数据库里是否有该单号的信息，没有就默认为初始入库）
                    SorStorageDetails details= sorStorageDetailsMapper.getDetailById(sd.getId());
+                   if(details==null){
+                       sd.setState(2);
+                   }
+                   // 业务处理：如果该单号在我们数据库里，那么就添加一次入库的次数
                    if(details!=null){
                        if(details.getState()==0){
                            details.setState(1);

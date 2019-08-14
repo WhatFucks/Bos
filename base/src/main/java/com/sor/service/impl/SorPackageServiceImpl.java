@@ -5,7 +5,9 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lyb.entity.SysUser;
 import com.sor.entity.SorPackageDetails;
+import com.sor.entity.SorStorageDetails;
 import com.sor.mapper.SorPackageMapper;
+import com.sor.mapper.SorStorageDetailsMapper;
 import com.sor.mapper.SorStorageMapper;
 import com.sor.entity.SorPackage;
 import com.sor.entity.SorPackageExample;
@@ -25,6 +27,9 @@ public class SorPackageServiceImpl implements SorPackageService {
 
     @Autowired
     private SorPackageDetailsMapper sorPackageDetails;
+
+    @Autowired
+    private SorStorageDetailsMapper sorStorageDetailsMapper;
 
     @Autowired
     private SorStorageMapper sorStorageMapper;
@@ -66,6 +71,11 @@ public class SorPackageServiceImpl implements SorPackageService {
                         Ticket+=sd.getTicket();
                     }
                     sorPackageDetails.insert(sd);
+                    // 新增合包时，给单号赋合包号
+                   SorStorageDetails sorStorageDetails= sorStorageDetailsMapper.getDetailById(sd.getId());
+                    sorStorageDetails.setPackageid(sorPackage.getId());
+                    sorStorageDetailsMapper.updateByIdUpdatepackage(sorStorageDetails);
+
                 }
             }
             // 赋值总数

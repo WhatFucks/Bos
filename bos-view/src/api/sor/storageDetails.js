@@ -16,6 +16,14 @@ export function getByWorkId(id) {
   })
 }
 
+export function getByWorkIdPackage(id) {
+  return request({
+    url: '/sorStorageDetails/getByWorkIdPackage',
+    method: 'get',
+    params: { id }
+  })
+}
+
 export function getInfo(token) {
   return request({
     url: '/user/info',

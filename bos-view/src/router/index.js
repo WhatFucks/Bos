@@ -95,7 +95,7 @@ export const asyncRoutes = [
     name: 'Permission',
     meta: {
       title: '系统管理',
-      icon: 'example',
+      icon: 'user',
       roles: ['admin', 'dev'] // you can set roles in root nav
     },
     children: [
@@ -213,7 +213,7 @@ export const asyncRoutes = [
     name: '返货管理',
     meta: {
       title: '返货管理',
-      icon: 'example',
+      icon: 'link',
       roles: ['admin', 'dev'] // you can set roles in root nav
     },
     children: [
@@ -340,7 +340,7 @@ export const asyncRoutes = [
     name: '受理',
     meta: {
       title: '受理',
-      icon: 'example',
+      icon: 'peoples',
       roles: ['editor', 'admin'] // you can set roles in root nav
     },
     children: [
@@ -372,7 +372,7 @@ export const asyncRoutes = [
     name: '调度',
     meta: {
       title: '调度',
-      icon: 'example',
+      icon: 'skill',
       roles: ['editor', 'admin'] // you can set roles in root nav
     },
     children: [
@@ -399,12 +399,6 @@ export const asyncRoutes = [
         component: () => import('@/views/body/lm/dis/NoSignforentry'),
         name: ' 取消签收申请录入',
         meta: { title: ' 取消签收申请录入', roles: ['dev', 'admin'] }
-      },
-      {
-        path: 'bus',
-        component: () => import('@/views/body/lm/acc/workOrder'),
-        name: ' 宣传任务',
-        meta: { title: ' 宣传任务', roles: ['dev', 'admin'] }
       }
     ]
   },

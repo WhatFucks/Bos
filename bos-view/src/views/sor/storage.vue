@@ -386,7 +386,7 @@
                 type: 'success'
               });
               this.dialogFormVisible = false
-
+              this.getlist()
               this.dynamicValidateForm.domains =[]
             })
           })
@@ -398,10 +398,11 @@
               type: 'success'
             });
             this.dialogFormVisible = false
+            this.getlist()
             this.dynamicValidateForm.domains =[]
           })
         }
-        this.getlist()
+
 
       },
       openInser(){
@@ -467,6 +468,8 @@
           if (index !== -1) {
             const domain={}
             domain.weight=response.data.worck.weight
+            domain.packageid=response.data.worck.jobNo
+            domain.outboundid=response.data.worck.stowageRequirements
             domain.id=item.id
             this.dynamicValidateForm.domains.splice(index, 1,domain)
           }
