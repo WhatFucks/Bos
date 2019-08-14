@@ -2,7 +2,7 @@ package com.lyb.controller;
 
 import com.lyb.entity.PacStockitem;
 import com.lyb.general.PageEntity;
-import com.lyb.general.ResponseResult;
+import com.util.ResponseResult;
 import com.lyb.service.PacStockitemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

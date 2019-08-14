@@ -27,6 +27,11 @@ public class RetReturnlistImpl implements RetReturnlistService {
     }
 
     @Override
+    public RetReturnlist findByID(Integer id) {
+        return retReturnlistMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
     public Map<String, Object> getRetReturnlist(PageEntity page, RetReturnlist ret) {
         Map<String,Object> map = new HashMap<>();
         PageHelper.startPage(page.getPageNum(),page.getPageSize(),true);
@@ -99,13 +104,12 @@ public class RetReturnlistImpl implements RetReturnlistService {
 
     /**
      * 确认返货
-     * @param id
+     * @param ret
      * @return
      */
     @Override
-    public Boolean confirm(Integer id) {
+    public Boolean confirm(RetReturnlist ret) {
         boolean success = false;
-        RetReturnlist ret = retReturnlistMapper.selectByPrimaryKey(id);
         if(ret != null){
             ret.setTreatmentstate(2);
             int count = retReturnlistMapper.updateByPrimaryKeySelective(ret);

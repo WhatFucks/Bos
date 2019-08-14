@@ -3,7 +3,7 @@ package com.lyb.controller;
 import com.lyb.entity.RetReturnlist;
 import com.lyb.entity.SysUser;
 import com.lyb.general.PageEntity;
-import com.lyb.general.ResponseResult;
+import com.util.ResponseResult;
 import com.lyb.service.RetReturnlistService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
@@ -63,12 +63,6 @@ public class RetReturnlistController {
             ret.setEntryunit(loginUser.getDeptId());
             // 录入人
             ret.setPersonname(loginUser.getUsername());
-            // 确认时间
-            ret.setConfirmationtime(new Date());
-            // 确认单位
-            ret.setConfirmationunit(loginUser.getId());
-            // 确认人
-            ret.setConfirmationpersonname(loginUser.getUsername());
             // 自动确认标志 默认否
             ret.setIdentificationsign(1);
         }
@@ -120,7 +114,19 @@ public class RetReturnlistController {
     @RequestMapping("confirm")
     public ResponseResult confirm(Integer id){
         ResponseResult result = new ResponseResult();
-        result.getData().put("success",retReturnlistService.confirm(id));
+        Subject subject = SecurityUtils.getSubject();
+        Session session = subject.getSession();
+        SysUser loginUser = (SysUser) session.getAttribute("USER_SESSION");
+        RetReturnlist ret = retReturnlistService.findByID(id);
+        if(loginUser != null){
+            // 确认时间
+            ret.setConfirmationtime(new Date());
+            // 确认单位
+            ret.setConfirmationunit(loginUser.getId());
+            // 确认人
+            ret.setConfirmationpersonname(loginUser.getUsername());
+        }
+        result.getData().put("success",retReturnlistService.confirm(ret));
         return result;
     }
 }
