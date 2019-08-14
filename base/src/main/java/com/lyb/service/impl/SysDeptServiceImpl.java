@@ -25,6 +25,11 @@ public class SysDeptServiceImpl implements SysDeptService {
     }
 
     @Override
+    public SysDept findById(Integer id) {
+        return sysDeptMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
     public Boolean isExistSubset(Integer id) {
         boolean flag = false;
         SysDeptExample example = new SysDeptExample();

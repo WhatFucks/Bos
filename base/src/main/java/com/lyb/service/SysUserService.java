@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Map;
 
 public interface SysUserService {
+
+    public SysUser findById(Integer id);
+
     public SysUser findUserByUserName(String username);
 
     public Boolean startUser(Integer id);

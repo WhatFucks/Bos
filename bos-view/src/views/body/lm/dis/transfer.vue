@@ -26,7 +26,7 @@
     <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
     <el-dialog :title="title" :visible.sync="dialogFormVisible">
       <el-form ref="dataForm" :rules="rules" :model="temp" label-position="left" label-width="100px" style="width: 80%; margin-left:80px;">
-        <el-form-item label="转入方式" prop="name">
+        <!--<el-form-item label="转入方式" prop="name">
           <el-radio-group v-model="radio">
             <el-radio  label="zonecode" v-if="showcode">定区编码</el-radio>
             <el-radio  label="smallPart" v-if="showsmallPart">小件员工号</el-radio>
@@ -39,7 +39,19 @@
           <el-select v-model="temp.empno" placeholder="请选择小件员工号">
             <el-option v-for="item in smallPartList" :key="item.id" :label="item.empno" :value="item.id"></el-option>
           </el-select>
-        </template>
+        </template>-->
+        <el-tabs type="border-card" style="width: 66%;height: 100px">
+          <el-tab-pane label="定区编码">
+            <el-select v-model="temp.zonecode" placeholder="请选择定区编码" >
+              <el-option v-for="item in zoneList" :key="item.id" :label="item.zonecode" :value="item.id"></el-option>
+            </el-select>
+          </el-tab-pane>
+          <el-tab-pane label="小件员工号">
+            <el-select v-model="temp.empno" placeholder="请选择小件员工号">
+              <el-option v-for="item in smallPartList" :key="item.id" :label="item.empno" :value="item.id"></el-option>
+            </el-select>
+          </el-tab-pane>
+        </el-tabs>
         <!--<el-form-item label="转入目标" prop="remark" :visible.sync="DingXiangBianMa"><el-input v-model="temp.remark"/></el-form-item>
         <el-form-item label="转入" ><el-input v-model="temp.remark"/></el-form-item>-->
       </el-form>

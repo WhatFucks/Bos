@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hsq.mapper.BasBasicArchivesEntryMapper">
+  <resultMap id="BaseResultMap" type="com.hsq.entity.BasBasicArchivesEntry">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="ParentID" jdbcType="INTEGER" property="parentid" />
+    <result column="MnemonicCode" jdbcType="VARCHAR" property="mnemoniccode" />
+    <result column="Available" jdbcType="BIT" property="available" />
+    <result column="Remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="OperatorID" jdbcType="INTEGER" property="operatorid" />
+    <result column="OperationUnitID" jdbcType="INTEGER" property="operationunitid" />
+    <result column="OperationTime" jdbcType="TIMESTAMP" property="operationtime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, Name, ParentID, MnemonicCode, Available, Remarks, OperatorID, OperationUnitID,
+    OperationTime
+  </sql>
+  <select id="selectByExample" parameterType="com.hsq.entity.BasBasicArchivesEntryExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from bas_basicarchivesentry
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from bas_basicarchivesentry
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from bas_basicarchivesentry
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.hsq.entity.BasBasicArchivesEntryExample">
+    delete from bas_basicarchivesentry
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hsq.entity.BasBasicArchivesEntry">
+    insert into bas_basicarchivesentry (ID, Name, ParentID,
+      MnemonicCode, Available, Remarks,
+      OperatorID, OperationUnitID, OperationTime
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{parentid,jdbcType=INTEGER},
+      #{mnemoniccode,jdbcType=VARCHAR}, #{available,jdbcType=BIT}, #{remarks,jdbcType=VARCHAR},
+      #{operatorid,jdbcType=INTEGER}, #{operationunitid,jdbcType=INTEGER}, #{operationtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hsq.entity.BasBasicArchivesEntry">
+    insert into bas_basicarchivesentry
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="parentid != null">
+        ParentID,
+      </if>
+      <if test="mnemoniccode != null">
+        MnemonicCode,
+      </if>
+      <if test="available != null">
+        Available,
+      </if>
+      <if test="remarks != null">
+        Remarks,
+      </if>
+      <if test="operatorid != null">
+        OperatorID,
+      </if>
+      <if test="operationunitid != null">
+        OperationUnitID,
+      </if>
+      <if test="operationtime != null">
+        OperationTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null">
+        #{parentid,jdbcType=INTEGER},
+      </if>
+      <if test="mnemoniccode != null">
+        #{mnemoniccode,jdbcType=VARCHAR},
+      </if>
+      <if test="available != null">
+        #{available,jdbcType=BIT},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorid != null">
+        #{operatorid,jdbcType=INTEGER},
+      </if>
+      <if test="operationunitid != null">
+        #{operationunitid,jdbcType=INTEGER},
+      </if>
+      <if test="operationtime != null">
+        #{operationtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.hsq.entity.BasBasicArchivesEntryExample" resultType="java.lang.Long">
+    select count(*) from bas_basicarchivesentry
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update bas_basicarchivesentry
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null">
+        Name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentid != null">
+        ParentID = #{record.parentid,jdbcType=INTEGER},
+      </if>
+      <if test="record.mnemoniccode != null">
+        MnemonicCode = #{record.mnemoniccode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.available != null">
+        Available = #{record.available,jdbcType=BIT},
+      </if>
+      <if test="record.remarks != null">
+        Remarks = #{record.remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operatorid != null">
+        OperatorID = #{record.operatorid,jdbcType=INTEGER},
+      </if>
+      <if test="record.operationunitid != null">
+        OperationUnitID = #{record.operationunitid,jdbcType=INTEGER},
+      </if>
+      <if test="record.operationtime != null">
+        OperationTime = #{record.operationtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update bas_basicarchivesentry
+    set ID = #{record.id,jdbcType=INTEGER},
+      Name = #{record.name,jdbcType=VARCHAR},
+      ParentID = #{record.parentid,jdbcType=INTEGER},
+      MnemonicCode = #{record.mnemoniccode,jdbcType=VARCHAR},
+      Available = #{record.available,jdbcType=BIT},
+      Remarks = #{record.remarks,jdbcType=VARCHAR},
+      OperatorID = #{record.operatorid,jdbcType=INTEGER},
+      OperationUnitID = #{record.operationunitid,jdbcType=INTEGER},
+      OperationTime = #{record.operationtime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hsq.entity.BasBasicArchivesEntry">
+    update bas_basicarchivesentry
+    <set>
+      <if test="name != null">
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null">
+        ParentID = #{parentid,jdbcType=INTEGER},
+      </if>
+      <if test="mnemoniccode != null">
+        MnemonicCode = #{mnemoniccode,jdbcType=VARCHAR},
+      </if>
+      <if test="available != null">
+        Available = #{available,jdbcType=BIT},
+      </if>
+      <if test="remarks != null">
+        Remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorid != null">
+        OperatorID = #{operatorid,jdbcType=INTEGER},
+      </if>
+      <if test="operationunitid != null">
+        OperationUnitID = #{operationunitid,jdbcType=INTEGER},
+      </if>
+      <if test="operationtime != null">
+        OperationTime = #{operationtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hsq.entity.BasBasicArchivesEntry">
+    update bas_basicarchivesentry
+    set Name = #{name,jdbcType=VARCHAR},
+      ParentID = #{parentid,jdbcType=INTEGER},
+      MnemonicCode = #{mnemoniccode,jdbcType=VARCHAR},
+      Available = #{available,jdbcType=BIT},
+      Remarks = #{remarks,jdbcType=VARCHAR},
+      OperatorID = #{operatorid,jdbcType=INTEGER},
+      OperationUnitID = #{operationunitid,jdbcType=INTEGER},
+      OperationTime = #{operationtime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

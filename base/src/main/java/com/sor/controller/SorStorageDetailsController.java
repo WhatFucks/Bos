@@ -12,6 +12,19 @@ public class SorStorageDetailsController {
     @Autowired
     private SorStorageDetailsService sorStorageDetailsService;
 
+
+    /**
+     * 根据单号id查询信息(合包)
+     * @param id
+     * @return
+     */
+    @RequestMapping("getByWorkIdPackage")
+    public ResponseResult getByWorkIdPackage(String id){
+        ResponseResult result = new ResponseResult();
+        result.getData().put("worck",sorStorageDetailsService.getByworksheetIdHB(id));
+        return  result;
+    }
+
     /**
      * 根据单号id查询信息
      * @param id

@@ -27,6 +27,11 @@ public class SysUserServiceImpl implements SysUserService{
     }
 
     @Override
+    public SysUser findById(Integer id) {
+        return sysUserMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
     public SysUser findUserByUserName(String username) {
         List<SysUser> list = sysUserMapper.findUserByNameAndRoleAndMenu(username);
         if(list !=null && list.size() == 1){
