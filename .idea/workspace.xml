@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1ad5e771-b225-4f0d-b4f0-bb942b311973" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bos-view/src/api/logistics/logisticscontrol.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bos-view/src/api/reportforms/reportforms.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bos-view/src/components/TwoEcharts.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bos-view/src/views/body/sj/logistics/logisticscontrol.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bos-view/src/views/body/sj/reportforms/reportforms.vue" afterDir="false" />
+    </list>
+    <list id="8857ba9f-4823-4f37-80e3-6ddf3a703045" name="Revert &quot;罗晶 8/14 15:36 第四次上传&quot;" comment="Revert &quot;罗晶 8/14 15:36 第四次上传&quot;&#10;&#10;This reverts commit fc9dea9c" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/base/target/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>sj</find>
+      <find>biglogLogisticscontroltable</find>
+      <find>com.lj.entity.sys.SysDept</find>
+      <find>.SysDept</find>
+      <find>SysDept</find>
+      <find>lj</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>lj</replace>
+      <replace>lyb</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="luojing &lt;3118048570@qq.com&gt;" />
+        <option value="luojing11 &lt;295919771@qq.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/base/src/main/resources/mybatis/mapper.lj/BiglogLogisticscontroltableMapper.xml" />
+        <option value="$PROJECT_DIR$/base/src/main/resources/mybatis/mapper.lj/ReportformsMapper.xml" />
+        <option value="$PROJECT_DIR$/base/src/main/resources/mybatis/mapper.lj/SysDeptMapper.xml" />
+        <option value="$PROJECT_DIR$/base/src/main/resources/mybatis/mapper.lj/SysMenuMapper.xml" />
+        <option value="$PROJECT_DIR$/base/src/main/resources/mybatis/mapper.lj/SysRoleMapper.xml" />
+        <option value="$PROJECT_DIR$/base/src/main/resources/mybatis/mapper.lj/SysUserMapper.xml" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/mapper/logistics/BiglogLogisticscontroltableMapper.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/entity/logistics/BiglogLogisticscontroltable.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/util/MD5Util.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/sj/controller/reportforms/ReportformsController.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/sj/util/TreeNodeUtil.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/sj/entity/logistics/BiglogLogisticscontroltable.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/sj/controller/sys/SysDeptController.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/sj/mapper/logistics/BiglogLogisticscontroltableMapper.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/sj/controller/logistics/BiglogLogisticscontroltableController.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lyb/entity/SysDept.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lyb/mapper/SysUserMapper.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lyb/mapper/SysRoleMapper.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lyb/service/SysUserService.java" />
+        <option value="$PROJECT_DIR$/base/src/main/resources/mybatis/mapper/lj/AccworkorderMapper.xml" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/entity/sys/SysDept.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/service/impl/sys/SysDeptServiceImpl.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/util/SysDeptGroupUtil.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/service/sys/SysDeptService.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/mapper/sys/SysDeptMapper.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/controller/sys/SysDeptController.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/mapper/sys/SysMenuMapper.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/mapper/sys/SysRoleMapper.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/mapper/sys/SysUserMapper.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/service/impl/sys/SysUserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/service/sys/SysRoleService.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/service/sys/SysUserService.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/entity/sys/SysRole.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/controller/sys/SysRoleController.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/controller/sys/SysMenuController.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/controller/sys/SysUserController.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/entity/sys/SysUser.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/service/sys/SysMenuService.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/util/TreeNodeUtil.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/service/impl/sys/SysRoleServiceImpl.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/service/impl/sys/SysMenuServiceImpl.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/controller/sys/SysDeptyController.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/controller/reportforms/ReportformsController.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/controller/logistics/BiglogLogisticscontroltableController.java" />
+        <option value="$PROJECT_DIR$/base/src/main/resources/mybatis/mapper/lj/BiglogLogisticscontroltableMapper.xml" />
+        <option value="$PROJECT_DIR$/base/src/main/resources/mybatis/mapper/lj/SysDeptMapper.xml" />
+        <option value="$PROJECT_DIR$/base/src/main/resources/mybatis/mapper/lyb/SysUserMapper.xml" />
+        <option value="$PROJECT_DIR$/base/src/main/resources/mybatis/mapper/lj/SysUserMapper.xml" />
+        <option value="$PROJECT_DIR$/base/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/bos-view/src/api/logistics/logisticscontrol.js" />
+        <option value="$PROJECT_DIR$/bos-view/src/router/index.js" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="268" />
+    <option name="y" value="15" />
+    <option name="width" value="1036" />
+    <option name="height" value="688" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Bos-dev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Bos-dev" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Bos-dev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Bos-dev" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Bos-dev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Bos-dev" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Bos-dev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Bos-dev" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Bos-dev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Bos-dev" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Bos-dev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Bos-dev" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="editor.config.ad.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/bos-view/src/components" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Bos-dev\bos-view\src\components" />
+      <recent name="D:\Bos-dev\bos-view\src\views\body\sj\reportforms" />
+      <recent name="D:\Bos-dev\bos-view\src\api" />
+      <recent name="D:\Bos-dev\base\src\main\java\com\lj\util" />
+      <recent name="D:\Bos-dev\base\src\main\java\com\lj\service\impl" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lj.controller.sys" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Bos-dev\base\src\main\resources\mybatis\mapper\lj" />
+      <recent name="D:\Bos-dev\bos-view\src\views\body\lj" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="BaseApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="base" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.BaseApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1ad5e771-b225-4f0d-b4f0-bb942b311973" name="Default Changelist" comment="" />
+      <created>1565618878558</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1565618878558</updated>
+      <workItem from="1565618880383" duration="505000" />
+      <workItem from="1565619489448" duration="90000" />
+      <workItem from="1565658476795" duration="246000" />
+      <workItem from="1565658901607" duration="739000" />
+      <workItem from="1565661979690" duration="315000" />
+      <workItem from="1565747527404" duration="10770000" />
+      <workItem from="1565765686117" duration="12037000" />
+      <workItem from="1565785621671" duration="3566000" />
+    </task>
+    <task id="LOCAL-00001" summary="提交给刘艳斌的第一次">
+      <created>1565619299168</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1565619299168</updated>
+    </task>
+    <task id="LOCAL-00002" summary="提交给刘艳斌的第一次">
+      <created>1565659415563</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1565659415563</updated>
+    </task>
+    <task id="LOCAL-00003" summary="提交给刘艳斌的第一次">
+      <created>1565756231644</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1565756231644</updated>
+    </task>
+    <task id="LOCAL-00004" summary="提交给刘艳斌的第二次">
+      <created>1565756984780</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1565756984781</updated>
+    </task>
+    <task id="LOCAL-00005" summary="提交给刘艳斌的第三次">
+      <created>1565757538620</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1565757538620</updated>
+    </task>
+    <task id="LOCAL-00006" summary="罗晶 8/14 15:36 第四次上传">
+      <created>1565768280067</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1565768280067</updated>
+    </task>
+    <task id="LOCAL-00007" summary="罗晶 8/14 21:26 第五次上传">
+      <created>1565789271244</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1565789271244</updated>
+    </task>
+    <task id="LOCAL-00008" summary="罗晶 8/14 21:34 第五次上传">
+      <created>1565789705270</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1565789705270</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="28268000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23827533" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.88707036" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3289689" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4969743" weight="0.5662848" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49621785" visible="true" weight="0.17512275" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50378215" side_tool="true" weight="0.17512275" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49924356" weight="0.8183306" />
+      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.49924356" weight="0.049099836" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Bean Validation" order="9" />
+      <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.32980332" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="提交给刘艳斌的第一次" />
+    <MESSAGE value="提交给刘艳斌的第二次" />
+    <MESSAGE value="提交给刘艳斌的第三次" />
+    <MESSAGE value="罗晶 8/14 15:36 第四次上传" />
+    <MESSAGE value="罗晶 8/14 21:26 第五次上传" />
+    <MESSAGE value="罗晶 8/14 21:34 第五次上传" />
+    <option name="LAST_COMMIT_MESSAGE" value="罗晶 8/14 21:34 第五次上传" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Bos_dev$BaseApplication.ic" NAME="BaseApplication Coverage Results" MODIFIED="1565659551454" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/service/sys/SysRoleService.java" />
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/service/sys/SysUserService.java" />
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/entity/sys/SysRole.java" />
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/controller/sys/SysRoleeController.java" />
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/controller/sys/SysUserController.java" />
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/entity/sys/SysUser.java" />
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/controller/sys/SysMenuuController.java" />
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/service/sys/SysMenuService.java" />
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/util/TreeNodeUtil.java" />
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/service/impl/sys/SysRoleServiceImpl.java" />
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/controller/sys/SysDeptyController.java" />
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/service/impl/sys/SysMenuServiceImpl.java" />
+    <entry file="file://$PROJECT_DIR$/base/src/main/resources/mybatis/mapper/lj/BiglogLogisticscontroltableMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="2" column="70" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/resources/mybatis/mapper/lj/AccworkorderMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1578">
+          <caret line="207" column="51" selection-start-line="207" selection-start-column="51" selection-end-line="207" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lyb/service/impl/SysUserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="16" selection-start-line="16" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lyb/entity/SysUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lyb/entity/SysDept.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lyb/mapper/SysUserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-578">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/controller/logistics/BiglogLogisticscontroltableController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="6" column="29" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/controller/reportforms/AccworkorderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/controller/reportforms/ReportformsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39">
+          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/entity/logistics/BiglogLogisticscontroltable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/entity/logistics/BiglogLogisticscontroltable2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/entity/logistics/BiglogLogisticscontroltableExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/entity/reportforms/Accworkorder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/entity/reportforms/Reportforms.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/entity/reportforms/AccworkorderExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/entity/reportforms/ReportformsExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/mapper/logistics/BiglogLogisticscontroltableMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="5" column="29" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/mapper/reportforms/AccworkorderMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6">
+          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/mapper/reportforms/ReportformsMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/service/impl/logistics/BiglogLogisticscontroltableServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/service/impl/reportforms/AccworkorderServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/service/impl/reportforms/ReportformsServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/service/logistics/BiglogLogisticscontroltableService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/service/reportforms/AccworkorderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/service/reportforms/ReportformsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/resources/mybatis/mapper/lj/SysRoleMapper.xml" />
+    <entry file="file://$PROJECT_DIR$/base/src/main/resources/mybatis/mapper/lj/SysMenuMapper.xml" />
+    <entry file="file://$PROJECT_DIR$/base/src/main/resources/mybatis/mapper/lj/SysDeptMapper.xml" />
+    <entry file="file://$PROJECT_DIR$/base/src/main/resources/mybatis/mapper/lj/SysUserMapper.xml" />
+    <entry file="file://$PROJECT_DIR$/base/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/resources/mybatis/mapper/lyb/SysDeptMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8679">
+          <caret line="263" column="71" selection-start-line="263" selection-start-column="63" selection-end-line="263" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bos-view/src/api/logistics/logisticscontrol.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="858">
+          <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/resources/mybatis/mapper/lyb/SysUserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="442" column="12" selection-start-line="442" selection-start-column="6" selection-end-line="442" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/resources/mybatis/mapper/lyb/SysRoleMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/resources/mybatis/mapper/lyb/SysMenuMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bos-view/src/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="439" column="72" selection-start-line="439" selection-start-column="61" selection-end-line="439" selection-end-column="72" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bos-view/src/components/TwoEcharts.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bos-view/src/views/body/sj/reportforms/reportforms.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bos-view/src/api/reportforms/reportforms.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+  </component>
+</project>
