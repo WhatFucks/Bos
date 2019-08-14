@@ -23,7 +23,7 @@
         <el-select v-model="listQuery.treatmentstate" clearable placeholder="请选择处理状态...">
           <el-option v-for="item in select1" :key="item.value" :value="item.value" :label="item.name"></el-option>
         </el-select>
-        <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-search" @click="createReturnInvoice">
+        <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-search" @click="addDialogForm = true">
           生成返货单
         </el-button>
       </div>
@@ -141,7 +141,7 @@
       </el-row>
       <el-row :gutter="20">
         <el-col :span="6">
-          <div class="grid-content bg-purple-light" align="center">体积：</div>
+          <div class="grid-content bg-purple-light" align="center">重量：</div>
         </el-col>
         <el-col :span="6">
           <div class="grid-content bg-purple" align="center">{{temp.accWorksheet.weight}}</div>
@@ -191,6 +191,54 @@
           <el-button @click="dialogFormVisible = false">返 回</el-button>
      </span>
     </el-dialog>
+    <el-dialog title="生成返货单" :visible.sync="addDialogForm">
+      <el-form ref="dataForm" :rules="rules" :model="temp" label-position="left" label-width="80px" >
+        <table>
+          <tr>
+            <td>
+              <el-form-item label="工作单号" prop="worksheetno">
+                <el-input v-model="temp.worksheetno" placeholder="请输入工作单号......" />
+              </el-form-item>
+            </td>
+            <td>
+              <el-form-item label="产品名称" prop="producttime">
+                <el-input v-model="temp.accWorksheet.producttime" placeholder="请输入产品......" />
+              </el-form-item>
+            </td>
+            <td>
+              <el-form-item label="实际件数" prop="total">
+                <el-input v-model="temp.accWorksheet.total" placeholder="请输入实际件数......" />
+              </el-form-item>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <el-form-item label="实际重量" prop="weight">
+                <el-input v-model="temp.accWorksheet.weight" placeholder="请输入实际重量......" />
+              </el-form-item>
+            </td>
+            <td>
+              <el-form-item label="到达地点" prop="worksheetno">
+                <el-input v-model="temp.accWorksheet.destination" placeholder="请输入到达地点......" />
+              </el-form-item>
+            </td>
+            <td>
+              <el-form-item label="配载需求" prop="worksheetno">
+                <el-input v-model="temp.accWorksheet.stowagerequirements" placeholder="请输入实际重量......" />
+              </el-form-item>
+            </td>
+          </tr>
+        </table>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="addDialogForm = false">
+          取消
+        </el-button>
+        <el-button type="primary" @click="createData">
+          确定
+        </el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -200,10 +248,11 @@
   import waves from '@/directive/waves' // waves directive
   import {parseTime} from '@/utils'
   import Pagination from '@/components/Pagination'
+  import Tab from "../../tab/index";
 
   export default {
     name: 'CreateReturnInvoice',
-    components: {Pagination},
+    components: {Tab, Pagination},
     directives: {waves},
     data() {
       return {
@@ -269,7 +318,11 @@
           returnunit: '',
           treatmentstate: '',
           worksheetno: ''
-        }
+        },
+        rules: [
+          {}
+        ],
+        addDialogForm: false
       }
     },
     created() {
@@ -277,8 +330,12 @@
       this.getDeptList()
     },
     methods: {
-      createReturnInvoice () {
-        alert(1)
+      createData() { // 添加
+        this.$refs['dataForm'].validate((valid) => {
+          if (valid) {
+            alert(2)
+          }
+        })
       },
       particular (row) {
         this.temp = Object.assign({}, row)

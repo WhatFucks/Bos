@@ -127,7 +127,6 @@
         <el-form-item label="包装备注" prop="introduction">
           <el-input v-model="temp.remark" type="textarea" placeholder="请输入包装备注......" />
         </el-form-item>
-
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false">

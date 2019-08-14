@@ -284,26 +284,26 @@ export const asyncRoutes = [
     meta: {
       title: '受理',
       icon: 'example',
-      roles: ['editor','admin'] // you can set roles in root nav
+      roles: ['editor', 'admin'] // you can set roles in root nav
     },
     children: [
       {
         path: 'recordset',
         component: () => import('@/views/body/lm/acc/reception'),
         name: '业务受理',
-        meta: { title: '业务受理',roles: ['dev','admin'] },
+        meta: { title: '业务受理', roles: ['dev', 'admin'] }
       },
       {
         path: 'pick',
         component: () => import('@/views/body/lm/acc/workSheet'),
         name: '工作单快速录入',
-        meta: { title: '工作单快速录入',roles: ['dev','admin'] },
+        meta: { title: '工作单快速录入', roles: ['dev', 'admin'] }
       },
       {
         path: 'bus',
         component: () => import('@/views/body/lm/acc/workOrder'),
         name: ' 工作单查询',
-        meta: { title: ' 工作单查询',roles: ['dev','admin'] },
+        meta: { title: ' 工作单查询', roles: ['dev', 'admin'] }
       }
     ]
   },
@@ -316,38 +316,38 @@ export const asyncRoutes = [
     meta: {
       title: '调度',
       icon: 'example',
-      roles: ['editor','admin'] // you can set roles in root nav
+      roles: ['editor', 'admin'] // you can set roles in root nav
     },
     children: [
       {
         path: 'recordset',
         component: () => import('@/views/body/lm/dis/transfer'),
         name: '查台转单',
-        meta: { title: '查台转单',roles: ['dev','admin'] },
+        meta: { title: '查台转单', roles: ['dev', 'admin'] }
       },
       {
         path: 'pick',
         component: () => import('@/views/body/lm/dis/artificial'),
         name: '人工调度',
-        meta: { title: '人工调度',roles: ['dev','admin'] },
+        meta: { title: '人工调度', roles: ['dev', 'admin'] }
       },
       {
         path: 'sig',
         component: () => import('@/views/body/lm/dis/Signforentry'),
         name: ' 签收录入',
-        meta: { title: ' 签收录入',roles: ['dev','admin'] },
+        meta: { title: ' 签收录入', roles: ['dev', 'admin'] }
       },
       {
         path: 'nosig',
         component: () => import('@/views/body/lm/dis/NoSignforentry'),
         name: ' 取消签收申请录入',
-        meta: { title: ' 取消签收申请录入',roles: ['dev','admin'] },
+        meta: { title: ' 取消签收申请录入', roles: ['dev', 'admin'] }
       },
       {
         path: 'bus',
         component: () => import('@/views/body/lm/acc/workOrder'),
         name: ' 宣传任务',
-        meta: { title: ' 宣传任务',roles: ['dev','admin'] },
+        meta: { title: ' 宣传任务', roles: ['dev', 'admin'] }
       }
     ]
   },
