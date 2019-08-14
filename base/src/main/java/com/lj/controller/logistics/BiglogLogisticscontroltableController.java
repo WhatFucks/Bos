@@ -1,12 +1,13 @@
 package com.lj.controller.logistics;
 
+
 import com.lj.entity.logistics.BiglogLogisticscontroltable;
 import com.lj.entity.logistics.BiglogLogisticscontroltable2;
-import com.lj.entity.sys.SysDept;
-import com.lj.entity.sys.SysUser;
 import com.lj.service.logistics.BiglogLogisticscontroltableService;
-import com.lj.service.sys.SysUserService;
 import com.lj.util.ResponseResult;
+import com.lyb.entity.SysDept;
+import com.lyb.entity.SysUser;
+import com.lyb.service.SysUserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
@@ -64,7 +65,7 @@ public class BiglogLogisticscontroltableController {
             Subject subject= SecurityUtils.getSubject();
             Session session=subject.getSession();
             SysUser loginUser= (SysUser) session.getAttribute("USER_SESSION");
-            SysUser sysUser=sysUserService.userId(loginUser.getUsername());
+            SysUser sysUser=sysUserService.findUserByUserName(loginUser.getUsername());
             biglogLogisticscontroltable.setCtype(true);
             biglogLogisticscontroltable.setInputdate(new Date());
             biglogLogisticscontroltable.setInputperson(sysUser.getId().intValue());

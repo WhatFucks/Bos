@@ -3,7 +3,7 @@ package com.lj.mapper.logistics;
 import com.lj.entity.logistics.BiglogLogisticscontroltable;
 import com.lj.entity.logistics.BiglogLogisticscontroltable2;
 import com.lj.entity.logistics.BiglogLogisticscontroltableExample;
-import com.lj.entity.sys.SysDept;
+import com.lyb.entity.SysDept;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Service;
