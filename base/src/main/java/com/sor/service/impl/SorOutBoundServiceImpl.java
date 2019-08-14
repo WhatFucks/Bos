@@ -9,6 +9,7 @@ import com.sor.entity.SorOutBoundDetails;
 import com.sor.entity.SorOutBoundExample;
 import com.sor.entity.SorOutBoundType;
 import com.sor.mapper.SorOutBoundMapper;
+import com.sor.mapper.SorStorageDetailsMapper;
 import com.sor.mapper.SorStorageMapper;
 import com.sor.service.SorOutBoundService;
 import com.sor.entity.*;
@@ -30,6 +31,9 @@ public class SorOutBoundServiceImpl implements SorOutBoundService {
     private SorOutBoundDetailsMapper sorOutBoundDetailsMapper;
 
     @Autowired
+    private SorStorageDetailsMapper sorStorageDetailsMapper;
+
+    @Autowired
     private SorStorageMapper sorStorageMapper;
 
     @Override
@@ -37,6 +41,10 @@ public class SorOutBoundServiceImpl implements SorOutBoundService {
         return sorOutBoundMapper.typeList();
     }
 
+    /**
+     * 新增出库和出库交接单
+     * @param sorOutBound
+     */
     @Override
     public void insertSorOutBount(SorOutBound sorOutBound) {
         sorOutBound.setId("CKJJD"+new Date().getTime());
@@ -52,6 +60,11 @@ public class SorOutBoundServiceImpl implements SorOutBoundService {
                     }
                     sd.setSorOutBoundId(sorOutBound.getId());
                     sorOutBoundDetailsMapper.insert(sd);
+                    // 新增出库的时候，修改单号的出库交接单
+                   SorStorageDetails sorStorageDetails= sorStorageDetailsMapper.getDetailById(sd.getId());
+                    sorStorageDetails.setOutboundid(sorOutBound.getId());
+                    sorStorageDetailsMapper.updateByIdUpdateout(sorStorageDetails);
+
                 }
             }
 

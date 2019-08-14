@@ -31,4 +31,12 @@ public interface BasZoneInfoMapper {
     int updateByPrimaryKeySelective(BasZoneInfo record);
 
     int updateByPrimaryKey(BasZoneInfo record);
+
+
+
+
+
+
+
+
 }

@@ -12,6 +12,18 @@ import java.util.List;
 public interface SorStorageDetailsMapper {
 
 
+    // 修改出库交接单
+    @Update("update sor_storagedetails set OutBoundID=#{outboundid} where id=#{id}")
+    void updateByIdUpdateout(SorStorageDetails sorStorageDetails);
+
+    // 合包号赋空
+    @Update("update sor_storagedetails set PackageID='' where id=#{id}")
+    void updateByIdTopackageisNull(String id);
+
+    // 修改合包号
+    @Update("update sor_storagedetails set PackageID=#{packageid} where id=#{id}")
+    void updateByIdUpdatepackage(SorStorageDetails sorStorageDetails);
+
     /**
      * 根据id，修改入库状态
      * @param id

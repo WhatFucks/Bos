@@ -47,6 +47,10 @@ public class SorStorageServiceImpl implements SorStorageService {
         sorStorageMapper.deleteStorage(id);
     }
 
+    /**
+     * 修改入库信息
+     * @param sorStorage
+     */
     @Override
     public void updateStorage(SorStorage sorStorage) {
         SorStorageExample example = new SorStorageExample();
@@ -60,6 +64,10 @@ public class SorStorageServiceImpl implements SorStorageService {
         sorStorageMapper.updateByExampleSelective(sorStorage,example);
     }
 
+    /**
+     * 计算重量
+     * @return
+     */
     @Override
     public Map getByWeights() {
         Double outWeights=0.0;

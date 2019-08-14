@@ -9,6 +9,8 @@ import java.util.Map;
 
 public interface SorStorageDetailsService {
 
+    public SorWorksheet getByworksheetIdHB(String id);
+
     public SorWorksheet getByworksheetId(String id);
 
     public Map queryDetailAll(SorStorage sorStorage, Integer pageSize, Integer pageNum);

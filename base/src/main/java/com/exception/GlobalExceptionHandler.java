@@ -1,4 +1,4 @@
-package com.lyb.exception;
+package com.exception;
 
 import com.util.ResponseResult;
 import org.apache.shiro.authz.UnauthorizedException;
