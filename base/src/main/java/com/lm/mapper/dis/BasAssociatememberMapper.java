@@ -1,7 +1,7 @@
-package com.lm.mapper.acc;
+package com.lm.mapper.dis;
 
-import com.lm.entity.acc.BasAssociatemember;
-import com.lm.entity.acc.BasAssociatememberExample;
+import com.lm.entity.dis.BasAssociatemember;
+import com.lm.entity.dis.BasAssociatememberExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

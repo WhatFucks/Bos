@@ -1,4 +1,4 @@
-package com.lm.entity.acc;
+package com.lm.entity.dis;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

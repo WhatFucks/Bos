@@ -1,6 +1,6 @@
 package com.lm.service.acc;
 
-import com.lm.entity.acc.DisDispatchHistory;
+import com.lm.entity.dis.DisDispatchHistory;
 
 public interface DisDispatchhistoryService {
     public void insert(DisDispatchHistory disDispatchHistory);

@@ -1,7 +1,7 @@
-package com.lm.mapper.acc;
+package com.lm.mapper.dis;
 
-import com.lm.entity.acc.DisWorkOrderSign;
-import com.lm.entity.acc.DisWorkOrderSignExample;
+import com.lm.entity.dis.DisWorkOrderSign;
+import com.lm.entity.dis.DisWorkOrderSignExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

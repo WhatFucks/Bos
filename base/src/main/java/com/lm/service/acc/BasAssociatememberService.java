@@ -1,6 +1,6 @@
 package com.lm.service.acc;
 
-import com.lm.entity.acc.BasAssociatemember;
+import com.lm.entity.dis.BasAssociatemember;
 
 import java.util.List;
 

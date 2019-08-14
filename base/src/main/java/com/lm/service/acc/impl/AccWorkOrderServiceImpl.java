@@ -3,7 +3,7 @@ package com.lm.service.acc.impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.lm.entity.acc.AccWorkOrder;
-import com.lm.entity.acc.Dispatch;
+import com.lm.entity.dis.Dispatch;
 import com.lm.mapper.acc.AccWorkOrderMapper;
 import com.lm.service.acc.AccWorkOrderService;
 import org.springframework.beans.factory.annotation.Autowired;

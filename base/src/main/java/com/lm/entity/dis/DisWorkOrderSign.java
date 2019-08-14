@@ -1,4 +1,4 @@
-package com.lm.entity.acc;
+package com.lm.entity.dis;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;

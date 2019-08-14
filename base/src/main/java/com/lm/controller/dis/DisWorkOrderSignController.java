@@ -1,6 +1,6 @@
 package com.lm.controller.dis;
 
-import com.lm.entity.acc.DisWorkOrderSign;
+import com.lm.entity.dis.DisWorkOrderSign;
 import com.lm.service.dis.DisWorkOrderSignService;
 import com.lm.util.note.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
