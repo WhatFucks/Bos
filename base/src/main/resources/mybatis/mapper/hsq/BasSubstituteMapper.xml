@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hsq.mapper.BasSubstituteMapper">
+  <resultMap id="BaseResultMap" type="com.hsq.entity.BasSubstitute">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="EmpNo" jdbcType="VARCHAR" property="empno" />
+    <result column="EmpName" jdbcType="VARCHAR" property="empname" />
+    <result column="MobileNo" jdbcType="VARCHAR" property="mobileno" />
+    <result column="Type" jdbcType="VARCHAR" property="type" />
+    <result column="PDA" jdbcType="BIT" property="pda" />
+    <result column="StandardKg" jdbcType="DECIMAL" property="standardkg" />
+    <result column="StandardLength" jdbcType="DECIMAL" property="standardlength" />
+    <result column="Models" jdbcType="VARCHAR" property="models" />
+    <result column="PlateInt" jdbcType="VARCHAR" property="plateint" />
+    <result column="InvalidateMark" jdbcType="BIT" property="invalidatemark" />
+    <result column="SubordinateUnit" jdbcType="INTEGER" property="subordinateunit" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, EmpNo, EmpName, MobileNo, Type, PDA, StandardKg, StandardLength, Models, PlateInt,
+    InvalidateMark, SubordinateUnit
+  </sql>
+  <select id="selectByExample" parameterType="com.hsq.entity.BasSubstituteExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from bas_substitute
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from bas_substitute
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from bas_substitute
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.hsq.entity.BasSubstituteExample">
+    delete from bas_substitute
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hsq.entity.BasSubstitute">
+    insert into bas_substitute (ID, EmpNo, EmpName,
+      MobileNo, Type, PDA, StandardKg,
+      StandardLength, Models, PlateInt,
+      InvalidateMark, SubordinateUnit)
+    values (#{id,jdbcType=INTEGER}, #{empno,jdbcType=VARCHAR}, #{empname,jdbcType=VARCHAR},
+      #{mobileno,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{pda,jdbcType=BIT}, #{standardkg,jdbcType=DECIMAL},
+      #{standardlength,jdbcType=DECIMAL}, #{models,jdbcType=VARCHAR}, #{plateint,jdbcType=VARCHAR},
+      #{invalidatemark,jdbcType=BIT}, #{subordinateunit,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hsq.entity.BasSubstitute">
+    insert into bas_substitute
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="empno != null">
+        EmpNo,
+      </if>
+      <if test="empname != null">
+        EmpName,
+      </if>
+      <if test="mobileno != null">
+        MobileNo,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="pda != null">
+        PDA,
+      </if>
+      <if test="standardkg != null">
+        StandardKg,
+      </if>
+      <if test="standardlength != null">
+        StandardLength,
+      </if>
+      <if test="models != null">
+        Models,
+      </if>
+      <if test="plateint != null">
+        PlateInt,
+      </if>
+      <if test="invalidatemark != null">
+        InvalidateMark,
+      </if>
+      <if test="subordinateunit != null">
+        SubordinateUnit,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="empno != null">
+        #{empno,jdbcType=VARCHAR},
+      </if>
+      <if test="empname != null">
+        #{empname,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileno != null">
+        #{mobileno,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="pda != null">
+        #{pda,jdbcType=BIT},
+      </if>
+      <if test="standardkg != null">
+        #{standardkg,jdbcType=DECIMAL},
+      </if>
+      <if test="standardlength != null">
+        #{standardlength,jdbcType=DECIMAL},
+      </if>
+      <if test="models != null">
+        #{models,jdbcType=VARCHAR},
+      </if>
+      <if test="plateint != null">
+        #{plateint,jdbcType=VARCHAR},
+      </if>
+      <if test="invalidatemark != null">
+        #{invalidatemark,jdbcType=BIT},
+      </if>
+      <if test="subordinateunit != null">
+        #{subordinateunit,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.hsq.entity.BasSubstituteExample" resultType="java.lang.Long">
+    select count(*) from bas_substitute
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update bas_substitute
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.empno != null">
+        EmpNo = #{record.empno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.empname != null">
+        EmpName = #{record.empname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mobileno != null">
+        MobileNo = #{record.mobileno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.type != null">
+        Type = #{record.type,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pda != null">
+        PDA = #{record.pda,jdbcType=BIT},
+      </if>
+      <if test="record.standardkg != null">
+        StandardKg = #{record.standardkg,jdbcType=DECIMAL},
+      </if>
+      <if test="record.standardlength != null">
+        StandardLength = #{record.standardlength,jdbcType=DECIMAL},
+      </if>
+      <if test="record.models != null">
+        Models = #{record.models,jdbcType=VARCHAR},
+      </if>
+      <if test="record.plateint != null">
+        PlateInt = #{record.plateint,jdbcType=VARCHAR},
+      </if>
+      <if test="record.invalidatemark != null">
+        InvalidateMark = #{record.invalidatemark,jdbcType=BIT},
+      </if>
+      <if test="record.subordinateunit != null">
+        SubordinateUnit = #{record.subordinateunit,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update bas_substitute
+    set ID = #{record.id,jdbcType=INTEGER},
+      EmpNo = #{record.empno,jdbcType=VARCHAR},
+      EmpName = #{record.empname,jdbcType=VARCHAR},
+      MobileNo = #{record.mobileno,jdbcType=VARCHAR},
+      Type = #{record.type,jdbcType=VARCHAR},
+      PDA = #{record.pda,jdbcType=BIT},
+      StandardKg = #{record.standardkg,jdbcType=DECIMAL},
+      StandardLength = #{record.standardlength,jdbcType=DECIMAL},
+      Models = #{record.models,jdbcType=VARCHAR},
+      PlateInt = #{record.plateint,jdbcType=VARCHAR},
+      InvalidateMark = #{record.invalidatemark,jdbcType=BIT},
+      SubordinateUnit = #{record.subordinateunit,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hsq.entity.BasSubstitute">
+    update bas_substitute
+    <set>
+      <if test="empno != null">
+        EmpNo = #{empno,jdbcType=VARCHAR},
+      </if>
+      <if test="empname != null">
+        EmpName = #{empname,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileno != null">
+        MobileNo = #{mobileno,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        Type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="pda != null">
+        PDA = #{pda,jdbcType=BIT},
+      </if>
+      <if test="standardkg != null">
+        StandardKg = #{standardkg,jdbcType=DECIMAL},
+      </if>
+      <if test="standardlength != null">
+        StandardLength = #{standardlength,jdbcType=DECIMAL},
+      </if>
+      <if test="models != null">
+        Models = #{models,jdbcType=VARCHAR},
+      </if>
+      <if test="plateint != null">
+        PlateInt = #{plateint,jdbcType=VARCHAR},
+      </if>
+      <if test="invalidatemark != null">
+        InvalidateMark = #{invalidatemark,jdbcType=BIT},
+      </if>
+      <if test="subordinateunit != null">
+        SubordinateUnit = #{subordinateunit,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hsq.entity.BasSubstitute">
+    update bas_substitute
+    set EmpNo = #{empno,jdbcType=VARCHAR},
+      EmpName = #{empname,jdbcType=VARCHAR},
+      MobileNo = #{mobileno,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=VARCHAR},
+      PDA = #{pda,jdbcType=BIT},
+      StandardKg = #{standardkg,jdbcType=DECIMAL},
+      StandardLength = #{standardlength,jdbcType=DECIMAL},
+      Models = #{models,jdbcType=VARCHAR},
+      PlateInt = #{plateint,jdbcType=VARCHAR},
+      InvalidateMark = #{invalidatemark,jdbcType=BIT},
+      SubordinateUnit = #{subordinateunit,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

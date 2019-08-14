@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hsq.mapper.BasZoneCustomInfoMapper">
+  <resultMap id="BaseResultMap" type="com.hsq.entity.BasZoneCustomInfo">
+    <id column="CustomCode" jdbcType="INTEGER" property="customcode" />
+    <result column="CustomName" jdbcType="VARCHAR" property="customname" />
+    <result column="MobileNo" jdbcType="VARCHAR" property="mobileno" />
+    <result column="CityName" jdbcType="VARCHAR" property="cityname" />
+    <result column="CstomAddress" jdbcType="VARCHAR" property="cstomaddress" />
+    <result column="ZoneInfoID" jdbcType="INTEGER" property="zoneinfoid" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    CustomCode, CustomName, MobileNo, CityName, CstomAddress, ZoneInfoID
+  </sql>
+  <select id="selectByExample" parameterType="com.hsq.entity.BasZoneCustomInfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from bas_zonecustominfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from bas_zonecustominfo
+    where CustomCode = #{customcode,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from bas_zonecustominfo
+    where CustomCode = #{customcode,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.hsq.entity.BasZoneCustomInfoExample">
+    delete from bas_zonecustominfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hsq.entity.BasZoneCustomInfo">
+    insert into bas_zonecustominfo (CustomCode, CustomName, MobileNo,
+      CityName, CstomAddress, ZoneInfoID
+      )
+    values (#{customcode,jdbcType=INTEGER}, #{customname,jdbcType=VARCHAR}, #{mobileno,jdbcType=VARCHAR},
+      #{cityname,jdbcType=VARCHAR}, #{cstomaddress,jdbcType=VARCHAR}, #{zoneinfoid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hsq.entity.BasZoneCustomInfo">
+    insert into bas_zonecustominfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="customcode != null">
+        CustomCode,
+      </if>
+      <if test="customname != null">
+        CustomName,
+      </if>
+      <if test="mobileno != null">
+        MobileNo,
+      </if>
+      <if test="cityname != null">
+        CityName,
+      </if>
+      <if test="cstomaddress != null">
+        CstomAddress,
+      </if>
+      <if test="zoneinfoid != null">
+        ZoneInfoID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="customcode != null">
+        #{customcode,jdbcType=INTEGER},
+      </if>
+      <if test="customname != null">
+        #{customname,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileno != null">
+        #{mobileno,jdbcType=VARCHAR},
+      </if>
+      <if test="cityname != null">
+        #{cityname,jdbcType=VARCHAR},
+      </if>
+      <if test="cstomaddress != null">
+        #{cstomaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="zoneinfoid != null">
+        #{zoneinfoid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.hsq.entity.BasZoneCustomInfoExample" resultType="java.lang.Long">
+    select count(*) from bas_zonecustominfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update bas_zonecustominfo
+    <set>
+      <if test="record.customcode != null">
+        CustomCode = #{record.customcode,jdbcType=INTEGER},
+      </if>
+      <if test="record.customname != null">
+        CustomName = #{record.customname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mobileno != null">
+        MobileNo = #{record.mobileno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cityname != null">
+        CityName = #{record.cityname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cstomaddress != null">
+        CstomAddress = #{record.cstomaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zoneinfoid != null">
+        ZoneInfoID = #{record.zoneinfoid,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update bas_zonecustominfo
+    set CustomCode = #{record.customcode,jdbcType=INTEGER},
+      CustomName = #{record.customname,jdbcType=VARCHAR},
+      MobileNo = #{record.mobileno,jdbcType=VARCHAR},
+      CityName = #{record.cityname,jdbcType=VARCHAR},
+      CstomAddress = #{record.cstomaddress,jdbcType=VARCHAR},
+      ZoneInfoID = #{record.zoneinfoid,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hsq.entity.BasZoneCustomInfo">
+    update bas_zonecustominfo
+    <set>
+      <if test="customname != null">
+        CustomName = #{customname,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileno != null">
+        MobileNo = #{mobileno,jdbcType=VARCHAR},
+      </if>
+      <if test="cityname != null">
+        CityName = #{cityname,jdbcType=VARCHAR},
+      </if>
+      <if test="cstomaddress != null">
+        CstomAddress = #{cstomaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="zoneinfoid != null">
+        ZoneInfoID = #{zoneinfoid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where CustomCode = #{customcode,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hsq.entity.BasZoneCustomInfo">
+    update bas_zonecustominfo
+    set CustomName = #{customname,jdbcType=VARCHAR},
+      MobileNo = #{mobileno,jdbcType=VARCHAR},
+      CityName = #{cityname,jdbcType=VARCHAR},
+      CstomAddress = #{cstomaddress,jdbcType=VARCHAR},
+      ZoneInfoID = #{zoneinfoid,jdbcType=INTEGER}
+    where CustomCode = #{customcode,jdbcType=INTEGER}
+  </update>
+</mapper>
