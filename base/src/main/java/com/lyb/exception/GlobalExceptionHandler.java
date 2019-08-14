@@ -1,6 +1,6 @@
 package com.lyb.exception;
 
-import com.lyb.general.ResponseResult;
+import com.util.ResponseResult;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
