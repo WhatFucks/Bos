@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ljw.mapper.IaeTimeinputMapper">
+  <resultMap id="BaseResultMap" type="com.ljw.entity.IaeTimeinput">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="InputType" jdbcType="VARCHAR" property="inputtype" />
+    <result column="Port" jdbcType="VARCHAR" property="port" />
+    <result column="Demand" jdbcType="BIT" property="demand" />
+    <result column="VehicleInt" jdbcType="VARCHAR" property="vehicleint" />
+    <result column="WaybillID" jdbcType="VARCHAR" property="waybillid" />
+    <result column="ExpectArrivalDate" jdbcType="TIMESTAMP" property="expectarrivaldate" />
+    <result column="ExpectDepartureDate" jdbcType="TIMESTAMP" property="expectdeparturedate" />
+    <result column="ActualArrivalDate" jdbcType="TIMESTAMP" property="actualarrivaldate" />
+    <result column="ActualDepartureDate" jdbcType="TIMESTAMP" property="actualdeparturedate" />
+    <result column="Start" jdbcType="VARCHAR" property="start" />
+    <result column="Carriers" jdbcType="INTEGER" property="carriers" />
+    <result column="Remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="InputPerson" jdbcType="INTEGER" property="inputperson" />
+    <result column="InputDate" jdbcType="TIMESTAMP" property="inputdate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, InputType, Port, Demand, VehicleInt, WaybillID, ExpectArrivalDate, ExpectDepartureDate, 
+    ActualArrivalDate, ActualDepartureDate, Start, Carriers, Remarks, InputPerson, InputDate
+  </sql>
+  <select id="selectByExample" parameterType="com.ljw.entity.IaeTimeinputExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from iae_timeinput
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from iae_timeinput
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from iae_timeinput
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ljw.entity.IaeTimeinputExample">
+    delete from iae_timeinput
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ljw.entity.IaeTimeinput">
+    insert into iae_timeinput (id, InputType, Port, 
+      Demand, VehicleInt, WaybillID, 
+      ExpectArrivalDate, ExpectDepartureDate, 
+      ActualArrivalDate, ActualDepartureDate, 
+      Start, Carriers, Remarks, 
+      InputPerson, InputDate)
+    values (#{id,jdbcType=INTEGER}, #{inputtype,jdbcType=VARCHAR}, #{port,jdbcType=VARCHAR}, 
+      #{demand,jdbcType=BIT}, #{vehicleint,jdbcType=VARCHAR}, #{waybillid,jdbcType=VARCHAR}, 
+      #{expectarrivaldate,jdbcType=TIMESTAMP}, #{expectdeparturedate,jdbcType=TIMESTAMP}, 
+      #{actualarrivaldate,jdbcType=TIMESTAMP}, #{actualdeparturedate,jdbcType=TIMESTAMP}, 
+      #{start,jdbcType=VARCHAR}, #{carriers,jdbcType=INTEGER}, #{remarks,jdbcType=VARCHAR}, 
+      #{inputperson,jdbcType=INTEGER}, #{inputdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ljw.entity.IaeTimeinput">
+    insert into iae_timeinput
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="inputtype != null">
+        InputType,
+      </if>
+      <if test="port != null">
+        Port,
+      </if>
+      <if test="demand != null">
+        Demand,
+      </if>
+      <if test="vehicleint != null">
+        VehicleInt,
+      </if>
+      <if test="waybillid != null">
+        WaybillID,
+      </if>
+      <if test="expectarrivaldate != null">
+        ExpectArrivalDate,
+      </if>
+      <if test="expectdeparturedate != null">
+        ExpectDepartureDate,
+      </if>
+      <if test="actualarrivaldate != null">
+        ActualArrivalDate,
+      </if>
+      <if test="actualdeparturedate != null">
+        ActualDepartureDate,
+      </if>
+      <if test="start != null">
+        Start,
+      </if>
+      <if test="carriers != null">
+        Carriers,
+      </if>
+      <if test="remarks != null">
+        Remarks,
+      </if>
+      <if test="inputperson != null">
+        InputPerson,
+      </if>
+      <if test="inputdate != null">
+        InputDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="inputtype != null">
+        #{inputtype,jdbcType=VARCHAR},
+      </if>
+      <if test="port != null">
+        #{port,jdbcType=VARCHAR},
+      </if>
+      <if test="demand != null">
+        #{demand,jdbcType=BIT},
+      </if>
+      <if test="vehicleint != null">
+        #{vehicleint,jdbcType=VARCHAR},
+      </if>
+      <if test="waybillid != null">
+        #{waybillid,jdbcType=VARCHAR},
+      </if>
+      <if test="expectarrivaldate != null">
+        #{expectarrivaldate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expectdeparturedate != null">
+        #{expectdeparturedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="actualarrivaldate != null">
+        #{actualarrivaldate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="actualdeparturedate != null">
+        #{actualdeparturedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="start != null">
+        #{start,jdbcType=VARCHAR},
+      </if>
+      <if test="carriers != null">
+        #{carriers,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="inputperson != null">
+        #{inputperson,jdbcType=INTEGER},
+      </if>
+      <if test="inputdate != null">
+        #{inputdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ljw.entity.IaeTimeinputExample" resultType="java.lang.Long">
+    select count(*) from iae_timeinput
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update iae_timeinput
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.inputtype != null">
+        InputType = #{record.inputtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.port != null">
+        Port = #{record.port,jdbcType=VARCHAR},
+      </if>
+      <if test="record.demand != null">
+        Demand = #{record.demand,jdbcType=BIT},
+      </if>
+      <if test="record.vehicleint != null">
+        VehicleInt = #{record.vehicleint,jdbcType=VARCHAR},
+      </if>
+      <if test="record.waybillid != null">
+        WaybillID = #{record.waybillid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.expectarrivaldate != null">
+        ExpectArrivalDate = #{record.expectarrivaldate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.expectdeparturedate != null">
+        ExpectDepartureDate = #{record.expectdeparturedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.actualarrivaldate != null">
+        ActualArrivalDate = #{record.actualarrivaldate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.actualdeparturedate != null">
+        ActualDepartureDate = #{record.actualdeparturedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.start != null">
+        Start = #{record.start,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carriers != null">
+        Carriers = #{record.carriers,jdbcType=INTEGER},
+      </if>
+      <if test="record.remarks != null">
+        Remarks = #{record.remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inputperson != null">
+        InputPerson = #{record.inputperson,jdbcType=INTEGER},
+      </if>
+      <if test="record.inputdate != null">
+        InputDate = #{record.inputdate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update iae_timeinput
+    set id = #{record.id,jdbcType=INTEGER},
+      InputType = #{record.inputtype,jdbcType=VARCHAR},
+      Port = #{record.port,jdbcType=VARCHAR},
+      Demand = #{record.demand,jdbcType=BIT},
+      VehicleInt = #{record.vehicleint,jdbcType=VARCHAR},
+      WaybillID = #{record.waybillid,jdbcType=VARCHAR},
+      ExpectArrivalDate = #{record.expectarrivaldate,jdbcType=TIMESTAMP},
+      ExpectDepartureDate = #{record.expectdeparturedate,jdbcType=TIMESTAMP},
+      ActualArrivalDate = #{record.actualarrivaldate,jdbcType=TIMESTAMP},
+      ActualDepartureDate = #{record.actualdeparturedate,jdbcType=TIMESTAMP},
+      Start = #{record.start,jdbcType=VARCHAR},
+      Carriers = #{record.carriers,jdbcType=INTEGER},
+      Remarks = #{record.remarks,jdbcType=VARCHAR},
+      InputPerson = #{record.inputperson,jdbcType=INTEGER},
+      InputDate = #{record.inputdate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ljw.entity.IaeTimeinput">
+    update iae_timeinput
+    <set>
+      <if test="inputtype != null">
+        InputType = #{inputtype,jdbcType=VARCHAR},
+      </if>
+      <if test="port != null">
+        Port = #{port,jdbcType=VARCHAR},
+      </if>
+      <if test="demand != null">
+        Demand = #{demand,jdbcType=BIT},
+      </if>
+      <if test="vehicleint != null">
+        VehicleInt = #{vehicleint,jdbcType=VARCHAR},
+      </if>
+      <if test="waybillid != null">
+        WaybillID = #{waybillid,jdbcType=VARCHAR},
+      </if>
+      <if test="expectarrivaldate != null">
+        ExpectArrivalDate = #{expectarrivaldate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expectdeparturedate != null">
+        ExpectDepartureDate = #{expectdeparturedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="actualarrivaldate != null">
+        ActualArrivalDate = #{actualarrivaldate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="actualdeparturedate != null">
+        ActualDepartureDate = #{actualdeparturedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="start != null">
+        Start = #{start,jdbcType=VARCHAR},
+      </if>
+      <if test="carriers != null">
+        Carriers = #{carriers,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null">
+        Remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="inputperson != null">
+        InputPerson = #{inputperson,jdbcType=INTEGER},
+      </if>
+      <if test="inputdate != null">
+        InputDate = #{inputdate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ljw.entity.IaeTimeinput">
+    update iae_timeinput
+    set InputType = #{inputtype,jdbcType=VARCHAR},
+      Port = #{port,jdbcType=VARCHAR},
+      Demand = #{demand,jdbcType=BIT},
+      VehicleInt = #{vehicleint,jdbcType=VARCHAR},
+      WaybillID = #{waybillid,jdbcType=VARCHAR},
+      ExpectArrivalDate = #{expectarrivaldate,jdbcType=TIMESTAMP},
+      ExpectDepartureDate = #{expectdeparturedate,jdbcType=TIMESTAMP},
+      ActualArrivalDate = #{actualarrivaldate,jdbcType=TIMESTAMP},
+      ActualDepartureDate = #{actualdeparturedate,jdbcType=TIMESTAMP},
+      Start = #{start,jdbcType=VARCHAR},
+      Carriers = #{carriers,jdbcType=INTEGER},
+      Remarks = #{remarks,jdbcType=VARCHAR},
+      InputPerson = #{inputperson,jdbcType=INTEGER},
+      InputDate = #{inputdate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
