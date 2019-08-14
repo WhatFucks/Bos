@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan(value = "com.lyb.mapper")
+@MapperScan(value = "com.*.mapper")
 public class BaseApplication {
 
     public static void main(String[] args) {

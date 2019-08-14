@@ -4,8 +4,8 @@ server:
 spring:
   datasource:
     username: root
-    password: root
-    url: jdbc:mysql://localhost:3306/bos
+    password: 1234
+    url: jdbc:mysql://localhost:3306/school
     driver-class-name: com.mysql.jdbc.Driver
 mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
@@ -13,5 +13,4 @@ mybatis:
 logging:
   level:
     com:
-      lyb:
-        mapper: debug
+      mapper: debug

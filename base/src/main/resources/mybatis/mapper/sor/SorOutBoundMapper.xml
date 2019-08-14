@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sor.mapper.SorOutBoundMapper">
+  <resultMap id="BaseResultMap" type="com.sor.entity.SorOutBound">
+    <result column="id" jdbcType="VARCHAR" property="id" />
+    <result column="HandoverType" jdbcType="INTEGER" property="handovertype" />
+    <result column="Line" jdbcType="VARCHAR" property="line" />
+    <result column="Direction" jdbcType="INTEGER" property="direction" />
+    <result column="AcceptPerson" jdbcType="INTEGER" property="acceptperson" />
+    <result column="Carriers" jdbcType="INTEGER" property="carriers" />
+    <result column="DeliveryPerson" jdbcType="INTEGER" property="deliveryperson" />
+    <result column="DeliveryDate" jdbcType="TIMESTAMP" property="deliverydate" />
+    <result column="DeliveryCompany" jdbcType="VARCHAR" property="deliverycompany" />
+    <result column="EnterPerson" jdbcType="INTEGER" property="enterperson" />
+    <result column="EnterDate" jdbcType="TIMESTAMP" property="enterdate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, HandoverType, Line, Direction, AcceptPerson, Carriers, DeliveryPerson, DeliveryDate, 
+    DeliveryCompany, EnterPerson, EnterDate
+  </sql>
+  <select id="selectByExample" parameterType="com.sor.entity.SorOutBoundExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sor_outbound
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.sor.entity.SorOutBoundExample">
+    delete from sor_outbound
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sor.entity.SorOutBound">
+    insert into sor_outbound (id, HandoverType, Line, 
+      Direction, AcceptPerson, Carriers, 
+      DeliveryPerson, DeliveryDate, DeliveryCompany, 
+      EnterPerson, EnterDate)
+    values (#{id,jdbcType=VARCHAR}, #{handovertype,jdbcType=BIT}, #{line,jdbcType=VARCHAR}, 
+      #{direction,jdbcType=INTEGER}, #{acceptperson,jdbcType=INTEGER}, #{carriers,jdbcType=INTEGER}, 
+      #{deliveryperson,jdbcType=INTEGER}, #{deliverydate,jdbcType=TIMESTAMP}, #{deliverycompany,jdbcType=VARCHAR}, 
+      #{enterperson,jdbcType=INTEGER}, #{enterdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sor.entity.SorOutBound">
+    insert into sor_outbound
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="handovertype != null">
+        HandoverType,
+      </if>
+      <if test="line != null">
+        Line,
+      </if>
+      <if test="direction != null">
+        Direction,
+      </if>
+      <if test="acceptperson != null">
+        AcceptPerson,
+      </if>
+      <if test="carriers != null">
+        Carriers,
+      </if>
+      <if test="deliveryperson != null">
+        DeliveryPerson,
+      </if>
+      <if test="deliverydate != null">
+        DeliveryDate,
+      </if>
+      <if test="deliverycompany != null">
+        DeliveryCompany,
+      </if>
+      <if test="enterperson != null">
+        EnterPerson,
+      </if>
+      <if test="enterdate != null">
+        EnterDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="handovertype != null">
+        #{handovertype,jdbcType=BIT},
+      </if>
+      <if test="line != null">
+        #{line,jdbcType=VARCHAR},
+      </if>
+      <if test="direction != null">
+        #{direction,jdbcType=INTEGER},
+      </if>
+      <if test="acceptperson != null">
+        #{acceptperson,jdbcType=INTEGER},
+      </if>
+      <if test="carriers != null">
+        #{carriers,jdbcType=INTEGER},
+      </if>
+      <if test="deliveryperson != null">
+        #{deliveryperson,jdbcType=INTEGER},
+      </if>
+      <if test="deliverydate != null">
+        #{deliverydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deliverycompany != null">
+        #{deliverycompany,jdbcType=VARCHAR},
+      </if>
+      <if test="enterperson != null">
+        #{enterperson,jdbcType=INTEGER},
+      </if>
+      <if test="enterdate != null">
+        #{enterdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sor.entity.SorOutBoundExample" resultType="java.lang.Long">
+    select count(*) from sor_outbound
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update sor_outbound
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.handovertype != null">
+        HandoverType = #{record.handovertype,jdbcType=BIT},
+      </if>
+      <if test="record.line != null">
+        Line = #{record.line,jdbcType=VARCHAR},
+      </if>
+      <if test="record.direction != null">
+        Direction = #{record.direction,jdbcType=INTEGER},
+      </if>
+      <if test="record.acceptperson != null">
+        AcceptPerson = #{record.acceptperson,jdbcType=INTEGER},
+      </if>
+      <if test="record.carriers != null">
+        Carriers = #{record.carriers,jdbcType=INTEGER},
+      </if>
+      <if test="record.deliveryperson != null">
+        DeliveryPerson = #{record.deliveryperson,jdbcType=INTEGER},
+      </if>
+      <if test="record.deliverydate != null">
+        DeliveryDate = #{record.deliverydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.deliverycompany != null">
+        DeliveryCompany = #{record.deliverycompany,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterperson != null">
+        EnterPerson = #{record.enterperson,jdbcType=INTEGER},
+      </if>
+      <if test="record.enterdate != null">
+        EnterDate = #{record.enterdate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update sor_outbound
+    set id = #{record.id,jdbcType=VARCHAR},
+      HandoverType = #{record.handovertype,jdbcType=BIT},
+      Line = #{record.line,jdbcType=VARCHAR},
+      Direction = #{record.direction,jdbcType=INTEGER},
+      AcceptPerson = #{record.acceptperson,jdbcType=INTEGER},
+      Carriers = #{record.carriers,jdbcType=INTEGER},
+      DeliveryPerson = #{record.deliveryperson,jdbcType=INTEGER},
+      DeliveryDate = #{record.deliverydate,jdbcType=TIMESTAMP},
+      DeliveryCompany = #{record.deliverycompany,jdbcType=VARCHAR},
+      EnterPerson = #{record.enterperson,jdbcType=INTEGER},
+      EnterDate = #{record.enterdate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>
