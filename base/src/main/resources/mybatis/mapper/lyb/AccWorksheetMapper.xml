@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lyb.mapper.AccWorksheetMapper">
+  <resultMap id="BaseResultMap" type="com.lyb.entity.AccWorksheet">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="WorkSheetNo" jdbcType="VARCHAR" property="worksheetno" />
+    <result column="JobNo" jdbcType="VARCHAR" property="jobno" />
+    <result column="Destination" jdbcType="VARCHAR" property="destination" />
+    <result column="ProductTime" jdbcType="VARCHAR" property="producttime" />
+    <result column="Total" jdbcType="INTEGER" property="total" />
+    <result column="Weight" jdbcType="DECIMAL" property="weight" />
+    <result column="StowageRequirements" jdbcType="VARCHAR" property="stowagerequirements" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, WorkSheetNo, JobNo, Destination, ProductTime, Total, Weight, StowageRequirements
+  </sql>
+  <select id="selectByExample" parameterType="com.lyb.entity.AccWorksheetExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from acc_worksheet
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from acc_worksheet
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from acc_worksheet
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lyb.entity.AccWorksheetExample">
+    delete from acc_worksheet
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lyb.entity.AccWorksheet">
+    insert into acc_worksheet (ID, WorkSheetNo, JobNo, 
+      Destination, ProductTime, Total, 
+      Weight, StowageRequirements)
+    values (#{id,jdbcType=INTEGER}, #{worksheetno,jdbcType=VARCHAR}, #{jobno,jdbcType=VARCHAR}, 
+      #{destination,jdbcType=VARCHAR}, #{producttime,jdbcType=VARCHAR}, #{total,jdbcType=INTEGER}, 
+      #{weight,jdbcType=DECIMAL}, #{stowagerequirements,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lyb.entity.AccWorksheet">
+    insert into acc_worksheet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="worksheetno != null">
+        WorkSheetNo,
+      </if>
+      <if test="jobno != null">
+        JobNo,
+      </if>
+      <if test="destination != null">
+        Destination,
+      </if>
+      <if test="producttime != null">
+        ProductTime,
+      </if>
+      <if test="total != null">
+        Total,
+      </if>
+      <if test="weight != null">
+        Weight,
+      </if>
+      <if test="stowagerequirements != null">
+        StowageRequirements,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="worksheetno != null">
+        #{worksheetno,jdbcType=VARCHAR},
+      </if>
+      <if test="jobno != null">
+        #{jobno,jdbcType=VARCHAR},
+      </if>
+      <if test="destination != null">
+        #{destination,jdbcType=VARCHAR},
+      </if>
+      <if test="producttime != null">
+        #{producttime,jdbcType=VARCHAR},
+      </if>
+      <if test="total != null">
+        #{total,jdbcType=INTEGER},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="stowagerequirements != null">
+        #{stowagerequirements,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lyb.entity.AccWorksheetExample" resultType="java.lang.Long">
+    select count(*) from acc_worksheet
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update acc_worksheet
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.worksheetno != null">
+        WorkSheetNo = #{record.worksheetno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jobno != null">
+        JobNo = #{record.jobno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.destination != null">
+        Destination = #{record.destination,jdbcType=VARCHAR},
+      </if>
+      <if test="record.producttime != null">
+        ProductTime = #{record.producttime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.total != null">
+        Total = #{record.total,jdbcType=INTEGER},
+      </if>
+      <if test="record.weight != null">
+        Weight = #{record.weight,jdbcType=DECIMAL},
+      </if>
+      <if test="record.stowagerequirements != null">
+        StowageRequirements = #{record.stowagerequirements,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update acc_worksheet
+    set ID = #{record.id,jdbcType=INTEGER},
+      WorkSheetNo = #{record.worksheetno,jdbcType=VARCHAR},
+      JobNo = #{record.jobno,jdbcType=VARCHAR},
+      Destination = #{record.destination,jdbcType=VARCHAR},
+      ProductTime = #{record.producttime,jdbcType=VARCHAR},
+      Total = #{record.total,jdbcType=INTEGER},
+      Weight = #{record.weight,jdbcType=DECIMAL},
+      StowageRequirements = #{record.stowagerequirements,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lyb.entity.AccWorksheet">
+    update acc_worksheet
+    <set>
+      <if test="worksheetno != null">
+        WorkSheetNo = #{worksheetno,jdbcType=VARCHAR},
+      </if>
+      <if test="jobno != null">
+        JobNo = #{jobno,jdbcType=VARCHAR},
+      </if>
+      <if test="destination != null">
+        Destination = #{destination,jdbcType=VARCHAR},
+      </if>
+      <if test="producttime != null">
+        ProductTime = #{producttime,jdbcType=VARCHAR},
+      </if>
+      <if test="total != null">
+        Total = #{total,jdbcType=INTEGER},
+      </if>
+      <if test="weight != null">
+        Weight = #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="stowagerequirements != null">
+        StowageRequirements = #{stowagerequirements,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lyb.entity.AccWorksheet">
+    update acc_worksheet
+    set WorkSheetNo = #{worksheetno,jdbcType=VARCHAR},
+      JobNo = #{jobno,jdbcType=VARCHAR},
+      Destination = #{destination,jdbcType=VARCHAR},
+      ProductTime = #{producttime,jdbcType=VARCHAR},
+      Total = #{total,jdbcType=INTEGER},
+      Weight = #{weight,jdbcType=DECIMAL},
+      StowageRequirements = #{stowagerequirements,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
