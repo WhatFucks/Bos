@@ -11,6 +11,10 @@
           <el-option value=1 label="正常"></el-option>
           <el-option value=2 label="作废"></el-option>
         </el-select>
+        <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-search" @click="getList">
+          查询
+        </el-button>
+        <br>
         执行状态：
         <el-select v-model="listQuery.apreturnstatus" clearable placeholder="请选择执行状态...">
           <el-option v-for="item in select3" :key="item.value" :value="item.value" :label="item.name"></el-option>
@@ -19,8 +23,8 @@
         <el-select v-model="listQuery.treatmentstate" clearable placeholder="请选择处理状态...">
           <el-option v-for="item in select1" :key="item.value" :value="item.value" :label="item.name"></el-option>
         </el-select>
-        <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-search" @click="getList">
-          查询
+        <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-search" @click="createReturnInvoice">
+          生成返货单
         </el-button>
       </div>
     </div>
@@ -41,7 +45,8 @@
           <span class="link-type">{{ scope.row.worksheetno }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="品名" fit="true" align="center">
+<!--
+    <el-table-column label="品名" fit="true" align="center">
         <template slot-scope="scope">
           <span class="link-type">{{ scope.row.accWorksheet.producttime }}</span>
         </template>
@@ -61,6 +66,7 @@
           <span class="link-type">{{ scope.row.accWorksheet.destination }}</span>
         </template>
       </el-table-column>
+ -->
       <el-table-column label="返货处理状态" fit="true" align="center">
         <template slot-scope="scope">
           <span v-show="scope.row.treatmentstate === 1">未确认</span>
@@ -94,7 +100,7 @@
     <el-dialog title="反货单详情" :visible.sync="dialogFormVisible" center>
       <el-row :gutter="20">
         <el-col :span="6">
-          <div class="grid-content bg-purple-light" align="center">返货单状态：</div>
+          <div class="grid-content bg-purple-light" align="center">返货状态：</div>
         </el-col>
         <el-col :span="6">
           <div class="grid-content bg-purple" align="center">
@@ -105,13 +111,82 @@
           </div>
         </el-col>
         <el-col :span="6">
-          <div class="grid-content bg-purple-light" align="center"></div>
+          <div class="grid-content bg-purple-light" align="center">工作单号：</div>
         </el-col>
         <el-col :span="6">
-          <div class="grid-content bg-purple" align="center"></div>
+          <div class="grid-content bg-purple" align="center">{{temp.worksheetno}}</div>
         </el-col>
       </el-row>
-
+      <el-row :gutter="20">
+        <el-col :span="6">
+          <div class="grid-content bg-purple-light" align="center">品名：</div>
+        </el-col>
+        <el-col :span="6">
+          <div class="grid-content bg-purple" align="center">{{temp.accWorksheet.producttime}}</div>
+        </el-col>
+        <el-col :span="6">
+          <div class="grid-content bg-purple-light" align="center">件数：</div>
+        </el-col>
+        <el-col :span="6">
+          <div class="grid-content bg-purple" align="center">{{temp.accWorksheet.total}}</div>
+        </el-col>
+      </el-row>
+      <el-row :gutter="20">
+        <el-col :span="6">
+          <div class="grid-content bg-purple-light" align="center">处理结果：</div>
+        </el-col>
+        <el-col :span="18">
+          <div class="grid-content bg-purple" align="center">{{temp.handlingopinions}}</div>
+        </el-col>
+      </el-row>
+      <el-row :gutter="20">
+        <el-col :span="6">
+          <div class="grid-content bg-purple-light" align="center">体积：</div>
+        </el-col>
+        <el-col :span="6">
+          <div class="grid-content bg-purple" align="center">{{temp.accWorksheet.weight}}</div>
+        </el-col>
+        <el-col :span="6">
+          <div class="grid-content bg-purple-light" align="center">到达地：</div>
+        </el-col>
+        <el-col :span="6">
+          <div class="grid-content bg-purple" align="center">{{temp.accWorksheet.destination}}</div>
+        </el-col>
+      </el-row>
+      <el-row :gutter="20">
+        <el-col :span="6">
+          <div class="grid-content bg-purple-light" align="center">受理单位：</div>
+        </el-col>
+        <el-col :span="6">
+          <div class="grid-content bg-purple" align="center">
+            <div v-for="dept in deptList" :key="dept.id">
+              <span v-show="temp.confirmationunit === dept.id">{{ dept.name }}</span>
+            </div>
+          </div>
+        </el-col>
+        <el-col :span="6">
+          <div class="grid-content bg-purple-light" align="center">受理人：</div>
+        </el-col>
+        <el-col :span="6">
+          <div class="grid-content bg-purple" align="center">{{temp.confirmationpersonname}}</div>
+        </el-col>
+      </el-row>
+      <el-row :gutter="20">
+        <el-col :span="6">
+          <div class="grid-content bg-purple-light" align="center">受理时间：</div>
+        </el-col>
+        <el-col :span="6">
+          <div class="grid-content bg-purple" align="center">
+            {{temp.confirmationtime | parseTime('{y}-{m}-{d} {h}:{i}:{s}')}}
+          </div>
+        </el-col>
+        <el-col :span="6">
+          <div class="grid-content bg-purple-light" align="center">配载需求：</div>
+        </el-col>
+        <el-col :span="6">
+          <div class="grid-content bg-purple" align="center">{{temp.accWorksheet.stowagerequirements}}</div>
+        </el-col>
+      </el-row>
       <span slot="footer" class="dialog-footer">
           <el-button @click="dialogFormVisible = false">返 回</el-button>
      </span>
@@ -127,7 +202,7 @@
   import Pagination from '@/components/Pagination'
 
   export default {
-    name: 'returnApplyTable',
+    name: 'CreateReturnInvoice',
     components: {Pagination},
     directives: {waves},
     data() {
@@ -171,7 +246,7 @@
             stowagerequirements: '',
             total: '',
             weight: '',
-            worksheetno: '',
+            worksheetno: ''
           },
           aploss: '',
           applicationno: '',
@@ -202,9 +277,11 @@
       this.getDeptList()
     },
     methods: {
+      createReturnInvoice () {
+        alert(1)
+      },
       particular (row) {
         this.temp = Object.assign({}, row)
-        console.debug(this.temp)
         this.dialogFormVisible = true
       },
       deleteRetReturnlist (row) {
@@ -263,6 +340,7 @@
           this.list = response.data.items
           this.total = response.data.total
           this.listLoading = false
+          console.debug(this.list)
         }).catch((err) => {
           this.listLoading = false
           this.$message.error('系统繁忙，请稍后再试！');

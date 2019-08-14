@@ -100,11 +100,11 @@
 
     <el-dialog :title="dialogTitle" :visible.sync="dialogFormVisible">
       <el-form ref="dataForm" :rules="rules" :model="temp" label-position="left" label-width="80px" style="width: 400px; margin-left:50px;">
-        <el-form-item label="申请单号">
-          <el-input v-model="temp.applicationno" placeholder="请输入申请单号......" />
+        <el-form-item label="申请单号" v-show="disabled">
+          <el-input v-model="temp.applicationno" placeholder="请输入申请单号......" :disabled="disabled"/>
         </el-form-item>
         <el-form-item label="工作单号">
-          <el-input v-model="temp.worksheetno" placeholder="请输入工作单号......" />
+          <el-input v-model="temp.worksheetno" placeholder="请输入工作单号......" :disabled="disabled"/>
         </el-form-item>
         <el-form-item label="返货类型">
           <el-select v-model="temp.returntype" placeholder="请选择原因">
@@ -146,6 +146,7 @@
     directives: { waves },
     data() {
       return {
+        disabled: false,
         select1: [
           {value: 1,name:"未确认"},
           {value: 2,name:"同意返货"},
@@ -175,6 +176,16 @@
           invalidatesign: '', // 是否作废
         },
         temp: { // 对话框绑定的对象
+          accWorksheet: {
+            destination: '',
+            id: '',
+            jobno: '',
+            producttime: '',
+            stowagerequirements: '',
+            total: '',
+            weight: '',
+            worksheetno: ''
+          },
           id: '',
           applicationno: '',
           worksheetno: '',
@@ -230,6 +241,16 @@
       },
       resetTemp() {
         this.temp = {
+          accWorksheet: {
+            destination: '',
+            id: '',
+            jobno: '',
+            producttime: '',
+            stowagerequirements: '',
+            total: '',
+            weight: '',
+            worksheetno: ''
+          },
           id: '',
           applicationno: '',
           worksheetno: '',
@@ -261,6 +282,7 @@
         this.dialogStatus = 'create'
         // 显示对话框
         this.dialogFormVisible = true
+        this.disabled = false
         // 清空表单校验信息
         this.$nextTick(() => {
           this.$refs['dataForm'].clearValidate()
@@ -269,6 +291,7 @@
       createData() { // 添加
         this.$refs['dataForm'].validate((valid) => {
           if (valid) {
+            this.$delete(this.temp,'accWorksheet')
             addRetReturnlist(this.temp).then((res) => {
               if(res.data.success === true){
                 this.getList()
@@ -294,6 +317,7 @@
         this.dialogTitle = "编辑返货申请"
         this.dialogStatus = 'update'
         this.dialogFormVisible = true
+        this.disabled = true
         this.$nextTick(() => {
           this.$refs['dataForm'].clearValidate()
         })
@@ -302,6 +326,7 @@
         this.$refs['dataForm'].validate((valid) => {
           if (valid) {
             const tempData = Object.assign({}, this.temp)
+            this.$delete(tempData,'accWorksheet')
             updateRetReturnlist(tempData).then((res) => {
               if(res.data.success === true){
                 this.getList()

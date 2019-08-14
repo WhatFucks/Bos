@@ -20,6 +20,13 @@ public class RetReturnlistImpl implements RetReturnlistService {
     private RetReturnlistMapper retReturnlistMapper;
 
     @Override
+    public String getApplicationNo() {
+        String maxNo = retReturnlistMapper.getMaxApplicationNo();
+        String num = maxNo.substring(maxNo.indexOf("D")+1);
+        return "SQD"+(Integer.parseInt(num)+1);
+    }
+
+    @Override
     public Map<String, Object> getRetReturnlist(PageEntity page, RetReturnlist ret) {
         Map<String,Object> map = new HashMap<>();
         PageHelper.startPage(page.getPageNum(),page.getPageSize(),true);
