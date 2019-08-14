@@ -351,6 +351,47 @@ export const asyncRoutes = [
       }
     ]
   },
+  // lj 罗晶
+  {
+    path: '/logistics',
+    component: Layout,
+    redirect: '/logistics',
+    alwaysShow: true, // will always show the root menu
+    name: 'logistics',
+    meta: {
+      title: '大物流管理',
+      icon: 'shopping',
+      roles: ['admin'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'logistics',
+        component: () => import('@/views/body/sj/logistics/logisticscontrol'),
+        name: 'logistics',
+        meta: { title: '大物流发货对照表', roles: ['admin'] }
+      }
+    ]
+  },
+  {
+    path: '/reportforms',
+    component: Layout,
+    redirect: '/chart/reportforms',
+    alwaysShow: true, // will always show the root menu
+    name: 'chart',
+    meta: {
+      title: '报表',
+      icon: 'chart',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'statement',
+        component: () => import('@/views/body/sj/reportforms/reportforms'),
+        name: 'statement',
+        meta: { title: '报表', roles: ['admin', 'dev'] }
+      }
+    ]
+  },
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]

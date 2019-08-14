@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lj.mapper.reportforms.AccworkorderMapper" >
-  <resultMap id="BaseResultMap" type="com.sj.entity.reportforms.Accworkorder" >
+  <resultMap id="BaseResultMap" type="com.lj.entity.reportforms.Accworkorder" >
     <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="BusinessNoticeNo" property="businessnoticeno" jdbcType="VARCHAR" />
     <result column="CustomNo" property="customno" jdbcType="VARCHAR" />
@@ -205,7 +205,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.sj.entity.reportforms.AccworkorderExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.lj.entity.reportforms.AccworkorderExample" resultType="java.lang.Integer" >
     select count(*) from acc_workorder
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
