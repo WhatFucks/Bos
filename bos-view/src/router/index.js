@@ -180,6 +180,100 @@ export const asyncRoutes = [
       }
     ]
   },
+  // 胡侘
+  {
+    path: '/sor',
+    component: Layout,
+    redirect: '/sor/page',
+    alwaysShow: true, // will always show the root menu
+    name: 'sor',
+    meta: {
+      title: '分拣管理',
+      icon: 'lock',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'storage',
+        component: () => import('@/views/sor/storage'),
+        name: '入库',
+        meta: {
+          title: '入库',
+          roles: ['admin'] // or you can only set roles in sub nav
+        }
+      },
+      {
+        path: 'outBound',
+        component: () => import('@/views/sor/outBound'),
+        name: '出库',
+        meta: {
+          title: '出库',
+          // if do not set roles, means: this page does not require permission
+          roles: ['dev', 'admin']
+        }
+      },
+      {
+        path: 'checkBound',
+        component: () => import('@/views/sor/checkBound'),
+        name: '盘库',
+        meta: {
+          title: '盘库',
+          roles: ['dev', 'admin']
+        }
+      },
+      {
+        path: 'package',
+        component: () => import('@/views/sor/package'),
+        name: '合包',
+        meta: {
+          title: '合包',
+          roles: ['admin']
+        }
+      },
+      {
+        path: 'unpack',
+        component: () => import('@/views/sor/unpack'),
+        name: '拆包',
+        meta: {
+          title: '拆包',
+          roles: ['admin']
+        }
+      },
+      {
+        path: 'storageQuery',
+        component: () => import('@/views/sor/storageQuery'),
+        name: '出入库查询',
+        meta: {
+          title: '出入库查询',
+          roles: ['admin']
+        }
+      }, {
+        path: 'InventoryQuery',
+        component: () => import('@/views/sor/InventoryQuery'),
+        name: '库存查询',
+        meta: {
+          title: '库存查询',
+          roles: ['dev']
+        }
+      }, {
+        path: 'packageQuery',
+        component: () => import('@/views/sor/packageQuery'),
+        name: '合包查询',
+        meta: {
+          title: '合包查询',
+          roles: ['admin']
+        }
+      }, {
+        path: 'abnormal',
+        component: () => import('@/views/sor/abnormal'),
+        name: '单货异常查询',
+        meta: {
+          title: '单货异常查询',
+          roles: ['admin']
+        }
+      }
+    ]
+  },
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sor.mapper.SorPackageDetailsMapper">
+  <resultMap id="BaseResultMap" type="com.sor.entity.SorPackageDetails">
+    <result column="id" jdbcType="VARCHAR" property="id" />
+    <result column="WareName" jdbcType="VARCHAR" property="warename" />
+    <result column="Destination" jdbcType="VARCHAR" property="destination" />
+    <result column="Ticket" jdbcType="INTEGER" property="ticket" />
+    <result column="ActualCargoInt" jdbcType="INTEGER" property="actualcargoint" />
+    <result column="CargoInt" jdbcType="INTEGER" property="cargoint" />
+    <result column="Weight" jdbcType="DECIMAL" property="weight" />
+    <result column="Volume" jdbcType="DECIMAL" property="volume" />
+    <result column="Service" jdbcType="TIMESTAMP" property="service" />
+    <result column="ImportantHints" jdbcType="VARCHAR" property="importanthints" />
+    <result column="Ask" jdbcType="VARCHAR" property="ask" />
+    <result column="InputType" jdbcType="VARCHAR" property="inputtype" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, WareName, Destination, Ticket, ActualCargoInt, CargoInt, Weight, Volume, Service, 
+    ImportantHints, Ask, InputType
+  </sql>
+  <select id="selectByExample" parameterType="com.sor.entity.SorPackageDetailsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sor_packagedetails
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.sor.entity.SorPackageDetailsExample">
+    delete from sor_packagedetails
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sor.entity.SorPackageDetails">
+    insert into sor_packagedetails (id, WareName, Destination, 
+      Ticket, ActualCargoInt, CargoInt, 
+      Weight, Volume, Service, 
+      ImportantHints, Ask, InputType, packageId
+      )
+    values (#{id,jdbcType=VARCHAR}, #{warename,jdbcType=VARCHAR}, #{destination,jdbcType=VARCHAR}, 
+      #{ticket,jdbcType=INTEGER}, #{actualcargoint,jdbcType=INTEGER}, #{cargoint,jdbcType=INTEGER}, 
+      #{weight,jdbcType=DECIMAL}, #{volume,jdbcType=DECIMAL}, #{service,jdbcType=TIMESTAMP}, 
+      #{importanthints,jdbcType=VARCHAR}, #{ask,jdbcType=VARCHAR}, #{inputtype,jdbcType=VARCHAR}, #{packageId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sor.entity.SorPackageDetails">
+    insert into sor_packagedetails
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="warename != null">
+        WareName,
+      </if>
+      <if test="destination != null">
+        Destination,
+      </if>
+      <if test="ticket != null">
+        Ticket,
+      </if>
+      <if test="actualcargoint != null">
+        ActualCargoInt,
+      </if>
+      <if test="cargoint != null">
+        CargoInt,
+      </if>
+      <if test="weight != null">
+        Weight,
+      </if>
+      <if test="volume != null">
+        Volume,
+      </if>
+      <if test="service != null">
+        Service,
+      </if>
+      <if test="importanthints != null">
+        ImportantHints,
+      </if>
+      <if test="ask != null">
+        Ask,
+      </if>
+      <if test="inputtype != null">
+        InputType,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="warename != null">
+        #{warename,jdbcType=VARCHAR},
+      </if>
+      <if test="destination != null">
+        #{destination,jdbcType=VARCHAR},
+      </if>
+      <if test="ticket != null">
+        #{ticket,jdbcType=INTEGER},
+      </if>
+      <if test="actualcargoint != null">
+        #{actualcargoint,jdbcType=INTEGER},
+      </if>
+      <if test="cargoint != null">
+        #{cargoint,jdbcType=INTEGER},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="volume != null">
+        #{volume,jdbcType=DECIMAL},
+      </if>
+      <if test="service != null">
+        #{service,jdbcType=TIMESTAMP},
+      </if>
+      <if test="importanthints != null">
+        #{importanthints,jdbcType=VARCHAR},
+      </if>
+      <if test="ask != null">
+        #{ask,jdbcType=VARCHAR},
+      </if>
+      <if test="inputtype != null">
+        #{inputtype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sor.entity.SorPackageDetailsExample" resultType="java.lang.Long">
+    select count(*) from sor_packagedetails
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update sor_packagedetails
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.warename != null">
+        WareName = #{record.warename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.destination != null">
+        Destination = #{record.destination,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ticket != null">
+        Ticket = #{record.ticket,jdbcType=INTEGER},
+      </if>
+      <if test="record.actualcargoint != null">
+        ActualCargoInt = #{record.actualcargoint,jdbcType=INTEGER},
+      </if>
+      <if test="record.cargoint != null">
+        CargoInt = #{record.cargoint,jdbcType=INTEGER},
+      </if>
+      <if test="record.weight != null">
+        Weight = #{record.weight,jdbcType=DECIMAL},
+      </if>
+      <if test="record.volume != null">
+        Volume = #{record.volume,jdbcType=DECIMAL},
+      </if>
+      <if test="record.service != null">
+        Service = #{record.service,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.importanthints != null">
+        ImportantHints = #{record.importanthints,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ask != null">
+        Ask = #{record.ask,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inputtype != null">
+        InputType = #{record.inputtype,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update sor_packagedetails
+    set id = #{record.id,jdbcType=VARCHAR},
+      WareName = #{record.warename,jdbcType=VARCHAR},
+      Destination = #{record.destination,jdbcType=VARCHAR},
+      Ticket = #{record.ticket,jdbcType=INTEGER},
+      ActualCargoInt = #{record.actualcargoint,jdbcType=INTEGER},
+      CargoInt = #{record.cargoint,jdbcType=INTEGER},
+      Weight = #{record.weight,jdbcType=DECIMAL},
+      Volume = #{record.volume,jdbcType=DECIMAL},
+      Service = #{record.service,jdbcType=TIMESTAMP},
+      ImportantHints = #{record.importanthints,jdbcType=VARCHAR},
+      Ask = #{record.ask,jdbcType=VARCHAR},
+      InputType = #{record.inputtype,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>
