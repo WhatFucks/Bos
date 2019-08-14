@@ -1,7 +1,7 @@
 package com.lm.service.acc;
 
 import com.lm.entity.acc.AccWorkOrder;
-import com.lm.entity.acc.Dispatch;
+import com.lm.entity.dis.Dispatch;
 
 import java.util.List;
 import java.util.Map;

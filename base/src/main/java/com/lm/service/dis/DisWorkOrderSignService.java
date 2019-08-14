@@ -1,6 +1,6 @@
 package com.lm.service.dis;
 
-import com.lm.entity.acc.DisWorkOrderSign;
+import com.lm.entity.dis.DisWorkOrderSign;
 
 import java.util.Map;
 

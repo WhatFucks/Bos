@@ -1,4 +1,4 @@
-package com.lm.entity.acc;
+package com.lm.entity.dis;
 
 import java.util.ArrayList;
 import java.util.Date;

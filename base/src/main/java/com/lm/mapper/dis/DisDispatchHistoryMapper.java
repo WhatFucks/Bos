@@ -1,7 +1,7 @@
-package com.lm.mapper.acc;
+package com.lm.mapper.dis;
 
-import com.lm.entity.acc.DisDispatchHistory;
-import com.lm.entity.acc.DisDispatchHistoryExample;
+import com.lm.entity.dis.DisDispatchHistory;
+import com.lm.entity.dis.DisDispatchHistoryExample;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 

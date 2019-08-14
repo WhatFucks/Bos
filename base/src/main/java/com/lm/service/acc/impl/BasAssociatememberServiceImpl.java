@@ -1,7 +1,7 @@
 package com.lm.service.acc.impl;
 
-import com.lm.entity.acc.BasAssociatemember;
-import com.lm.mapper.acc.BasAssociatememberMapper;
+import com.lm.entity.dis.BasAssociatemember;
+import com.lm.mapper.dis.BasAssociatememberMapper;
 import com.lm.service.acc.BasAssociatememberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

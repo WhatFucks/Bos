@@ -1,6 +1,6 @@
 package com.lm.service.acc;
 
-import com.lm.entity.acc.BasZoneInfo;
+import com.lm.entity.dis.BasZoneInfo;
 
 import java.util.List;
 

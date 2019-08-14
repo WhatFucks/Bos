@@ -329,7 +329,7 @@ inner join acc_businessadmissibility ba on ba.BusinessNoticeNo=wo.BusinessNotice
 inner join sys_user u on  u.id = ba.PickerInfo
   </select>
   <!--调度  查询 -->
-  <select id="selectDispatch" parameterType="dispatch" resultType="com.lm.entity.acc.Dispatch">
+  <select id="selectDispatch" parameterType="dispatch" resultType="com.lm.entity.dis.Dispatch">
     select  JobType,JobNo,ShortMessageInt,aw.BusinessNoticeNo AwBusinessNoticeNo,WorkGenerationTime,SendAddress,Linkman,TelPhone,AfterSingleNum,PickupUnit from acc_workorder aw
     INNER  JOIN acc_businessadmissibility ba on aw.BusinessNoticeNo = ba.BusinessNoticeNo  WHERE JobType &lt;&gt;3
     <trim  suffixOverrides=",">

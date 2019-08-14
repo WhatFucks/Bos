@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lm.mapper.acc.BasAssociatememberMapper">
-  <resultMap id="BaseResultMap" type="com.lm.entity.acc.BasAssociatemember">
+<mapper namespace="com.lm.mapper.dis.BasAssociatememberMapper">
+  <resultMap id="BaseResultMap" type="com.lm.entity.dis.BasAssociatemember">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="ZoneCode" jdbcType="VARCHAR" property="zonecode" />
     <result column="EmpNo" jdbcType="VARCHAR" property="empno" />
@@ -74,7 +74,7 @@
     id, ZoneCode, EmpNo, EmpName, StandardKg, StandardLength, StandardTime, SubordinateUnit, 
     type
   </sql>
-  <select id="selectByExample" parameterType="com.lm.entity.acc.BasAssociatememberExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.lm.entity.dis.BasAssociatememberExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -98,13 +98,13 @@
     delete from bas_associatemember
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.lm.entity.acc.BasAssociatememberExample">
+  <delete id="deleteByExample" parameterType="com.lm.entity.dis.BasAssociatememberExample">
     delete from bas_associatemember
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.lm.entity.acc.BasAssociatemember">
+  <insert id="insert" parameterType="com.lm.entity.dis.BasAssociatemember">
     insert into bas_associatemember (id, ZoneCode, EmpNo, 
       EmpName, StandardKg, StandardLength, 
       StandardTime, SubordinateUnit, type
@@ -114,7 +114,7 @@
       #{standardtime,jdbcType=TIMESTAMP}, #{subordinateunit,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.lm.entity.acc.BasAssociatemember">
+  <insert id="insertSelective" parameterType="com.lm.entity.dis.BasAssociatemember">
     insert into bas_associatemember
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -175,7 +175,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.lm.entity.acc.BasAssociatememberExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.lm.entity.dis.BasAssociatememberExample" resultType="java.lang.Long">
     select count(*) from bas_associatemember
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -231,7 +231,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lm.entity.acc.BasAssociatemember">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lm.entity.dis.BasAssociatemember">
     update bas_associatemember
     <set>
       <if test="zonecode != null">
@@ -261,7 +261,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lm.entity.acc.BasAssociatemember">
+  <update id="updateByPrimaryKey" parameterType="com.lm.entity.dis.BasAssociatemember">
     update bas_associatemember
     set ZoneCode = #{zonecode,jdbcType=VARCHAR},
       EmpNo = #{empno,jdbcType=VARCHAR},

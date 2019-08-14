@@ -1,7 +1,7 @@
 package com.lm.service.acc.impl;
 
-import com.lm.entity.acc.DisDispatchHistory;
-import com.lm.mapper.acc.DisDispatchHistoryMapper;
+import com.lm.entity.dis.DisDispatchHistory;
+import com.lm.mapper.dis.DisDispatchHistoryMapper;
 import com.lm.service.acc.DisDispatchhistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

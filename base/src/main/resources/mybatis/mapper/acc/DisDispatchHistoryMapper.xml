@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lm.mapper.acc.DisDispatchHistoryMapper">
-  <resultMap id="BaseResultMap" type="com.lm.entity.acc.DisDispatchHistory">
+<mapper namespace="com.lm.mapper.dis.DisDispatchHistoryMapper">
+  <resultMap id="BaseResultMap" type="com.lm.entity.dis.DisDispatchHistory">
     <id column="ID" jdbcType="INTEGER" property="id" />
     <result column="DispatchSequence" jdbcType="INTEGER" property="dispatchsequence" />
     <result column="TransferredUnit" jdbcType="INTEGER" property="transferredunit" />
@@ -74,7 +74,7 @@
     ID, DispatchSequence, TransferredUnit, OperatorID, OperationUnitID, OperationTime, 
     Remark, Status, Reason
   </sql>
-  <select id="selectByExample" parameterType="com.lm.entity.acc.DisDispatchHistoryExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.lm.entity.dis.DisDispatchHistoryExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -98,13 +98,13 @@
     delete from dis_dispatchhistory
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.lm.entity.acc.DisDispatchHistoryExample">
+  <delete id="deleteByExample" parameterType="com.lm.entity.dis.DisDispatchHistoryExample">
     delete from dis_dispatchhistory
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.lm.entity.acc.DisDispatchHistory">
+  <insert id="insert" parameterType="com.lm.entity.dis.DisDispatchHistory">
     insert into dis_dispatchhistory (ID, DispatchSequence, TransferredUnit, 
       OperatorID, OperationUnitID, OperationTime, 
       Remark, Status, Reason
@@ -114,7 +114,7 @@
       #{remark,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{reason,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.lm.entity.acc.DisDispatchHistory">
+  <insert id="insertSelective" parameterType="com.lm.entity.dis.DisDispatchHistory">
     insert into dis_dispatchhistory
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -175,7 +175,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.lm.entity.acc.DisDispatchHistoryExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.lm.entity.dis.DisDispatchHistoryExample" resultType="java.lang.Long">
     select count(*) from dis_dispatchhistory
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -231,7 +231,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lm.entity.acc.DisDispatchHistory">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lm.entity.dis.DisDispatchHistory">
     update dis_dispatchhistory
     <set>
       <if test="dispatchsequence != null">
@@ -261,7 +261,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lm.entity.acc.DisDispatchHistory">
+  <update id="updateByPrimaryKey" parameterType="com.lm.entity.dis.DisDispatchHistory">
     update dis_dispatchhistory
     set DispatchSequence = #{dispatchsequence,jdbcType=INTEGER},
       TransferredUnit = #{transferredunit,jdbcType=INTEGER},

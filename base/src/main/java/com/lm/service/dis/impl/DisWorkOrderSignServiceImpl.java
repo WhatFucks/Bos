@@ -2,9 +2,9 @@ package com.lm.service.dis.impl;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.lm.entity.acc.DisWorkOrderSign;
-import com.lm.entity.acc.DisWorkOrderSignExample;
-import com.lm.mapper.acc.DisWorkOrderSignMapper;
+import com.lm.entity.dis.DisWorkOrderSign;
+import com.lm.entity.dis.DisWorkOrderSignExample;
+import com.lm.mapper.dis.DisWorkOrderSignMapper;
 import com.lm.service.dis.DisWorkOrderSignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lm.mapper.acc.DisWorkOrderSignMapper">
-  <resultMap id="BaseResultMap" type="com.lm.entity.acc.DisWorkOrderSign">
+<mapper namespace="com.lm.mapper.dis.DisWorkOrderSignMapper">
+  <resultMap id="BaseResultMap" type="com.lm.entity.dis.DisWorkOrderSign">
     <id column="ID" jdbcType="INTEGER" property="id" />
     <result column="WorkOrderID" jdbcType="VARCHAR" property="workorderid" />
     <result column="WorkSheetNo" jdbcType="VARCHAR" property="worksheetno" />
@@ -92,7 +92,7 @@
     InputID, InputTime, ApplicationNo, ApplicatioPerson, ApplicatioTime, ApplicatioUnit, 
     ConfirmationPersonName, cause, Confirm, SignForMark, TreatmentState
   </sql>
-  <select id="selectByExample" parameterType="com.lm.entity.acc.DisWorkOrderSignExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.lm.entity.dis.DisWorkOrderSignExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -116,13 +116,13 @@
     delete from dis_workordersign
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.lm.entity.acc.DisWorkOrderSignExample">
+  <delete id="deleteByExample" parameterType="com.lm.entity.dis.DisWorkOrderSignExample">
     delete from dis_workordersign
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.lm.entity.acc.DisWorkOrderSign">
+  <insert id="insert" parameterType="com.lm.entity.dis.DisWorkOrderSign">
     insert into dis_workordersign (ID, WorkOrderID, WorkSheetNo, 
       WorkOrderType, SignType, CourierInt, 
       CourierName, Recipient, SignUnit, 
@@ -142,7 +142,7 @@
       #{cause,jdbcType=VARCHAR}, #{confirm,jdbcType=VARCHAR}, #{signformark,jdbcType=VARCHAR}, 
       #{treatmentstate,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.lm.entity.acc.DisWorkOrderSign">
+  <insert id="insertSelective" parameterType="com.lm.entity.dis.DisWorkOrderSign">
     insert into dis_workordersign
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -299,7 +299,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.lm.entity.acc.DisWorkOrderSignExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.lm.entity.dis.DisWorkOrderSignExample" resultType="java.lang.Long">
     select count(*) from dis_workordersign
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -419,7 +419,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lm.entity.acc.DisWorkOrderSign">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lm.entity.dis.DisWorkOrderSign">
     update dis_workordersign
     <set>
       <if test="workorderid != null">
@@ -497,7 +497,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lm.entity.acc.DisWorkOrderSign">
+  <update id="updateByPrimaryKey" parameterType="com.lm.entity.dis.DisWorkOrderSign">
     update dis_workordersign
     set WorkOrderID = #{workorderid,jdbcType=VARCHAR},
       WorkSheetNo = #{worksheetno,jdbcType=VARCHAR},
