@@ -127,7 +127,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>1.5.21.RELEASE</version>
                 <configuration><!-- 指定该Main Class为全局的唯一入口 -->
-                    <mainClass>com.lyb.BaseApplication</mainClass>
+                    <mainClass>com.BaseApplication</mainClass>
                     <layout>ZIP</layout>
                 </configuration>
                 <executions>
