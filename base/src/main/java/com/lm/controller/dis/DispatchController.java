@@ -1,8 +1,8 @@
 package com.lm.controller.dis;
 
-import com.lm.entity.acc.BasAssociatemember;
-import com.lm.entity.acc.BasZoneInfo;
-import com.lm.entity.acc.Dispatch;
+import com.lm.entity.dis.BasAssociatemember;
+import com.lm.entity.dis.BasZoneInfo;
+import com.lm.entity.dis.Dispatch;
 import com.lm.service.acc.AccWorkOrderService;
 import com.lm.service.acc.BasAssociatememberService;
 import com.lm.service.acc.BasZoneInfoService;

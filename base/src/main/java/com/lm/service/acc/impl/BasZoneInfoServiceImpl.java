@@ -1,7 +1,7 @@
 package com.lm.service.acc.impl;
 
-import com.lm.entity.acc.BasZoneInfo;
-import com.lm.mapper.acc.BasZoneInfoMapper;
+import com.lm.entity.dis.BasZoneInfo;
+import com.lm.mapper.dis.BasZoneInfoMapper;
 import com.lm.service.acc.BasZoneInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

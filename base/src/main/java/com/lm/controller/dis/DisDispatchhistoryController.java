@@ -2,7 +2,7 @@ package com.lm.controller.dis;
 
 import com.lm.entity.acc.AccBusinessAdmissibility;
 import com.lm.entity.acc.AccWorkOrder;
-import com.lm.entity.acc.DisDispatchHistory;
+import com.lm.entity.dis.DisDispatchHistory;
 import com.lm.service.acc.AccBusinessAdmissibilityService;
 import com.lm.service.acc.AccWorkOrderService;
 import com.lm.service.acc.DisDispatchhistoryService;

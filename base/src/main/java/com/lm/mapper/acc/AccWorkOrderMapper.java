@@ -3,7 +3,7 @@ package com.lm.mapper.acc;
 import com.lm.entity.acc.Acc;
 import com.lm.entity.acc.AccWorkOrder;
 import com.lm.entity.acc.AccWorkOrderExample;
-import com.lm.entity.acc.Dispatch;
+import com.lm.entity.dis.Dispatch;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
