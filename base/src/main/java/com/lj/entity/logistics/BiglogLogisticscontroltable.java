@@ -1,7 +1,7 @@
 package com.lj.entity.logistics;
 
-import com.lj.entity.sys.SysDept;
-import com.lj.entity.sys.SysUser;
+import com.lyb.entity.SysDept;
+import com.lyb.entity.SysUser;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
