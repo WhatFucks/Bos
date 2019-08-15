@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ljw.mapper.IaeExtractMapper">
+  <resultMap id="BaseResultMap" type="com.ljw.entity.IaeExtract">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="VehicleInt" jdbcType="VARCHAR" property="vehicleint" />
+    <result column="TransportWay" jdbcType="VARCHAR" property="transportway" />
+    <result column="WaybillID" jdbcType="VARCHAR" property="waybillid" />
+    <result column="EstimateDate" jdbcType="TIMESTAMP" property="estimatedate" />
+    <result column="CargoN" jdbcType="INTEGER" property="cargon" />
+    <result column="ImportantHints" jdbcType="VARCHAR" property="importanthints" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, VehicleInt, TransportWay, WaybillID, EstimateDate, CargoN, ImportantHints
+  </sql>
+  <select id="selectByExample" parameterType="com.ljw.entity.IaeExtractExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from iae_extract
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from iae_extract
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from iae_extract
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ljw.entity.IaeExtractExample">
+    delete from iae_extract
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ljw.entity.IaeExtract">
+    insert into iae_extract (id, VehicleInt, TransportWay, 
+      WaybillID, EstimateDate, CargoN, 
+      ImportantHints)
+    values (#{id,jdbcType=VARCHAR}, #{vehicleint,jdbcType=VARCHAR}, #{transportway,jdbcType=VARCHAR}, 
+      #{waybillid,jdbcType=VARCHAR}, #{estimatedate,jdbcType=TIMESTAMP}, #{cargon,jdbcType=INTEGER}, 
+      #{importanthints,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ljw.entity.IaeExtract">
+    insert into iae_extract
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="vehicleint != null">
+        VehicleInt,
+      </if>
+      <if test="transportway != null">
+        TransportWay,
+      </if>
+      <if test="waybillid != null">
+        WaybillID,
+      </if>
+      <if test="estimatedate != null">
+        EstimateDate,
+      </if>
+      <if test="cargon != null">
+        CargoN,
+      </if>
+      <if test="importanthints != null">
+        ImportantHints,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleint != null">
+        #{vehicleint,jdbcType=VARCHAR},
+      </if>
+      <if test="transportway != null">
+        #{transportway,jdbcType=VARCHAR},
+      </if>
+      <if test="waybillid != null">
+        #{waybillid,jdbcType=VARCHAR},
+      </if>
+      <if test="estimatedate != null">
+        #{estimatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cargon != null">
+        #{cargon,jdbcType=INTEGER},
+      </if>
+      <if test="importanthints != null">
+        #{importanthints,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ljw.entity.IaeExtractExample" resultType="java.lang.Long">
+    select count(*) from iae_extract
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update iae_extract
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vehicleint != null">
+        VehicleInt = #{record.vehicleint,jdbcType=VARCHAR},
+      </if>
+      <if test="record.transportway != null">
+        TransportWay = #{record.transportway,jdbcType=VARCHAR},
+      </if>
+      <if test="record.waybillid != null">
+        WaybillID = #{record.waybillid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.estimatedate != null">
+        EstimateDate = #{record.estimatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cargon != null">
+        CargoN = #{record.cargon,jdbcType=INTEGER},
+      </if>
+      <if test="record.importanthints != null">
+        ImportantHints = #{record.importanthints,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update iae_extract
+    set id = #{record.id,jdbcType=VARCHAR},
+      VehicleInt = #{record.vehicleint,jdbcType=VARCHAR},
+      TransportWay = #{record.transportway,jdbcType=VARCHAR},
+      WaybillID = #{record.waybillid,jdbcType=VARCHAR},
+      EstimateDate = #{record.estimatedate,jdbcType=TIMESTAMP},
+      CargoN = #{record.cargon,jdbcType=INTEGER},
+      ImportantHints = #{record.importanthints,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ljw.entity.IaeExtract">
+    update iae_extract
+    <set>
+      <if test="vehicleint != null">
+        VehicleInt = #{vehicleint,jdbcType=VARCHAR},
+      </if>
+      <if test="transportway != null">
+        TransportWay = #{transportway,jdbcType=VARCHAR},
+      </if>
+      <if test="waybillid != null">
+        WaybillID = #{waybillid,jdbcType=VARCHAR},
+      </if>
+      <if test="estimatedate != null">
+        EstimateDate = #{estimatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cargon != null">
+        CargoN = #{cargon,jdbcType=INTEGER},
+      </if>
+      <if test="importanthints != null">
+        ImportantHints = #{importanthints,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ljw.entity.IaeExtract">
+    update iae_extract
+    set VehicleInt = #{vehicleint,jdbcType=VARCHAR},
+      TransportWay = #{transportway,jdbcType=VARCHAR},
+      WaybillID = #{waybillid,jdbcType=VARCHAR},
+      EstimateDate = #{estimatedate,jdbcType=TIMESTAMP},
+      CargoN = #{cargon,jdbcType=INTEGER},
+      ImportantHints = #{importanthints,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

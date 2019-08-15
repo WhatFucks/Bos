@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ljw.mapper.SorCheckbounddetailsMapper">
+  <resultMap id="BaseResultMap" type="com.ljw.entity.SorCheckbounddetails">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="PackageID" jdbcType="VARCHAR" property="packageid" />
+    <result column="CargoCount" jdbcType="INTEGER" property="cargocount" />
+    <result column="Weight" jdbcType="DECIMAL" property="weight" />
+    <result column="Volume" jdbcType="DECIMAL" property="volume" />
+    <result column="CargoType" jdbcType="INTEGER" property="cargotype" />
+    <result column="Direction" jdbcType="VARCHAR" property="direction" />
+    <result column="StoragePerson" jdbcType="INTEGER" property="storageperson" />
+    <result column="StorageDate" jdbcType="TIMESTAMP" property="storagedate" />
+    <result column="checkId" jdbcType="VARCHAR" property="checkid" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, PackageID, CargoCount, Weight, Volume, CargoType, Direction, StoragePerson, StorageDate, 
+    checkId
+  </sql>
+  <select id="selectByExample" parameterType="com.ljw.entity.SorCheckbounddetailsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sor_checkbounddetails
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sor_checkbounddetails
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from sor_checkbounddetails
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ljw.entity.SorCheckbounddetailsExample">
+    delete from sor_checkbounddetails
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ljw.entity.SorCheckbounddetails">
+    insert into sor_checkbounddetails (id, PackageID, CargoCount, 
+      Weight, Volume, CargoType, 
+      Direction, StoragePerson, StorageDate, 
+      checkId)
+    values (#{id,jdbcType=VARCHAR}, #{packageid,jdbcType=VARCHAR}, #{cargocount,jdbcType=INTEGER}, 
+      #{weight,jdbcType=DECIMAL}, #{volume,jdbcType=DECIMAL}, #{cargotype,jdbcType=INTEGER}, 
+      #{direction,jdbcType=VARCHAR}, #{storageperson,jdbcType=INTEGER}, #{storagedate,jdbcType=TIMESTAMP}, 
+      #{checkid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ljw.entity.SorCheckbounddetails">
+    insert into sor_checkbounddetails
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="packageid != null">
+        PackageID,
+      </if>
+      <if test="cargocount != null">
+        CargoCount,
+      </if>
+      <if test="weight != null">
+        Weight,
+      </if>
+      <if test="volume != null">
+        Volume,
+      </if>
+      <if test="cargotype != null">
+        CargoType,
+      </if>
+      <if test="direction != null">
+        Direction,
+      </if>
+      <if test="storageperson != null">
+        StoragePerson,
+      </if>
+      <if test="storagedate != null">
+        StorageDate,
+      </if>
+      <if test="checkid != null">
+        checkId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="packageid != null">
+        #{packageid,jdbcType=VARCHAR},
+      </if>
+      <if test="cargocount != null">
+        #{cargocount,jdbcType=INTEGER},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="volume != null">
+        #{volume,jdbcType=DECIMAL},
+      </if>
+      <if test="cargotype != null">
+        #{cargotype,jdbcType=INTEGER},
+      </if>
+      <if test="direction != null">
+        #{direction,jdbcType=VARCHAR},
+      </if>
+      <if test="storageperson != null">
+        #{storageperson,jdbcType=INTEGER},
+      </if>
+      <if test="storagedate != null">
+        #{storagedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkid != null">
+        #{checkid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ljw.entity.SorCheckbounddetailsExample" resultType="java.lang.Long">
+    select count(*) from sor_checkbounddetails
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update sor_checkbounddetails
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.packageid != null">
+        PackageID = #{record.packageid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cargocount != null">
+        CargoCount = #{record.cargocount,jdbcType=INTEGER},
+      </if>
+      <if test="record.weight != null">
+        Weight = #{record.weight,jdbcType=DECIMAL},
+      </if>
+      <if test="record.volume != null">
+        Volume = #{record.volume,jdbcType=DECIMAL},
+      </if>
+      <if test="record.cargotype != null">
+        CargoType = #{record.cargotype,jdbcType=INTEGER},
+      </if>
+      <if test="record.direction != null">
+        Direction = #{record.direction,jdbcType=VARCHAR},
+      </if>
+      <if test="record.storageperson != null">
+        StoragePerson = #{record.storageperson,jdbcType=INTEGER},
+      </if>
+      <if test="record.storagedate != null">
+        StorageDate = #{record.storagedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.checkid != null">
+        checkId = #{record.checkid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update sor_checkbounddetails
+    set id = #{record.id,jdbcType=VARCHAR},
+      PackageID = #{record.packageid,jdbcType=VARCHAR},
+      CargoCount = #{record.cargocount,jdbcType=INTEGER},
+      Weight = #{record.weight,jdbcType=DECIMAL},
+      Volume = #{record.volume,jdbcType=DECIMAL},
+      CargoType = #{record.cargotype,jdbcType=INTEGER},
+      Direction = #{record.direction,jdbcType=VARCHAR},
+      StoragePerson = #{record.storageperson,jdbcType=INTEGER},
+      StorageDate = #{record.storagedate,jdbcType=TIMESTAMP},
+      checkId = #{record.checkid,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ljw.entity.SorCheckbounddetails">
+    update sor_checkbounddetails
+    <set>
+      <if test="packageid != null">
+        PackageID = #{packageid,jdbcType=VARCHAR},
+      </if>
+      <if test="cargocount != null">
+        CargoCount = #{cargocount,jdbcType=INTEGER},
+      </if>
+      <if test="weight != null">
+        Weight = #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="volume != null">
+        Volume = #{volume,jdbcType=DECIMAL},
+      </if>
+      <if test="cargotype != null">
+        CargoType = #{cargotype,jdbcType=INTEGER},
+      </if>
+      <if test="direction != null">
+        Direction = #{direction,jdbcType=VARCHAR},
+      </if>
+      <if test="storageperson != null">
+        StoragePerson = #{storageperson,jdbcType=INTEGER},
+      </if>
+      <if test="storagedate != null">
+        StorageDate = #{storagedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkid != null">
+        checkId = #{checkid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ljw.entity.SorCheckbounddetails">
+    update sor_checkbounddetails
+    set PackageID = #{packageid,jdbcType=VARCHAR},
+      CargoCount = #{cargocount,jdbcType=INTEGER},
+      Weight = #{weight,jdbcType=DECIMAL},
+      Volume = #{volume,jdbcType=DECIMAL},
+      CargoType = #{cargotype,jdbcType=INTEGER},
+      Direction = #{direction,jdbcType=VARCHAR},
+      StoragePerson = #{storageperson,jdbcType=INTEGER},
+      StorageDate = #{storagedate,jdbcType=TIMESTAMP},
+      checkId = #{checkid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

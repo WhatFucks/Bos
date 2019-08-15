@@ -38,6 +38,8 @@ public interface SorStorageDetailsMapper {
     @Update("update sor_storagedetails set State=0 where id=#{id}")
     SorStorageDetails updateDetailByIdTo0(String id);
 
+
+
     @Select("select id,PackageID,weight,OutBoundID,State,storageid from sor_storagedetails where id=#{id} ")
     SorStorageDetails getDetailById(String id);
     /**

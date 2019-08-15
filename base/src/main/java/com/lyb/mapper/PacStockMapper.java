@@ -32,4 +32,5 @@ public interface PacStockMapper {
     int updateByPrimaryKeySelective(PacStock record);
 
     int updateByPrimaryKey(PacStock record);
+
 }

@@ -443,6 +443,83 @@ export const asyncRoutes = [
       }
     ]
   },
+  // 廖嘉威
+  {
+    path: '/pac',
+    component: Layout,
+    redirect: '/pac',
+    alwaysShow: true, // will always show the root menu
+    name: 'pac',
+    meta: {
+      title: '包装材料管理',
+      icon: 'example',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'packaging',
+        component: () => import('@/views/body/ljw/packaging'),
+        name: 'packaging',
+        meta: { title: '包装材料物品管理', roles: ['admin', 'dev', 'test'] }
+      },
+      {
+        path: 'stock',
+        component: () => import('@/views/body/ljw/PacStock'),
+        name: 'stock',
+        meta: { title: '入库管理', roles: ['admin', 'dev', 'test'] }
+      },
+      {
+        path: 'stockout',
+        component: () => import('@/views/body/ljw/pacStockOut'),
+        name: 'stockout',
+        meta: { title: '出库管理', roles: ['admin', 'dev', 'test'] }
+      },
+      {
+        path: 'stockItem',
+        component: () => import('@/views/body/ljw/inventory'),
+        name: 'stockItem',
+        meta: { title: '库存管理', roles: ['admin', 'dev', 'test'] }
+      }
+    ]
+  },
+  {
+    path: '/iae',
+    component: Layout,
+    redirect: '/iae',
+    alwaysShow: true, // will always show the root menu
+    name: 'iae',
+    meta: {
+      title: '进出港管理',
+      icon: 'example',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'departure',
+        component: () => import('@/views/body/ljw/departure'),
+        name: 'departure',
+        meta: { title: '出港配载', roles: ['admin', 'dev', 'test'] }
+      },
+      {
+        path: 'extract',
+        component: () => import('@/views/body/ljw/extract'),
+        name: 'extract',
+        meta: { title: '提货管理', roles: ['admin', 'dev', 'test'] }
+      },
+      {
+        path: 'arrival',
+        component: () => import('@/views/body/ljw/arrival'),
+        name: 'arrival',
+        meta: { title: '进港分单', roles: ['admin', 'dev', 'test'] }
+      },
+      {
+        path: 'lineResource',
+        component: () => import('@/views/body/ljw/lineresource'),
+        name: 'lineResource',
+        meta: { title: '出港配载查询', roles: ['admin', 'dev', 'test'] }
+      }
+    ]
+  },
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]

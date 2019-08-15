@@ -5,7 +5,7 @@
       <el-button class="filter-item" type="primary" icon="el-icon-search" >
         查询
       </el-button>
-      <el-button class="filter-item" style="margin-left: 10px;" type="success" icon="el-icon-circle-plus" @click="openInser">
+      <el-button class="fil盘库ter-item" style="margin-left: 10px;" type="success" icon="el-icon-circle-plus" @click="openInser">
         新增盘库
       </el-button>
     </div>
@@ -99,7 +99,7 @@
             <span class="link-type">{{ row.typeName }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="入库人" min-width="100px" align="center">
+        <el-table-column label="盘库人" min-width="100px" align="center">
           <template slot-scope="{row}">
             <font color="red">{{row.personName}}</font>
           </template>
@@ -183,8 +183,8 @@
               :key="domain.key"
               :prop="'domains.' + index + '.value'"
             >
-              <td><el-input v-model="domain.id" placeholder="填写单号"></el-input></td>
-              <td><el-input v-model="domain.cargocount" placeholder="合包号"></el-input></td>
+              <td><el-input v-model="domain.id" placeholder="填写单号" @change="getByWork(domain)"></el-input></td>
+              <td><el-input v-model="domain.cargocount" placeholder="件数"></el-input></td>
               <td><el-input v-model="domain.weight" placeholder="重量"></el-input></td>
               <td><el-input v-model="domain.direction" placeholder="方向"></el-input></td>
               <td><el-select v-model="domain.cargotype" placeholder="请选择">
@@ -216,7 +216,7 @@
 <script>
   //
   import { list,insertsorStorage,userlist } from '@/api/sor/storage'
-
+  import { getByWorkIdPackage } from '@/api/sor/storageDetails'
   import { pageList,detailList,insertCheckBound,deleteCheckBound,updateCheckBound,typeList } from '@/api/sor/checkBound'
 
   import Pagination from '@/components/Pagination' // 分页组件
@@ -354,6 +354,23 @@
             type: 'success'
           });
           this.getlist();
+        })
+      },
+      getByWork(item){
+
+        getByWorkIdPackage(item.id).then(response => {
+
+          var index = this.dynamicValidateForm.domains.indexOf(item)
+          if (index !== -1) {
+            const domain={}
+            domain.weight=response.data.worck.weight
+            domain.packageid=response.data.worck.jobNo
+            domain.cargocount=response.data.worck.Total
+            domain.outboundid=response.data.worck.stowageRequirements
+            domain.id=item.id
+            this.dynamicValidateForm.domains.splice(index, 1,domain)
+          }
+
         })
       }
     }
