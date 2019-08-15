@@ -5,16 +5,13 @@
       申请单号：<el-input v-model="listQuery.businessnoticeno" placeholder="请输入申请单号" style="width: 200px;" class="filter-item" clearable @keyup.enter.native="handleFilter" />
       <el-button v-waves class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">查询</el-button>
     </div>
-    <div>
-      <el-button v-waves class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">查询</el-button>
-    </div>
     <el-table :data="list" style="width: 100%"> <!--sortable="custom"-->
       <el-table-column label="序号" align="center" type="index" width="50px" prop="id"></el-table-column>
       <el-table-column label="工作单号" align="center" prop="worksheetno" width="110px"></el-table-column>
       <el-table-column label="申请单号" align="center" prop="applicationno" width="100px"></el-table-column>
       <el-table-column label="签收时间" align="center" prop="signtime" width="100px" :formatter="workordertypes"></el-table-column>
       <el-table-column label="签收状态" align="center" prop="signtype" width="100px" :formatter="signtypes"></el-table-column>
-      <el-table-column label="签收单位" align="center" prop="inputid" width="100px" :formatter="inputids"></el-table-column>
+      <el-table-column label="签收单位" align="center" prop="inputid" width="105px" :formatter="inputids"></el-table-column>
       <el-table-column label="申请人" align="center" prop="applicatioperson" width="100px"></el-table-column>
       <el-table-column label="申请时间" align="center" prop="applicatiotime" width="100px"></el-table-column>
       <el-table-column label="申请单位" align="center" prop="applicatiounit"width="100px"></el-table-column>
@@ -261,8 +258,9 @@
       // 录入单位
       inputids(row){
         switch(row.inputid){
-          case 1:return '长沙总集团';break;
-          case 2:return '衡阳总集团';break;
+          case 1:return '长沙总公司';break;
+          case 2:return '天心区分公司';break;
+          case 3:return '岳麓区分公司';break;
           default:return '未知';
         }
       },
