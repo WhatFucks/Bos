@@ -39,7 +39,7 @@ public class BiglogLogisticscontroltableController {
         String i = wn;
         String ii=wi;
         String param = i.substring(3);
-        String param1 = ii.substring(2);
+        String param1 = ii.substring(3);
         int s=Integer.parseInt(param);
         int s1=Integer.parseInt(param1);
         s=++s;
