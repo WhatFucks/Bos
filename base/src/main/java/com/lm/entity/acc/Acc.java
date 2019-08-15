@@ -6,6 +6,7 @@ import java.util.Date;
 
 @Data
 public class Acc {
+    private String userno;
     private String WorkSheetNo;
     private String WsJobNo;
     private String ProductTime;

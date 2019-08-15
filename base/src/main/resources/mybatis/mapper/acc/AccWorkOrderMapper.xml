@@ -322,7 +322,7 @@
   </update>
   <!--查询工作单 -->
   <select id="SelectAccWorkOrder" parameterType="string" resultType="com.lm.entity.acc.Acc">
-   select  ws.WorkSheetNo,ws.JobNo WsJobNo,ws.ProductTime,ws.Destination,wo.BusinessNoticeNo WoBusinessNoticeNo,u.id uid,u.username,wo.PickupTime WoPickupTime,ba.CustomName,ba.Linkman
+   select  ws.WorkSheetNo,userno,ws.JobNo WsJobNo,ws.ProductTime,ws.Destination,wo.BusinessNoticeNo WoBusinessNoticeNo,u.id uid,u.username,wo.PickupTime WoPickupTime,ba.CustomName,ba.Linkman
 from acc_workorder wo
 inner join acc_worksheet ws on  ws.JobNo= wo.JobNo
 inner join acc_businessadmissibility ba on ba.BusinessNoticeNo=wo.BusinessNoticeNo
