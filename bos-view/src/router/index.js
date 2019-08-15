@@ -114,8 +114,8 @@ export const asyncRoutes = [
       {
         path: 'menu',
         component: () => import('@/views/sys/menu'),
-        name: '菜单管理',
-        meta: { title: '菜单管理', roles: ['admin', 'dev', 'test', '总经理'] }
+        name: '权限管理',
+        meta: { title: '权限管理', roles: ['admin', 'dev', 'test', '总经理'] }
       },
       {
         path: 'dept',
@@ -134,7 +134,7 @@ export const asyncRoutes = [
     name: '基础档案',
     meta: {
       title: '基础档案',
-      icon: 'example',
+      icon: 'form',
       roles: ['admin', 'dev', 'test', '总经理'] // 可以在根导航中设置角色
     },
     children: [
@@ -246,7 +246,7 @@ export const asyncRoutes = [
     name: 'sor',
     meta: {
       title: '分拣管理',
-      icon: 'lock',
+      icon: 'list',
       roles: ['admin', 'dev', 'test', '总经理', '分拣'] // you can set roles in root nav
     },
     children: [
@@ -411,7 +411,7 @@ export const asyncRoutes = [
     name: 'logistics',
     meta: {
       title: '大物流管理',
-      icon: 'shopping',
+      icon: 'tree-table',
       roles: ['admin', 'dev', 'test', '总经理', '物流司机']// you can set roles in root nav
     },
     children: [
@@ -452,7 +452,7 @@ export const asyncRoutes = [
     name: 'pac',
     meta: {
       title: '包装材料管理',
-      icon: 'example',
+      icon: 'table',
       roles: ['admin', 'dev', 'test', '总经理', '包装员', '出入库操作员'] // you can set roles in root nav
     },
     children: [
@@ -490,7 +490,7 @@ export const asyncRoutes = [
     name: 'iae',
     meta: {
       title: '进出港管理',
-      icon: 'example',
+      icon: 'tree',
       roles: ['admin', 'dev', 'test', '总经理', '出港信息员', '进港信息员', '提货管理员'] // you can set roles in root nav
     },
     children: [

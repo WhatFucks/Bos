@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <div class="filter-container">
-      <el-input v-model="listQuery.name" placeholder="输入菜单名..." style="width: 200px;" class="filter-item"/>
+      <el-input v-model="listQuery.name" placeholder="输入权限名..." style="width: 200px;" class="filter-item"/>
       <el-button v-waves class="filter-item" type="primary" icon="el-icon-search" @click="getList">
         查询
       </el-button>
@@ -21,7 +21,7 @@
     >
       <el-table-column label="编号" type="index" align="center" width="60">
       </el-table-column>
-      <el-table-column label="菜单名称" fit="true" align="center">
+      <el-table-column label="权限名称" fit="true" align="center">
         <template slot-scope="scope">
           <span class="link-type">{{ scope.row.name }}</span>
         </template>
