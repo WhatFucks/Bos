@@ -34,8 +34,10 @@ public class SorStorageDetailsServiceImpl implements SorStorageDetailsService {
      */
     @Override
     public SorWorksheet getByworksheetId(String id) {
+
       SorStorageDetails sorStorageDetails=  sorStorageDetailsMapper.getDetailById(id);
         SorWorksheet sorWorksheet=new SorWorksheet();
+
         // 先查询入库详情表，如果有该单号
      if(sorStorageDetails != null){
          sorWorksheet.setWorkSheetNo(sorStorageDetails.getId());
@@ -43,10 +45,15 @@ public class SorStorageDetailsServiceImpl implements SorStorageDetailsService {
          sorWorksheet.setJobNo(sorStorageDetails.getPackageid());
          sorWorksheet.setStowageRequirements(sorStorageDetails.getOutboundid());
      }else{
+         sorWorksheet=sorStorageDetailsMapper.getByWorksheetId(id);
          // 否则就查询上游包装过来的
          sorWorksheet=sorStorageDetailsMapper.getByWorksheetId(id);
-         sorWorksheet.setJobNo("");
-         sorWorksheet.setStowageRequirements("");
+         if(sorWorksheet==null){
+             sorWorksheet=null;
+         }else{
+             sorWorksheet.setJobNo("");
+             sorWorksheet.setStowageRequirements("");
+         }
      }
       return sorWorksheet;
     }
@@ -127,11 +134,9 @@ public class SorStorageDetailsServiceImpl implements SorStorageDetailsService {
                 if(sd.getId()==null){
                     continue;
                 }
-
-                if(sd.getState()==null){
+            SorStorageDetails details= sorStorageDetailsMapper.getDetailById(sd.getId());
                     sd.setState(4);
 // 业务处理：如果单号初始入库（先查询数据库里是否有该单号的信息，没有就默认为初始入库）
-                   SorStorageDetails details= sorStorageDetailsMapper.getDetailById(sd.getId());
                    if(details==null){
                        sd.setState(2);
                    }
@@ -139,19 +144,17 @@ public class SorStorageDetailsServiceImpl implements SorStorageDetailsService {
                    if(details!=null){
                        if(details.getState()==0){
                            details.setState(1);
-                           sorStorageDetailsMapper.insert(details);
+                           sorStorageDetailsMapper.updateDetailByIdTo1(sd.getId());
                        }else if(details.getState()==2){
                            details.setState(1);
-                           sorStorageDetailsMapper.insert(details);
+                           sorStorageDetailsMapper.updateDetailByIdTo1(sd.getId());
                        }
                    }else{
+                       if(sd.getId()==null){
+                           sd.setState(4);
+                       }
                        sorStorageDetailsMapper.insert(sd);
                    }
-                    sorStorageDetailsMapper.insert(sd);
-                 }else{
-                    sorStorageDetailsMapper.insert(sd);
-                }
-
         }
     }
 

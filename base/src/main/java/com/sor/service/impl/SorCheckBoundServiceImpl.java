@@ -51,7 +51,8 @@ public class SorCheckBoundServiceImpl implements SorCheckBoundService {
     @Override
     public void insertCheckBound(SorCheckBound sorCheckBound) {
         sorCheckBound.setCheckdate(new Date());
-        sorCheckBound.setScanid(sorCheckBound.getCargosum()/2+2);
+        sorCheckBound.setScanid(1998514);
+        Integer a=0;
         sorCheckBound.setId("PK"+new Date().getTime());
         if(sorCheckBound.getDomains()!=null){
             for(SorCheckBoundDetails sd:sorCheckBound.getDomains()){
@@ -60,8 +61,10 @@ public class SorCheckBoundServiceImpl implements SorCheckBoundService {
                     sd.setCheckId(sorCheckBound.getId());
                     sd.setStorageperson(Integer.valueOf(sorCheckBound.getCheckperson()));
                     sorCheckBoundDetailsMapper.insert(sd);
+                    a+=sd.getCargocount();
                 }
             }
+            sorCheckBound.setCargosum(a);
         }
                 sorCheckBoundMapper.insert(sorCheckBound);
     }

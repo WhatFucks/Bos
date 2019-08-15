@@ -28,7 +28,7 @@
       </el-table-column>
       <el-table-column label="发起人" min-width="120px">
         <template slot-scope="{row}">
-          <el-tag :type="warning"  effect="plain"><font color="black">{{row.launchperson}}</font>
+          <el-tag   effect="plain"><font color="black">{{row.launchperson}}</font>
           </el-tag>
         </template>
       </el-table-column>

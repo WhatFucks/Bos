@@ -46,7 +46,7 @@
         </el-table-column>
         <font color="red" v-model="weight1"></font>
       </el-table>
-      <span>统计 <font color="red">{{weight1}}(吨)</font></span>
+      <span>统计 <font color="red">{{weight2}}(吨)</font></span>
       <!-- 分页工具条  page当前页 total总记录数 limit每页显示多少条 pagination触发自定义事件，查询数据-->
       <pagination v-show="total>0" :total="total" :page.sync="listQuery.pageNum" :limit.sync="listQuery.pageSize"  />
     </el-tab-pane>
@@ -102,7 +102,7 @@
           </template>
         </el-table-column>
       </el-table>
-     <span>统计 <font color="red">{{weight2}}(吨)</font></span>
+     <span>统计 <font color="red">{{weight1}}(吨)</font></span>
       <!-- 分页工具条  page当前页 total总记录数 limit每页显示多少条 pagination触发自定义事件，查询数据-->
       <pagination v-show="total2>0" :total="total2" :page.sync="listQuery.pageNum" :limit.sync="listQuery.pageSize"  />
 

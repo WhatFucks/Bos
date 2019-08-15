@@ -123,7 +123,7 @@
           <td>状态:<el-select v-model="sorAbnormal.abostate" style="width: 150px"><el-option v-for="item in options2" :key="item.value" :label="item.label" :value="item.value"></el-option></el-select></td>
         </tr>
         <tr>
-          <td> 单号  ：<el-input v-model="sorAbnormal.cargoint" style="width: 120px;" placeholder="请输入单号"></el-input></td>
+          <td> 单号  ：<el-input v-model="sorAbnormal.cargoint" style="width: 120px;" placeholder="请输入单号" @change="sorAbnormalGetId(sorAbnormal.cargoint)"></el-input></td>
           <td> 合包号:<el-input v-model="sorAbnormal.packageint" style="width: 150px;" placeholder="请输入合包号"></el-input></td>
           <td> 交接单号:<el-input v-model="sorAbnormal.transferint" style="width: 120px;" placeholder="请输入交接号"></el-input></td>
         </tr>
@@ -473,6 +473,19 @@
             domain.id=item.id
             this.dynamicValidateForm.domains.splice(index, 1,domain)
           }
+
+        })
+      },
+      // 异常单号查询单号信息
+      sorAbnormalGetId(id){
+        getByWorkId(id).then(response => {
+
+            const domain={}
+            domain.weight=response.data.worck.weight
+            this.sorAbnormal.packageint=response.data.worck.jobNo
+          this.sorAbnormal.transferint=response.data.worck.stowageRequirements
+            domain.id=item.id
+            this.dynamicValidateForm.domains.splice(index, 1,domain)
 
         })
       }
