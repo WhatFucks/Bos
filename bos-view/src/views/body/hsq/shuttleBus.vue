@@ -21,9 +21,9 @@
       highlight-current-row
       style="width: 100%;"
     >
-      <el-table-column label="ID" prop="id" sortable="custom" type="index" align="center" width="80">
+      <el-table-column label="ID" prop="id" sortable="custom" type="index" align="center" width="60">
       </el-table-column>
-      <el-table-column prop="linetype"  label="线路类型" width="110px" align="center" :formatter="linetypeStr">
+      <el-table-column prop="linetype"  label="线路类型" width="90px" align="center" :formatter="linetypeStr">
 <!--        <template slot-scope="scope">-->
 <!--          <span>{{ scope.row.linetype }}</span>-->
 <!--&lt;!&ndash;          <span v-if="scope.row.linetype=='1'">全部</span>&ndash;&gt;-->
@@ -35,60 +35,60 @@
 
 <!--        </template>-->
       </el-table-column>
-      <el-table-column label="线路名称" width="150px" align="center">
+      <el-table-column label="线路名称" width="100px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.logTrack.linename }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="车牌号" width="150px" align="center">
+      <el-table-column label="车牌号" width="100px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.licenseplateint }}</span>
         </template>
       </el-table-column>
 
-      <el-table-column label="承运商" width="110px" align="center">
+      <el-table-column label="承运商" width="80px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.carrier }}</span>
         </template>
       </el-table-column>
 
-      <el-table-column label="车型" width="110px" align="center">
+      <el-table-column label="车型" width="80px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.models }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="司机" width="110px" align="center">
+      <el-table-column label="司机" width="80px" align="center">
       <template slot-scope="scope">
         <span>{{ scope.row.driver }}</span>
       </template>
       </el-table-column>
-      <el-table-column label="电话" width="150px" align="center">
+      <el-table-column label="电话" width="120px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.telephone }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="吨控" width="110px" align="center">
+      <el-table-column label="吨控" width="70px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.ton }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="操作人员" width="110px" align="center">
+      <el-table-column label="操作人员" width="90px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.user.username }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="操作单位" width="130px" align="center">
+      <el-table-column label="操作单位" width="100px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.dept.name }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="操作时间" width="150px" align="center">
+      <el-table-column label="操作时间" width="140px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.operationtime | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
         </template>
       </el-table-column>
 
-      <el-table-column label="操作" align="center" width="230" class-name="small-padding fixed-width">
+      <el-table-column label="操作" align="center" width="160" class-name="small-padding fixed-width">
         <template slot-scope="{row}">
           <el-button type="primary" size="mini" @click="handleUpdate(row)">
             修改
