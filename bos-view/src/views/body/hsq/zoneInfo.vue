@@ -34,7 +34,7 @@
         </template>
       </el-table-column>
 
-      <el-table-column label="定区负责人" width="170px" align="center">
+      <el-table-column label="定区负责人" width="150px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.basInfo.customname }}</span>
         </template>

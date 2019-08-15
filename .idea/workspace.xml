@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1ad5e771-b225-4f0d-b4f0-bb942b311973" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bos-view/src/views/body/hsq/zoneInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/bos-view/src/views/body/hsq/zoneInfo.vue" afterDir="false" />
     </list>
     <list id="8857ba9f-4823-4f37-80e3-6ddf3a703045" name="Revert &quot;罗晶 8/14 15:36 第四次上传&quot;" comment="Revert &quot;罗晶 8/14 15:36 第四次上传&quot;&#10;&#10;This reverts commit fc9dea9c" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -18,7 +19,17 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bos-view/src/views/body/hsq/zoneInfo.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="36" column="46" selection-start-line="36" selection-start-column="46" selection-end-line="36" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -54,6 +65,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="hsq376895089 &lt;376895089@qq.com&gt;" />
         <option value="LiuYanBin &lt;2441543705@qq.com&gt;" />
         <option value="luojing &lt;3118048570@qq.com&gt;" />
         <option value="luojing11 &lt;295919771@qq.com&gt;" />
@@ -70,8 +82,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/service/sys/SysDeptService.java" />
-        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/mapper/sys/SysDeptMapper.java" />
         <option value="$PROJECT_DIR$/base/src/main/java/com/lj/controller/sys/SysDeptController.java" />
         <option value="$PROJECT_DIR$/base/src/main/java/com/lj/mapper/sys/SysMenuMapper.java" />
         <option value="$PROJECT_DIR$/base/src/main/java/com/lj/mapper/sys/SysRoleMapper.java" />
@@ -121,6 +131,8 @@
         <option value="$PROJECT_DIR$/bos-view/src/views/login/index.vue" />
         <option value="$PROJECT_DIR$/bos-view/src/router/index.js" />
         <option value="$PROJECT_DIR$/bos-view/src/layout/components/Settings/index.vue" />
+        <option value="$PROJECT_DIR$/bos-view/src/views/body/hsq/shuttleBus.vue" />
+        <option value="$PROJECT_DIR$/bos-view/src/views/body/hsq/zoneInfo.vue" />
       </list>
     </option>
   </component>
@@ -143,19 +155,54 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="Bos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bos" type="462c0819:PsiDirectoryNode" />
+              <item name="bos-1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bos-1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bos-1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bos-1" type="462c0819:PsiDirectoryNode" />
+              <item name="bos-view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bos-1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bos-1" type="462c0819:PsiDirectoryNode" />
+              <item name="bos-view" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bos-1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bos-1" type="462c0819:PsiDirectoryNode" />
+              <item name="bos-view" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bos-1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bos-1" type="462c0819:PsiDirectoryNode" />
+              <item name="bos-view" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="body" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bos-1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bos-1" type="462c0819:PsiDirectoryNode" />
+              <item name="bos-view" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="body" type="462c0819:PsiDirectoryNode" />
+              <item name="hsq" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -316,11 +363,18 @@
       <option name="project" value="LOCAL" />
       <updated>1565858131140</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="何思祺第一次提交">
+      <created>1565864486474</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1565864486474</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48577000" />
+    <option name="totallyTimeSpent" value="49116000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -332,9 +386,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24205749" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1860817" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -342,23 +397,22 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="TypeScript" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.88707036" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3289689" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4969743" weight="0.39846155" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4969743" weight="0.39770868" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32923076" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49621785" weight="0.27076924" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49546143" weight="0.2700491" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50378215" side_tool="true" weight="0.17512275" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5045386" side_tool="true" weight="0.2700491" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
-      <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49924356" weight="0.54307693" />
+      <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49924356" weight="0.5417349" />
       <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.49924356" weight="0.049099836" />
-      <window_info anchor="right" id="Preview" />
+      <window_info anchor="bottom" id="TypeScript" order="15" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -370,6 +424,7 @@
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Bean Validation" order="9" />
       <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.32980332" />
+      <window_info anchor="right" id="Preview" order="11" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18305598" />
@@ -431,20 +486,13 @@
     <MESSAGE value="罗晶 8/14 21.57" />
     <MESSAGE value="2019-8-15 星期四 下午 15:24" />
     <MESSAGE value="2019-8-15 星期四 下午 16:34" />
-    <option name="LAST_COMMIT_MESSAGE" value="2019-8-15 星期四 下午 16:34" />
+    <MESSAGE value="何思祺第一次提交" />
+    <option name="LAST_COMMIT_MESSAGE" value="何思祺第一次提交" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Bos_dev$BaseApplication.ic" NAME="BaseApplication Coverage Results" MODIFIED="1565659551454" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lm/controller/acc/Acc.java" />
-    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lyb/service/SysUserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lyb/mapper/SysUserMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -493,41 +541,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bos-view/src/Sheng/GlobalProvinces_extend.js" />
     <entry file="file://$PROJECT_DIR$/bos-view/src/views/body/lm/acc/shengs.vue" />
-    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lm/entity/acc/AccBusinessAdmissibility.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lm/controller/acc/AccBusinessAdmissibilityController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="50" column="84" selection-start-line="50" selection-start-column="84" selection-end-line="50" selection-end-column="84" />
-          <folding>
-            <element signature="docComment;method#getList#0;class#AccBusinessAdmissibilityController#0" />
-            <element signature="method#getList#0;class#AccBusinessAdmissibilityController#0" />
-            <element signature="method#insert#0;class#AccBusinessAdmissibilityController#0" />
-            <element signature="method#ChaseSingle#0;class#AccBusinessAdmissibilityController#0" />
-            <element signature="method#MeltSingle#0;class#AccBusinessAdmissibilityController#0" />
-            <element signature="method#UpdateSingle#0;class#AccBusinessAdmissibilityController#0" />
-            <element signature="method#getLists#0;class#AccBusinessAdmissibilityController#0" />
-            <element signature="method#ByTelSelect#0;class#AccBusinessAdmissibilityController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bos-view/src/views/body/lm/acc/reception.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="93" column="144" selection-start-line="93" selection-start-column="144" selection-end-line="93" selection-end-column="144" />
-          <folding>
-            <element signature="n#style#0;n#el-form#0;n#el-dialog#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-select#0;n#el-form-item#0;n#el-col#5;n#el-form#0;n#el-dialog#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/controller/logistics/BiglogLogisticscontroltableController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="33">
@@ -535,7 +548,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-web/4.3.24.RELEASE/spring-web-4.3.24.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.24.RELEASE/spring-web-4.3.24.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="122" selection-start-line="122" selection-end-line="122" />
@@ -556,34 +569,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/8.5.40/tomcat-embed-core-8.5.40.jar!/org/apache/tomcat/util/net/SocketProcessorBase.class">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/8.5.40/tomcat-embed-core-8.5.40.jar!/org/apache/tomcat/util/net/SocketProcessorBase.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5">
           <caret line="26" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/8.5.40/tomcat-embed-core-8.5.40.jar!/org/apache/tomcat/util/threads/TaskThread.class">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/8.5.40/tomcat-embed-core-8.5.40.jar!/org/apache/tomcat/util/threads/TaskThread.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
           <caret line="35" selection-start-line="35" selection-end-line="35" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="747" column="19" selection-start-line="747" selection-start-column="19" selection-end-line="747" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/Thread.java" />
     <entry file="file://$PROJECT_DIR$/bos-view/src/views/sys/menu.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-279">
@@ -763,6 +763,62 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
           <caret line="46" selection-start-line="46" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lm/controller/acc/AccBusinessAdmissibilityController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="50" column="84" selection-start-line="50" selection-start-column="84" selection-end-line="50" selection-end-column="84" />
+          <folding>
+            <element signature="docComment;method#getList#0;class#AccBusinessAdmissibilityController#0" />
+            <element signature="method#getList#0;class#AccBusinessAdmissibilityController#0" />
+            <element signature="method#insert#0;class#AccBusinessAdmissibilityController#0" />
+            <element signature="method#ChaseSingle#0;class#AccBusinessAdmissibilityController#0" />
+            <element signature="method#MeltSingle#0;class#AccBusinessAdmissibilityController#0" />
+            <element signature="method#UpdateSingle#0;class#AccBusinessAdmissibilityController#0" />
+            <element signature="method#getLists#0;class#AccBusinessAdmissibilityController#0" />
+            <element signature="method#ByTelSelect#0;class#AccBusinessAdmissibilityController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lm/entity/acc/AccBusinessAdmissibility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bos-view/src/views/body/hsq/shuttleBus.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="54" column="43" selection-start-line="54" selection-start-column="43" selection-end-line="54" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="36" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bos-view/src/views/body/lm/acc/reception.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="93" column="144" selection-start-line="93" selection-start-column="144" selection-end-line="93" selection-end-column="144" />
+          <folding>
+            <element signature="n#style#0;n#el-form#0;n#el-dialog#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-select#0;n#el-form-item#0;n#el-col#5;n#el-form#0;n#el-dialog#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bos-view/src/views/body/hsq/zoneInfo.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="36" column="46" selection-start-line="36" selection-start-column="46" selection-end-line="36" selection-end-column="46" />
         </state>
       </provider>
     </entry>
