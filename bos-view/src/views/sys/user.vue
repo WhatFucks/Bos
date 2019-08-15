@@ -386,6 +386,7 @@
         this.temp = Object.assign({}, row) // copy obj
         this.dialogTitle = "编辑用户信息"
         this.dialogStatus = 'update'
+        this.temp.password = '******'
         this.dialogFormVisible = true
         this.$nextTick(() => {
           this.$refs['dataForm'].clearValidate()
