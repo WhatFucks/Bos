@@ -8,6 +8,8 @@ import com.lm.util.note.PhoneCodeXiao;
 import com.lm.util.note.PhoneCodeXin;
 import com.lm.util.note.PhoneCodeZhui;
 import com.lm.util.note.ResponseResult;
+import com.lyb.entity.SysUser;
+import com.lyb.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +26,8 @@ public class AccBusinessAdmissibilityController {
     private AccBusinessAdmissibilityService accBusinessAdmissibilityService;
     @Autowired
     private AccWorkOrderService accWorkOrderService;
+    @Autowired
+    private SysUserService sysUserService;
     /**
      * 查询所以业务受理
      */
@@ -254,6 +258,16 @@ public class AccBusinessAdmissibilityController {
         Map map= accBusinessAdmissibilityService.lists(businessnoticeno,customcode,page,limit);
         ResponseResult result=new ResponseResult();
         result.getData().putAll(map);
+        return result;
+    }
+    // 根据电话号码查询
+    @RequestMapping("ByTelSelect")
+    public ResponseResult ByTelSelect(String telphone){
+        SysUser sysUser = sysUserService.ByTelSelect(telphone);
+        ResponseResult result = new ResponseResult();
+        if (sysUser!=null){
+            result.getData().put("user",sysUser);
+        }
         return result;
     }
 }
