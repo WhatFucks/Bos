@@ -1,9 +1,9 @@
 package com.lyb.service.impl;
 
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.lyb.entity.PacStock;
-import com.lyb.entity.PacStockExample;
+import com.lyb.entity.*;
 import com.lyb.general.PageEntity;
 import com.lyb.mapper.PacStockMapper;
 import com.lyb.service.PacStockService;
@@ -82,4 +82,5 @@ public class PacStockServiceImpl implements PacStockService {
         String num = Transport.substring(Transport.indexOf("D")+1);
         return "YSD"+(Integer.parseInt(num)+1);
     }
+
 }

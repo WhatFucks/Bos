@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ljw.mapper.IaeLineresourceMapper">
+  <resultMap id="BaseResultMap" type="com.ljw.entity.IaeLineresource">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="ResourceType" jdbcType="VARCHAR" property="resourcetype" />
+    <result column="Port" jdbcType="VARCHAR" property="port" />
+    <result column="Demand" jdbcType="BIT" property="demand" />
+    <result column="VehicleInt" jdbcType="VARCHAR" property="vehicleint" />
+    <result column="Capacity" jdbcType="VARCHAR" property="capacity" />
+    <result column="WaybillID" jdbcType="VARCHAR" property="waybillid" />
+    <result column="Carrier" jdbcType="VARCHAR" property="carrier" />
+    <result column="ExpectArrivalDate" jdbcType="TIMESTAMP" property="expectarrivaldate" />
+    <result column="ExpectDepartureDate" jdbcType="TIMESTAMP" property="expectdeparturedate" />
+    <result column="Ticket" jdbcType="INTEGER" property="ticket" />
+    <result column="Cargo" jdbcType="INTEGER" property="cargo" />
+    <result column="Weight" jdbcType="DECIMAL" property="weight" />
+    <result column="Volume" jdbcType="DECIMAL" property="volume" />
+    <result column="HandlePerson" jdbcType="VARCHAR" property="handleperson" />
+    <result column="HandleDate" jdbcType="TIMESTAMP" property="handledate" />
+    <result column="EnterPerson" jdbcType="INTEGER" property="enterperson" />
+    <result column="EnterDate" jdbcType="TIMESTAMP" property="enterdate" />
+    <result column="EnterCompany" jdbcType="VARCHAR" property="entercompany" />
+    <result column="AcceptPerson" jdbcType="INTEGER" property="acceptperson" />
+    <result column="AcceptDate" jdbcType="TIMESTAMP" property="acceptdate" />
+    <result column="AcceptCompany" jdbcType="VARCHAR" property="acceptcompany" />
+    <result column="AbnormalRemarks" jdbcType="VARCHAR" property="abnormalremarks" />
+    <result column="WorkInt" jdbcType="VARCHAR" property="workint" />
+    <result column="Transfer" jdbcType="BIT" property="transfer" />
+    <result column="ActualCount" jdbcType="INTEGER" property="actualcount" />
+    <result column="Destination" jdbcType="VARCHAR" property="destination" />
+    <result column="WareName" jdbcType="VARCHAR" property="warename" />
+    <result column="ActualVolume" jdbcType="DECIMAL" property="actualvolume" />
+    <result column="TimeLimit" jdbcType="TIMESTAMP" property="timelimit" />
+    <result column="Ask" jdbcType="VARCHAR" property="ask" />
+    <result column="TakeCargoPerson" jdbcType="VARCHAR" property="takecargoperson" />
+    <result column="TackCargoAddress" jdbcType="VARCHAR" property="tackcargoaddress" />
+    <result column="Payment" jdbcType="INTEGER" property="payment" />
+    <result column="SpecialEnsure" jdbcType="VARCHAR" property="specialensure" />
+    <result column="DeliveryType" jdbcType="BIT" property="deliverytype" />
+    <result column="ImportantHints" jdbcType="VARCHAR" property="importanthints" />
+    <result column="SurplusTime" jdbcType="TIMESTAMP" property="surplustime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, ResourceType, Port, Demand, VehicleInt, Capacity, WaybillID, Carrier, ExpectArrivalDate, 
+    ExpectDepartureDate, Ticket, Cargo, Weight, Volume, HandlePerson, HandleDate, EnterPerson, 
+    EnterDate, EnterCompany, AcceptPerson, AcceptDate, AcceptCompany, AbnormalRemarks, 
+    WorkInt, Transfer, ActualCount, Destination, WareName, ActualVolume, TimeLimit, Ask, 
+    TakeCargoPerson, TackCargoAddress, Payment, SpecialEnsure, DeliveryType, ImportantHints, 
+    SurplusTime
+  </sql>
+  <select id="selectByExample" parameterType="com.ljw.entity.IaeLineresourceExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from iae_lineresource
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from iae_lineresource
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from iae_lineresource
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ljw.entity.IaeLineresourceExample">
+    delete from iae_lineresource
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ljw.entity.IaeLineresource">
+    insert into iae_lineresource (id, ResourceType, Port, 
+      Demand, VehicleInt, Capacity, 
+      WaybillID, Carrier, ExpectArrivalDate, 
+      ExpectDepartureDate, Ticket, Cargo, 
+      Weight, Volume, HandlePerson, 
+      HandleDate, EnterPerson, EnterDate, 
+      EnterCompany, AcceptPerson, AcceptDate, 
+      AcceptCompany, AbnormalRemarks, WorkInt, 
+      Transfer, ActualCount, Destination, 
+      WareName, ActualVolume, TimeLimit, 
+      Ask, TakeCargoPerson, TackCargoAddress, 
+      Payment, SpecialEnsure, DeliveryType, 
+      ImportantHints, SurplusTime)
+    values (#{id,jdbcType=VARCHAR}, #{resourcetype,jdbcType=VARCHAR}, #{port,jdbcType=VARCHAR}, 
+      #{demand,jdbcType=BIT}, #{vehicleint,jdbcType=VARCHAR}, #{capacity,jdbcType=VARCHAR}, 
+      #{waybillid,jdbcType=VARCHAR}, #{carrier,jdbcType=VARCHAR}, #{expectarrivaldate,jdbcType=TIMESTAMP}, 
+      #{expectdeparturedate,jdbcType=TIMESTAMP}, #{ticket,jdbcType=INTEGER}, #{cargo,jdbcType=INTEGER}, 
+      #{weight,jdbcType=DECIMAL}, #{volume,jdbcType=DECIMAL}, #{handleperson,jdbcType=VARCHAR}, 
+      #{handledate,jdbcType=TIMESTAMP}, #{enterperson,jdbcType=INTEGER}, #{enterdate,jdbcType=TIMESTAMP}, 
+      #{entercompany,jdbcType=VARCHAR}, #{acceptperson,jdbcType=INTEGER}, #{acceptdate,jdbcType=TIMESTAMP}, 
+      #{acceptcompany,jdbcType=VARCHAR}, #{abnormalremarks,jdbcType=VARCHAR}, #{workint,jdbcType=VARCHAR}, 
+      #{transfer,jdbcType=BIT}, #{actualcount,jdbcType=INTEGER}, #{destination,jdbcType=VARCHAR}, 
+      #{warename,jdbcType=VARCHAR}, #{actualvolume,jdbcType=DECIMAL}, #{timelimit,jdbcType=TIMESTAMP}, 
+      #{ask,jdbcType=VARCHAR}, #{takecargoperson,jdbcType=VARCHAR}, #{tackcargoaddress,jdbcType=VARCHAR}, 
+      #{payment,jdbcType=INTEGER}, #{specialensure,jdbcType=VARCHAR}, #{deliverytype,jdbcType=BIT}, 
+      #{importanthints,jdbcType=VARCHAR}, #{surplustime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ljw.entity.IaeLineresource">
+    insert into iae_lineresource
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="resourcetype != null">
+        ResourceType,
+      </if>
+      <if test="port != null">
+        Port,
+      </if>
+      <if test="demand != null">
+        Demand,
+      </if>
+      <if test="vehicleint != null">
+        VehicleInt,
+      </if>
+      <if test="capacity != null">
+        Capacity,
+      </if>
+      <if test="waybillid != null">
+        WaybillID,
+      </if>
+      <if test="carrier != null">
+        Carrier,
+      </if>
+      <if test="expectarrivaldate != null">
+        ExpectArrivalDate,
+      </if>
+      <if test="expectdeparturedate != null">
+        ExpectDepartureDate,
+      </if>
+      <if test="ticket != null">
+        Ticket,
+      </if>
+      <if test="cargo != null">
+        Cargo,
+      </if>
+      <if test="weight != null">
+        Weight,
+      </if>
+      <if test="volume != null">
+        Volume,
+      </if>
+      <if test="handleperson != null">
+        HandlePerson,
+      </if>
+      <if test="handledate != null">
+        HandleDate,
+      </if>
+      <if test="enterperson != null">
+        EnterPerson,
+      </if>
+      <if test="enterdate != null">
+        EnterDate,
+      </if>
+      <if test="entercompany != null">
+        EnterCompany,
+      </if>
+      <if test="acceptperson != null">
+        AcceptPerson,
+      </if>
+      <if test="acceptdate != null">
+        AcceptDate,
+      </if>
+      <if test="acceptcompany != null">
+        AcceptCompany,
+      </if>
+      <if test="abnormalremarks != null">
+        AbnormalRemarks,
+      </if>
+      <if test="workint != null">
+        WorkInt,
+      </if>
+      <if test="transfer != null">
+        Transfer,
+      </if>
+      <if test="actualcount != null">
+        ActualCount,
+      </if>
+      <if test="destination != null">
+        Destination,
+      </if>
+      <if test="warename != null">
+        WareName,
+      </if>
+      <if test="actualvolume != null">
+        ActualVolume,
+      </if>
+      <if test="timelimit != null">
+        TimeLimit,
+      </if>
+      <if test="ask != null">
+        Ask,
+      </if>
+      <if test="takecargoperson != null">
+        TakeCargoPerson,
+      </if>
+      <if test="tackcargoaddress != null">
+        TackCargoAddress,
+      </if>
+      <if test="payment != null">
+        Payment,
+      </if>
+      <if test="specialensure != null">
+        SpecialEnsure,
+      </if>
+      <if test="deliverytype != null">
+        DeliveryType,
+      </if>
+      <if test="importanthints != null">
+        ImportantHints,
+      </if>
+      <if test="surplustime != null">
+        SurplusTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="resourcetype != null">
+        #{resourcetype,jdbcType=VARCHAR},
+      </if>
+      <if test="port != null">
+        #{port,jdbcType=VARCHAR},
+      </if>
+      <if test="demand != null">
+        #{demand,jdbcType=BIT},
+      </if>
+      <if test="vehicleint != null">
+        #{vehicleint,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        #{capacity,jdbcType=VARCHAR},
+      </if>
+      <if test="waybillid != null">
+        #{waybillid,jdbcType=VARCHAR},
+      </if>
+      <if test="carrier != null">
+        #{carrier,jdbcType=VARCHAR},
+      </if>
+      <if test="expectarrivaldate != null">
+        #{expectarrivaldate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expectdeparturedate != null">
+        #{expectdeparturedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ticket != null">
+        #{ticket,jdbcType=INTEGER},
+      </if>
+      <if test="cargo != null">
+        #{cargo,jdbcType=INTEGER},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="volume != null">
+        #{volume,jdbcType=DECIMAL},
+      </if>
+      <if test="handleperson != null">
+        #{handleperson,jdbcType=VARCHAR},
+      </if>
+      <if test="handledate != null">
+        #{handledate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enterperson != null">
+        #{enterperson,jdbcType=INTEGER},
+      </if>
+      <if test="enterdate != null">
+        #{enterdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="entercompany != null">
+        #{entercompany,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptperson != null">
+        #{acceptperson,jdbcType=INTEGER},
+      </if>
+      <if test="acceptdate != null">
+        #{acceptdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="acceptcompany != null">
+        #{acceptcompany,jdbcType=VARCHAR},
+      </if>
+      <if test="abnormalremarks != null">
+        #{abnormalremarks,jdbcType=VARCHAR},
+      </if>
+      <if test="workint != null">
+        #{workint,jdbcType=VARCHAR},
+      </if>
+      <if test="transfer != null">
+        #{transfer,jdbcType=BIT},
+      </if>
+      <if test="actualcount != null">
+        #{actualcount,jdbcType=INTEGER},
+      </if>
+      <if test="destination != null">
+        #{destination,jdbcType=VARCHAR},
+      </if>
+      <if test="warename != null">
+        #{warename,jdbcType=VARCHAR},
+      </if>
+      <if test="actualvolume != null">
+        #{actualvolume,jdbcType=DECIMAL},
+      </if>
+      <if test="timelimit != null">
+        #{timelimit,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ask != null">
+        #{ask,jdbcType=VARCHAR},
+      </if>
+      <if test="takecargoperson != null">
+        #{takecargoperson,jdbcType=VARCHAR},
+      </if>
+      <if test="tackcargoaddress != null">
+        #{tackcargoaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="payment != null">
+        #{payment,jdbcType=INTEGER},
+      </if>
+      <if test="specialensure != null">
+        #{specialensure,jdbcType=VARCHAR},
+      </if>
+      <if test="deliverytype != null">
+        #{deliverytype,jdbcType=BIT},
+      </if>
+      <if test="importanthints != null">
+        #{importanthints,jdbcType=VARCHAR},
+      </if>
+      <if test="surplustime != null">
+        #{surplustime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ljw.entity.IaeLineresourceExample" resultType="java.lang.Long">
+    select count(*) from iae_lineresource
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update iae_lineresource
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.resourcetype != null">
+        ResourceType = #{record.resourcetype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.port != null">
+        Port = #{record.port,jdbcType=VARCHAR},
+      </if>
+      <if test="record.demand != null">
+        Demand = #{record.demand,jdbcType=BIT},
+      </if>
+      <if test="record.vehicleint != null">
+        VehicleInt = #{record.vehicleint,jdbcType=VARCHAR},
+      </if>
+      <if test="record.capacity != null">
+        Capacity = #{record.capacity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.waybillid != null">
+        WaybillID = #{record.waybillid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carrier != null">
+        Carrier = #{record.carrier,jdbcType=VARCHAR},
+      </if>
+      <if test="record.expectarrivaldate != null">
+        ExpectArrivalDate = #{record.expectarrivaldate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.expectdeparturedate != null">
+        ExpectDepartureDate = #{record.expectdeparturedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.ticket != null">
+        Ticket = #{record.ticket,jdbcType=INTEGER},
+      </if>
+      <if test="record.cargo != null">
+        Cargo = #{record.cargo,jdbcType=INTEGER},
+      </if>
+      <if test="record.weight != null">
+        Weight = #{record.weight,jdbcType=DECIMAL},
+      </if>
+      <if test="record.volume != null">
+        Volume = #{record.volume,jdbcType=DECIMAL},
+      </if>
+      <if test="record.handleperson != null">
+        HandlePerson = #{record.handleperson,jdbcType=VARCHAR},
+      </if>
+      <if test="record.handledate != null">
+        HandleDate = #{record.handledate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.enterperson != null">
+        EnterPerson = #{record.enterperson,jdbcType=INTEGER},
+      </if>
+      <if test="record.enterdate != null">
+        EnterDate = #{record.enterdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.entercompany != null">
+        EnterCompany = #{record.entercompany,jdbcType=VARCHAR},
+      </if>
+      <if test="record.acceptperson != null">
+        AcceptPerson = #{record.acceptperson,jdbcType=INTEGER},
+      </if>
+      <if test="record.acceptdate != null">
+        AcceptDate = #{record.acceptdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.acceptcompany != null">
+        AcceptCompany = #{record.acceptcompany,jdbcType=VARCHAR},
+      </if>
+      <if test="record.abnormalremarks != null">
+        AbnormalRemarks = #{record.abnormalremarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workint != null">
+        WorkInt = #{record.workint,jdbcType=VARCHAR},
+      </if>
+      <if test="record.transfer != null">
+        Transfer = #{record.transfer,jdbcType=BIT},
+      </if>
+      <if test="record.actualcount != null">
+        ActualCount = #{record.actualcount,jdbcType=INTEGER},
+      </if>
+      <if test="record.destination != null">
+        Destination = #{record.destination,jdbcType=VARCHAR},
+      </if>
+      <if test="record.warename != null">
+        WareName = #{record.warename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.actualvolume != null">
+        ActualVolume = #{record.actualvolume,jdbcType=DECIMAL},
+      </if>
+      <if test="record.timelimit != null">
+        TimeLimit = #{record.timelimit,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.ask != null">
+        Ask = #{record.ask,jdbcType=VARCHAR},
+      </if>
+      <if test="record.takecargoperson != null">
+        TakeCargoPerson = #{record.takecargoperson,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tackcargoaddress != null">
+        TackCargoAddress = #{record.tackcargoaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.payment != null">
+        Payment = #{record.payment,jdbcType=INTEGER},
+      </if>
+      <if test="record.specialensure != null">
+        SpecialEnsure = #{record.specialensure,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deliverytype != null">
+        DeliveryType = #{record.deliverytype,jdbcType=BIT},
+      </if>
+      <if test="record.importanthints != null">
+        ImportantHints = #{record.importanthints,jdbcType=VARCHAR},
+      </if>
+      <if test="record.surplustime != null">
+        SurplusTime = #{record.surplustime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update iae_lineresource
+    set id = #{record.id,jdbcType=VARCHAR},
+      ResourceType = #{record.resourcetype,jdbcType=VARCHAR},
+      Port = #{record.port,jdbcType=VARCHAR},
+      Demand = #{record.demand,jdbcType=BIT},
+      VehicleInt = #{record.vehicleint,jdbcType=VARCHAR},
+      Capacity = #{record.capacity,jdbcType=VARCHAR},
+      WaybillID = #{record.waybillid,jdbcType=VARCHAR},
+      Carrier = #{record.carrier,jdbcType=VARCHAR},
+      ExpectArrivalDate = #{record.expectarrivaldate,jdbcType=TIMESTAMP},
+      ExpectDepartureDate = #{record.expectdeparturedate,jdbcType=TIMESTAMP},
+      Ticket = #{record.ticket,jdbcType=INTEGER},
+      Cargo = #{record.cargo,jdbcType=INTEGER},
+      Weight = #{record.weight,jdbcType=DECIMAL},
+      Volume = #{record.volume,jdbcType=DECIMAL},
+      HandlePerson = #{record.handleperson,jdbcType=VARCHAR},
+      HandleDate = #{record.handledate,jdbcType=TIMESTAMP},
+      EnterPerson = #{record.enterperson,jdbcType=INTEGER},
+      EnterDate = #{record.enterdate,jdbcType=TIMESTAMP},
+      EnterCompany = #{record.entercompany,jdbcType=VARCHAR},
+      AcceptPerson = #{record.acceptperson,jdbcType=INTEGER},
+      AcceptDate = #{record.acceptdate,jdbcType=TIMESTAMP},
+      AcceptCompany = #{record.acceptcompany,jdbcType=VARCHAR},
+      AbnormalRemarks = #{record.abnormalremarks,jdbcType=VARCHAR},
+      WorkInt = #{record.workint,jdbcType=VARCHAR},
+      Transfer = #{record.transfer,jdbcType=BIT},
+      ActualCount = #{record.actualcount,jdbcType=INTEGER},
+      Destination = #{record.destination,jdbcType=VARCHAR},
+      WareName = #{record.warename,jdbcType=VARCHAR},
+      ActualVolume = #{record.actualvolume,jdbcType=DECIMAL},
+      TimeLimit = #{record.timelimit,jdbcType=TIMESTAMP},
+      Ask = #{record.ask,jdbcType=VARCHAR},
+      TakeCargoPerson = #{record.takecargoperson,jdbcType=VARCHAR},
+      TackCargoAddress = #{record.tackcargoaddress,jdbcType=VARCHAR},
+      Payment = #{record.payment,jdbcType=INTEGER},
+      SpecialEnsure = #{record.specialensure,jdbcType=VARCHAR},
+      DeliveryType = #{record.deliverytype,jdbcType=BIT},
+      ImportantHints = #{record.importanthints,jdbcType=VARCHAR},
+      SurplusTime = #{record.surplustime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ljw.entity.IaeLineresource">
+    update iae_lineresource
+    <set>
+      <if test="resourcetype != null">
+        ResourceType = #{resourcetype,jdbcType=VARCHAR},
+      </if>
+      <if test="port != null">
+        Port = #{port,jdbcType=VARCHAR},
+      </if>
+      <if test="demand != null">
+        Demand = #{demand,jdbcType=BIT},
+      </if>
+      <if test="vehicleint != null">
+        VehicleInt = #{vehicleint,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        Capacity = #{capacity,jdbcType=VARCHAR},
+      </if>
+      <if test="waybillid != null">
+        WaybillID = #{waybillid,jdbcType=VARCHAR},
+      </if>
+      <if test="carrier != null">
+        Carrier = #{carrier,jdbcType=VARCHAR},
+      </if>
+      <if test="expectarrivaldate != null">
+        ExpectArrivalDate = #{expectarrivaldate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expectdeparturedate != null">
+        ExpectDepartureDate = #{expectdeparturedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ticket != null">
+        Ticket = #{ticket,jdbcType=INTEGER},
+      </if>
+      <if test="cargo != null">
+        Cargo = #{cargo,jdbcType=INTEGER},
+      </if>
+      <if test="weight != null">
+        Weight = #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="volume != null">
+        Volume = #{volume,jdbcType=DECIMAL},
+      </if>
+      <if test="handleperson != null">
+        HandlePerson = #{handleperson,jdbcType=VARCHAR},
+      </if>
+      <if test="handledate != null">
+        HandleDate = #{handledate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enterperson != null">
+        EnterPerson = #{enterperson,jdbcType=INTEGER},
+      </if>
+      <if test="enterdate != null">
+        EnterDate = #{enterdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="entercompany != null">
+        EnterCompany = #{entercompany,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptperson != null">
+        AcceptPerson = #{acceptperson,jdbcType=INTEGER},
+      </if>
+      <if test="acceptdate != null">
+        AcceptDate = #{acceptdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="acceptcompany != null">
+        AcceptCompany = #{acceptcompany,jdbcType=VARCHAR},
+      </if>
+      <if test="abnormalremarks != null">
+        AbnormalRemarks = #{abnormalremarks,jdbcType=VARCHAR},
+      </if>
+      <if test="workint != null">
+        WorkInt = #{workint,jdbcType=VARCHAR},
+      </if>
+      <if test="transfer != null">
+        Transfer = #{transfer,jdbcType=BIT},
+      </if>
+      <if test="actualcount != null">
+        ActualCount = #{actualcount,jdbcType=INTEGER},
+      </if>
+      <if test="destination != null">
+        Destination = #{destination,jdbcType=VARCHAR},
+      </if>
+      <if test="warename != null">
+        WareName = #{warename,jdbcType=VARCHAR},
+      </if>
+      <if test="actualvolume != null">
+        ActualVolume = #{actualvolume,jdbcType=DECIMAL},
+      </if>
+      <if test="timelimit != null">
+        TimeLimit = #{timelimit,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ask != null">
+        Ask = #{ask,jdbcType=VARCHAR},
+      </if>
+      <if test="takecargoperson != null">
+        TakeCargoPerson = #{takecargoperson,jdbcType=VARCHAR},
+      </if>
+      <if test="tackcargoaddress != null">
+        TackCargoAddress = #{tackcargoaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="payment != null">
+        Payment = #{payment,jdbcType=INTEGER},
+      </if>
+      <if test="specialensure != null">
+        SpecialEnsure = #{specialensure,jdbcType=VARCHAR},
+      </if>
+      <if test="deliverytype != null">
+        DeliveryType = #{deliverytype,jdbcType=BIT},
+      </if>
+      <if test="importanthints != null">
+        ImportantHints = #{importanthints,jdbcType=VARCHAR},
+      </if>
+      <if test="surplustime != null">
+        SurplusTime = #{surplustime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ljw.entity.IaeLineresource">
+    update iae_lineresource
+    set ResourceType = #{resourcetype,jdbcType=VARCHAR},
+      Port = #{port,jdbcType=VARCHAR},
+      Demand = #{demand,jdbcType=BIT},
+      VehicleInt = #{vehicleint,jdbcType=VARCHAR},
+      Capacity = #{capacity,jdbcType=VARCHAR},
+      WaybillID = #{waybillid,jdbcType=VARCHAR},
+      Carrier = #{carrier,jdbcType=VARCHAR},
+      ExpectArrivalDate = #{expectarrivaldate,jdbcType=TIMESTAMP},
+      ExpectDepartureDate = #{expectdeparturedate,jdbcType=TIMESTAMP},
+      Ticket = #{ticket,jdbcType=INTEGER},
+      Cargo = #{cargo,jdbcType=INTEGER},
+      Weight = #{weight,jdbcType=DECIMAL},
+      Volume = #{volume,jdbcType=DECIMAL},
+      HandlePerson = #{handleperson,jdbcType=VARCHAR},
+      HandleDate = #{handledate,jdbcType=TIMESTAMP},
+      EnterPerson = #{enterperson,jdbcType=INTEGER},
+      EnterDate = #{enterdate,jdbcType=TIMESTAMP},
+      EnterCompany = #{entercompany,jdbcType=VARCHAR},
+      AcceptPerson = #{acceptperson,jdbcType=INTEGER},
+      AcceptDate = #{acceptdate,jdbcType=TIMESTAMP},
+      AcceptCompany = #{acceptcompany,jdbcType=VARCHAR},
+      AbnormalRemarks = #{abnormalremarks,jdbcType=VARCHAR},
+      WorkInt = #{workint,jdbcType=VARCHAR},
+      Transfer = #{transfer,jdbcType=BIT},
+      ActualCount = #{actualcount,jdbcType=INTEGER},
+      Destination = #{destination,jdbcType=VARCHAR},
+      WareName = #{warename,jdbcType=VARCHAR},
+      ActualVolume = #{actualvolume,jdbcType=DECIMAL},
+      TimeLimit = #{timelimit,jdbcType=TIMESTAMP},
+      Ask = #{ask,jdbcType=VARCHAR},
+      TakeCargoPerson = #{takecargoperson,jdbcType=VARCHAR},
+      TackCargoAddress = #{tackcargoaddress,jdbcType=VARCHAR},
+      Payment = #{payment,jdbcType=INTEGER},
+      SpecialEnsure = #{specialensure,jdbcType=VARCHAR},
+      DeliveryType = #{deliverytype,jdbcType=BIT},
+      ImportantHints = #{importanthints,jdbcType=VARCHAR},
+      SurplusTime = #{surplustime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hsq.mapper.BasShuttleBusMapper">
+  <resultMap id="BaseResultMap" type="com.hsq.entity.BasShuttleBus">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="LineType" jdbcType="INTEGER" property="linetype" />
+    <result column="LineID" jdbcType="INTEGER" property="lineid" />
+    <result column="LicensePlateInt" jdbcType="VARCHAR" property="licenseplateint" />
+    <result column="Carrier" jdbcType="VARCHAR" property="carrier" />
+    <result column="Models" jdbcType="VARCHAR" property="models" />
+    <result column="Driver" jdbcType="VARCHAR" property="driver" />
+    <result column="Telephone" jdbcType="VARCHAR" property="telephone" />
+    <result column="Ton" jdbcType="INTEGER" property="ton" />
+    <result column="Remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="OperatorID" jdbcType="INTEGER" property="operatorid" />
+    <result column="OperationUnitID" jdbcType="INTEGER" property="operationunitid" />
+    <result column="OperationTime" jdbcType="TIMESTAMP" property="operationtime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, LineType, LineID, LicensePlateInt, Carrier, Models, Driver, Telephone, Ton, Remarks,
+    OperatorID, OperationUnitID, OperationTime
+  </sql>
+  <select id="selectByExample" parameterType="com.hsq.entity.BasShuttleBusExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from bas_shuttlebus
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from bas_shuttlebus
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from bas_shuttlebus
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.hsq.entity.BasShuttleBusExample">
+    delete from bas_shuttlebus
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hsq.entity.BasShuttleBus">
+    insert into bas_shuttlebus (ID, LineType, LineID,
+      LicensePlateInt, Carrier, Models,
+      Driver, Telephone, Ton,
+      Remarks, OperatorID, OperationUnitID,
+      OperationTime)
+    values (#{id,jdbcType=INTEGER}, #{linetype,jdbcType=INTEGER}, #{lineid,jdbcType=INTEGER},
+      #{licenseplateint,jdbcType=VARCHAR}, #{carrier,jdbcType=VARCHAR}, #{models,jdbcType=VARCHAR},
+      #{driver,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR}, #{ton,jdbcType=INTEGER},
+      #{remarks,jdbcType=VARCHAR}, #{operatorid,jdbcType=INTEGER}, #{operationunitid,jdbcType=INTEGER},
+      #{operationtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hsq.entity.BasShuttleBus">
+    insert into bas_shuttlebus
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="linetype != null">
+        LineType,
+      </if>
+      <if test="lineid != null">
+        LineID,
+      </if>
+      <if test="licenseplateint != null">
+        LicensePlateInt,
+      </if>
+      <if test="carrier != null">
+        Carrier,
+      </if>
+      <if test="models != null">
+        Models,
+      </if>
+      <if test="driver != null">
+        Driver,
+      </if>
+      <if test="telephone != null">
+        Telephone,
+      </if>
+      <if test="ton != null">
+        Ton,
+      </if>
+      <if test="remarks != null">
+        Remarks,
+      </if>
+      <if test="operatorid != null">
+        OperatorID,
+      </if>
+      <if test="operationunitid != null">
+        OperationUnitID,
+      </if>
+      <if test="operationtime != null">
+        OperationTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="linetype != null">
+        #{linetype,jdbcType=INTEGER},
+      </if>
+      <if test="lineid != null">
+        #{lineid,jdbcType=INTEGER},
+      </if>
+      <if test="licenseplateint != null">
+        #{licenseplateint,jdbcType=VARCHAR},
+      </if>
+      <if test="carrier != null">
+        #{carrier,jdbcType=VARCHAR},
+      </if>
+      <if test="models != null">
+        #{models,jdbcType=VARCHAR},
+      </if>
+      <if test="driver != null">
+        #{driver,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="ton != null">
+        #{ton,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorid != null">
+        #{operatorid,jdbcType=INTEGER},
+      </if>
+      <if test="operationunitid != null">
+        #{operationunitid,jdbcType=INTEGER},
+      </if>
+      <if test="operationtime != null">
+        #{operationtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.hsq.entity.BasShuttleBusExample" resultType="java.lang.Long">
+    select count(*) from bas_shuttlebus
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update bas_shuttlebus
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.linetype != null">
+        LineType = #{record.linetype,jdbcType=INTEGER},
+      </if>
+      <if test="record.lineid != null">
+        LineID = #{record.lineid,jdbcType=INTEGER},
+      </if>
+      <if test="record.licenseplateint != null">
+        LicensePlateInt = #{record.licenseplateint,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carrier != null">
+        Carrier = #{record.carrier,jdbcType=VARCHAR},
+      </if>
+      <if test="record.models != null">
+        Models = #{record.models,jdbcType=VARCHAR},
+      </if>
+      <if test="record.driver != null">
+        Driver = #{record.driver,jdbcType=VARCHAR},
+      </if>
+      <if test="record.telephone != null">
+        Telephone = #{record.telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ton != null">
+        Ton = #{record.ton,jdbcType=INTEGER},
+      </if>
+      <if test="record.remarks != null">
+        Remarks = #{record.remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operatorid != null">
+        OperatorID = #{record.operatorid,jdbcType=INTEGER},
+      </if>
+      <if test="record.operationunitid != null">
+        OperationUnitID = #{record.operationunitid,jdbcType=INTEGER},
+      </if>
+      <if test="record.operationtime != null">
+        OperationTime = #{record.operationtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update bas_shuttlebus
+    set ID = #{record.id,jdbcType=INTEGER},
+      LineType = #{record.linetype,jdbcType=INTEGER},
+      LineID = #{record.lineid,jdbcType=INTEGER},
+      LicensePlateInt = #{record.licenseplateint,jdbcType=VARCHAR},
+      Carrier = #{record.carrier,jdbcType=VARCHAR},
+      Models = #{record.models,jdbcType=VARCHAR},
+      Driver = #{record.driver,jdbcType=VARCHAR},
+      Telephone = #{record.telephone,jdbcType=VARCHAR},
+      Ton = #{record.ton,jdbcType=INTEGER},
+      Remarks = #{record.remarks,jdbcType=VARCHAR},
+      OperatorID = #{record.operatorid,jdbcType=INTEGER},
+      OperationUnitID = #{record.operationunitid,jdbcType=INTEGER},
+      OperationTime = #{record.operationtime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hsq.entity.BasShuttleBus">
+    update bas_shuttlebus
+    <set>
+      <if test="linetype != null">
+        LineType = #{linetype,jdbcType=INTEGER},
+      </if>
+      <if test="lineid != null">
+        LineID = #{lineid,jdbcType=INTEGER},
+      </if>
+      <if test="licenseplateint != null">
+        LicensePlateInt = #{licenseplateint,jdbcType=VARCHAR},
+      </if>
+      <if test="carrier != null">
+        Carrier = #{carrier,jdbcType=VARCHAR},
+      </if>
+      <if test="models != null">
+        Models = #{models,jdbcType=VARCHAR},
+      </if>
+      <if test="driver != null">
+        Driver = #{driver,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        Telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="ton != null">
+        Ton = #{ton,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null">
+        Remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorid != null">
+        OperatorID = #{operatorid,jdbcType=INTEGER},
+      </if>
+      <if test="operationunitid != null">
+        OperationUnitID = #{operationunitid,jdbcType=INTEGER},
+      </if>
+      <if test="operationtime != null">
+        OperationTime = #{operationtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hsq.entity.BasShuttleBus">
+    update bas_shuttlebus
+    set LineType = #{linetype,jdbcType=INTEGER},
+      LineID = #{lineid,jdbcType=INTEGER},
+      LicensePlateInt = #{licenseplateint,jdbcType=VARCHAR},
+      Carrier = #{carrier,jdbcType=VARCHAR},
+      Models = #{models,jdbcType=VARCHAR},
+      Driver = #{driver,jdbcType=VARCHAR},
+      Telephone = #{telephone,jdbcType=VARCHAR},
+      Ton = #{ton,jdbcType=INTEGER},
+      Remarks = #{remarks,jdbcType=VARCHAR},
+      OperatorID = #{operatorid,jdbcType=INTEGER},
+      OperationUnitID = #{operationunitid,jdbcType=INTEGER},
+      OperationTime = #{operationtime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

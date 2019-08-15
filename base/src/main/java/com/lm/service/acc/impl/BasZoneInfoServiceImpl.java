@@ -1,6 +1,7 @@
 package com.lm.service.acc.impl;
 
 import com.lm.entity.dis.BasZoneInfo;
+import com.lm.entity.dis.BasZoneInfoExample;
 import com.lm.mapper.dis.BasZoneInfoMapper;
 import com.lm.service.acc.BasZoneInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ public class BasZoneInfoServiceImpl implements BasZoneInfoService {
     private BasZoneInfoMapper basZoneInfoMapper;
     @Override
     public List<BasZoneInfo> list() {
-        return basZoneInfoMapper.selectByExample(null);
+        return basZoneInfoMapper.selectByExample((BasZoneInfoExample) null);
     }
 
   @Override

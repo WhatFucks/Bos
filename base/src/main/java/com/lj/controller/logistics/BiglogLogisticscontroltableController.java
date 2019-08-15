@@ -4,10 +4,10 @@ package com.lj.controller.logistics;
 import com.lj.entity.logistics.BiglogLogisticscontroltable;
 import com.lj.entity.logistics.BiglogLogisticscontroltable2;
 import com.lj.service.logistics.BiglogLogisticscontroltableService;
-import com.lj.util.ResponseResult;
 import com.lyb.entity.SysDept;
 import com.lyb.entity.SysUser;
 import com.lyb.service.SysUserService;
+import com.util.ResponseResult;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
@@ -59,7 +59,7 @@ public class BiglogLogisticscontroltableController {
 
     //添加成功
     @PostMapping("addLogistics")
-    public  ResponseResult addLogistics(BiglogLogisticscontroltable biglogLogisticscontroltable){
+    public ResponseResult addLogistics(BiglogLogisticscontroltable biglogLogisticscontroltable){
         ResponseResult result=new ResponseResult();
         if (biglogLogisticscontroltable!=null){
             Subject subject= SecurityUtils.getSubject();

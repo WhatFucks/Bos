@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hsq.mapper.BasPartitionMapper">
+  <resultMap id="BaseResultMap" type="com.hsq.entity.BasPartition">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="Province" jdbcType="VARCHAR" property="province" />
+    <result column="City" jdbcType="VARCHAR" property="city" />
+    <result column="County" jdbcType="VARCHAR" property="county" />
+    <result column="ZoneCode" jdbcType="VARCHAR" property="zonecode" />
+    <result column="Keyword" jdbcType="VARCHAR" property="keyword" />
+    <result column="StartInt" jdbcType="INTEGER" property="startint" />
+    <result column="TerminateInt" jdbcType="INTEGER" property="terminateint" />
+    <result column="SDInt" jdbcType="INTEGER" property="sdint" />
+    <result column="SortingCode" jdbcType="VARCHAR" property="sortingcode" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, Province, City, County, ZoneCode, Keyword, StartInt, TerminateInt, SDInt, SortingCode
+  </sql>
+  <select id="selectByExample" parameterType="com.hsq.entity.BasPartitionExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from bas_partition
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from bas_partition
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from bas_partition
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.hsq.entity.BasPartitionExample">
+    delete from bas_partition
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hsq.entity.BasPartition">
+    insert into bas_partition (ID, Province, City,
+      County, ZoneCode, Keyword,
+      StartInt, TerminateInt, SDInt,
+      SortingCode)
+    values (#{id,jdbcType=INTEGER}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR},
+      #{county,jdbcType=VARCHAR}, #{zonecode,jdbcType=VARCHAR}, #{keyword,jdbcType=VARCHAR},
+      #{startint,jdbcType=INTEGER}, #{terminateint,jdbcType=INTEGER}, #{sdint,jdbcType=INTEGER},
+      #{sortingcode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hsq.entity.BasPartition">
+    insert into bas_partition
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="province != null">
+        Province,
+      </if>
+      <if test="city != null">
+        City,
+      </if>
+      <if test="county != null">
+        County,
+      </if>
+      <if test="zonecode != null">
+        ZoneCode,
+      </if>
+      <if test="keyword != null">
+        Keyword,
+      </if>
+      <if test="startint != null">
+        StartInt,
+      </if>
+      <if test="terminateint != null">
+        TerminateInt,
+      </if>
+      <if test="sdint != null">
+        SDInt,
+      </if>
+      <if test="sortingcode != null">
+        SortingCode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="county != null">
+        #{county,jdbcType=VARCHAR},
+      </if>
+      <if test="zonecode != null">
+        #{zonecode,jdbcType=VARCHAR},
+      </if>
+      <if test="keyword != null">
+        #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="startint != null">
+        #{startint,jdbcType=INTEGER},
+      </if>
+      <if test="terminateint != null">
+        #{terminateint,jdbcType=INTEGER},
+      </if>
+      <if test="sdint != null">
+        #{sdint,jdbcType=INTEGER},
+      </if>
+      <if test="sortingcode != null">
+        #{sortingcode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.hsq.entity.BasPartitionExample" resultType="java.lang.Long">
+    select count(*) from bas_partition
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update bas_partition
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.province != null">
+        Province = #{record.province,jdbcType=VARCHAR},
+      </if>
+      <if test="record.city != null">
+        City = #{record.city,jdbcType=VARCHAR},
+      </if>
+      <if test="record.county != null">
+        County = #{record.county,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zonecode != null">
+        ZoneCode = #{record.zonecode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.keyword != null">
+        Keyword = #{record.keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="record.startint != null">
+        StartInt = #{record.startint,jdbcType=INTEGER},
+      </if>
+      <if test="record.terminateint != null">
+        TerminateInt = #{record.terminateint,jdbcType=INTEGER},
+      </if>
+      <if test="record.sdint != null">
+        SDInt = #{record.sdint,jdbcType=INTEGER},
+      </if>
+      <if test="record.sortingcode != null">
+        SortingCode = #{record.sortingcode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update bas_partition
+    set ID = #{record.id,jdbcType=INTEGER},
+      Province = #{record.province,jdbcType=VARCHAR},
+      City = #{record.city,jdbcType=VARCHAR},
+      County = #{record.county,jdbcType=VARCHAR},
+      ZoneCode = #{record.zonecode,jdbcType=VARCHAR},
+      Keyword = #{record.keyword,jdbcType=VARCHAR},
+      StartInt = #{record.startint,jdbcType=INTEGER},
+      TerminateInt = #{record.terminateint,jdbcType=INTEGER},
+      SDInt = #{record.sdint,jdbcType=INTEGER},
+      SortingCode = #{record.sortingcode,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hsq.entity.BasPartition">
+    update bas_partition
+    <set>
+      <if test="province != null">
+        Province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        City = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="county != null">
+        County = #{county,jdbcType=VARCHAR},
+      </if>
+      <if test="zonecode != null">
+        ZoneCode = #{zonecode,jdbcType=VARCHAR},
+      </if>
+      <if test="keyword != null">
+        Keyword = #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="startint != null">
+        StartInt = #{startint,jdbcType=INTEGER},
+      </if>
+      <if test="terminateint != null">
+        TerminateInt = #{terminateint,jdbcType=INTEGER},
+      </if>
+      <if test="sdint != null">
+        SDInt = #{sdint,jdbcType=INTEGER},
+      </if>
+      <if test="sortingcode != null">
+        SortingCode = #{sortingcode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hsq.entity.BasPartition">
+    update bas_partition
+    set Province = #{province,jdbcType=VARCHAR},
+      City = #{city,jdbcType=VARCHAR},
+      County = #{county,jdbcType=VARCHAR},
+      ZoneCode = #{zonecode,jdbcType=VARCHAR},
+      Keyword = #{keyword,jdbcType=VARCHAR},
+      StartInt = #{startint,jdbcType=INTEGER},
+      TerminateInt = #{terminateint,jdbcType=INTEGER},
+      SDInt = #{sdint,jdbcType=INTEGER},
+      SortingCode = #{sortingcode,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Map;
 
 public interface SysDeptService {
+
+    public SysDept findById(Integer id);
+
     public Boolean isExistSubset(Integer id);
 
     public Map<String,Object> deptPaging(PageEntity entity);

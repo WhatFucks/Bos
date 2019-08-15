@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ljw.mapper.LjwPacStockoutMapper">
+  <resultMap id="BaseResultMap" type="com.ljw.entity.PacStockout">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="WarehouseOrderNo" jdbcType="VARCHAR" property="warehouseorderno" />
+    <result column="WarehouseType" jdbcType="INTEGER" property="warehousetype" />
+    <result column="transportationOrderNo" jdbcType="VARCHAR" property="transportationorderno" />
+    <result column="affiliatedUnit" jdbcType="VARCHAR" property="affiliatedunit" />
+    <result column="IssuedByTheUnit" jdbcType="VARCHAR" property="issuedbytheunit" />
+    <result column="HandlingUnit" jdbcType="VARCHAR" property="handlingunit" />
+    <result column="HandlingName" jdbcType="VARCHAR" property="handlingname" />
+    <result column="CustomCode" jdbcType="VARCHAR" property="customcode" />
+    <result column="CustomName" jdbcType="VARCHAR" property="customname" />
+    <result column="recipientJobNumber" jdbcType="VARCHAR" property="recipientjobnumber" />
+    <result column="recipientName" jdbcType="VARCHAR" property="recipientname" />
+    <result column="recipientTime" jdbcType="TIMESTAMP" property="recipienttime" />
+    <result column="BillingJobNumber" jdbcType="VARCHAR" property="billingjobnumber" />
+    <result column="BillingName" jdbcType="VARCHAR" property="billingname" />
+    <result column="BillingTime" jdbcType="TIMESTAMP" property="billingtime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, WarehouseOrderNo, WarehouseType, transportationOrderNo, affiliatedUnit, IssuedByTheUnit,
+    HandlingUnit, HandlingName, CustomCode, CustomName, recipientJobNumber, recipientName,
+    recipientTime, BillingJobNumber, BillingName, BillingTime
+  </sql>
+  <select id="selectByExample" parameterType="com.ljw.entity.PacStockoutExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from pac_stockout
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from pac_stockout
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from pac_stockout
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ljw.entity.PacStockoutExample">
+    delete from pac_stockout
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ljw.entity.PacStockout">
+    insert into pac_stockout (id, WarehouseOrderNo, WarehouseType,
+      transportationOrderNo, affiliatedUnit,
+      IssuedByTheUnit, HandlingUnit, HandlingName,
+      CustomCode, CustomName, recipientJobNumber,
+      recipientName, recipientTime, BillingJobNumber,
+      BillingName, BillingTime)
+    values (#{id,jdbcType=INTEGER}, #{warehouseorderno,jdbcType=VARCHAR}, #{warehousetype,jdbcType=INTEGER},
+      #{transportationorderno,jdbcType=VARCHAR}, #{affiliatedunit,jdbcType=VARCHAR},
+      #{issuedbytheunit,jdbcType=VARCHAR}, #{handlingunit,jdbcType=VARCHAR}, #{handlingname,jdbcType=VARCHAR},
+      #{customcode,jdbcType=VARCHAR}, #{customname,jdbcType=VARCHAR}, #{recipientjobnumber,jdbcType=VARCHAR},
+      #{recipientname,jdbcType=VARCHAR}, #{recipienttime,jdbcType=TIMESTAMP}, #{billingjobnumber,jdbcType=VARCHAR},
+      #{billingname,jdbcType=VARCHAR}, #{billingtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ljw.entity.PacStockout">
+    insert into pac_stockout
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="warehouseorderno != null">
+        WarehouseOrderNo,
+      </if>
+      <if test="warehousetype != null">
+        WarehouseType,
+      </if>
+      <if test="transportationorderno != null">
+        transportationOrderNo,
+      </if>
+      <if test="affiliatedunit != null">
+        affiliatedUnit,
+      </if>
+      <if test="issuedbytheunit != null">
+        IssuedByTheUnit,
+      </if>
+      <if test="handlingunit != null">
+        HandlingUnit,
+      </if>
+      <if test="handlingname != null">
+        HandlingName,
+      </if>
+      <if test="customcode != null">
+        CustomCode,
+      </if>
+      <if test="customname != null">
+        CustomName,
+      </if>
+      <if test="recipientjobnumber != null">
+        recipientJobNumber,
+      </if>
+      <if test="recipientname != null">
+        recipientName,
+      </if>
+      <if test="recipienttime != null">
+        recipientTime,
+      </if>
+      <if test="billingjobnumber != null">
+        BillingJobNumber,
+      </if>
+      <if test="billingname != null">
+        BillingName,
+      </if>
+      <if test="billingtime != null">
+        BillingTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="warehouseorderno != null">
+        #{warehouseorderno,jdbcType=VARCHAR},
+      </if>
+      <if test="warehousetype != null">
+        #{warehousetype,jdbcType=INTEGER},
+      </if>
+      <if test="transportationorderno != null">
+        #{transportationorderno,jdbcType=VARCHAR},
+      </if>
+      <if test="affiliatedunit != null">
+        #{affiliatedunit,jdbcType=VARCHAR},
+      </if>
+      <if test="issuedbytheunit != null">
+        #{issuedbytheunit,jdbcType=VARCHAR},
+      </if>
+      <if test="handlingunit != null">
+        #{handlingunit,jdbcType=VARCHAR},
+      </if>
+      <if test="handlingname != null">
+        #{handlingname,jdbcType=VARCHAR},
+      </if>
+      <if test="customcode != null">
+        #{customcode,jdbcType=VARCHAR},
+      </if>
+      <if test="customname != null">
+        #{customname,jdbcType=VARCHAR},
+      </if>
+      <if test="recipientjobnumber != null">
+        #{recipientjobnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="recipientname != null">
+        #{recipientname,jdbcType=VARCHAR},
+      </if>
+      <if test="recipienttime != null">
+        #{recipienttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="billingjobnumber != null">
+        #{billingjobnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="billingname != null">
+        #{billingname,jdbcType=VARCHAR},
+      </if>
+      <if test="billingtime != null">
+        #{billingtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ljw.entity.PacStockoutExample" resultType="java.lang.Long">
+    select count(*) from pac_stockout
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update pac_stockout
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.warehouseorderno != null">
+        WarehouseOrderNo = #{record.warehouseorderno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.warehousetype != null">
+        WarehouseType = #{record.warehousetype,jdbcType=INTEGER},
+      </if>
+      <if test="record.transportationorderno != null">
+        transportationOrderNo = #{record.transportationorderno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.affiliatedunit != null">
+        affiliatedUnit = #{record.affiliatedunit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.issuedbytheunit != null">
+        IssuedByTheUnit = #{record.issuedbytheunit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.handlingunit != null">
+        HandlingUnit = #{record.handlingunit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.handlingname != null">
+        HandlingName = #{record.handlingname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customcode != null">
+        CustomCode = #{record.customcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customname != null">
+        CustomName = #{record.customname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recipientjobnumber != null">
+        recipientJobNumber = #{record.recipientjobnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recipientname != null">
+        recipientName = #{record.recipientname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recipienttime != null">
+        recipientTime = #{record.recipienttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.billingjobnumber != null">
+        BillingJobNumber = #{record.billingjobnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.billingname != null">
+        BillingName = #{record.billingname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.billingtime != null">
+        BillingTime = #{record.billingtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update pac_stockout
+    set id = #{record.id,jdbcType=INTEGER},
+      WarehouseOrderNo = #{record.warehouseorderno,jdbcType=VARCHAR},
+      WarehouseType = #{record.warehousetype,jdbcType=INTEGER},
+      transportationOrderNo = #{record.transportationorderno,jdbcType=VARCHAR},
+      affiliatedUnit = #{record.affiliatedunit,jdbcType=VARCHAR},
+      IssuedByTheUnit = #{record.issuedbytheunit,jdbcType=VARCHAR},
+      HandlingUnit = #{record.handlingunit,jdbcType=VARCHAR},
+      HandlingName = #{record.handlingname,jdbcType=VARCHAR},
+      CustomCode = #{record.customcode,jdbcType=VARCHAR},
+      CustomName = #{record.customname,jdbcType=VARCHAR},
+      recipientJobNumber = #{record.recipientjobnumber,jdbcType=VARCHAR},
+      recipientName = #{record.recipientname,jdbcType=VARCHAR},
+      recipientTime = #{record.recipienttime,jdbcType=TIMESTAMP},
+      BillingJobNumber = #{record.billingjobnumber,jdbcType=VARCHAR},
+      BillingName = #{record.billingname,jdbcType=VARCHAR},
+      BillingTime = #{record.billingtime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ljw.entity.PacStockout">
+    update pac_stockout
+    <set>
+      <if test="warehouseorderno != null">
+        WarehouseOrderNo = #{warehouseorderno,jdbcType=VARCHAR},
+      </if>
+      <if test="warehousetype != null">
+        WarehouseType = #{warehousetype,jdbcType=INTEGER},
+      </if>
+      <if test="transportationorderno != null">
+        transportationOrderNo = #{transportationorderno,jdbcType=VARCHAR},
+      </if>
+      <if test="affiliatedunit != null">
+        affiliatedUnit = #{affiliatedunit,jdbcType=VARCHAR},
+      </if>
+      <if test="issuedbytheunit != null">
+        IssuedByTheUnit = #{issuedbytheunit,jdbcType=VARCHAR},
+      </if>
+      <if test="handlingunit != null">
+        HandlingUnit = #{handlingunit,jdbcType=VARCHAR},
+      </if>
+      <if test="handlingname != null">
+        HandlingName = #{handlingname,jdbcType=VARCHAR},
+      </if>
+      <if test="customcode != null">
+        CustomCode = #{customcode,jdbcType=VARCHAR},
+      </if>
+      <if test="customname != null">
+        CustomName = #{customname,jdbcType=VARCHAR},
+      </if>
+      <if test="recipientjobnumber != null">
+        recipientJobNumber = #{recipientjobnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="recipientname != null">
+        recipientName = #{recipientname,jdbcType=VARCHAR},
+      </if>
+      <if test="recipienttime != null">
+        recipientTime = #{recipienttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="billingjobnumber != null">
+        BillingJobNumber = #{billingjobnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="billingname != null">
+        BillingName = #{billingname,jdbcType=VARCHAR},
+      </if>
+      <if test="billingtime != null">
+        BillingTime = #{billingtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ljw.entity.PacStockout">
+    update pac_stockout
+    set WarehouseOrderNo = #{warehouseorderno,jdbcType=VARCHAR},
+      WarehouseType = #{warehousetype,jdbcType=INTEGER},
+      transportationOrderNo = #{transportationorderno,jdbcType=VARCHAR},
+      affiliatedUnit = #{affiliatedunit,jdbcType=VARCHAR},
+      IssuedByTheUnit = #{issuedbytheunit,jdbcType=VARCHAR},
+      HandlingUnit = #{handlingunit,jdbcType=VARCHAR},
+      HandlingName = #{handlingname,jdbcType=VARCHAR},
+      CustomCode = #{customcode,jdbcType=VARCHAR},
+      CustomName = #{customname,jdbcType=VARCHAR},
+      recipientJobNumber = #{recipientjobnumber,jdbcType=VARCHAR},
+      recipientName = #{recipientname,jdbcType=VARCHAR},
+      recipientTime = #{recipienttime,jdbcType=TIMESTAMP},
+      BillingJobNumber = #{billingjobnumber,jdbcType=VARCHAR},
+      BillingName = #{billingname,jdbcType=VARCHAR},
+      BillingTime = #{billingtime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

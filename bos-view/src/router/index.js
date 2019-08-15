@@ -125,6 +125,63 @@ export const asyncRoutes = [
       }
     ]
   },
+  //  hsq  基础数据
+  {
+    path: '/recordHsq',
+    component: Layout,
+    redirect: '/recordHsq/page',
+    alwaysShow: true, // 总是显示总菜单
+    name: '基础档案',
+    meta: {
+      title: '基础档案',
+      icon: 'example',
+      roles: ['admin', 'editor'] // 可以在根导航中设置角色
+    },
+    children: [
+      {
+        path: 'basicArchives',
+        component: () => import('@/views/body/hsq/basicArchives'),
+        name: '基础档案设置',
+        meta: { title: '基础档案设置', roles: ['admin', 'dev'] }
+      },
+      {
+        path: 'deliveryStandard',
+        component: () => import('@/views/body/hsq/deliveryStandard'),
+        name: '收派标准',
+        meta: { title: '收派标准', roles: ['admin', 'dev'] }
+      },
+      {
+        path: 'shuttleBus',
+        component: () => import('@/views/body/hsq/shuttleBus'),
+        name: '班车设置',
+        meta: { title: '班车设置', roles: ['admin', 'dev'] }
+      },
+      {
+        path: 'substitute',
+        component: () => import('@/views/body/hsq/substitute'),
+        name: '取派员设置',
+        meta: { title: '取派员设置', roles: ['admin', 'dev'] }
+      },
+      {
+        path: 'area',
+        component: () => import('@/views/body/hsq/area'),
+        name: '区域设置',
+        meta: { title: '区域设置', roles: ['admin', 'dev'] }
+      },
+      {
+        path: 'partition',
+        component: () => import('@/views/body/hsq/partition'),
+        name: '管理分区',
+        meta: { title: '管理分区', roles: ['admin', 'dev'] }
+      },
+      {
+        path: 'zoneInfo',
+        component: () => import('@/views/body/hsq/zoneInfo'),
+        name: '管理定区',
+        meta: { title: '管理定区', roles: ['admin', 'dev'] }
+      }
+    ]
+  },
   {
     path: '/packagSet',
     component: Layout,
@@ -342,6 +399,124 @@ export const asyncRoutes = [
         component: () => import('@/views/body/lm/dis/NoSignforentry'),
         name: ' 取消签收申请录入',
         meta: { title: ' 取消签收申请录入', roles: ['dev', 'admin'] }
+      }
+    ]
+  },
+  // lj 罗晶
+  {
+    path: '/logistics',
+    component: Layout,
+    redirect: '/logistics',
+    alwaysShow: true, // will always show the root menu
+    name: 'logistics',
+    meta: {
+      title: '大物流管理',
+      icon: 'shopping',
+      roles: ['admin'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'logistics',
+        component: () => import('@/views/body/sj/logistics/logisticscontrol'),
+        name: 'logistics',
+        meta: { title: '大物流发货对照表', roles: ['admin'] }
+      }
+    ]
+  },
+  {
+    path: '/reportforms',
+    component: Layout,
+    redirect: '/chart/reportforms',
+    alwaysShow: true, // will always show the root menu
+    name: 'chart',
+    meta: {
+      title: '报表',
+      icon: 'chart',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'statement',
+        component: () => import('@/views/body/sj/reportforms/reportforms'),
+        name: 'statement',
+        meta: { title: '报表', roles: ['admin', 'dev'] }
+      }
+    ]
+  },
+  // 廖嘉威
+  {
+    path: '/pac',
+    component: Layout,
+    redirect: '/pac',
+    alwaysShow: true, // will always show the root menu
+    name: 'pac',
+    meta: {
+      title: '包装材料管理',
+      icon: 'example',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'packaging',
+        component: () => import('@/views/body/ljw/packaging'),
+        name: 'packaging',
+        meta: { title: '包装材料物品管理', roles: ['admin', 'dev', 'test'] }
+      },
+      {
+        path: 'stock',
+        component: () => import('@/views/body/ljw/PacStock'),
+        name: 'stock',
+        meta: { title: '入库管理', roles: ['admin', 'dev', 'test'] }
+      },
+      {
+        path: 'stockout',
+        component: () => import('@/views/body/ljw/pacStockOut'),
+        name: 'stockout',
+        meta: { title: '出库管理', roles: ['admin', 'dev', 'test'] }
+      },
+      {
+        path: 'stockItem',
+        component: () => import('@/views/body/ljw/inventory'),
+        name: 'stockItem',
+        meta: { title: '库存管理', roles: ['admin', 'dev', 'test'] }
+      }
+    ]
+  },
+  {
+    path: '/iae',
+    component: Layout,
+    redirect: '/iae',
+    alwaysShow: true, // will always show the root menu
+    name: 'iae',
+    meta: {
+      title: '进出港管理',
+      icon: 'example',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'departure',
+        component: () => import('@/views/body/ljw/departure'),
+        name: 'departure',
+        meta: { title: '出港配载', roles: ['admin', 'dev', 'test'] }
+      },
+      {
+        path: 'extract',
+        component: () => import('@/views/body/ljw/extract'),
+        name: 'extract',
+        meta: { title: '提货管理', roles: ['admin', 'dev', 'test'] }
+      },
+      {
+        path: 'arrival',
+        component: () => import('@/views/body/ljw/arrival'),
+        name: 'arrival',
+        meta: { title: '进港分单', roles: ['admin', 'dev', 'test'] }
+      },
+      {
+        path: 'lineResource',
+        component: () => import('@/views/body/ljw/lineresource'),
+        name: 'lineResource',
+        meta: { title: '出港配载查询', roles: ['admin', 'dev', 'test'] }
       }
     ]
   },

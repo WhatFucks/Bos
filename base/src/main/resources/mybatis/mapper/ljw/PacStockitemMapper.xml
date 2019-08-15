@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ljw.mapper.LjwPacStockitemMapper">
+  <resultMap id="BaseResultMap" type="com.ljw.entity.PacStockitem">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="WarehouseNo" jdbcType="VARCHAR" property="warehouseno" />
+    <result column="GoodsCode" jdbcType="VARCHAR" property="goodscode" />
+    <result column="GoodsName" jdbcType="VARCHAR" property="goodsname" />
+    <result column="StorageNum" jdbcType="INTEGER" property="storagenum" />
+    <result column="ActualNum" jdbcType="INTEGER" property="actualnum" />
+    <result column="PlannedPrice" jdbcType="REAL" property="plannedprice" />
+    <result column="Specifications" jdbcType="VARCHAR" property="specifications" />
+    <result column="type" jdbcType="BIT" property="type" />
+    <result column="Status" jdbcType="BIT" property="status" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, WarehouseNo, GoodsCode, GoodsName, StorageNum, ActualNum, PlannedPrice, Specifications,
+    type, Status
+  </sql>
+  <select id="selectByExample" parameterType="com.ljw.entity.PacStockitemExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from pac_stockitem
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from pac_stockitem
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from pac_stockitem
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ljw.entity.PacStockitemExample">
+    delete from pac_stockitem
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ljw.entity.PacStockitem">
+    insert into pac_stockitem (id, WarehouseNo, GoodsCode,
+      GoodsName, StorageNum, ActualNum,
+      PlannedPrice, Specifications, type,
+      Status)
+    values (#{id,jdbcType=INTEGER}, #{warehouseno,jdbcType=VARCHAR}, #{goodscode,jdbcType=VARCHAR},
+      #{goodsname,jdbcType=VARCHAR}, #{storagenum,jdbcType=INTEGER}, #{actualnum,jdbcType=INTEGER},
+      #{plannedprice,jdbcType=REAL}, #{specifications,jdbcType=VARCHAR}, #{type,jdbcType=BIT},
+      #{status,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ljw.entity.PacStockitem">
+    insert into pac_stockitem
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="warehouseno != null">
+        WarehouseNo,
+      </if>
+      <if test="goodscode != null">
+        GoodsCode,
+      </if>
+      <if test="goodsname != null">
+        GoodsName,
+      </if>
+      <if test="storagenum != null">
+        StorageNum,
+      </if>
+      <if test="actualnum != null">
+        ActualNum,
+      </if>
+      <if test="plannedprice != null">
+        PlannedPrice,
+      </if>
+      <if test="specifications != null">
+        Specifications,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="status != null">
+        Status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="warehouseno != null">
+        #{warehouseno,jdbcType=VARCHAR},
+      </if>
+      <if test="goodscode != null">
+        #{goodscode,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsname != null">
+        #{goodsname,jdbcType=VARCHAR},
+      </if>
+      <if test="storagenum != null">
+        #{storagenum,jdbcType=INTEGER},
+      </if>
+      <if test="actualnum != null">
+        #{actualnum,jdbcType=INTEGER},
+      </if>
+      <if test="plannedprice != null">
+        #{plannedprice,jdbcType=REAL},
+      </if>
+      <if test="specifications != null">
+        #{specifications,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=BIT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ljw.entity.PacStockitemExample" resultType="java.lang.Long">
+    select count(*) from pac_stockitem
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update pac_stockitem
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.warehouseno != null">
+        WarehouseNo = #{record.warehouseno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodscode != null">
+        GoodsCode = #{record.goodscode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodsname != null">
+        GoodsName = #{record.goodsname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.storagenum != null">
+        StorageNum = #{record.storagenum,jdbcType=INTEGER},
+      </if>
+      <if test="record.actualnum != null">
+        ActualNum = #{record.actualnum,jdbcType=INTEGER},
+      </if>
+      <if test="record.plannedprice != null">
+        PlannedPrice = #{record.plannedprice,jdbcType=REAL},
+      </if>
+      <if test="record.specifications != null">
+        Specifications = #{record.specifications,jdbcType=VARCHAR},
+      </if>
+      <if test="record.type != null">
+        type = #{record.type,jdbcType=BIT},
+      </if>
+      <if test="record.status != null">
+        Status = #{record.status,jdbcType=BIT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update pac_stockitem
+    set id = #{record.id,jdbcType=INTEGER},
+      WarehouseNo = #{record.warehouseno,jdbcType=VARCHAR},
+      GoodsCode = #{record.goodscode,jdbcType=VARCHAR},
+      GoodsName = #{record.goodsname,jdbcType=VARCHAR},
+      StorageNum = #{record.storagenum,jdbcType=INTEGER},
+      ActualNum = #{record.actualnum,jdbcType=INTEGER},
+      PlannedPrice = #{record.plannedprice,jdbcType=REAL},
+      Specifications = #{record.specifications,jdbcType=VARCHAR},
+      type = #{record.type,jdbcType=BIT},
+      Status = #{record.status,jdbcType=BIT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ljw.entity.PacStockitem">
+    update pac_stockitem
+    <set>
+      <if test="warehouseno != null">
+        WarehouseNo = #{warehouseno,jdbcType=VARCHAR},
+      </if>
+      <if test="goodscode != null">
+        GoodsCode = #{goodscode,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsname != null">
+        GoodsName = #{goodsname,jdbcType=VARCHAR},
+      </if>
+      <if test="storagenum != null">
+        StorageNum = #{storagenum,jdbcType=INTEGER},
+      </if>
+      <if test="actualnum != null">
+        ActualNum = #{actualnum,jdbcType=INTEGER},
+      </if>
+      <if test="plannedprice != null">
+        PlannedPrice = #{plannedprice,jdbcType=REAL},
+      </if>
+      <if test="specifications != null">
+        Specifications = #{specifications,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=BIT},
+      </if>
+      <if test="status != null">
+        Status = #{status,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ljw.entity.PacStockitem">
+    update pac_stockitem
+    set WarehouseNo = #{warehouseno,jdbcType=VARCHAR},
+      GoodsCode = #{goodscode,jdbcType=VARCHAR},
+      GoodsName = #{goodsname,jdbcType=VARCHAR},
+      StorageNum = #{storagenum,jdbcType=INTEGER},
+      ActualNum = #{actualnum,jdbcType=INTEGER},
+      PlannedPrice = #{plannedprice,jdbcType=REAL},
+      Specifications = #{specifications,jdbcType=VARCHAR},
+      type = #{type,jdbcType=BIT},
+      Status = #{status,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

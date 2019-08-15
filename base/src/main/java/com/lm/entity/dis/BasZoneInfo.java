@@ -1,8 +1,14 @@
 package com.lm.entity.dis;
 
-import java.io.Serializable;
+import com.hsq.entity.BasZoneCustomInfo;
+import com.lyb.entity.SysDept;
+import lombok.Data;
 
+import java.io.Serializable;
+@Data
 public class BasZoneInfo implements Serializable {
+    private SysDept dept;
+    private BasZoneCustomInfo basInfo;
     private Integer id;
 
     private String zonecode;
@@ -17,51 +23,4 @@ public class BasZoneInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getZonecode() {
-        return zonecode;
-    }
-
-    public void setZonecode(String zonecode) {
-        this.zonecode = zonecode == null ? null : zonecode.trim();
-    }
-
-    public String getZonename() {
-        return zonename;
-    }
-
-    public void setZonename(String zonename) {
-        this.zonename = zonename == null ? null : zonename.trim();
-    }
-
-    public Integer getZonepeople() {
-        return zonepeople;
-    }
-
-    public void setZonepeople(Integer zonepeople) {
-        this.zonepeople = zonepeople;
-    }
-
-    public String getTelphone() {
-        return telphone;
-    }
-
-    public void setTelphone(String telphone) {
-        this.telphone = telphone == null ? null : telphone.trim();
-    }
-
-    public Integer getSubordinateunit() {
-        return subordinateunit;
-    }
-
-    public void setSubordinateunit(Integer subordinateunit) {
-        this.subordinateunit = subordinateunit;
-    }
 }

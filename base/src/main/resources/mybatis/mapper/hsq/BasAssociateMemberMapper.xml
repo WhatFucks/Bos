@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hsq.mapper.BasAssociateMemberMapper">
+  <resultMap id="BaseResultMap" type="com.hsq.entity.BasAssociateMember">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="ZoneCode" jdbcType="VARCHAR" property="zonecode" />
+    <result column="EmpNo" jdbcType="VARCHAR" property="empno" />
+    <result column="EmpName" jdbcType="VARCHAR" property="empname" />
+    <result column="StandardKg" jdbcType="DECIMAL" property="standardkg" />
+    <result column="StandardLength" jdbcType="DECIMAL" property="standardlength" />
+    <result column="StandardTime" jdbcType="TIMESTAMP" property="standardtime" />
+    <result column="SubordinateUnit" jdbcType="INTEGER" property="subordinateunit" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, ZoneCode, EmpNo, EmpName, StandardKg, StandardLength, StandardTime, SubordinateUnit,
+    type
+  </sql>
+  <select id="selectByExample" parameterType="com.hsq.entity.BasAssociateMemberExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from bas_associatemember
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from bas_associatemember
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from bas_associatemember
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.hsq.entity.BasAssociateMemberExample">
+    delete from bas_associatemember
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hsq.entity.BasAssociateMember">
+    insert into bas_associatemember (id, ZoneCode, EmpNo,
+      EmpName, StandardKg, StandardLength,
+      StandardTime, SubordinateUnit, type
+      )
+    values (#{id,jdbcType=INTEGER}, #{zonecode,jdbcType=VARCHAR}, #{empno,jdbcType=VARCHAR},
+      #{empname,jdbcType=VARCHAR}, #{standardkg,jdbcType=DECIMAL}, #{standardlength,jdbcType=DECIMAL},
+      #{standardtime,jdbcType=TIMESTAMP}, #{subordinateunit,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hsq.entity.BasAssociateMember">
+    insert into bas_associatemember
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="zonecode != null">
+        ZoneCode,
+      </if>
+      <if test="empno != null">
+        EmpNo,
+      </if>
+      <if test="empname != null">
+        EmpName,
+      </if>
+      <if test="standardkg != null">
+        StandardKg,
+      </if>
+      <if test="standardlength != null">
+        StandardLength,
+      </if>
+      <if test="standardtime != null">
+        StandardTime,
+      </if>
+      <if test="subordinateunit != null">
+        SubordinateUnit,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="zonecode != null">
+        #{zonecode,jdbcType=VARCHAR},
+      </if>
+      <if test="empno != null">
+        #{empno,jdbcType=VARCHAR},
+      </if>
+      <if test="empname != null">
+        #{empname,jdbcType=VARCHAR},
+      </if>
+      <if test="standardkg != null">
+        #{standardkg,jdbcType=DECIMAL},
+      </if>
+      <if test="standardlength != null">
+        #{standardlength,jdbcType=DECIMAL},
+      </if>
+      <if test="standardtime != null">
+        #{standardtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subordinateunit != null">
+        #{subordinateunit,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.hsq.entity.BasAssociateMemberExample" resultType="java.lang.Long">
+    select count(*) from bas_associatemember
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update bas_associatemember
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.zonecode != null">
+        ZoneCode = #{record.zonecode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.empno != null">
+        EmpNo = #{record.empno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.empname != null">
+        EmpName = #{record.empname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.standardkg != null">
+        StandardKg = #{record.standardkg,jdbcType=DECIMAL},
+      </if>
+      <if test="record.standardlength != null">
+        StandardLength = #{record.standardlength,jdbcType=DECIMAL},
+      </if>
+      <if test="record.standardtime != null">
+        StandardTime = #{record.standardtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.subordinateunit != null">
+        SubordinateUnit = #{record.subordinateunit,jdbcType=INTEGER},
+      </if>
+      <if test="record.type != null">
+        type = #{record.type,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update bas_associatemember
+    set id = #{record.id,jdbcType=INTEGER},
+      ZoneCode = #{record.zonecode,jdbcType=VARCHAR},
+      EmpNo = #{record.empno,jdbcType=VARCHAR},
+      EmpName = #{record.empname,jdbcType=VARCHAR},
+      StandardKg = #{record.standardkg,jdbcType=DECIMAL},
+      StandardLength = #{record.standardlength,jdbcType=DECIMAL},
+      StandardTime = #{record.standardtime,jdbcType=TIMESTAMP},
+      SubordinateUnit = #{record.subordinateunit,jdbcType=INTEGER},
+      type = #{record.type,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hsq.entity.BasAssociateMember">
+    update bas_associatemember
+    <set>
+      <if test="zonecode != null">
+        ZoneCode = #{zonecode,jdbcType=VARCHAR},
+      </if>
+      <if test="empno != null">
+        EmpNo = #{empno,jdbcType=VARCHAR},
+      </if>
+      <if test="empname != null">
+        EmpName = #{empname,jdbcType=VARCHAR},
+      </if>
+      <if test="standardkg != null">
+        StandardKg = #{standardkg,jdbcType=DECIMAL},
+      </if>
+      <if test="standardlength != null">
+        StandardLength = #{standardlength,jdbcType=DECIMAL},
+      </if>
+      <if test="standardtime != null">
+        StandardTime = #{standardtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subordinateunit != null">
+        SubordinateUnit = #{subordinateunit,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hsq.entity.BasAssociateMember">
+    update bas_associatemember
+    set ZoneCode = #{zonecode,jdbcType=VARCHAR},
+      EmpNo = #{empno,jdbcType=VARCHAR},
+      EmpName = #{empname,jdbcType=VARCHAR},
+      StandardKg = #{standardkg,jdbcType=DECIMAL},
+      StandardLength = #{standardlength,jdbcType=DECIMAL},
+      StandardTime = #{standardtime,jdbcType=TIMESTAMP},
+      SubordinateUnit = #{subordinateunit,jdbcType=INTEGER},
+      type = #{type,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

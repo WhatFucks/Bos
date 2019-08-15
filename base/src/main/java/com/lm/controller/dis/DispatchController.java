@@ -63,6 +63,8 @@ public class DispatchController {
       BasZoneInfo basZoneInfo =  basZoneInfoService.ByIdSelect(zonecode); // 根据小件员id 查询
       PhoneCodeXiao phoneCode = new PhoneCodeXiao();
       code = phoneCode.getPhonemsg(basZoneInfo.getTelphone());
+      result.getData().put("title", "成功");
+      result.getData().put("message", "转单成功");
       return result;
     }
 }
