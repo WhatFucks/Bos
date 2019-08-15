@@ -37,8 +37,8 @@ public class IaeDepartureServiceImpl implements IaeDepartureService {
         }
         List<IaeDeparture> list=iaeDepartureMapper.selectByExample(example);
         for (IaeDeparture i:list){
-            SorCheckbounddetails Sorlist=sorCheckbounddetailsMapper.selectById(i.getId());
-            List<String> ulist= iaeDepartureMapper.selectusername(new Long(Sorlist.getStorageperson()));
+            SorCheckbounddetails Sorlist = sorCheckbounddetailsMapper.selectById(i.getId());
+            List<String> ulist = iaeDepartureMapper.selectusername(new Long(Sorlist.getStorageperson()));
             for (String u:ulist){
                 i.setUsername(u);
             }
