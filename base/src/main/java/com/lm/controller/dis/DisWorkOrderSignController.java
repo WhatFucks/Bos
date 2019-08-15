@@ -50,10 +50,11 @@ public class DisWorkOrderSignController {
     result.getData().put("message","修改成功");
     return result;
   }
-  // 确认
+  //取消签收录入-确认
   @RequestMapping("affirm")
   public ResponseResult affirm(DisWorkOrderSign disWorkOrderSign){
     disWorkOrderSign.setId(disWorkOrderSign.getId());
+    disWorkOrderSign.setConfirm("是");// 申请单的状态置为“是”
     disWorkOrderSign.setSignformark("否");// 修改签收标志设置为“否
     disWorkOrderSign.setInvalidatemark(1);// 签收记录打上作废标记；
     ResponseResult result = new ResponseResult();
@@ -62,7 +63,7 @@ public class DisWorkOrderSignController {
     result.getData().put("message","确认成功");
     return result;
   }
-  //  作废
+  //取消签收录入-作废
   @RequestMapping("deletes")
   public ResponseResult deletes(DisWorkOrderSign disWorkOrderSign){
     disWorkOrderSignService.delete(disWorkOrderSign.getId());
@@ -73,7 +74,7 @@ public class DisWorkOrderSignController {
   }
 
 
-
+  // 日期转换
   @org.springframework.web.bind.annotation.InitBinder
   public void InitBinder(WebDataBinder binder, WebRequest request)
   {

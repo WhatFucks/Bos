@@ -4,12 +4,12 @@ import com.lyb.entity.SysUser;
 import com.lyb.entity.SysUserExample;
 import java.util.List;
 
-import org.apache.ibatis.annotations.One;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
+import org.apache.ibatis.annotations.*;
 
 public interface SysUserMapper {
+    // 根据电话查询
+    @Select("select * from sys_user where mobile=#{tel}")
+    SysUser ByTelSelect(String tel);
     String getMaxUserNo();
 
     List<SysUser> findUserByNameAndRoleAndMenu(String username);

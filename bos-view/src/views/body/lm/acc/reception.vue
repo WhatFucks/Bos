@@ -31,27 +31,37 @@
     </el-table>
     <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
     <el-dialog :title="title" :visible.sync="dialogFormVisible">
-      <el-form ref="dataForm" :rules="rules" :model="temp" label-position="center" label-width="120px" style="width: 650px; height: 300px">
-        <el-col :span="9"><el-form-item label="业务通知单号:"><el-input  v-model="temp.businessnoticeno" id="businessnoticeno">12</el-input></el-form-item></el-col>
-        <el-col :span="8"><el-form-item label="客户编号:"><el-input  v-model="temp.customcode"></el-input></el-form-item></el-col>
-        <el-col :span="7"><el-form-item label="客户名称:"><el-input  v-model="temp.customname"></el-input></el-form-item></el-col>
-        <el-col :span="12"><el-form-item label="联系人:"><el-input  v-model="temp.linkman"></el-input></el-form-item></el-col>
-        <el-col :span="12"><el-form-item label="电话:"><el-input  v-model="temp.telphone"></el-input></el-form-item></el-col>
-        <el-col :span="24"><el-form-item label="取件地址:"><el-input  v-model="temp.pickupaddress"></el-input></el-form-item></el-col>
-        <el-col :span="8"><el-form-item label="取件城市:"><el-input  v-model="temp.pickupcity"></el-input></el-form-item></el-col>
-        <el-col :span="8"><el-form-item label="到达城市:"><el-input  v-model="temp.arrivecity"></el-input></el-form-item></el-col>
-        <el-col :span="8"><el-form-item label="产品:">
-          <el-select v-model="temp.product" placeholder="请选择">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-              :disabled="item.disabled">
-            </el-option>
+      <el-form ref="dataForm" :rules="rules" :model="temp" label-position="center" label-width="120px" style="width: 735px; height: 300px">
+        <el-col :span="12"><el-form-item label="业务通知单号:"><el-input  v-model="temp.businessnoticeno" id="businessnoticeno"></el-input></el-form-item></el-col>
+        <el-col :span="12"><el-form-item label="电话:"><el-input  v-model="temp.telphone" @change="selectTel(temp.telphone)" ></el-input></el-form-item></el-col>
+        <el-col :span="7"><el-form-item label="客户编号:"><el-input  v-model="temp.customcode"></el-input></el-form-item></el-col>
+        <el-col :span="9"><el-form-item label="客户名称:"><el-input  v-model="temp.customname"></el-input></el-form-item></el-col>
+        <el-col :span="8"><el-form-item label="联系人:"><el-input  v-model="temp.linkman"></el-input></el-form-item></el-col>
+        <el-col :span="24"><el-form-item label="取件地址:">
+          <el-select v-model="temp.pickupaddress" placeholder="请选择" style="width: 600px">
+            <el-option v-for="item in adds" :key="item.value" :label="item.label" :value="item.value" :disabled="item.disabled"></el-option>
           </el-select>
         </el-form-item></el-col>
-        <el-col :span="12"><el-form-item label="品名:"><el-input  v-model="temp.productname"></el-input></el-form-item></el-col>
+        <el-col :span="8"><el-form-item label="取件城市:">
+          <el-select v-model="temp.pickupcity" placeholder="请选择">
+            <el-option v-for="item in qjAdds" :key="item.value" :label="item.label" :value="item.value" :disabled="item.disabled"></el-option>
+          </el-select>
+        </el-form-item></el-col>
+        <el-col :span="8"><el-form-item label="到达城市:">
+          <el-select v-model="temp.arrivecity" placeholder="请选择">
+            <el-option v-for="item in sjAdds" :key="item.value" :label="item.label" :value="item.value" :disabled="item.disabled"></el-option>
+          </el-select>
+        </el-form-item></el-col>
+        <el-col :span="8"><el-form-item label="产品:">
+          <el-select v-model="temp.product" placeholder="请选择">
+            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" :disabled="item.disabled"></el-option>
+          </el-select>
+        </el-form-item></el-col>
+        <el-col :span="12"><el-form-item label="品名:">
+          <el-select v-model="temp.productname" placeholder="请选择">
+            <el-option v-for="item in productnames" :key="item.value" :label="item.label" :value="item.value" :disabled="item.disabled"></el-option>
+          </el-select>
+        </el-form-item></el-col>
         <el-col :span="12"><el-form-item label="重量:"><el-input  v-model="temp.weight"></el-input></el-form-item></el-col>
         <el-col :span="12"><el-form-item label="体积:"><el-input  v-model="temp.volume"></el-input></el-form-item></el-col>
         <el-col :span="12"><el-form-item label="备注:"><el-input  v-model="temp.importanthints"></el-input></el-form-item></el-col>
@@ -65,7 +75,7 @@
 </template>
 
 <script>
-  import { list, add, ChaseSingle, UpdateSingle,MeltSingle} from '@/api/acc/reception'
+  import { list, add, ChaseSingle, UpdateSingle,MeltSingle,ByTelSelect} from '@/api/acc/reception'
   import waves from '@/directive/waves' // waves directive
   import { parseTime } from '@/utils'
   import Pagination from '@/components/Pagination' // secondary package based on el-pagination
@@ -77,13 +87,11 @@
     directives: { waves },
     data() {
       return {
-        options: [
-          {value: '手机', label: '手机'},
-          {value: '电脑', label: '电脑'},
-          {value: '电脑', label: '电脑'},
-          {value: '零食', label: '零食'},
-          {value: '服装', label: '服装'}
-        ],
+        options: [{value: '手机', label: '手机'}, {value: '电脑', label: '电脑'}, {value: '饮料', label: '饮料'}, {value: '零食', label: '零食'}, {value: '服装', label: '服装'}],
+        adds:[{value: '湖南省长沙市岳麓区枫林三路罗马国际公寓', label: '湖南省长沙市岳麓区枫林三路罗马国际公寓'},{value: '湖南省邵阳市双清区教育局10086号', label: '湖南省邵阳市双清区教育局10086号'},{value: '湖南省郑州市五道口职业技术学院', label: '湖南省郑州市五道口职业技术学院'}],
+        qjAdds: [{value: '长沙市', label: '长沙市'},{value: '岳阳市', label: '岳阳市'},{value: '衡阳市', label: '衡阳市'},{value: '邵阳市', label: '邵阳市'},{value: '株洲市', label: '株洲市'}],
+        sjAdds: [{value: '长沙市', label: '长沙市'},{value: '岳阳市', label: '岳阳市'},{value: '衡阳市', label: '衡阳市'},{value: '邵阳市', label: '邵阳市'},{value: '株洲市', label: '株洲市'}],
+        productnames: [{value: '华为P30', label:'华为P30'},{value: '夏季短袖', label:'夏季短袖'},{value: '哇哈哈矿泉水', label:'哇哈哈矿泉水'},{value: '鼠标碟', label:'鼠标碟'}],
         value: '',
         tableKey: 0,
         list: null,
@@ -124,6 +132,17 @@
       this.getList()
     },
     methods: {
+      // 根据电话查询
+      selectTel(telphone){
+        if(telphone!=null || telphone!=''){
+          ByTelSelect(telphone).then(response => {
+            this.temp.customcode = response.data.user.userNo
+            this.temp.customname = response.data.user.email
+            this.temp.linkman = response.data.user.username
+          })
+        }
+
+      },
       // 查询所有
       getList() {
         this.listLoading = true
@@ -144,8 +163,6 @@
       resetAcc() {
         this.temp= {
           id: undefined,
-          BusinessNoticeNo: '',
-          parentStr:'',
         }
       },
       // 单击添加 按钮

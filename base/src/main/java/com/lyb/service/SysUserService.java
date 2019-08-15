@@ -29,4 +29,7 @@ public interface SysUserService {
     public Boolean deleteUserByID(Integer id);
 
     public String getUserNo();
+
+    // 根据电话查询
+    public SysUser ByTelSelect(String tel);
 }

@@ -115,7 +115,7 @@ public class SysUsersController {
         //将原始密码加盐（上面生成的盐），并且用md5算法加密两次，将最后结果存入数据库中
         String password = new Md5Hash(user.getPassword(),salt,2).toString();
         user.setSalt(salt);
-        user.setPassword(salt);
+        user.setPassword(password);
         ResponseResult result = new ResponseResult();
         boolean flag = sysUserService.addUser(user);
         result.getData().put("success",flag);
@@ -144,7 +144,7 @@ public class SysUsersController {
         //将原始密码加盐（上面生成的盐），并且用md5算法加密两次，将最后结果存入数据库中
         String password = new Md5Hash(user.getPassword(),salt,2).toString();
         user.setSalt(salt);
-        user.setPassword(salt);
+        user.setPassword(password);
         ResponseResult result = new ResponseResult();
         boolean flag = sysUserService.updateUserByID(user);
         result.getData().put("success",flag);

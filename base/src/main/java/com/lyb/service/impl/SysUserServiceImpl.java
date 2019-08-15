@@ -27,6 +27,11 @@ public class SysUserServiceImpl implements SysUserService{
     }
 
     @Override
+    public SysUser ByTelSelect(String tel) {
+        return sysUserMapper.ByTelSelect(tel);
+    }
+
+    @Override
     public SysUser findById(Integer id) {
         return sysUserMapper.selectByPrimaryKey(id);
     }

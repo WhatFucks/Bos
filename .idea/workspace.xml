@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ad5e771-b225-4f0d-b4f0-bb942b311973" name="Default Changelist" comment="">
+    <list default="true" id="1ad5e771-b225-4f0d-b4f0-bb942b311973" name="Default Changelist" comment="Li明 8/14 21.57">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/src/main/java/com/lm/controller/acc/AccWorkSheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/base/src/main/java/com/lm/controller/acc/AccWorkSheetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/src/main/java/com/lm/controller/dis/DispatchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/base/src/main/java/com/lm/controller/dis/DispatchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bos-view/src/views/body/lm/dis/transfer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/bos-view/src/views/body/lm/dis/transfer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/java/com/lm/controller/acc/Acc.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/java/com/lm/controller/acc/AccBusinessAdmissibilityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/base/src/main/java/com/lm/controller/acc/AccBusinessAdmissibilityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/java/com/lyb/mapper/SysUserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/base/src/main/java/com/lyb/mapper/SysUserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/java/com/lyb/service/SysUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/base/src/main/java/com/lyb/service/SysUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/java/com/lyb/service/impl/SysUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/base/src/main/java/com/lyb/service/impl/SysUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/base/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bos-view/src/api/acc/reception.js" beforeDir="false" afterPath="$PROJECT_DIR$/bos-view/src/api/acc/reception.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bos-view/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/bos-view/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bos-view/src/views/body/lm/acc/reception.vue" beforeDir="false" afterPath="$PROJECT_DIR$/bos-view/src/views/body/lm/acc/reception.vue" afterDir="false" />
     </list>
     <list id="8857ba9f-4823-4f37-80e3-6ddf3a703045" name="Revert &quot;罗晶 8/14 15:36 第四次上传&quot;" comment="Revert &quot;罗晶 8/14 15:36 第四次上传&quot;&#10;&#10;This reverts commit fc9dea9c" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -23,39 +29,57 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bos-view/src/views/body/lm/dis/transfer.vue">
+        <entry file="file://$PROJECT_DIR$/bos-view/src/views/body/lm/acc/reception.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="151" column="17" selection-start-line="151" selection-start-column="8" selection-end-line="151" selection-end-column="17" />
+            <state relative-caret-position="378">
+              <caret line="93" column="144" selection-start-line="93" selection-start-column="144" selection-end-line="93" selection-end-column="144" />
               <folding>
                 <element signature="n#style#0;n#el-form#0;n#el-dialog#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#el-tabs#0;n#el-form#0;n#el-dialog#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lm/controller/dis/DisDispatchhistoryController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="135" column="56" lean-forward="true" selection-start-line="134" selection-start-column="16" selection-end-line="135" selection-end-column="56" />
-              <folding>
-                <element signature="method#affirm#0;class#DisDispatchhistoryController#0" />
-                <element signature="method#back#0;class#DisDispatchhistoryController#0" />
+                <element signature="n#style#0;n#el-select#0;n#el-form-item#0;n#el-col#5;n#el-form#0;n#el-dialog#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#5167#5202#0" expanded="true" />
+                <element signature="e#6714#7023#0" />
+                <element signature="e#7055#7384#0" />
+                <element signature="e#7421#7485#0" />
+                <element signature="e#7520#7585#0" />
+                <element signature="e#7625#7871#0" />
+                <element signature="e#7909#8475#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lm/controller/dis/DispatchController.java">
+        <entry file="file://$PROJECT_DIR$/base/src/main/resources/application.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="66" column="43" selection-start-line="66" selection-start-column="43" selection-end-line="66" selection-end-column="43" />
+            <state relative-caret-position="216">
+              <caret line="8" column="76" selection-start-line="8" selection-start-column="76" selection-end-line="8" selection-end-column="76" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lm/entity/acc/AccBusinessAdmissibility.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lm/controller/acc/AccBusinessAdmissibilityController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="363">
+              <caret line="50" column="84" selection-start-line="50" selection-start-column="84" selection-end-line="50" selection-end-column="84" />
               <folding>
-                <element signature="method#selectDispatch#0;class#DispatchController#0" />
-                <element signature="method#resend#0;class#DispatchController#0" />
+                <element signature="docComment;method#getList#0;class#AccBusinessAdmissibilityController#0" />
+                <element signature="method#getList#0;class#AccBusinessAdmissibilityController#0" />
+                <element signature="method#insert#0;class#AccBusinessAdmissibilityController#0" />
+                <element signature="method#ChaseSingle#0;class#AccBusinessAdmissibilityController#0" />
+                <element signature="method#MeltSingle#0;class#AccBusinessAdmissibilityController#0" />
+                <element signature="method#UpdateSingle#0;class#AccBusinessAdmissibilityController#0" />
+                <element signature="method#getLists#0;class#AccBusinessAdmissibilityController#0" />
+                <element signature="method#ByTelSelect#0;class#AccBusinessAdmissibilityController#0" />
               </folding>
             </state>
           </provider>
@@ -67,6 +91,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="vue" />
       </list>
     </option>
   </component>
@@ -78,6 +103,7 @@
       <find>.SysDept</find>
       <find>SysDept</find>
       <find>lj</find>
+      <find>temp</find>
     </findStrings>
     <replaceStrings>
       <replace>lj</replace>
@@ -102,22 +128,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/base/src/main/resources/mybatis/mapper.lj/SysMenuMapper.xml" />
-        <option value="$PROJECT_DIR$/base/src/main/resources/mybatis/mapper.lj/SysRoleMapper.xml" />
-        <option value="$PROJECT_DIR$/base/src/main/resources/mybatis/mapper.lj/SysUserMapper.xml" />
-        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/mapper/logistics/BiglogLogisticscontroltableMapper.java" />
-        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/entity/logistics/BiglogLogisticscontroltable.java" />
-        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/util/MD5Util.java" />
-        <option value="$PROJECT_DIR$/base/src/main/java/com/sj/controller/reportforms/ReportformsController.java" />
-        <option value="$PROJECT_DIR$/base/src/main/java/com/sj/util/TreeNodeUtil.java" />
-        <option value="$PROJECT_DIR$/base/src/main/java/com/sj/entity/logistics/BiglogLogisticscontroltable.java" />
         <option value="$PROJECT_DIR$/base/src/main/java/com/sj/controller/sys/SysDeptController.java" />
         <option value="$PROJECT_DIR$/base/src/main/java/com/sj/mapper/logistics/BiglogLogisticscontroltableMapper.java" />
         <option value="$PROJECT_DIR$/base/src/main/java/com/sj/controller/logistics/BiglogLogisticscontroltableController.java" />
         <option value="$PROJECT_DIR$/base/src/main/java/com/lyb/entity/SysDept.java" />
-        <option value="$PROJECT_DIR$/base/src/main/java/com/lyb/mapper/SysUserMapper.java" />
         <option value="$PROJECT_DIR$/base/src/main/java/com/lyb/mapper/SysRoleMapper.java" />
-        <option value="$PROJECT_DIR$/base/src/main/java/com/lyb/service/SysUserService.java" />
         <option value="$PROJECT_DIR$/base/src/main/resources/mybatis/mapper/lj/AccworkorderMapper.xml" />
         <option value="$PROJECT_DIR$/base/src/main/java/com/lj/entity/sys/SysDept.java" />
         <option value="$PROJECT_DIR$/base/src/main/java/com/lj/service/impl/sys/SysDeptServiceImpl.java" />
@@ -147,12 +162,23 @@
         <option value="$PROJECT_DIR$/base/src/main/resources/mybatis/mapper/lj/SysDeptMapper.xml" />
         <option value="$PROJECT_DIR$/base/src/main/resources/mybatis/mapper/lyb/SysUserMapper.xml" />
         <option value="$PROJECT_DIR$/base/src/main/resources/mybatis/mapper/lj/SysUserMapper.xml" />
-        <option value="$PROJECT_DIR$/base/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/bos-view/src/api/logistics/logisticscontrol.js" />
-        <option value="$PROJECT_DIR$/bos-view/src/router/index.js" />
         <option value="$PROJECT_DIR$/bos-view/src/views/body/lm/dis/transfer.vue" />
         <option value="$PROJECT_DIR$/base/src/main/java/com/lm/controller/acc/AccWorkSheetController.java" />
         <option value="$PROJECT_DIR$/base/src/main/java/com/lm/controller/dis/DispatchController.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lyb/service/SysUserService.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lyb/service/impl/SysUserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lyb/mapper/SysUserMapper.java" />
+        <option value="$PROJECT_DIR$/bos-view/src/api/acc/reception.js" />
+        <option value="$PROJECT_DIR$/base/src/main/java/com/lm/controller/acc/AccBusinessAdmissibilityController.java" />
+        <option value="$PROJECT_DIR$/bos-view/src/Sheng/GlobalProvinces_extend.js" />
+        <option value="$PROJECT_DIR$/bos-view/src/Sheng/GlobalProvinces_main.js" />
+        <option value="$PROJECT_DIR$/bos-view/src/Sheng/initLocation.js" />
+        <option value="$PROJECT_DIR$/bos-view/src/Sheng/jquery.js" />
+        <option value="$PROJECT_DIR$/bos-view/src/views/body/lm/acc/shengs.vue" />
+        <option value="$PROJECT_DIR$/bos-view/src/router/index.js" />
+        <option value="$PROJECT_DIR$/bos-view/src/views/body/lm/acc/reception.vue" />
+        <option value="$PROJECT_DIR$/base/src/main/resources/application.yml" />
       </list>
     </option>
   </component>
@@ -164,10 +190,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="267" />
-    <option name="y" value="15" />
-    <option name="width" value="1037" />
-    <option name="height" value="689" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1038" />
+    <option name="height" value="690" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -223,77 +249,12 @@
               <item name="base" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="lm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bos" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="lm" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bos" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="lm" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="dis" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Bos" type="b2602c69:ProjectViewProjectNode" />
               <item name="Bos" type="462c0819:PsiDirectoryNode" />
               <item name="bos-view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bos" type="462c0819:PsiDirectoryNode" />
-              <item name="bos-view" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bos" type="462c0819:PsiDirectoryNode" />
-              <item name="bos-view" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bos" type="462c0819:PsiDirectoryNode" />
-              <item name="bos-view" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="body" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bos" type="462c0819:PsiDirectoryNode" />
-              <item name="bos-view" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="body" type="462c0819:PsiDirectoryNode" />
-              <item name="lm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bos" type="462c0819:PsiDirectoryNode" />
-              <item name="bos-view" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="body" type="462c0819:PsiDirectoryNode" />
-              <item name="lm" type="462c0819:PsiDirectoryNode" />
-              <item name="dis" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -314,7 +275,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/bos-view/src/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/bos-view/src/Sheng" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -325,19 +286,19 @@
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Bos-dev\bos-view\src\components" />
-      <recent name="D:\Bos-dev\bos-view\src\views\body\sj\reportforms" />
-      <recent name="D:\Bos-dev\bos-view\src\api" />
-      <recent name="D:\Bos-dev\base\src\main\java\com\lj\util" />
-      <recent name="D:\Bos-dev\base\src\main\java\com\lj\service\impl" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Bos-dev\base\src\main\resources\mybatis\mapper\lj" />
+      <recent name="D:\Bos-dev\bos-view\src\views\body\lj" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.lj.controller.sys" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Bos-dev\base\src\main\resources\mybatis\mapper\lj" />
-      <recent name="D:\Bos-dev\bos-view\src\views\body\lj" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Bos\bos-view\src\Sheng" />
+      <recent name="D:\Bos-dev\bos-view\src\components" />
+      <recent name="D:\Bos-dev\bos-view\src\views\body\sj\reportforms" />
+      <recent name="D:\Bos-dev\bos-view\src\api" />
+      <recent name="D:\Bos-dev\base\src\main\java\com\lj\util" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -379,7 +340,8 @@
       <workItem from="1565747527404" duration="10770000" />
       <workItem from="1565765686117" duration="12037000" />
       <workItem from="1565785621671" duration="3566000" />
-      <workItem from="1565789957015" duration="1004000" />
+      <workItem from="1565789957015" duration="1958000" />
+      <workItem from="1565834204644" duration="8864000" />
     </task>
     <task id="LOCAL-00001" summary="提交给刘艳斌的第一次">
       <created>1565619299168</created>
@@ -437,11 +399,18 @@
       <option name="project" value="LOCAL" />
       <updated>1565789705270</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="罗晶 8/14 21.57">
+      <created>1565791064208</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1565791064208</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29272000" />
+    <option name="totallyTimeSpent" value="39090000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -454,9 +423,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24128686" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18364611" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -467,12 +435,12 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.88707036" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3289689" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4969743" visible="true" weight="0.23654391" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4969743" weight="0.6388102" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
       <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49621785" weight="0.36402267" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49621785" weight="0.2719547" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50378215" side_tool="true" weight="0.17512275" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
@@ -492,7 +460,7 @@
       <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.32980332" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24128686" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18364611" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -503,12 +471,12 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.88707036" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3289689" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4969743" visible="true" weight="0.23654391" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4969743" visible="true" weight="0.30736545" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
       <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49621785" weight="0.36402267" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49621785" weight="0.2719547" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50378215" side_tool="true" weight="0.17512275" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
@@ -548,116 +516,13 @@
     <MESSAGE value="罗晶 8/14 15:36 第四次上传" />
     <MESSAGE value="罗晶 8/14 21:26 第五次上传" />
     <MESSAGE value="罗晶 8/14 21:34 第五次上传" />
-    <option name="LAST_COMMIT_MESSAGE" value="罗晶 8/14 21:34 第五次上传" />
+    <MESSAGE value="罗晶 8/14 21.57" />
+    <option name="LAST_COMMIT_MESSAGE" value="罗晶 8/14 21.57" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Bos_dev$BaseApplication.ic" NAME="BaseApplication Coverage Results" MODIFIED="1565659551454" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/controller/sys/SysDeptyController.java" />
-    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/service/impl/sys/SysMenuServiceImpl.java" />
-    <entry file="file://$PROJECT_DIR$/base/src/main/resources/mybatis/mapper/lj/BiglogLogisticscontroltableMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="2" column="70" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/main/resources/mybatis/mapper/lj/AccworkorderMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1578">
-          <caret line="207" column="51" selection-start-line="207" selection-start-column="51" selection-end-line="207" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lyb/service/impl/SysUserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="16" selection-start-line="16" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lyb/entity/SysUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lyb/entity/SysDept.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lyb/mapper/SysUserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-578">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/controller/logistics/BiglogLogisticscontroltableController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="6" column="29" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/controller/reportforms/AccworkorderController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/controller/reportforms/ReportformsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/entity/logistics/BiglogLogisticscontroltable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/entity/logistics/BiglogLogisticscontroltable2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/entity/logistics/BiglogLogisticscontroltableExample.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lj/entity/reportforms/Accworkorder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -765,13 +630,6 @@
     <entry file="file://$PROJECT_DIR$/base/src/main/resources/mybatis/mapper/lj/SysMenuMapper.xml" />
     <entry file="file://$PROJECT_DIR$/base/src/main/resources/mybatis/mapper/lj/SysDeptMapper.xml" />
     <entry file="file://$PROJECT_DIR$/base/src/main/resources/mybatis/mapper/lj/SysUserMapper.xml" />
-    <entry file="file://$PROJECT_DIR$/base/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/base/src/main/resources/mybatis/mapper/lyb/SysDeptMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8679">
@@ -799,16 +657,6 @@
     <entry file="file://$PROJECT_DIR$/base/src/main/resources/mybatis/mapper/lyb/SysMenuMapper.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/bos-view/src/router/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="439" column="72" selection-start-line="439" selection-start-column="61" selection-end-line="439" selection-end-column="72" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bos-view/src/components/TwoEcharts.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -820,9 +668,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/bos-view/src/api/reportforms/reportforms.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bos-view/src/views/body/lm/acc/reception.vue">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/bos-view/src/views/body/lm/acc/workSheet.vue">
@@ -848,28 +693,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lm/controller/acc/AccBusinessAdmissibilityController.java">
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lm/controller/dis/DispatchController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="251" selection-start-line="251" selection-end-line="251" />
+        <state relative-caret-position="357">
+          <caret line="66" column="6" selection-start-line="66" selection-start-column="6" selection-end-line="66" selection-end-column="6" />
           <folding>
-            <element signature="method#getList#0;class#AccBusinessAdmissibilityController#0" />
-            <element signature="method#insert#0;class#AccBusinessAdmissibilityController#0" />
-            <element signature="method#ChaseSingle#0;class#AccBusinessAdmissibilityController#0" />
-            <element signature="method#MeltSingle#0;class#AccBusinessAdmissibilityController#0" />
-            <element signature="method#UpdateSingle#0;class#AccBusinessAdmissibilityController#0" />
-            <element signature="method#getLists#0;class#AccBusinessAdmissibilityController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bos-view/src/views/body/lm/dis/transfer.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="151" column="17" selection-start-line="151" selection-start-column="8" selection-end-line="151" selection-end-column="17" />
-          <folding>
-            <element signature="n#style#0;n#el-form#0;n#el-dialog#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-tabs#0;n#el-form#0;n#el-dialog#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="method#selectDispatch#0;class#DispatchController#0" />
+            <element signature="method#resend#0;class#DispatchController#0" />
           </folding>
         </state>
       </provider>
@@ -885,14 +715,174 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lm/controller/dis/DispatchController.java">
+    <entry file="file://$PROJECT_DIR$/bos-view/src/views/body/lm/dis/transfer.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="66" column="43" selection-start-line="66" selection-start-column="43" selection-end-line="66" selection-end-column="43" />
+        <state relative-caret-position="234">
+          <caret line="151" column="17" selection-start-line="151" selection-start-column="8" selection-end-line="151" selection-end-column="17" />
           <folding>
-            <element signature="method#selectDispatch#0;class#DispatchController#0" />
-            <element signature="method#resend#0;class#DispatchController#0" />
+            <element signature="n#style#0;n#el-form#0;n#el-dialog#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-tabs#0;n#el-form#0;n#el-dialog#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lm/controller/acc/Acc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lyb/service/SysUserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lyb/mapper/SysUserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lyb/service/impl/SysUserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+          <folding>
+            <element signature="e#881#882#0" expanded="true" />
+            <element signature="e#908#909#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bos-view/src/Sheng/GlobalProvinces_main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="599" column="22" selection-start-line="599" selection-start-column="22" selection-end-line="599" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bos-view/src/Sheng/initLocation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="761">
+          <caret line="100" column="1" selection-start-line="100" selection-start-column="1" selection-end-line="100" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bos-view/src/Sheng/jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="18" column="39662" selection-start-line="18" selection-start-column="39662" selection-end-line="18" selection-end-column="39662" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bos-view/src/api/acc/reception.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="41" column="24" lean-forward="true" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bos-view/src/components/Pagination/index.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bos-view/src/utils/clipboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bos-view/src/utils/auth.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bos-view/src/Sheng/GlobalProvinces_extend.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83889">
+          <caret line="3107" column="147" lean-forward="true" selection-start-line="3107" selection-start-column="147" selection-end-line="3107" selection-end-column="147" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bos-view/src/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="354" column="62" selection-start-line="354" selection-start-column="53" selection-end-line="354" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bos-view/src/views/body/lm/acc/shengs.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#form#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lm/entity/acc/AccBusinessAdmissibility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lm/controller/acc/AccBusinessAdmissibilityController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="50" column="84" selection-start-line="50" selection-start-column="84" selection-end-line="50" selection-end-column="84" />
+          <folding>
+            <element signature="docComment;method#getList#0;class#AccBusinessAdmissibilityController#0" />
+            <element signature="method#getList#0;class#AccBusinessAdmissibilityController#0" />
+            <element signature="method#insert#0;class#AccBusinessAdmissibilityController#0" />
+            <element signature="method#ChaseSingle#0;class#AccBusinessAdmissibilityController#0" />
+            <element signature="method#MeltSingle#0;class#AccBusinessAdmissibilityController#0" />
+            <element signature="method#UpdateSingle#0;class#AccBusinessAdmissibilityController#0" />
+            <element signature="method#getLists#0;class#AccBusinessAdmissibilityController#0" />
+            <element signature="method#ByTelSelect#0;class#AccBusinessAdmissibilityController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bos-view/src/views/body/lm/acc/reception.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="93" column="144" selection-start-line="93" selection-start-column="144" selection-end-line="93" selection-end-column="144" />
+          <folding>
+            <element signature="n#style#0;n#el-form#0;n#el-dialog#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-select#0;n#el-form-item#0;n#el-col#5;n#el-form#0;n#el-dialog#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#5167#5202#0" expanded="true" />
+            <element signature="e#6714#7023#0" />
+            <element signature="e#7055#7384#0" />
+            <element signature="e#7421#7485#0" />
+            <element signature="e#7520#7585#0" />
+            <element signature="e#7625#7871#0" />
+            <element signature="e#7909#8475#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="8" column="76" selection-start-line="8" selection-start-column="76" selection-end-line="8" selection-end-column="76" />
         </state>
       </provider>
     </entry>

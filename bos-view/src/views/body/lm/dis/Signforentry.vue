@@ -43,8 +43,16 @@
         <el-col :span="8"><el-form-item label="签收人:"><el-input  v-model="temp.recipient"></el-input></el-form-item></el-col>
         <el-col :span="8"><el-form-item label="派送员工号:"><el-input  v-model="temp.courierint"></el-input></el-form-item></el-col>
         <el-col :span="8"><el-form-item label="派送员名称:"><el-input  v-model="temp.couriername"></el-input></el-form-item></el-col>
-        <el-col :span="8"><el-form-item label="录入人:"><el-input  v-model="temp.inputpersonid"></el-input></el-form-item></el-col>
-        <el-col :span="8"><el-form-item label="录入单位:"><el-input  v-model="temp.inputid"></el-input></el-form-item></el-col>
+        <el-col :span="8"><el-form-item label="录入人:">
+          <el-select v-model="temp.inputpersonid" placeholder="请选择">
+            <el-option v-for="item in lururen" :key="item.value" :label="item.label" :value="item.value"></el-option>
+          </el-select>
+        </el-form-item></el-col>
+        <el-col :span="10"><el-form-item label="录入单位:">
+          <el-select v-model="temp.inputid" placeholder="请选择">
+            <el-option v-for="item in lurudanwei" :key="item.value" :label="item.label" :value="item.value"></el-option>
+          </el-select>
+        </el-form-item></el-col>
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false">取消</el-button>
@@ -61,14 +69,22 @@
         </el-form-item></el-col>
         <el-col :span="8"><el-form-item label="签收类型:">
           <el-select v-model="temp.signtype" placeholder="请选择">
-            <el-option v-for="item in signtypeAll" :key="item.value" :label="item.label" :value="item.value"></el-option>
+            <el-option v-for="item in lururen" :key="item.value" :label="item.label" :value="item.value"></el-option>
           </el-select>
         </el-form-item></el-col>
         <el-col :span="8"><el-form-item label="签收人:"><el-input  v-model="temp.recipient"></el-input></el-form-item></el-col>
         <el-col :span="8"><el-form-item label="派送员工号:"><el-input  v-model="temp.courierint"></el-input></el-form-item></el-col>
         <el-col :span="8"><el-form-item label="派送员名称:"><el-input  v-model="temp.couriername"></el-input></el-form-item></el-col>
-        <el-col :span="8"><el-form-item label="录入人:"><el-input  v-model="temp.inputpersonid"></el-input></el-form-item></el-col>
-        <el-col :span="8"><el-form-item label="录入单位:"><el-input  v-model="temp.inputid"></el-input></el-form-item></el-col>
+        <el-col :span="8"><el-form-item label="录入人:">
+          <el-select v-model="temp.inputpersonid" placeholder="请选择">
+            <el-option v-for="item in lururen" :key="item.value" :label="item.label" :value="item.value"></el-option>
+          </el-select>
+        </el-form-item></el-col>
+        <el-col :span="10"><el-form-item label="录入单位:">
+          <el-select v-model="temp.inputid" placeholder="请选择">
+            <el-option v-for="item in lurudanwei" :key="item.value" :label="item.label" :value="item.value"></el-option>
+          </el-select>
+        </el-form-item></el-col>
       </el-form>
     </el-dialog>
   </div>
@@ -89,6 +105,8 @@
       return {
         options: [{value: 1, label: '返单'},{value: 2, label: '调单'},{value: 3, label: '正常单据'}],
         signtypeAll: [{value: 1, label: '正常签收'},{value: 2, label: '反向签收'}],
+        lururen: [{value: 1, label: 'admin'},{value: 2, label: 'liming'}],
+        lurudanwei: [{value: 1, label: '长沙分公司'},{value: 2, label: '天心区分公司'},{value: 3, label: '岳麓分公司'},],
         value: '',
         radio: '1',
         tableKey: 0,
@@ -213,14 +231,20 @@
         }
       },
       // 签收类型
-      signtypes(val){
-        if(val.signtype=1){return "正常签收"}
-        else {return "反向签收"}
+      signtypes(row,column){
+        switch(row.signtype){
+          case 1:return '正常签收';break;
+          default:return '反向签收';
+        }
       },
       // 录入单位
-      inputids(val){
-        if(val.inputid=1){return "BOSS集团"}
-        else{return "长沙分公司"}
+      inputids(row,column){
+        switch(row.inputid){
+          case 1:return '长沙分公司';break;
+          case 2:return '天心区分公司';break;
+          case 3:return '岳麓区分公司';break;
+          default:return 'BosXt';
+        }
       },
       // 录入人姓名
       inputpersonids(val){

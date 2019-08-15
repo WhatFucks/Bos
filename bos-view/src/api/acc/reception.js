@@ -35,3 +35,11 @@ export function list(listquery) {
     data: listquery
   })
 }
+export function ByTelSelect(telphone) {
+  return request({
+    url: '/acc/ByTelSelect',
+    method: 'post',
+    params: { telphone }
+  })
+}
+
