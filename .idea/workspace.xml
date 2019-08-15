@@ -3,13 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1ad5e771-b225-4f0d-b4f0-bb942b311973" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bos-view/src/components/HeaderSearch/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/bos-view/src/components/HeaderSearch/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bos-view/src/components/SizeSelect/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/bos-view/src/components/SizeSelect/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bos-view/src/layout/components/Navbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/bos-view/src/layout/components/Navbar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bos-view/src/layout/components/Settings/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/bos-view/src/layout/components/Settings/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bos-view/src/layout/components/Sidebar/Logo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/bos-view/src/layout/components/Sidebar/Logo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bos-view/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/bos-view/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bos-view/src/views/sys/menu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/bos-view/src/views/sys/menu.vue" afterDir="false" />
     </list>
     <list id="8857ba9f-4823-4f37-80e3-6ddf3a703045" name="Revert &quot;罗晶 8/14 15:36 第四次上传&quot;" comment="Revert &quot;罗晶 8/14 15:36 第四次上传&quot;&#10;&#10;This reverts commit fc9dea9c" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -25,17 +18,7 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bos-view/src/layout/components/Settings/index.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1242">
-              <caret line="54" column="56" selection-start-line="54" selection-start-column="56" selection-end-line="54" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -133,11 +116,11 @@
         <option value="$PROJECT_DIR$/bos-view/src/views/sys/menu.vue" />
         <option value="$PROJECT_DIR$/bos-view/src/components/HeaderSearch/index.vue" />
         <option value="$PROJECT_DIR$/bos-view/src/components/SizeSelect/index.vue" />
-        <option value="$PROJECT_DIR$/bos-view/src/layout/components/Settings/index.vue" />
         <option value="$PROJECT_DIR$/bos-view/src/layout/components/Sidebar/Logo.vue" />
         <option value="$PROJECT_DIR$/bos-view/src/layout/components/Navbar.vue" />
         <option value="$PROJECT_DIR$/bos-view/src/views/login/index.vue" />
         <option value="$PROJECT_DIR$/bos-view/src/router/index.js" />
+        <option value="$PROJECT_DIR$/bos-view/src/layout/components/Settings/index.vue" />
       </list>
     </option>
   </component>
@@ -166,48 +149,6 @@
             <path>
               <item name="Bos" type="b2602c69:ProjectViewProjectNode" />
               <item name="Bos" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bos" type="462c0819:PsiDirectoryNode" />
-              <item name="bos-view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bos" type="462c0819:PsiDirectoryNode" />
-              <item name="bos-view" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bos" type="462c0819:PsiDirectoryNode" />
-              <item name="bos-view" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bos" type="462c0819:PsiDirectoryNode" />
-              <item name="bos-view" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bos" type="462c0819:PsiDirectoryNode" />
-              <item name="bos-view" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bos" type="462c0819:PsiDirectoryNode" />
-              <item name="bos-view" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Settings" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -240,19 +181,19 @@
     <property name="ts.external.directory.path" value="D:\Program Files\IntelliJ IDEA 2019.1.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Bos-dev\base\src\main\resources\mybatis\mapper\lj" />
-      <recent name="D:\Bos-dev\bos-view\src\views\body\lj" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.lj.controller.sys" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Bos\bos-view\src\Sheng" />
       <recent name="D:\Bos-dev\bos-view\src\components" />
       <recent name="D:\Bos-dev\bos-view\src\views\body\sj\reportforms" />
       <recent name="D:\Bos-dev\bos-view\src\api" />
       <recent name="D:\Bos-dev\base\src\main\java\com\lj\util" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lj.controller.sys" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Bos-dev\base\src\main\resources\mybatis\mapper\lj" />
+      <recent name="D:\Bos-dev\bos-view\src\views\body\lj" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -296,7 +237,7 @@
       <workItem from="1565785621671" duration="3566000" />
       <workItem from="1565789957015" duration="1958000" />
       <workItem from="1565834204644" duration="8864000" />
-      <workItem from="1565850083332" duration="7220000" />
+      <workItem from="1565850083332" duration="9487000" />
     </task>
     <task id="LOCAL-00001" summary="提交给刘艳斌的第一次">
       <created>1565619299168</created>
@@ -368,11 +309,18 @@
       <option name="project" value="LOCAL" />
       <updated>1565853890851</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="2019-8-15 星期四 下午 16:34">
+      <created>1565858131140</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1565858131140</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46310000" />
+    <option name="totallyTimeSpent" value="48577000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -385,7 +333,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24205749" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -399,11 +346,11 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.88707036" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3289689" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4969743" weight="0.84923077" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4969743" weight="0.39846155" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
-      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Spring" order="7" weight="0.32923076" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49621785" weight="0.27076924" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50378215" side_tool="true" weight="0.17512275" />
@@ -483,34 +430,13 @@
     <MESSAGE value="罗晶 8/14 21:34 第五次上传" />
     <MESSAGE value="罗晶 8/14 21.57" />
     <MESSAGE value="2019-8-15 星期四 下午 15:24" />
-    <option name="LAST_COMMIT_MESSAGE" value="2019-8-15 星期四 下午 15:24" />
+    <MESSAGE value="2019-8-15 星期四 下午 16:34" />
+    <option name="LAST_COMMIT_MESSAGE" value="2019-8-15 星期四 下午 16:34" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Bos_dev$BaseApplication.ic" NAME="BaseApplication Coverage Results" MODIFIED="1565659551454" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lm/controller/dis/DisDispatchhistoryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="135" column="56" lean-forward="true" selection-start-line="134" selection-start-column="16" selection-end-line="135" selection-end-column="56" />
-          <folding>
-            <element signature="method#affirm#0;class#DisDispatchhistoryController#0" />
-            <element signature="method#back#0;class#DisDispatchhistoryController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bos-view/src/views/body/lm/dis/transfer.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="151" column="17" selection-start-line="151" selection-start-column="8" selection-end-line="151" selection-end-column="17" />
-          <folding>
-            <element signature="n#style#0;n#el-form#0;n#el-dialog#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-tabs#0;n#el-form#0;n#el-dialog#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lm/controller/acc/Acc.java" />
     <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lyb/service/SysUserService.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -620,13 +546,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="18" column="33" lean-forward="true" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/ljw/service/impl/IaeDepartureServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="41" column="33" lean-forward="true" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -825,8 +744,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bos-view/src/layout/components/Settings/index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1242">
-          <caret line="54" column="56" selection-start-line="54" selection-start-column="56" selection-end-line="54" selection-end-column="56" />
+        <state relative-caret-position="69">
+          <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bos-view/src/components/Charts/MixChart.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/ljw/mapper/SorCheckbounddetailsMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="34" column="47" lean-forward="true" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/ljw/service/impl/IaeDepartureServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="46" selection-start-line="46" selection-end-line="47" />
         </state>
       </provider>
     </entry>
