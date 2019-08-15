@@ -21,49 +21,49 @@
       highlight-current-row
       style="width: 100%;"
     >
-      <el-table-column label="ID" prop="id" sortable="custom" type="index" align="center" width="80">
+      <el-table-column label="ID" prop="id" sortable="custom" type="index" align="center" width="60">
       </el-table-column>
-      <el-table-column label="员工工号" width="100px" align="center">
+      <el-table-column label="员工工号" width="80px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.empno }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="员工姓名" width="100px" align="center">
+      <el-table-column label="员工姓名" width="90px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.empname }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="手机号码" width="120px" align="center">
+      <el-table-column label="手机号码" width="110px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.mobileno }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="PDA标志" width="100px" align="center">
+      <el-table-column label="PDA标志" width="80px" align="center">
         <template slot-scope="scope">
 <!--          <span>{{ scope.row.pda }}</span>-->
           <span v-if="scope.row.pda==false">不使用</span>
           <span v-else>使用</span>
         </template>
       </el-table-column>
-      <el-table-column label="作废标记" width="100px" align="center">
+      <el-table-column label="作废标记" width="80px" align="center">
         <template slot-scope="scope">
 <!--          <span>{{ scope.row.invalidatemark }}</span>-->
           <span v-if="scope.row.invalidatemark==false">作废</span>
           <span v-else>不作废</span>
         </template>
       </el-table-column>
-      <el-table-column label="收派重量" width="100px" align="center">
+      <el-table-column label="收派重量" width="85px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.standardkg }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="收派长度" width="100px" align="center">
+      <el-table-column label="收派长度" width="85px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.standardlength }}</span>
         </template>
       </el-table-column>
 
-      <el-table-column label="类型" width="100px" align="center">
+      <el-table-column label="类型" width="90px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.type }}</span>
         </template>
@@ -74,7 +74,7 @@
           <span>{{ scope.row.dept.name }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="车型" width="100px" align="center">
+      <el-table-column label="车型" width="80px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.models }}</span>
         </template>
