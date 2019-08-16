@@ -14,7 +14,7 @@
       <div>
         入库类型：
         <el-select v-model="listQuery.reservoirtype" clearable placeholder="请选择入库类型...">
-          <el-option v-for="type in rkType" :key="type.value" :value="type.name" :label="type.name"></el-option>
+          <el-option v-for="type in rkType" :key="type.value" :value="type.value" :label="type.name"></el-option>
         </el-select>
         当前状态：
         <el-select v-model="listQuery.status" clearable placeholder="请选择状态...">
@@ -73,7 +73,7 @@
       </el-table-column>
       <el-table-column label="开单时间" fit="true" align="center">
         <template slot-scope="scope">
-          <span>{{ scope.row.drawertime | parseTime('{y}-{m}-{d} {h}:{i}:{s}') }}</span>
+          <span>{{ scope.row.drawertime | parseTime('{y}-{m}-{d}') }}</span>
         </template>
       </el-table-column>
       <el-table-column label="备注" width="100" align="center">
@@ -100,7 +100,7 @@
       <el-form ref="dataForm" :rules="rules" :model="temp" label-position="left" label-width="80px" style="width: 400px; margin-left:50px;">
         <el-form-item label="入库类型">
           <el-select v-model="temp.reservoirtype" prop="reservoirtype" clearable placeholder="请选择入库类型...">
-            <el-option v-for="type in rkType" :key="type.value" :value="type.name" :label="type.name"></el-option>
+            <el-option v-for="type in rkType" :key="type.value" :value="type.value" :label="type.name"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="所属部门" prop="subordinateunit">
