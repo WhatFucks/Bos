@@ -5,9 +5,9 @@
       <el-button v-waves class="filter-item" type="primary" icon="el-icon-search" @click="getList">
         查询
       </el-button>
-      <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-edit" @click="handleCreate">
-        添加
-      </el-button>
+<!--      <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-edit" @click="handleCreate">-->
+<!--        添加-->
+<!--      </el-button>-->
     </div>
     <!-- 分配权限的对话框 -->
     <el-dialog :title="menuDialog.title" :visible.sync="menuDialog.isShow" center>
