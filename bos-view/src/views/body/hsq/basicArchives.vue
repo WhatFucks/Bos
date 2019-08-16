@@ -65,11 +65,6 @@
     >
       <el-table-column label="ID" prop="id" sortable="custom" type="index" align="center" width="100">
       </el-table-column>
-      <!--<el-table-column label="基础档案编号" width="110px" align="center">
-        <template slot-scope="scope">
-          <span>{{ scope.row.basBasicArchivesEntry.mnemoniccode }}</span>
-        </template>
-      </el-table-column>-->
       <el-table-column label="基础档案名称" width="140px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.name }}</span>
