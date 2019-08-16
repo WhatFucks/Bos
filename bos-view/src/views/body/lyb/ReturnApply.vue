@@ -302,11 +302,19 @@
                   type: 'success'
                 });
               }else{
-                this.$message({
-                  center: true,
-                  message: '录入失败！',
-                  type: 'warning'
-                });
+                if(res.message != ''){
+                  this.$message({
+                    center: true,
+                    message: res.message,
+                    type: 'warning'
+                  });
+                }else{
+                  this.$message({
+                    center: true,
+                    message: '录入失败！',
+                    type: 'warning'
+                  });
+                }
               }
             })
           }

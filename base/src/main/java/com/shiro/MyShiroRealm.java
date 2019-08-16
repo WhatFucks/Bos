@@ -45,12 +45,14 @@ public class MyShiroRealm extends AuthorizingRealm {
         // 查到权限数据，返回授权信息，要包括上面的权限和角色(可选，一般不这么用了)
         SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
         // 根据身份信息获取角色信息，权限信息
-        for (SysRole role : sysUser.getRoles()) {
-            simpleAuthorizationInfo.addRole(role.getName());
-            // 根据身份信息获取权限信息
-            for (SysMenu m : role.getMenus()) {
-                if(m.getPerms()!=null) {
-                    simpleAuthorizationInfo.addStringPermission(m.getPerms());
+        if(sysUser.getRoles() != null){
+            for (SysRole role : sysUser.getRoles()) {
+                simpleAuthorizationInfo.addRole(role.getName());
+                // 根据身份信息获取权限信息
+                for (SysMenu m : role.getMenus()) {
+                    if(m.getPerms()!=null) {
+                        simpleAuthorizationInfo.addStringPermission(m.getPerms());
+                    }
                 }
             }
         }
