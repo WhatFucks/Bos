@@ -27,6 +27,18 @@ public class RetReturnlistImpl implements RetReturnlistService {
     }
 
     @Override
+    public Boolean isExistRetReturnlist(String worksheetno) {
+        RetReturnlistExample example = new RetReturnlistExample();
+        example.createCriteria().andWorksheetnoEqualTo(worksheetno);
+        List<RetReturnlist> list = retReturnlistMapper.selectByExample(example);
+        boolean flag = false;
+        if(list != null && list.size() == 1){
+            flag = true;
+        }
+        return flag;
+    }
+
+    @Override
     public RetReturnlist findByID(Integer id) {
         return retReturnlistMapper.selectByPrimaryKey(id);
     }

@@ -6,6 +6,7 @@ import com.util.ResponseResult;
 import com.lyb.service.SysUserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
@@ -44,6 +45,10 @@ public class SysUsersController {
             e.printStackTrace();
             result.setCode(20001);
             result.setMessage("登陆失败，请检查账号密码后重试！");
+        }catch (UnknownAccountException e){
+            e.printStackTrace();
+            result.setCode(20001);
+            result.setMessage("登陆失败，无角色数据！");
         }
         // 返回给前台的toke，唯一标识用户
         return result;

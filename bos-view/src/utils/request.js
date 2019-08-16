@@ -24,9 +24,9 @@ service.interceptors.request.use(
       config.headers['X-Token'] = getToken()
     }
     // 如果是post提交，将json数据转为字符串
-    if(config.method  === 'post'){
+    if (config.method === 'post') {
       // 从参数里取出data 转型
-      config.data = qs.stringify(config.data);
+      config.data = qs.stringify(config.data)
     }
     // 设置数据提交方式为字符串
     config.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
@@ -65,7 +65,7 @@ service.interceptors.response.use(
       // 50008: Illegal token; 50012: Other clients logged in; 50014: Token expired;
       if (res.code === 50008 || res.code === 50012 || res.code === 50014) {
         // to re-login
-        MessageBox.confirm('You have been logged out, you can cancel to stay on this page, or log in again', 'Confirm logout', {
+        MessageBox.confirm('您已经注销，您可以取消以停留在此页面，或再次登录', '确认注销', {
           confirmButtonText: 'Re-Login',
           cancelButtonText: 'Cancel',
           type: 'warning'
