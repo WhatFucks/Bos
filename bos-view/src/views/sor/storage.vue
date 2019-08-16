@@ -300,8 +300,8 @@
       return {
         tag: {type: 'success', type2: 'danger'},
         options: [{value: '0', label: '有单无货'}, {value: '1', label: '有货无单'}],
-        options2: [{value: '0', label: '已处理'}, {value: '1', label: '未处理'}],
-        options3: [{value: '0', label: '中转入库'}, {value: '1', label: '二次入库'},{value: '2', label: '初始入库'},{value: '3', label: '有货无单'}],
+        options2: [{value: '1', label: '已处理'}, {value: '0', label: '未处理'}],
+        options3: [{value: '0', label: '中转入库'}, {value: '1', label: '二次入库'},{value: '2', label: '初始入库'},{value: '3', label: '有单无货'}],
         dialogFormVisible2: false,
         dialogFormVisible3: false,
         dialogFormVisible4:false,

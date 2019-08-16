@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard-container">
-<!--    <component :is="currentRole" />-->
+    <h1>峰哥宇宙第一帅</h1>
   </div>
 </template>
 

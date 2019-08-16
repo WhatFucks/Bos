@@ -256,7 +256,7 @@ export const asyncRoutes = [
         name: '入库',
         meta: {
           title: '入库',
-          roles: ['admin', 'dev', 'test', '总经理', '分拣', '出入库操作员'] // or you can only set roles in sub nav
+          roles: ['admin', 'dev', 'test', '总经理', '分拣', '分拣总管理员', '出入库操作员'] // or you can only set roles in sub nav
         }
       },
       {
@@ -266,7 +266,7 @@ export const asyncRoutes = [
         meta: {
           title: '出库',
           // if do not set roles, means: this page does not require permission
-          roles: ['admin', 'dev', 'test', '总经理', '分拣', '出入库操作员']
+          roles: ['admin', 'dev', 'test', '总经理', '分拣', '分拣总管理员', '出入库操作员']
         }
       },
       {
@@ -275,7 +275,7 @@ export const asyncRoutes = [
         name: '盘库',
         meta: {
           title: '盘库',
-          roles: ['admin', 'dev', 'test', '总经理', '分拣', '出入库操作员']
+          roles: ['admin', 'dev', 'test', '总经理', '分拣', '分拣总管理员']
         }
       },
       {
@@ -284,7 +284,7 @@ export const asyncRoutes = [
         name: '合包',
         meta: {
           title: '合包',
-          roles: ['admin', 'dev', 'test', '总经理', '分拣', '出入库操作员']
+          roles: ['admin', 'dev', 'test', '总经理', '分拣', '分拣总管理员']
         }
       },
       {
@@ -293,7 +293,7 @@ export const asyncRoutes = [
         name: '拆包',
         meta: {
           title: '拆包',
-          roles: ['admin', 'dev', 'test', '总经理', '分拣', '出入库操作员']
+          roles: ['admin', 'dev', 'test', '总经理', '分拣', '分拣总管理员']
         }
       },
       {
@@ -302,7 +302,7 @@ export const asyncRoutes = [
         name: '出入库查询',
         meta: {
           title: '出入库查询',
-          roles: ['admin', 'dev', 'test', '总经理', '分拣', '出入库操作员']
+          roles: ['admin', 'dev', 'test', '总经理', '分拣', '分拣总管理员', '出入库操作员']
         }
       }, {
         path: 'InventoryQuery',
@@ -310,7 +310,7 @@ export const asyncRoutes = [
         name: '库存查询',
         meta: {
           title: '库存查询',
-          roles: ['admin', 'dev', 'test', '总经理', '分拣', '出入库操作员']
+          roles: ['admin', 'dev', 'test', '总经理', '分拣', '分拣总管理员']
         }
       }, {
         path: 'packageQuery',
@@ -318,7 +318,7 @@ export const asyncRoutes = [
         name: '合包查询',
         meta: {
           title: '合包查询',
-          roles: ['admin', 'dev', 'test', '总经理', '分拣', '出入库操作员']
+          roles: ['admin', 'dev', 'test', '总经理', '分拣', '分拣总管理员']
         }
       }, {
         path: 'abnormal',
@@ -326,7 +326,7 @@ export const asyncRoutes = [
         name: '单货异常查询',
         meta: {
           title: '单货异常查询',
-          roles: ['admin', 'dev', 'test', '总经理', '分拣', '出入库操作员', '异常处理员']
+          roles: ['admin', 'dev', 'test', '总经理', '分拣', '分拣总管理员', '异常处理员']
         }
       }
     ]
