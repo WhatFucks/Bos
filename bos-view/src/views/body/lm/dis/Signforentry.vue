@@ -27,7 +27,7 @@
       </el-table-column>
     </el-table>
     <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
-    <el-dialog :title="title" :visible.sync="dialogFormVisible">
+    <el-dialog :title="title" :visible.sync="dialogFormVisibleAdd">
       <el-form ref="dataForm" :rules="rules" :model="temp" label-width="120px" style="width: 700px; margin-left:0px; height: 200px">
         <el-col :span="8"><el-form-item label="工作单号:"><el-input  v-model="temp.workorderid"></el-input></el-form-item></el-col>
         <el-col :span="8"><el-form-item label="工作单类型:">
@@ -40,7 +40,7 @@
             <el-option v-for="item in signtypeAll" :key="item.value" :label="item.label" :value="item.value"></el-option>
           </el-select>
         </el-form-item></el-col>
-        <el-col :span="8"><el-form-item label="签收人:"><el-input  v-model="temp.recipient"></el-input></el-form-item></el-col>
+        <el-col :span="8"><el-form-item label="签收人:"><el-input  v-model="temp.recipient" ></el-input></el-form-item></el-col>
         <el-col :span="8"><el-form-item label="派送员工号:"><el-input  v-model="temp.courierint"></el-input></el-form-item></el-col>
         <el-col :span="8"><el-form-item label="派送员名称:"><el-input  v-model="temp.couriername"></el-input></el-form-item></el-col>
         <el-col :span="8"><el-form-item label="录入人:">
@@ -49,7 +49,39 @@
           </el-select>
         </el-form-item></el-col>
         <el-col :span="10"><el-form-item label="录入单位:">
-          <el-select v-model="temp.inputid" placeholder="请选择">
+          <el-select v-model="temp.inputid" placeholder="请选择" >
+            <el-option v-for="item in lurudanwei" :key="item.value" :label="item.label" :value="item.value"></el-option>
+          </el-select>
+        </el-form-item></el-col>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">取消</el-button>
+        <el-button type="primary" @click="dialogStatus==='create'?createData():updateData()">确认</el-button>
+      </div>
+    </el-dialog>
+    <el-dialog :title="title" :visible.sync="dialogFormVisible">
+      <el-form ref="dataForm" :rules="rules" :model="temp" label-width="120px" style="width: 700px; margin-left:0px; height: 200px">
+        <el-col :span="8"><el-form-item label="工作单号:"><el-input  :disabled="true" v-model="temp.workorderid"></el-input></el-form-item></el-col>
+        <el-col :span="8"><el-form-item label="工作单类型:">
+          <el-select v-model="temp.workordertype" placeholder="请选择" :disabled="true">
+            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
+          </el-select>
+        </el-form-item></el-col>
+        <el-col :span="8"><el-form-item label="签收类型:">
+          <el-select v-model="temp.signtype" placeholder="请选择" :disabled="true">
+            <el-option v-for="item in signtypeAll" :key="item.value" :label="item.label" :value="item.value"></el-option>
+          </el-select>
+        </el-form-item></el-col>
+        <el-col :span="8"><el-form-item label="签收人:"><el-input  v-model="temp.recipient" ></el-input></el-form-item></el-col>
+        <el-col :span="8"><el-form-item label="派送员工号:"><el-input  :disabled="true" v-model="temp.courierint"></el-input></el-form-item></el-col>
+        <el-col :span="8"><el-form-item label="派送员名称:"><el-input  :disabled="true" v-model="temp.couriername"></el-input></el-form-item></el-col>
+        <el-col :span="8"><el-form-item label="录入人:">
+          <el-select v-model="temp.inputpersonid" placeholder="请选择" :disabled="true">
+            <el-option v-for="item in lururen" :key="item.value" :label="item.label" :value="item.value"></el-option>
+          </el-select>
+        </el-form-item></el-col>
+        <el-col :span="10"><el-form-item label="录入单位:" :disabled="true">
+          <el-select v-model="temp.inputid" placeholder="请选择" :disabled="true">
             <el-option v-for="item in lurudanwei" :key="item.value" :label="item.label" :value="item.value"></el-option>
           </el-select>
         </el-form-item></el-col>
@@ -61,27 +93,27 @@
     </el-dialog>
     <el-dialog :title="title" :visible.sync="dialogFormVisibles">
       <el-form ref="dataForms" :rules="rules" :model="temp" label-width="120px" style="width: 700px; margin-left:0px; height: 200px">
-        <el-col :span="8"><el-form-item label="工作单号:"><el-input  v-model="temp.workorderid"></el-input></el-form-item></el-col>
+        <el-col :span="8"><el-form-item label="工作单号:" ><el-input  :disabled="true" v-model="temp.workorderid"></el-input></el-form-item></el-col>
         <el-col :span="8"><el-form-item label="工作单类型:">
-          <el-select v-model="temp.workordertype" placeholder="请选择">
+          <el-select v-model="temp.workordertype" placeholder="请选择" :disabled="true">
             <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
           </el-select>
         </el-form-item></el-col>
         <el-col :span="8"><el-form-item label="签收类型:">
-          <el-select v-model="temp.signtype" placeholder="请选择">
+          <el-select v-model="temp.signtype" placeholder="请选择" :disabled="true">
             <el-option v-for="item in lururen" :key="item.value" :label="item.label" :value="item.value"></el-option>
           </el-select>
         </el-form-item></el-col>
-        <el-col :span="8"><el-form-item label="签收人:"><el-input  v-model="temp.recipient"></el-input></el-form-item></el-col>
-        <el-col :span="8"><el-form-item label="派送员工号:"><el-input  v-model="temp.courierint"></el-input></el-form-item></el-col>
-        <el-col :span="8"><el-form-item label="派送员名称:"><el-input  v-model="temp.couriername"></el-input></el-form-item></el-col>
+        <el-col :span="8"><el-form-item label="签收人:"><el-input :disabled="true" v-model="temp.recipient"></el-input></el-form-item></el-col>
+        <el-col :span="8"><el-form-item label="派送员工号:"><el-input :disabled="true"  v-model="temp.courierint"></el-input></el-form-item></el-col>
+        <el-col :span="8"><el-form-item label="派送员名称:"><el-input  :disabled="true" v-model="temp.couriername"></el-input></el-form-item></el-col>
         <el-col :span="8"><el-form-item label="录入人:">
-          <el-select v-model="temp.inputpersonid" placeholder="请选择">
+          <el-select v-model="temp.inputpersonid" placeholder="请选择" :disabled="true">
             <el-option v-for="item in lururen" :key="item.value" :label="item.label" :value="item.value"></el-option>
           </el-select>
         </el-form-item></el-col>
-        <el-col :span="10"><el-form-item label="录入单位:">
-          <el-select v-model="temp.inputid" placeholder="请选择">
+        <el-col :span="10"><el-form-item label="录入单位:" :disabled="true">
+          <el-select v-model="temp.inputid" placeholder="请选择" :disabled="true">
             <el-option v-for="item in lurudanwei" :key="item.value" :label="item.label" :value="item.value"></el-option>
           </el-select>
         </el-form-item></el-col>
@@ -130,6 +162,7 @@
           inputid:'',
         },
         dialogFormVisible: false,
+        dialogFormVisibleAdd: false,
         dialogFormVisibles: false,
         dialogStatus: '',
         title:'',
@@ -156,7 +189,7 @@
       handleCreate() {
         this.resetuser()
         this.dialogStatus = 'create'
-        this.dialogFormVisible = true
+        this.dialogFormVisibleAdd = true
         this.title='添加'
         this.$nextTick(() => {
           this.$refs['dataForm'].clearValidate()

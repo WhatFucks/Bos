@@ -31,9 +31,17 @@
         <el-col :span="8"><el-form-item label="工作单号:"><el-input  v-model="temp.worksheetno"></el-input></el-form-item></el-col>
         <el-col :span="8"><el-form-item label="申请单号:"><el-input  v-model="temp.applicationno"></el-input></el-form-item></el-col>
         <el-col :span="24"><el-form-item label="申请原因:"><el-input  v-model="temp.cause"></el-input></el-form-item></el-col>
-        <el-col :span="8"><el-form-item label="签收状态:"><el-input  v-model="temp.signtype"></el-input></el-form-item></el-col>
-        <el-col :span="8"><el-form-item label="签收单位:"><el-input  v-model="temp.inputid"></el-input></el-form-item></el-col>
-        <el-col :span="8"><el-form-item label="申请人:"><el-input  v-model="temp.couriername"></el-input></el-form-item></el-col>
+        <el-col :span="8"><el-form-item label="签收状态:">
+          <el-select v-model="temp.signtype" placeholder="请选择">
+            <el-option v-for="item in signtypeAll" :key="item.value" :label="item.label" :value="item.value"></el-option>
+          </el-select>
+        </el-form-item></el-col>
+        <el-col :span="9"><el-form-item label="签收单位:">
+          <el-select v-model="temp.inputid" placeholder="请选择">
+            <el-option v-for="item in inputidAll" :key="item.value" :label="item.label" :value="item.value"></el-option>
+          </el-select>
+        </el-form-item></el-col>
+        <el-col :span="7"><el-form-item label="申请人:"><el-input  v-model="temp.couriername"></el-input></el-form-item></el-col>
         <el-col :span="8"><el-form-item label="申请时间:"><el-input  v-model="temp.applicatiotime"></el-input></el-form-item></el-col>
         <el-col :span="8"><el-form-item label="申请单位:"><el-input  v-model="temp.applicatiounit"></el-input></el-form-item></el-col>
         <el-col :span="8"><el-form-item label="确认人:"><el-input  v-model="temp.applicatioperson"></el-input></el-form-item></el-col>
@@ -51,9 +59,17 @@
         <el-col :span="8"><el-form-item label="工作单号:"><el-input  v-model="temp.worksheetno"></el-input></el-form-item></el-col>
         <el-col :span="8"><el-form-item label="申请单号:"><el-input  v-model="temp.applicationno"></el-input></el-form-item></el-col>
         <el-col :span="24"><el-form-item label="申请原因:"><el-input  v-model="temp.cause"></el-input></el-form-item></el-col>
-        <el-col :span="8"><el-form-item label="签收状态:"><el-input  v-model="temp.signtype"></el-input></el-form-item></el-col>
-        <el-col :span="8"><el-form-item label="签收单位:"><el-input  v-model="temp.inputid"></el-input></el-form-item></el-col>
-        <el-col :span="8"><el-form-item label="申请人:"><el-input  v-model="temp.couriername"></el-input></el-form-item></el-col>
+        <el-col :span="8"><el-form-item label="签收状态:">
+          <el-select v-model="temp.signtype" placeholder="请选择">
+            <el-option v-for="item in signtypeAll" :key="item.value" :label="item.label" :value="item.value"></el-option>
+          </el-select>
+        </el-form-item></el-col>
+        <el-col :span="9"><el-form-item label="签收单位:">
+          <el-select v-model="temp.inputid" placeholder="请选择">
+            <el-option v-for="item in inputidAll" :key="item.value" :label="item.label" :value="item.value"></el-option>
+          </el-select>
+        </el-form-item></el-col>
+        <el-col :span="7"><el-form-item label="申请人:"><el-input  v-model="temp.couriername"></el-input></el-form-item></el-col>
         <el-col :span="8"><el-form-item label="申请时间:"><el-input  v-model="temp.applicatiotime"></el-input></el-form-item></el-col>
         <el-col :span="8"><el-form-item label="申请单位:"><el-input  v-model="temp.applicatiounit"></el-input></el-form-item></el-col>
         <el-col :span="8"><el-form-item label="确认人:"><el-input  v-model="temp.applicatioperson"></el-input></el-form-item></el-col>
@@ -80,6 +96,7 @@
       return {
         options: [{value: 1, label: '返单'},{value: 2, label: '调单'},{value: 3, label: '正常单据'}],
         signtypeAll: [{value: 1, label: '正常签收'},{value: 2, label: '反向签收'}],
+        inputidAll: [{value: 1, label: '长沙总公司'},{value: 2, label: '岳麓区分公司'},{value: 3, label: '天心区分公司'}],
         value: '',
         radio: '1',
         tableKey: 0,
