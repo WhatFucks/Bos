@@ -23,7 +23,7 @@
     >
       <el-table-column label="ID" prop="id" sortable="custom" type="index" align="center" width="60">
       </el-table-column>
-      <el-table-column prop="linetype"  label="线路类型" width="90px" align="center" :formatter="linetypeStr">
+      <el-table-column prop="linetype"  label="线路类型" width="80px" align="center" :formatter="linetypeStr">
 <!--        <template slot-scope="scope">-->
 <!--          <span>{{ scope.row.linetype }}</span>-->
 <!--&lt;!&ndash;          <span v-if="scope.row.linetype=='1'">全部</span>&ndash;&gt;-->
@@ -52,12 +52,12 @@
         </template>
       </el-table-column>
 
-      <el-table-column label="车型" width="80px" align="center">
+      <el-table-column label="车型" width="75px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.models }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="司机" width="80px" align="center">
+      <el-table-column label="司机" width="75px" align="center">
       <template slot-scope="scope">
         <span>{{ scope.row.driver }}</span>
       </template>
@@ -67,7 +67,7 @@
           <span>{{ scope.row.telephone }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="吨控" width="70px" align="center">
+      <el-table-column label="吨控" width="60px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.ton }}</span>
         </template>
@@ -88,7 +88,7 @@
         </template>
       </el-table-column>
 
-      <el-table-column label="操作" align="center" width="160" class-name="small-padding fixed-width">
+      <el-table-column label="操作" align="center" width="170" class-name="small-padding fixed-width">
         <template slot-scope="{row}">
           <el-button type="primary" size="mini" @click="handleUpdate(row)">
             修改
