@@ -290,6 +290,7 @@ export default {
           this.$store.dispatch('user/login', this.loginForm)
             .then(() => {
               // 根据路由进行跳转了
+              console.debug(this.redirect)
               this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
               this.loading = false
             })

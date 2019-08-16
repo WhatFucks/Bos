@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1ad5e771-b225-4f0d-b4f0-bb942b311973" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bos-view/src/views/body/hsq/zoneInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/bos-view/src/views/body/hsq/zoneInfo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bos-view/src/views/body/lyb/PackagingInformationInput.vue" beforeDir="false" afterPath="$PROJECT_DIR$/bos-view/src/views/body/lyb/PackagingInformationInput.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bos-view/src/views/login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/bos-view/src/views/login/index.vue" afterDir="false" />
     </list>
     <list id="8857ba9f-4823-4f37-80e3-6ddf3a703045" name="Revert &quot;罗晶 8/14 15:36 第四次上传&quot;" comment="Revert &quot;罗晶 8/14 15:36 第四次上传&quot;&#10;&#10;This reverts commit fc9dea9c" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -21,10 +22,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bos-view/src/views/body/hsq/zoneInfo.vue">
+        <entry file="file://$PROJECT_DIR$/bos-view/src/views/body/lyb/PackagingInformationInput.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="36" column="46" selection-start-line="36" selection-start-column="46" selection-end-line="36" selection-end-column="46" />
+            <state relative-caret-position="325">
+              <caret line="104" column="23" lean-forward="true" selection-start-line="104" selection-start-column="23" selection-end-line="104" selection-end-column="23" />
+              <folding>
+                <element signature="n#el-select#0;n#el-form-item#1;n#el-form#0;n#el-dialog#0;n#div#0;n#template#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -82,7 +86,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/base/src/main/java/com/lj/controller/sys/SysDeptController.java" />
         <option value="$PROJECT_DIR$/base/src/main/java/com/lj/mapper/sys/SysMenuMapper.java" />
         <option value="$PROJECT_DIR$/base/src/main/java/com/lj/mapper/sys/SysRoleMapper.java" />
         <option value="$PROJECT_DIR$/base/src/main/java/com/lj/mapper/sys/SysUserMapper.java" />
@@ -128,11 +131,12 @@
         <option value="$PROJECT_DIR$/bos-view/src/components/SizeSelect/index.vue" />
         <option value="$PROJECT_DIR$/bos-view/src/layout/components/Sidebar/Logo.vue" />
         <option value="$PROJECT_DIR$/bos-view/src/layout/components/Navbar.vue" />
-        <option value="$PROJECT_DIR$/bos-view/src/views/login/index.vue" />
         <option value="$PROJECT_DIR$/bos-view/src/router/index.js" />
         <option value="$PROJECT_DIR$/bos-view/src/layout/components/Settings/index.vue" />
         <option value="$PROJECT_DIR$/bos-view/src/views/body/hsq/shuttleBus.vue" />
         <option value="$PROJECT_DIR$/bos-view/src/views/body/hsq/zoneInfo.vue" />
+        <option value="$PROJECT_DIR$/bos-view/src/views/login/index.vue" />
+        <option value="$PROJECT_DIR$/bos-view/src/views/body/lyb/PackagingInformationInput.vue" />
       </list>
     </option>
   </component>
@@ -155,54 +159,54 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="bos-1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bos-1" type="462c0819:PsiDirectoryNode" />
+              <item name="Bos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Bos" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="bos-1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bos-1" type="462c0819:PsiDirectoryNode" />
+              <item name="Bos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Bos" type="462c0819:PsiDirectoryNode" />
               <item name="bos-view" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="bos-1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bos-1" type="462c0819:PsiDirectoryNode" />
-              <item name="bos-view" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bos-1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bos-1" type="462c0819:PsiDirectoryNode" />
+              <item name="Bos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Bos" type="462c0819:PsiDirectoryNode" />
               <item name="bos-view" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="bos-1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bos-1" type="462c0819:PsiDirectoryNode" />
+              <item name="Bos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Bos" type="462c0819:PsiDirectoryNode" />
               <item name="bos-view" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="body" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="bos-1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bos-1" type="462c0819:PsiDirectoryNode" />
+              <item name="Bos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Bos" type="462c0819:PsiDirectoryNode" />
               <item name="bos-view" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="body" type="462c0819:PsiDirectoryNode" />
-              <item name="hsq" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Bos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Bos" type="462c0819:PsiDirectoryNode" />
+              <item name="bos-view" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="body" type="462c0819:PsiDirectoryNode" />
+              <item name="lyb" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -285,6 +289,7 @@
       <workItem from="1565789957015" duration="1958000" />
       <workItem from="1565834204644" duration="8864000" />
       <workItem from="1565850083332" duration="9487000" />
+      <workItem from="1565934819098" duration="4012000" />
     </task>
     <task id="LOCAL-00001" summary="提交给刘艳斌的第一次">
       <created>1565619299168</created>
@@ -374,7 +379,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49116000" />
+    <option name="totallyTimeSpent" value="53128000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -386,10 +391,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1860817" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.290469" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -400,17 +405,17 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.88707036" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3289689" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4969743" weight="0.39770868" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4969743" weight="0.8630769" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32923076" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49546143" weight="0.2700491" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49546143" weight="0.26923078" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5045386" side_tool="true" weight="0.2700491" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
-      <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49924356" weight="0.5417349" />
+      <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49924356" weight="0.51076925" />
       <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.49924356" weight="0.049099836" />
       <window_info anchor="bottom" id="TypeScript" order="15" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -427,7 +432,7 @@
       <window_info anchor="right" id="Preview" order="11" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18305598" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.290469" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -438,18 +443,19 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.88707036" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3289689" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4969743" weight="0.5030769" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4969743" weight="0.8630769" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
-      <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49621785" weight="0.27076924" />
+      <window_info anchor="bottom" id="Spring" order="7" weight="0.32923076" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49546143" weight="0.26923078" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50378215" side_tool="true" weight="0.17512275" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5045386" side_tool="true" weight="0.2700491" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
-      <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49924356" weight="0.47230768" />
+      <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49924356" weight="0.51076925" />
       <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.49924356" weight="0.049099836" />
+      <window_info anchor="bottom" id="TypeScript" order="15" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -461,6 +467,7 @@
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Bean Validation" order="9" />
       <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.32980332" />
+      <window_info anchor="right" id="Preview" order="11" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -493,16 +500,6 @@
     <SUITE FILE_PATH="coverage/Bos_dev$BaseApplication.ic" NAME="BaseApplication Coverage Results" MODIFIED="1565659551454" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lyb/mapper/SysUserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/base/src/main/java/com/lyb/service/impl/SysUserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -676,13 +673,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bos-view/src/views/login/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="189" column="10" lean-forward="true" selection-start-line="189" selection-start-column="10" selection-end-line="189" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bos-view/src/router/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
@@ -797,13 +787,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="36" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bos-view/src/views/body/lm/acc/reception.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -819,6 +802,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="36" column="46" selection-start-line="36" selection-start-column="46" selection-end-line="36" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="18" lean-forward="true" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bos-view/src/views/login/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="293" column="44" lean-forward="true" selection-start-line="293" selection-start-column="44" selection-end-line="293" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bos-view/src/views/body/lyb/PackagingInformationInput.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="104" column="23" lean-forward="true" selection-start-line="104" selection-start-column="23" selection-end-line="104" selection-end-column="23" />
+          <folding>
+            <element signature="n#el-select#0;n#el-form-item#1;n#el-form#0;n#el-dialog#0;n#div#0;n#template#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
