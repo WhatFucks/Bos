@@ -117,7 +117,7 @@ public class SorStorageServiceImpl implements SorStorageService {
 
             SorAbnormal sorAbnormal = new SorAbnormal();
 
-            if(sd.getId()!=null && sd.getState()==3){[]
+            if(sd.getId()!=null && sd.getState()==3){
 
                 // 监控异常
                 sorAbnormal.setLaunchdate(new Date());
