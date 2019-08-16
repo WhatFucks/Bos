@@ -14,4 +14,5 @@ public interface RetReturnlistService {
     public Boolean refuse(Integer id);
     public RetReturnlist findByID(Integer id);
     public String getApplicationNo();
+    public Boolean isExistRetReturnlist(String worksheetno);
 }

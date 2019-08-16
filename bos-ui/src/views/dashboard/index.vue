@@ -8,7 +8,7 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  name: 'BOS系统',
+  name: '易邮 BOS物流管理系统',
   computed: {
     ...mapGetters([
       'name'
