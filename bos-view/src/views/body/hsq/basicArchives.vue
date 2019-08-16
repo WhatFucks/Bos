@@ -63,26 +63,26 @@
       highlight-current-row
       style="width: 100%;"
     >
-      <el-table-column label="ID" prop="id" sortable="custom" type="index" align="center" width="80">
+      <el-table-column label="ID" prop="id" sortable="custom" type="index" align="center" width="100">
       </el-table-column>
-      <el-table-column label="基础档案编号" width="110px" align="center">
+      <!--<el-table-column label="基础档案编号" width="110px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.basBasicArchivesEntry.mnemoniccode }}</span>
         </template>
-      </el-table-column>
+      </el-table-column>-->
       <el-table-column label="基础档案名称" width="140px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.name }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="档案是否分级" width="110px" align="center">
+      <el-table-column label="档案是否分级" width="120px" align="center">
         <template slot-scope="scope">
           <span v-if="scope.row.grade==false">否</span>
           <span v-else>是</span>
         </template>
       </el-table-column>
 
-      <el-table-column label="操作人员" width="120px" align="center">
+      <el-table-column label="操作人员" width="130px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.user.username }}</span>
         </template>
@@ -93,7 +93,7 @@
           <span>{{ scope.row.dept.name }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="操作时间" width="150px" align="center">
+      <el-table-column label="操作时间" width="170px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.operationtime | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
         </template>
@@ -104,7 +104,7 @@
         </template>
       </el-table-column>
 
-      <el-table-column label="操作" align="center" width="230" class-name="small-padding fixed-width">
+      <el-table-column label="操作" align="center" width="280" class-name="small-padding fixed-width">
         <template slot-scope="{row}">
           <el-button type="primary" size="mini" @click="handleUpdate(row)">
             修改
@@ -387,7 +387,6 @@
         }
         delete this.basBasicArchives.user
         delete this.basBasicArchives.dept
-        delete this.basBasicArchives.basBasicArchivesEntry
         this.uname = this.basBasicArchives.name
         this.dialogStatus = 'update'
         this.dialogFormVisible = true
