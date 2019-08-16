@@ -98,7 +98,7 @@
           this.users=response.data.userlist
         })
       },
-      // 新增合包信息及合包详情
+      // 拆包
       submitForm(formName) {
         if(this.dynamicValidateForm.domains==[] || this.dynamicValidateForm.id==null || this.dynamicValidateForm.domains.id==null){
           this.$confirm('确定要拆包，是否继续?', '提示', {
@@ -106,11 +106,15 @@
             cancelButtonText: '取消',
             type: 'warning'
           }).then(() => {
-            this.$message({
-              showClose: true,
-              message: '请输入合包号，我们将自动检查',
-              type: 'warning'
-            });
+            chaiCheck(this.dynamicValidateForm.id).then(response => {
+              this.$notify({
+                title: '提示',
+                message: response.data.message,
+                type: 'success'
+              });
+              this.dialogFormVisible = false
+              this.dynamicValidateForm ={domains: [{}],}
+            })
           })
 
         }else{
@@ -155,6 +159,7 @@
             this.dynamicValidateForm.id=null
           }else{
             this.dynamicValidateForm=response.data.dynamicValidateForm
+            console.debug(this.dynamicValidateForm)
           }
         })
       }
