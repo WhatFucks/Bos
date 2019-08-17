@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ad5e771-b225-4f0d-b4f0-bb942b311973" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/src/main/java/com/lj/entity/reportforms/Accworkorder.java" beforeDir="false" afterPath="$PROJECT_DIR$/base/src/main/java/com/lj/entity/reportforms/Accworkorder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/base/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bos-view/src/api/reportforms/reportforms.js" beforeDir="false" afterPath="$PROJECT_DIR$/bos-view/src/api/reportforms/reportforms.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bos-view/src/components/TwoEcharts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/bos-view/src/components/TwoEcharts.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bos-view/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/bos-view/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bos-view/src/views/dashboard/admin/components/BarChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/bos-view/src/views/dashboard/admin/components/BarChart.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bos-view/src/views/dashboard/admin/components/LineChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/bos-view/src/views/dashboard/admin/components/LineChart.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bos-view/src/views/dashboard/admin/components/PieChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/bos-view/src/views/dashboard/admin/components/PieChart.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bos-view/src/views/dashboard/admin/components/RaddarChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/bos-view/src/views/dashboard/admin/components/RaddarChart.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bos-view/src/views/dashboard/admin/components/TransactionTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/bos-view/src/views/dashboard/admin/components/TransactionTable.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bos-view/src/views/dashboard/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/bos-view/src/views/dashboard/index.vue" afterDir="false" />
-    </list>
+    <list default="true" id="1ad5e771-b225-4f0d-b4f0-bb942b311973" name="Default Changelist" comment="" />
     <list id="8857ba9f-4823-4f37-80e3-6ddf3a703045" name="Revert &quot;罗晶 8/14 15:36 第四次上传&quot;" comment="Revert &quot;罗晶 8/14 15:36 第四次上传&quot;&#10;&#10;This reverts commit fc9dea9c" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/base/target/" />
@@ -29,38 +16,7 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bos-view/src/views/dashboard/admin/components/PieChart.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="33">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bos-view/src/views/dashboard/admin/components/RaddarChart.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="33">
-              <caret line="1" column="62" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bos-view/src/views/dashboard/admin/components/BarChart.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="70" column="8" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="8" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -116,9 +72,9 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="luojing &lt;3118048570@qq.com&gt;" />
         <option value="LiuYanBin &lt;2441543705@qq.com&gt;" />
         <option value="hsq376895089 &lt;376895089@qq.com&gt;" />
-        <option value="luojing &lt;3118048570@qq.com&gt;" />
         <option value="luojing11 &lt;295919771@qq.com&gt;" />
       </list>
     </option>
@@ -214,73 +170,6 @@
               <item name="Bos-dev" type="b2602c69:ProjectViewProjectNode" />
               <item name="Bos-dev" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Bos-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bos-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="bos-view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bos-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bos-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="bos-view" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bos-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bos-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="bos-view" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bos-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bos-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="bos-view" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="reportforms" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bos-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bos-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="bos-view" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bos-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bos-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="bos-view" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bos-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bos-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="bos-view" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bos-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bos-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="bos-view" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bos-dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bos-dev" type="462c0819:PsiDirectoryNode" />
-              <item name="bos-view" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -369,7 +258,7 @@
       <workItem from="1565834204644" duration="8864000" />
       <workItem from="1565850083332" duration="9487000" />
       <workItem from="1565934819098" duration="14875000" />
-      <workItem from="1566016245331" duration="1608000" />
+      <workItem from="1566016245331" duration="1878000" />
     </task>
     <task id="LOCAL-00001" summary="提交给刘艳斌的第一次">
       <created>1565619299168</created>
@@ -462,11 +351,18 @@
       <option name="project" value="LOCAL" />
       <updated>1565941795973</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="2019-8-17 星期六 下午 13.00">
+      <created>1566018102134</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1566018102136</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65599000" />
+    <option name="totallyTimeSpent" value="65869000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -479,7 +375,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28971255" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -492,14 +387,14 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.88707036" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3289689" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.7919818" visible="true" weight="0.049099836" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.7919818" weight="0.049099836" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32923076" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.494705" weight="0.43207857" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49394855" weight="0.43207857" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.20801815" side_tool="true" visible="true" weight="0.049099836" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5060514" side_tool="true" visible="true" weight="0.049099836" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49924356" weight="0.51076925" />
@@ -582,7 +477,8 @@
     <MESSAGE value="2019-8-15 星期四 下午 16:34" />
     <MESSAGE value="何思祺第一次提交" />
     <MESSAGE value="2019-8-16 星期五 下午 15.50" />
-    <option name="LAST_COMMIT_MESSAGE" value="2019-8-16 星期五 下午 15.50" />
+    <MESSAGE value="2019-8-17 星期六 下午 13.00" />
+    <option name="LAST_COMMIT_MESSAGE" value="2019-8-17 星期六 下午 13.00" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Bos_dev$BaseApplication.ic" NAME="BaseApplication Coverage Results" MODIFIED="1565659551454" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
@@ -906,8 +802,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bos-view/src/views/dashboard/admin/components/BarChart.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="70" column="8" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="8" />
+        <state relative-caret-position="132">
+          <caret line="4" column="8" lean-forward="true" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
           <folding>
             <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
