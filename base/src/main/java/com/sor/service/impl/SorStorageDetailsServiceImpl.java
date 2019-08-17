@@ -134,18 +134,25 @@ public class SorStorageDetailsServiceImpl implements SorStorageDetailsService {
 
         for(SorStorageDetails sd:list){
             sd.setStorageid(sorStorage.getId());
-           List<SorStorageDetails> Dlist =sorStorageDetailsMapper.findByStorageId(sd.getId());
+           SorStorageDetails Dlist =sorStorageDetailsMapper.getDetailById(sd.getId());
+// 如果系统里有该单号，那么就二次入库
+               if(Dlist!=null && sd.getState()!=3){
 
-               if(Dlist.size()!=0){
-
-                   if(sd.getState()==0 || sd.getState()==2){
+                   if(sd.getState()==0 || sd.getState()==2 || sd.getState()==1){
                        sd.setState(1);
                        sorStorageDetailsMapper.updateDetailByIdTo1(sd);
                    }
+// 否则，没有进入我们系统，我们就会给出初始入库
+               }
 
-               }else{
-                   sd.setState(2);
-                   sorStorageDetailsMapper.insert(sd);
+               if(Dlist==null && sd.getState()!=3){
+                   if(sd.getState()==2){
+                       sorStorageDetailsMapper.insert(sd);
+                   }else{
+                       sd.setState(0);
+                       sorStorageDetailsMapper.insert(sd);
+                   }
+
                }
 
 
