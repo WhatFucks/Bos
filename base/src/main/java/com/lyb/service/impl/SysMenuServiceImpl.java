@@ -49,6 +49,7 @@ public class SysMenuServiceImpl implements SysMenuService {
             example = new SysMenuExample();
             example.createCriteria().andNameLike("%"+entity.getName()+"%");
         }
+        example.setOrderByClause("create_time desc");
         List<SysMenu> list = sysMenuMapper.selectByExample(example);
         PageInfo page = new PageInfo(list);
         map.put("items",page.getList());
