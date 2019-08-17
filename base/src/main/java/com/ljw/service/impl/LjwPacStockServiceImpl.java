@@ -28,10 +28,9 @@ public class LjwPacStockServiceImpl implements LjwPacStockService {
         if (warehouseno!=null && warehouseno.trim()!=""){
             criteria.andWarehousenoLike("%"+warehouseno+"%");
         }
-        criteria.andStatusEqualTo(0);
+        criteria.andStatusEqualTo(1);
         List<PacStock> list=ljwPacStockMapper.selectByExample(example);
-//        List<PacStock> list=pacStockMapper.selectByStockAndStockItem("%"+warehouseno+"%");
-        if (list!=null){
+        if (list.size()>0){
             map.put("total",p.getTotal());
             map.put("items",list);
         }

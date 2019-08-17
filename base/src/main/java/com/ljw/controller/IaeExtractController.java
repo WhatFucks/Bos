@@ -49,6 +49,8 @@ public class IaeExtractController {
         iaeExtract.setEstimatedate(new Date());
         iaeExtractService.insert(iaeExtract);
         result.getData().put("message","添加成功");
+        result.getData().put("title","成功");
+        result.getData().put("type","success");
         return result;
     }
 }

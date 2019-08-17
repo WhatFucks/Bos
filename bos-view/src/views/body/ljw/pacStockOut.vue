@@ -63,6 +63,8 @@
         </template>
       </el-table-column>
 
+
+
 <!--      <el-table-column label="经办人单位" width="150px" align="center">-->
 <!--        <template slot-scope="{row}">-->
 <!--          <span class="link-type">{{ row.handlingunit }}</span>-->
@@ -202,18 +204,40 @@
                 </template>
               </el-form-item>
 
-              <el-form-item label="下发单位" prop="issuedbytheunit" label-width="100px" maxlength="8">
-                <template>
-                  <el-select v-model="temp.issuedbytheunit" placeholder="请选择经下发单位"  style="width: 300px;" >
-                    <el-option
-                      v-for="item in Allunits"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.value">
-                    </el-option>
-                  </el-select>
-                </template>
-              </el-form-item>
+<!--              <el-form-item label="下发单位" prop="issuedbytheunit" label-width="100px" maxlength="8">-->
+<!--                <template>-->
+<!--                  <el-select v-model="temp.issuedbytheunit" placeholder="请选择经下发单位"  style="width: 300px;" >-->
+<!--                    <el-option-->
+<!--                      v-for="item in Allunits"-->
+<!--                      :key="item.value"-->
+<!--                      :label="item.label"-->
+<!--                      :value="item.value">-->
+<!--                    </el-option>-->
+<!--                  </el-select>-->
+<!--                </template>-->
+<!--              </el-form-item>-->
+
+        <el-form-item label="下发单位" prop="issuedbytheunit" label-width="100px">
+          <el-select v-model="temp.issuedbytheunit" clearable  placeholder="请选择"  style="width: 300px;">
+            <el-option-group
+              v-for="group in deptList"
+              :key="group.id"
+              :label="group.name">
+              <el-option-group
+                v-for="item in group.children"
+                :key="item.id"
+                :label="item.name"
+                :value="item.id">
+                <el-option
+                  v-for="m in item.children"
+                  :key="m.id"
+                  :label="m.name"
+                  :value="m.id">
+                </el-option>
+              </el-option-group>
+            </el-option-group>
+          </el-select>
+        </el-form-item>
 
               <el-form-item label="运输单号" prop="transportationorderno" label-width="100px">
                 <el-input v-model="temp.transportationorderno" placeholder="请输入运输单号" style="width: 300px" :disabled="true"  />
@@ -239,18 +263,40 @@
                 <el-input v-model="temp.affiliatedunit" placeholder="请输入所属单位" style="width: 300px" :readonly="true"/>
               </el-form-item>
 
-              <el-form-item label="经办人单位" prop="handlingunit" label-width="100px" maxlength="8" >
-                <template>
-                  <el-select v-model="temp.handlingunit" placeholder="请选择经办人单位"  style="width: 300px;" >
-                    <el-option
-                      v-for="item in Allunits"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.value">
-                    </el-option>
-                  </el-select>
-                </template>
-              </el-form-item>
+<!--              <el-form-item label="经办人单位" prop="handlingunit" label-width="100px" maxlength="8" >-->
+<!--                <template>-->
+<!--                  <el-select v-model="temp.handlingunit" placeholder="请选择经办人单位"  style="width: 300px;" >-->
+<!--                    <el-option-->
+<!--                      v-for="item in Allunits"-->
+<!--                      :key="item.value"-->
+<!--                      :label="item.label"-->
+<!--                      :value="item.value">-->
+<!--                    </el-option>-->
+<!--                  </el-select>-->
+<!--                </template>-->
+<!--              </el-form-item>-->
+
+        <el-form-item label="经办人单位" prop="handlingunit" label-width="100px">
+          <el-select v-model="temp.handlingunit" clearable  placeholder="请选择"  style="width: 300px;">
+            <el-option-group
+              v-for="group in deptList"
+              :key="group.id"
+              :label="group.name">
+              <el-option-group
+                v-for="item in group.children"
+                :key="item.id"
+                :label="item.name"
+                :value="item.id">
+                <el-option
+                  v-for="m in item.children"
+                  :key="m.id"
+                  :label="m.name"
+                  :value="m.id">
+                </el-option>
+              </el-option-group>
+            </el-option-group>
+          </el-select>
+        </el-form-item>
 
               <el-form-item label="经办人姓名" prop="handlingname" label-width="100px" maxlength="8">
                 <el-input v-model="temp.handlingname" placeholder="请输入经办人姓名" style="width: 300px" />
@@ -273,7 +319,7 @@
           rules:校验规则
           model:数据绑定
       -->
-      <el-form ref="dataForm" :rules="rules" :model="temp" label-position="left" label-width="70px" style="width: 200px; margin-left:50px;">
+      <el-form ref="dataForm" :rules="rules" :model="temptwo" label-position="left" label-width="70px" style="width: 200px; margin-left:50px;">
 
         <el-form-item label="货物编码" prop="goodscode" label-width="100px">
           <el-input v-model="temptwo.goodscode" placeholder="请输入货物编码" style="width: 300px" />
@@ -339,6 +385,7 @@
 </template>
 
 <script>
+  import {getDeptList} from "@/api/sys/dept";
   import { Specificationslist } from '@/api/body/ljw/packaging'
   import { list, insertstockout, updatestockout, } from '@/api/body/ljw/stockout'
   import {  OutItemlists,insertoutitem, updateoutitem} from '@/api/body/ljw/stockoutitem'
@@ -424,15 +471,21 @@
         dialogitemStatus: '',
         //验证
         rules: {
-          // customcode: [{ required: true, message: '客户编号必填', trigger: 'blur' }],
-          // customname: [{ required: true, message: '客户姓名必填', trigger: 'blur' }],
-          // handlingname: [{ required: true, message: '经办人姓名必填', trigger: 'blur' }],
-          // goodscode: [{ required: true, message: '货物编码必填', trigger: 'blur' }],
-          // goodsname: [{ required: true, message: '货物名称必填', trigger: 'blur' }],
-          // storageoutnum: [{ required: true, message: '出库数量必填', trigger: 'blur' }],
-          // actualnum: [{ required: true, message: '实际数量必填', trigger: 'blur' }],
-          // plannedprice: [{ required: true, message: '计划价格必填', trigger: 'blur' }],
-          // specifications: [{ required: true, message: '规格必填', trigger: 'blur' }]
+          warehousetype: [{ required: true, message: '出库类型必选', trigger: 'blur' }],
+          issuedbytheunit: [{ required: true, message: '下发单位必选', trigger: 'blur' }],
+          customname: [{ required: true, message: '客户名称必填', trigger: 'blur' }],
+          customcode: [{ required: true, message: '客户编号必填', trigger: 'blur' }],
+          handlingname: [{ required: true, message: '经办人姓名必填', trigger: 'blur' }],
+          handlingunit: [{ required: true, message: '经办人单位必选', trigger: 'blur' }],
+          goodscode: [{ required: true, message: '货物编码必填', trigger: 'blur' }],
+
+
+          goodsname: [{ required: true, message: '货物名称必填', trigger: 'blur' }],
+          storageoutnum: [{ required: true, message: '出库数量必填', trigger: 'blur' }],
+          actualnum: [{ required: true, message: '实际数量必填', trigger: 'blur' }],
+          plannedprice: [{ required: true, message: '计划价格必填', trigger: 'blur' }],
+          specifications: [{ required: true, message: '规格必选', trigger: 'blur' }],
+          type: [{ required: true, message: '类型必选', trigger: 'blur' }]
         },
         wno: '',
         deptList:[],
@@ -486,8 +539,20 @@
     created() {
       this.getList()
       this.getGuiList()
+      this.getDeptList()
     },
     methods: {
+      getDeptList () { // 获取部门列表
+        getDeptList().then((res) => {
+          this.deptList = res.data.items
+        }).catch((err) => {
+          this.$message({
+            center: true,
+            message: '获取部门列表出错！',
+            type: 'error'
+          });
+        })
+      },
       getGuiList(){
         Specificationslist().then(res =>{
           this.SetList=res.data.SetList

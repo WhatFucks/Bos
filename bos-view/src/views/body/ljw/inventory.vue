@@ -4,17 +4,7 @@
       货物编码:
       <el-input v-model="listQuery.goodsnumber" placeholder="请输入货物编码" style="width: 200px;" class="filter-item"/>
       货物名称:
-      <template>
-        <el-select v-model="listQuery.affiliatedunit" clearable placeholder="请选择货物名称">
-          <el-option
-            v-for="item in Allunits"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value">
-          </el-option>
-        </el-select>
-      </template>
-<!--      <el-input v-model="listQuery.itemname" placeholder="请输入物品名称" style="width: 200px;" class="filter-item"/>-->
+      <el-input v-model="listQuery.goodsname" placeholder="请输入货物名称" style="width: 200px;" class="filter-item"/>
       <el-button v-waves class="filter-item" type="primary" icon="el-icon-search" @click="getList">
         搜索
       </el-button>
@@ -195,7 +185,7 @@
           page: 1, // 分页需要的当前页
           limit: 20, // 分页需要的每页显示多少条
           goodsnumber: '',
-          affiliatedunit:''
+          goodsname:''
         },
         temp: { // 添加、修改时绑定的表单数据
           id: undefined,
