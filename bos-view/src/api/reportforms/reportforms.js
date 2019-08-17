@@ -14,10 +14,10 @@ export function echartsSmall(data) {
     data: data
   })
 }
-// export function echartsList(data) {
-//   return request({
-//     url: '/reportforms/reportformsList',
-//     method: 'post',
-//     data: data
-//   })
-// }
+export function vehicleList(data) {
+  return request({
+    url: '/vehicle/selectVehicle',
+    method: 'post',
+    data: data
+  })
+}

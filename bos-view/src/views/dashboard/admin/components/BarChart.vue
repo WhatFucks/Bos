@@ -4,16 +4,25 @@
 </template>
 <script>
   import echarts from 'echarts'
+  import {vehicleList } from '@/api/reportforms/reportforms'
   export default {
     name: '',
     data() {
+      console.debug("222222666"+this.opinionData)
       return {
         charts: '',
         /*  opinion: ["1", "3", "3", "4", "5"],*/
-        opinionData: ["3", "2", "4", "4", "5"]
+        opinionData: []
       }
     },
     methods: {
+      getList(){
+        vehicleList().then(response => {
+          this.opinionData= response.data.vehicle
+          this.drawLine('main')
+        })
+
+      },
       drawLine(id) {
         this.charts = echarts.init(document.getElementById(id))
         this.charts.setOption({
@@ -21,7 +30,7 @@
             trigger: 'axis'
           },
           legend: {
-            data: ['近七日收益']
+            data: ['近七日车辆使用']
           },
           grid: {
             left: '3%',
@@ -38,7 +47,7 @@
           xAxis: {
             type: 'category',
             boundaryGap: false,
-            data: ["1","2","3","4","5"]
+            data: ["周一","周二","周三","周四","周五"]
 
           },
           yAxis: {
@@ -46,7 +55,7 @@
           },
 
           series: [{
-            name: '近七日收益',
+            name: '近七日车辆使用',
             type: 'line',
             stack: '总量',
             data: this.opinionData
@@ -56,6 +65,7 @@
     },
     //调用
     mounted() {
+      this.getList();
       this.$nextTick(function() {
         this.drawLine('main')
       })
