@@ -226,7 +226,7 @@
 </template>
 
 <script>
-  import {add, deleteById, update, list, selectByName} from '@/api/body/hsq/basicArchives'
+  import {add, deleteById, updateById, list, selectByName} from '@/api/body/hsq/basicArchives'
   import {addBas, deleteBasById, updateBas, list2} from '@/api/body/hsq/basicArchivesEntry'
   import waves from '@/directive/waves' // waves directive
   import Pagination from '@/components/Pagination' // secondary package based on el-pagination
@@ -400,7 +400,8 @@
             }
             selectByName(na).then(response => {
               if (response.data.flag) {
-                update(tempData).then(() => {
+                delete tempData.basBasicArchivesEntry
+                updateById(tempData).then(() => {
                   this.dialogFormVisible = false
                   this.$message({
                     type: 'success',

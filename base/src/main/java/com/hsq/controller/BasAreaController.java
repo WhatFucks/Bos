@@ -1,7 +1,9 @@
 package com.hsq.controller;
 
 import com.hsq.entity.BasArea;
+import com.hsq.entity.BasProvince;
 import com.hsq.service.BasAreaService;
+import com.hsq.service.BasProvinceService;
 import com.util.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -23,7 +25,8 @@ public class BasAreaController {
     @Autowired
     private BasAreaService basAreaService;
 
-
+    @Autowired
+    private BasProvinceService basProvinceService;
     @RequestMapping("list")
     public ResponseResult list(BasArea basArea, Integer page, Integer limit){
         Map<String,Object> map = basAreaService.basAreaAll(basArea,page,limit);
@@ -42,6 +45,14 @@ public class BasAreaController {
     @RequestMapping("add")
     public ResponseResult add(BasArea basArea){
         ResponseResult result = new ResponseResult();
+        BasProvince basProvince = basProvinceService.geyById(Integer.valueOf(basArea.getProvince()));
+        basArea.setProvince(basProvince.getName());
+
+        BasProvince basProvince1 = basProvinceService.geyById(Integer.valueOf(basArea.getCity()));
+        basArea.setCity(basProvince1.getName());
+
+        BasProvince basProvince2 = basProvinceService.geyById(Integer.valueOf(basArea.getCounty()));
+        basArea.setCounty(basProvince2.getName());
         basArea.setEntryunitid(String.valueOf(1));
         basArea.setComplementunitid(String.valueOf(1));
         basAreaService.add(basArea);

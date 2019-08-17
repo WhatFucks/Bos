@@ -7,6 +7,7 @@ import com.util.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
@@ -49,7 +50,7 @@ public class BasBasicArchivesController {
         return result;
     }
 
-    @RequestMapping("updateById")
+    @PostMapping("updateById")
     public ResponseResult updateById(BasBasicArchives basBasicArchives){
         ResponseResult result = new ResponseResult();
         basBasicArchivesService.updateById(basBasicArchives);
