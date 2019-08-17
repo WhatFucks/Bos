@@ -31,7 +31,20 @@ public class DisWorkOrderSignController {
   // 新增
   @RequestMapping("add")
   public ResponseResult add(DisWorkOrderSign disWorkOrderSign){
+    DisWorkOrderSign dis = disWorkOrderSignService.SelectSelectMaxNo();
+    String i = dis.getWorkorderid(); // 最后一行工作单
+    System.out.println("最后一行GZDID号为:" + i);
+    String param = i.substring(5); // 从第三位开始截取
+    int s = Integer.parseInt(param);
+    s = ++s;
+    s = s == 1000 ? 1 : s;   //这里将规定最大数字设定为小于1000
+    String resluts = s >= 10 ? (s >= 100 ? s + "" : "0" + s) : "00" + s; // 计算 转型
+    System.out.println(resluts);
     ResponseResult result = new ResponseResult();
+    disWorkOrderSign.setWorkorderid("GZDID"+resluts);// 工作单Id
+    disWorkOrderSign.setInvalidatemark(2);// 作废标记 1是 2否
+    disWorkOrderSign.setInputpersoncode(19);// 录入人 编号
+    disWorkOrderSign.setAbnormalmark("无异常");
     disWorkOrderSign.setInputtime(new Date());
     disWorkOrderSign.setSigntime(new Date());
     disWorkOrderSignService.insert(disWorkOrderSign);
@@ -54,7 +67,7 @@ public class DisWorkOrderSignController {
   @RequestMapping("affirm")
   public ResponseResult affirm(DisWorkOrderSign disWorkOrderSign){
     disWorkOrderSign.setId(disWorkOrderSign.getId());
-    disWorkOrderSign.setConfirm("是");// 申请单的状态置为“是”
+    disWorkOrderSign.setConfirm("已确认");// 申请单的状态置为“是”
     disWorkOrderSign.setSignformark("否");// 修改签收标志设置为“否
     disWorkOrderSign.setInvalidatemark(1);// 签收记录打上作废标记；
     ResponseResult result = new ResponseResult();
@@ -73,7 +86,6 @@ public class DisWorkOrderSignController {
     return result;
   }
 
-
   // 日期转换
   @org.springframework.web.bind.annotation.InitBinder
   public void InitBinder(WebDataBinder binder, WebRequest request)
@@ -82,4 +94,5 @@ public class DisWorkOrderSignController {
     CustomDateEditor editor = new CustomDateEditor(df,true);//参数为true表示允许为空值
     binder.registerCustomEditor(Date.class, editor);
   }
+
 }
