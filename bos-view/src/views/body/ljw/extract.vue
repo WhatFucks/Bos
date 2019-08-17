@@ -97,8 +97,34 @@
           -->
           <el-form ref="dataForm" :rules="rules" :model="temp" label-position="left" label-width="70px" style="width: 200px; margin-left:50px;">
 
-            <el-form-item label="航班车次" prop="vehicleint" label-width="100px" maxlength="8">
-              <el-input v-model="temp.vehicleint" placeholder="请输入物品编码" style="width: 300px" />
+            <el-form-item label="出港单位" prop="id" label-width="100px" maxlength="8" >
+              <template>
+                <el-select v-model="temp.id" placeholder="请选择类型"  style="width: 300px;" >
+                  <el-option
+                    v-for="item in Allunits"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                  </el-option>
+                </el-select>
+              </template>
+            </el-form-item>
+
+            <el-form-item label="航班车次" prop="vehicleint" label-width="100px">
+              <el-input v-model="temp.vehicleint" placeholder="请输入物品名称" style="width: 300px" />
+            </el-form-item>
+
+            <el-form-item label="运输方式" prop="transportway" label-width="100px" maxlength="8" >
+              <template>
+                <el-select v-model="temp.transportway" placeholder="请选择类型"  style="width: 300px;" >
+                  <el-option
+                    v-for="item in listType"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                  </el-option>
+                </el-select>
+              </template>
             </el-form-item>
 
             <el-form-item label="货票号" prop="waybillid" label-width="100px">
@@ -153,11 +179,11 @@
             </template>
           </el-table-column>
 
-          <el-table-column label="入库时间" align="center" min-width="150px">
-            <template slot-scope="scope">
-              <span>{{ scope.row.sorCheckbounddetails.storagedate | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
-            </template>
-          </el-table-column>
+<!--          <el-table-column label="入库时间" align="center" min-width="150px">-->
+<!--            <template slot-scope="scope">-->
+<!--              <span>{{ scope.row.sorCheckbounddetails.storagedate | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>-->
+<!--            </template>-->
+<!--          </el-table-column>-->
 
           <el-table-column label="到达地" align="center" min-width="150px">
             <template slot-scope="{row}">
@@ -183,17 +209,7 @@
             </template>
           </el-table-column>
 
-          <!-- 自定义列
-          <el-table-column label="操作" align="center" width="230" class-name="small-padding fixed-width">
-            <template slot-scope="{row}">
-              <el-button type="primary" size="mini" @click="handleUpdate(row)">
-                修改
-              </el-button>
-              <el-button size="mini" type="danger" @click="handleDelete(row)">
-                作废
-              </el-button>
-            </template>
-          </el-table-column>-->
+
         </el-table>
         <!-- 分页工具条  page当前页 total总记录数 limit每页显示多少条 pagination触发自定义事件，查询数据-->
         <pagination v-show="total>0" :total="total" :page.sync="listQuery2.page" :limit.sync="listQuery.limit" @pagination="getList" />
@@ -254,9 +270,9 @@
     directives: { waves },
     data() {
       return {
-        uid:'',
-        ulist:'',
-        ZXC:'',
+        uid: '',
+        ulist: '',
+        ZXC: '',
         tableKey: 0,
         list: null, // 后台返回，给数据表格展示的数据
         total: 0, // 总记录数
@@ -265,7 +281,7 @@
           page: 1, // 分页需要的当前页
           limit: 20, // 分页需要的每页显示多少条
           id: '',
-          vehicleint:''
+          vehicleint: ''
         },
         listQuery2: {
           page: 1, // 分页需要的当前页
@@ -274,24 +290,78 @@
         },
         temp: { // 添加、修改时绑定的表单数据
           id: undefined,
-          vehicleint:'',
-          cargon:'',
-          waybillid:'',
-          vehicleint:''
+          vehicleint: '',
+          cargon: '',
+          waybillid: '',
+          vehicleint: ''
         },
-        lists:[],
+        lists: [],
         title: '添加', // 对话框显示的提示 根据dialogStatus create
         dialogFormVisible: false, // 是否显示对话框
         dialogStatus: '', // 表示表单是添加还是修改的
         rules: {
           // sex: [{ required: true, message: '性别必须选', trigger: 'change' }],
-          itemname: [{ required: true, message: '物品名称必填', trigger: 'blur' }],
-          // remark: [{ required: true, message: '备注必填', trigger: 'blur' }]
-          // createBy: [{ required: true, message: 'Email必填', trigger: 'blur' }],
+          id: [{required: true, message: '出港单位必选', trigger: 'blur'}],
+          vehicleint: [{ required: true, message: '航班车次必填', trigger: 'blur' }],
+          waybillid: [{ required: true, message: '货票号必填', trigger: 'blur' }],
           // createTime: [{ type: 'date', required: true, message: '必须选择一个时间', trigger: 'change' }],
-          // lastUpdateTime: [{ required: true, message: 'Email必填', trigger: 'blur' }]
+          cargon: [{ required: true, message: '件数必填', trigger: 'blur' }],
+          transportway: [{ required: true, message: '运输方式必选', trigger: 'blur' }]
         },
-
+        listType: [{
+          value: '航空', label: '航空'
+        }, {
+          value: '铁路', label: '铁路'
+        }, {
+          value: '货车', label: '货车'
+        }, {
+          value: '零担', label: '零担'
+        }, {
+          value: '周边物流', label: '周边物流'
+        }, {
+          value: '临时发车', label: '临时发车'
+        }],
+        Allunits:[
+          {
+            value:'长沙总部',label:'长沙总部'
+          },
+          {
+            value:'成都分部',label:'成都分部'
+          },
+          {
+            value:'衡阳分部',label:'衡阳分部'
+          },
+          {
+            value:'宜宾分部',label:'宜宾分部'
+          },
+          {
+            value:'温州总部',label:'温州总部'
+          },
+          {
+            value:'长沙分部',label:'长沙分部'
+          },
+          {
+            value:'广州分部',label:'广州分部'
+          },
+          {
+            value:'惠州分部',label:'惠州分部'
+          },
+          {
+            value:'佛山分部',label:'佛山分部'
+          },
+          {
+            value:'技术部',label:'技术部'
+          },
+          {
+            value:'宣传部',label:'宣传部'
+          },
+          {
+            value:'市场部',label:'市场部'
+          },
+          {
+            value:'销售部',label:'销售部'
+          }
+        ]
       }
     },
     // 创建实例时的钩子函数

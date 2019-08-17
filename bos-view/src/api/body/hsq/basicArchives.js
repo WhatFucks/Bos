@@ -19,7 +19,7 @@ export function deleteById(id) {
   })
 }
 
-export function update(basicArchives) {
+export function updateById(basicArchives) {
   return request({
     url: '/basBasicArchives/updateById',
     method: 'post',
@@ -38,49 +38,6 @@ export function list(query) {
 export function selectByName(dname) {
   return request({
     url: '/basBasicArchives/selectByName',
-    method: 'post',
-    data: { dname }
-  })
-}
-
-// --------查看列表
-
-export function addBas(basicArchives) {
-  return request({
-    url: '/basBasicArchivesEntry/addBas',
-    method: 'post',
-    params: basicArchives
-  })
-}
-
-export function deleteBasById(id) {
-  console.debug(id)
-  return request({
-    url: '/basBasicArchivesEntry/deleteBasById ',
-    method: 'post',
-    data: { id }
-  })
-}
-
-export function updateBas(basicArchives) {
-  return request({
-    url: '/basBasicArchivesEntry/updateBasById',
-    method: 'post',
-    data: basicArchives
-  })
-}
-
-export function all(query) {
-  return request({
-    url: '/basBasicArchivesEntry/all',
-    method: 'get',
-    params: query
-  })
-}
-
-export function selectBasByName(dname) {
-  return request({
-    url: '/basBasicArchivesEntry/selectBasByName',
     method: 'post',
     data: { dname }
   })

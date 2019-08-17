@@ -20,7 +20,7 @@ public class PacStockitem{
 
     private String specifications;
 
-    private Boolean type;
+    private Integer type;
 
     private Integer status;
 

@@ -445,17 +445,17 @@ public class PacStockExample {
             return (Criteria) this;
         }
 
-        public Criteria andDrawernoEqualTo(Integer value) {
+        public Criteria andDrawernoEqualTo(String value) {
             addCriterion("DrawerNo =", value, "drawerno");
             return (Criteria) this;
         }
 
-        public Criteria andDrawernoNotEqualTo(Integer value) {
+        public Criteria andDrawernoNotEqualTo(String value) {
             addCriterion("DrawerNo <>", value, "drawerno");
             return (Criteria) this;
         }
 
-        public Criteria andDrawernoGreaterThan(Integer value) {
+        public Criteria andDrawernoGreaterThan(String value) {
             addCriterion("DrawerNo >", value, "drawerno");
             return (Criteria) this;
         }
@@ -465,32 +465,32 @@ public class PacStockExample {
             return (Criteria) this;
         }
 
-        public Criteria andDrawernoLessThan(Integer value) {
+        public Criteria andDrawernoLessThan(String value) {
             addCriterion("DrawerNo <", value, "drawerno");
             return (Criteria) this;
         }
 
-        public Criteria andDrawernoLessThanOrEqualTo(Integer value) {
+        public Criteria andDrawernoLessThanOrEqualTo(String value) {
             addCriterion("DrawerNo <=", value, "drawerno");
             return (Criteria) this;
         }
 
-        public Criteria andDrawernoIn(List<Integer> values) {
+        public Criteria andDrawernoIn(List<String> values) {
             addCriterion("DrawerNo in", values, "drawerno");
             return (Criteria) this;
         }
 
-        public Criteria andDrawernoNotIn(List<Integer> values) {
+        public Criteria andDrawernoNotIn(List<String> values) {
             addCriterion("DrawerNo not in", values, "drawerno");
             return (Criteria) this;
         }
 
-        public Criteria andDrawernoBetween(Integer value1, Integer value2) {
+        public Criteria andDrawernoBetween(String value1, String value2) {
             addCriterion("DrawerNo between", value1, value2, "drawerno");
             return (Criteria) this;
         }
 
-        public Criteria andDrawernoNotBetween(Integer value1, Integer value2) {
+        public Criteria andDrawernoNotBetween(String value1, String value2) {
             addCriterion("DrawerNo not between", value1, value2, "drawerno");
             return (Criteria) this;
         }

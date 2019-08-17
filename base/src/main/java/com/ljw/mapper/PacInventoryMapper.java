@@ -33,5 +33,5 @@ public interface PacInventoryMapper {
     int updateByPrimaryKey(PacInventory record);
 
     @Select("select * from pac_inventory where goodsName=#{goodsName}")
-    public List<PacInventory> Listinventory(String goodsName);
+    public PacInventory Listinventory(String goodsName);
 }

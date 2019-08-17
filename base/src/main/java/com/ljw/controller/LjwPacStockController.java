@@ -57,7 +57,7 @@ public class LjwPacStockController {
         String resluts=s>=10?(s>=100?s+"":"0"+s):"00"+s; // 计算 转型
         String MaxNo = "PK"+resluts;
         pacStock.setWarehouseno(MaxNo);
-        pacStock.setStatus(0);
+        pacStock.setStatus(1);
         pacStock.setDrawertime(new Date());
         ljwPacStockService.insert(pacStock);
         result.getData().put("message","添加成功");

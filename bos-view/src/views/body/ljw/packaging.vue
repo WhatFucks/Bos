@@ -131,11 +131,11 @@
         </el-form-item>
 
         <el-form-item label="操作人员工号" prop="operatorid" label-width="100px">
-          <el-input v-model="temp.operatorid" placeholder="请输入操作人员工号" style="width: 300px;":readonly="true"  />
+          <el-input disabled  v-model="temp.operatorid" placeholder="请输入操作人员工号" style="width: 300px;":readonly="true"  />
         </el-form-item>
 
         <el-form-item label="操作人姓名" prop="name" label-width="100px" maxlength="8">
-          <el-input v-model="temp.operationunitid" placeholder="请输入操作人姓名" style="width: 300px" :readonly="true"/>
+          <el-input disabled  v-model="temp.operationunitid" placeholder="请输入操作人姓名" style="width: 300px" :readonly="true"/>
         </el-form-item>
 
       </el-form>

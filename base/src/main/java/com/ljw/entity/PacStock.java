@@ -23,7 +23,7 @@ public class PacStock implements Serializable {
 
     private String subordinateunit;
 
-    private Integer drawerno;
+    private String drawerno;
 
     private String drawername;
 

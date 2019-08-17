@@ -24,10 +24,11 @@
       <el-table-column label="序号" prop="id" sortable="custom" type="index" align="center" width="80">
       </el-table-column>
       <el-table-column label="省份" width="100px" align="center">
-        <template slot-scope="scope">
-          <span>{{ scope.row.province }}</span>
-        </template>
-      </el-table-column>
+      <template slot-scope="scope">
+        <span>{{ scope.row.province }}</span>
+      </template>
+    </el-table-column>
+
       <el-table-column label="城市" width="100px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.city }}</span>
@@ -88,14 +89,50 @@
 
     <el-dialog :title="title" :visible.sync="dialogFormVisible">
       <el-form :inline="true" ref="dataForm" :rules="rules" :model="basArea" class="demo-form-inline">
-        <el-form-item label="省份" prop="province">
+        <!--<el-form-item label="省份" prop="province">
           <el-input v-model="basArea.province" placeholder="请输入省份"/>
+        </el-form-item>-->
+        <el-form-item label="省份" prop="province">
+          <template>
+            <el-select v-model="basArea.province" placeholder="请选择省份" @change="childrenList(basArea.province)">
+              <el-option
+                v-for="item in options2"
+                :key="item.id"
+                :label="item.name"
+                :value="item.id">
+              </el-option>
+            </el-select>
+          </template>
         </el-form-item>
-        <el-form-item label="城市" prop="city">
+       <!-- <el-form-item label="城市" prop="city">
           <el-input v-model="basArea.city" placeholder="请输入城市"/>
+        </el-form-item>-->
+        <el-form-item label="城市" prop="city">
+          <template>
+            <el-select v-model="basArea.city" placeholder="请选择城市"  @change="childrenListChildren(basArea.city)">
+              <el-option
+                v-for="item in options3"
+                :key="item.id"
+                :label="item.name"
+                :value="item.id">
+              </el-option>
+            </el-select>
+          </template>
         </el-form-item>
-        <el-form-item label="区(县)" prop="county">
+       <!-- <el-form-item label="区(县)" prop="county">
           <el-input v-model="basArea.county" placeholder="请输入区(县)"/>
+        </el-form-item>-->
+        <el-form-item label="区(县)" prop="county">
+          <template>
+            <el-select v-model="basArea.county" placeholder="请选择区(县)">
+              <el-option
+                v-for="item in options4"
+                :key="item.id"
+                :label="item.name"
+                :value="item.id">
+              </el-option>
+            </el-select>
+          </template>
         </el-form-item>
         <el-form-item label="邮政编码" prop="postalcode">
           <el-input v-model="basArea.postalcode" placeholder="请输入邮政编码"/>
@@ -146,6 +183,7 @@
 <script>
   // import { fetchList, fetchPv, createArticle, updateArticle } from '@/api/article'
   import { add, deleteById, update, list } from '@/api/body/hsq/area'
+  import { selectByPid} from '@/api/body/hsq/basProvince'
   import waves from '@/directive/waves' // waves directive
   import Pagination from '@/components/Pagination' // secondary package based on el-pagination
 
@@ -209,6 +247,9 @@
           value: 7,
           label: '华北区'
         }],
+        options4:'',
+        options3:'',
+        options2:'',
         tableKey: 0,
         list: null,
         total: 0,
@@ -234,9 +275,9 @@
         dialogStatus: '',
         title: '添加',
         rules: {
-          province: [{ required: true, message: '省份不能为空', trigger: 'change' }],
+          /*province: [{ required: true, message: '省份不能为空', trigger: 'change' }],
           city: [{ required: true, message: '城市不能为空', trigger: 'change' }],
-          county: [{ required: true, message: '区(县)不能为空', trigger: 'change' }],
+          county: [{ required: true, message: '区(县)不能为空', trigger: 'change' }],*/
           postalcode: [{ required: true, message: '邮政编码不能为空', trigger: 'change' }],
           simplecode: [{ required: true, message: '简码不能为空', trigger: 'change' }],
           citycode: [{ required: true, message: '城市编码不能为空', trigger: 'change' }],
@@ -245,8 +286,68 @@
     },
     created() {
       this.getList()
+      this.getPid(0);
     },
     methods: {
+      childrenListChildren(pid){
+        selectByPid(pid).then(response=>{
+          this.options4=response.data.items
+        })
+      },
+      getPid(pid){
+        selectByPid(pid).then(response=>{
+            this.options2=response.data.items
+        })
+      },
+      childrenList(pid){
+      //  alert(pid)
+        selectByPid(pid).then(response=>{
+          this.options3=response.data.items
+        })
+      },
+      /*provinceStr(val){
+        if(val.province==1){
+          return '湖南省'
+        }
+      },
+      cityStr(val){
+        if(val.city==1){
+          return '长沙市'
+        }else if(val.city==2){
+          return '株洲市'
+        }else if (val.city==3){
+          return '湘潭市'
+        }else if(val.city==4){
+          return '衡阳市'
+        }else if(val.city==5){
+          return '邵阳市'
+        }else if(val.city==6){
+          return '岳阳市'
+        }else if (val.city==7){
+          return '湘潭市'
+        }else if(val.city==8){
+          return '衡阳市'
+        }else if(val.city==9){
+          return '邵阳市'
+        }
+        else{
+          return '湘西土家族苗族自治州'
+        }
+      },
+      countyStr(val){
+        if(val.province==1){
+          return '芙蓉区'
+        }else if (val.city==2){
+          return '天心区'
+        }else if(val.city==3){
+          return '岳麓区'
+        }else if(val.city==4){
+          return '开福区'
+        }
+        else{
+          return '湘西土家族苗族自治州'
+        }
+      },*/
       natureStr(val){
         if(val.nature==1){
           return '省级'
