@@ -135,17 +135,20 @@ public class SorStorageDetailsServiceImpl implements SorStorageDetailsService {
         for(SorStorageDetails sd:list){
             sd.setStorageid(sorStorage.getId());
            List<SorStorageDetails> Dlist =sorStorageDetailsMapper.findByStorageId(sd.getId());
-            if(Dlist!=null){
 
-                if(sd.getState()==0 || sd.getState()==2){
-                    sd.setState(1);
-                    sorStorageDetailsMapper.updateDetailByIdTo1(sd);
-                }
+               if(Dlist.size()!=0){
 
-            }else{
-                sd.setState(2);
-                sorStorageDetailsMapper.insert(sd);
-            }
+                   if(sd.getState()==0 || sd.getState()==2){
+                       sd.setState(1);
+                       sorStorageDetailsMapper.updateDetailByIdTo1(sd);
+                   }
+
+               }else{
+                   sd.setState(2);
+                   sorStorageDetailsMapper.insert(sd);
+               }
+
+
 
         }
 
