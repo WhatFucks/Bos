@@ -128,34 +128,27 @@ public class SorStorageDetailsServiceImpl implements SorStorageDetailsService {
      * @param list
      */
     @Override
-    public void insertSorStorageDetailsBySorStorageId(List<SorStorageDetails> list) {
-        for(SorStorageDetails sd : list){
+    public void insertSorStorageDetailsBySorStorageId(SorStorage sorStorage,List<SorStorageDetails> list) {
+        SorStorageDetails sds=new SorStorageDetails();
+        sds.setStorageid(sorStorage.getId());
 
-                if(sd.getId()==null){
-                    continue;
+        for(SorStorageDetails sd:list){
+            sd.setStorageid(sorStorage.getId());
+           List<SorStorageDetails> Dlist =sorStorageDetailsMapper.findByStorageId(sd.getId());
+            if(Dlist!=null){
+
+                if(sd.getState()==0 || sd.getState()==2){
+                    sd.setState(1);
+                    sorStorageDetailsMapper.updateDetailByIdTo1(sd);
                 }
-            SorStorageDetails details= sorStorageDetailsMapper.getDetailById(sd.getId());
-                    sd.setState(4);
-// 业务处理：如果单号初始入库（先查询数据库里是否有该单号的信息，没有就默认为初始入库）
-                   if(details==null){
-                       sd.setState(2);
-                   }
-                   // 业务处理：如果该单号在我们数据库里，那么就添加一次入库的次数
-                   if(details!=null){
-                       if(details.getState()==0){
-                           details.setState(1);
-                           sorStorageDetailsMapper.updateDetailByIdTo1(sd.getId());
-                       }else if(details.getState()==2){
-                           details.setState(1);
-                           sorStorageDetailsMapper.updateDetailByIdTo1(sd.getId());
-                       }
-                   }else{
-                       if(sd.getId()==null){
-                           sd.setState(4);
-                       }
-                       sorStorageDetailsMapper.insert(sd);
-                   }
+
+            }else{
+                sd.setState(2);
+                sorStorageDetailsMapper.insert(sd);
+            }
+
         }
+
     }
 
     /**
