@@ -54,7 +54,7 @@ public class SysUserServiceImpl implements SysUserService{
         if(entity.getName()!=null && entity.getName().trim()!=""){
             example.createCriteria().andUsernameLike("%"+entity.getName()+"%");
         }
-
+        example.setOrderByClause("`create_time` DESC");
         List<SysUser> list = sysUserMapper.selectByExample(example);
         PageInfo page = new PageInfo(list);
         map.put("items",page.getList());

@@ -180,6 +180,77 @@ export const asyncRoutes = [
       }
     ]
   },
+  // Li.明
+  {
+    path: '/record',
+    component: Layout,
+    redirect: '/record/page',
+    alwaysShow: true, // will always show the root menu
+    name: '受理',
+    meta: {
+      title: '受理',
+      icon: 'peoples',
+      roles: ['系统管理员', '总经理', '受理调度员'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'recordset',
+        component: () => import('@/views/body/lm/acc/reception'),
+        name: '业务受理',
+        meta: { title: '业务受理', roles: ['系统管理员', '总经理', '受理调度员'] }
+      },
+      {
+        path: 'pick',
+        component: () => import('@/views/body/lm/acc/workSheet'),
+        name: '工作单快速录入',
+        meta: { title: '工作单快速录入', roles: ['系统管理员', '总经理', '受理调度员'] }
+      },
+      {
+        path: 'bus',
+        component: () => import('@/views/body/lm/acc/workOrder'),
+        name: ' 工作单查询',
+        meta: { title: ' 工作单查询', roles: ['系统管理员', '总经理', '受理调度员'] }
+      }
+    ]
+  },
+  {
+    path: '/dispatch',
+    component: Layout,
+    redirect: '/dispatch/page',
+    alwaysShow: true, // will always show the root menu
+    name: '调度',
+    meta: {
+      title: '调度',
+      icon: 'skill',
+      roles: ['系统管理员', '总经理', '受理调度员'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'recordset',
+        component: () => import('@/views/body/lm/dis/transfer'),
+        name: '查台转单',
+        meta: { title: '查台转单', roles: ['系统管理员', '总经理', '受理调度员'] }
+      },
+      {
+        path: 'pick',
+        component: () => import('@/views/body/lm/dis/artificial'),
+        name: '人工调度',
+        meta: { title: '人工调度', roles: ['系统管理员', '总经理', '受理调度员'] }
+      },
+      {
+        path: 'sig',
+        component: () => import('@/views/body/lm/dis/Signforentry'),
+        name: ' 签收录入',
+        meta: { title: ' 签收录入', roles: ['系统管理员', '总经理', '受理调度员'] }
+      },
+      {
+        path: 'nosig',
+        component: () => import('@/views/body/lm/dis/NoSignforentry'),
+        name: ' 取消签收申请录入',
+        meta: { title: ' 取消签收申请录入', roles: ['系统管理员', '总经理', '受理调度员'] }
+      }
+    ]
+  },
   {
     path: '/packagSet',
     component: Layout,
@@ -205,33 +276,42 @@ export const asyncRoutes = [
       }
     ]
   },
+  // 廖嘉威
   {
-    path: '/ReturnGoodsManagement',
+    path: '/pac',
     component: Layout,
-    name: '返货管理',
+    redirect: '/pac',
+    alwaysShow: true, // will always show the root menu
+    name: 'pac',
     meta: {
-      title: '返货管理',
-      icon: 'link',
-      roles: ['系统管理员', '总经理', '返货管理员'] // you can set roles in root nav
+      title: '包装材料管理',
+      icon: 'table',
+      roles: ['系统管理员', '总经理', '包装管理员'] // you can set roles in root nav
     },
     children: [
       {
-        path: 'ReturnApply',
-        component: () => import('@/views/body/lyb/ReturnApply'),
-        name: '返货申请',
-        meta: { title: '返货申请', roles: ['系统管理员', '总经理', '返货管理员'] }
+        path: 'packaging',
+        component: () => import('@/views/body/ljw/packaging'),
+        name: 'packaging',
+        meta: { title: '包装材料物品管理', roles: ['系统管理员', '总经理', '包装管理员'] }
       },
       {
-        path: 'ReturnApplyAffirm',
-        component: () => import('@/views/body/lyb/ReturnApplyAffirm'),
-        name: '返货申请确认',
-        meta: { title: '返货申请确认', roles: ['系统管理员', '总经理', '返货管理员'] }
+        path: 'stock',
+        component: () => import('@/views/body/ljw/PacStock'),
+        name: 'stock',
+        meta: { title: '入库管理', roles: ['系统管理员', '总经理', '包装管理员'] }
       },
       {
-        path: 'CreateReturnInvoice',
-        component: () => import('@/views/body/lyb/CreateReturnInvoice'),
-        name: '返货单信息查询',
-        meta: { title: '返货单信息查询', roles: ['系统管理员', '总经理', '返货管理员'] }
+        path: 'stockout',
+        component: () => import('@/views/body/ljw/pacStockOut'),
+        name: 'stockout',
+        meta: { title: '出库管理', roles: ['系统管理员', '总经理', '包装管理员'] }
+      },
+      {
+        path: 'stockItem',
+        component: () => import('@/views/body/ljw/inventory'),
+        name: 'stockItem',
+        meta: { title: '库存管理', roles: ['系统管理员', '总经理', '包装管理员'] }
       }
     ]
   },
@@ -329,154 +409,33 @@ export const asyncRoutes = [
       }
     ]
   },
-  // Li.明
   {
-    path: '/record',
+    path: '/ReturnGoodsManagement',
     component: Layout,
-    redirect: '/record/page',
-    alwaysShow: true, // will always show the root menu
-    name: '受理',
+    name: '返货管理',
     meta: {
-      title: '受理',
-      icon: 'peoples',
-      roles: ['系统管理员', '总经理', '受理调度员'] // you can set roles in root nav
+      title: '返货管理',
+      icon: 'link',
+      roles: ['系统管理员', '总经理', '返货管理员'] // you can set roles in root nav
     },
     children: [
       {
-        path: 'recordset',
-        component: () => import('@/views/body/lm/acc/reception'),
-        name: '业务受理',
-        meta: { title: '业务受理', roles: ['系统管理员', '总经理', '受理调度员'] }
+        path: 'ReturnApply',
+        component: () => import('@/views/body/lyb/ReturnApply'),
+        name: '返货申请',
+        meta: { title: '返货申请', roles: ['系统管理员', '总经理', '返货管理员'] }
       },
       {
-        path: 'pick',
-        component: () => import('@/views/body/lm/acc/workSheet'),
-        name: '工作单快速录入',
-        meta: { title: '工作单快速录入', roles: ['系统管理员', '总经理', '受理调度员'] }
+        path: 'ReturnApplyAffirm',
+        component: () => import('@/views/body/lyb/ReturnApplyAffirm'),
+        name: '返货申请确认',
+        meta: { title: '返货申请确认', roles: ['系统管理员', '总经理', '返货管理员'] }
       },
       {
-        path: 'bus',
-        component: () => import('@/views/body/lm/acc/workOrder'),
-        name: ' 工作单查询',
-        meta: { title: ' 工作单查询', roles: ['系统管理员', '总经理', '受理调度员'] }
-      }
-    ]
-  },
-  {
-    path: '/dispatch',
-    component: Layout,
-    redirect: '/dispatch/page',
-    alwaysShow: true, // will always show the root menu
-    name: '调度',
-    meta: {
-      title: '调度',
-      icon: 'skill',
-      roles: ['系统管理员', '总经理', '受理调度员'] // you can set roles in root nav
-    },
-    children: [
-      {
-        path: 'recordset',
-        component: () => import('@/views/body/lm/dis/transfer'),
-        name: '查台转单',
-        meta: { title: '查台转单', roles: ['系统管理员', '总经理', '受理调度员'] }
-      },
-      {
-        path: 'pick',
-        component: () => import('@/views/body/lm/dis/artificial'),
-        name: '人工调度',
-        meta: { title: '人工调度', roles: ['系统管理员', '总经理', '受理调度员'] }
-      },
-      {
-        path: 'sig',
-        component: () => import('@/views/body/lm/dis/Signforentry'),
-        name: ' 签收录入',
-        meta: { title: ' 签收录入', roles: ['系统管理员', '总经理', '受理调度员'] }
-      },
-      {
-        path: 'nosig',
-        component: () => import('@/views/body/lm/dis/NoSignforentry'),
-        name: ' 取消签收申请录入',
-        meta: { title: ' 取消签收申请录入', roles: ['系统管理员', '总经理', '受理调度员'] }
-      }
-    ]
-  },
-  // lj 罗晶
-  {
-    path: '/logistics',
-    component: Layout,
-    redirect: '/logistics',
-    alwaysShow: true, // will always show the root menu
-    name: 'logistics',
-    meta: {
-      title: '大物流管理',
-      icon: 'tree-table',
-      roles: ['系统管理员', '总经理', '物流管理员']// you can set roles in root nav
-    },
-    children: [
-      {
-        path: 'logistics',
-        component: () => import('@/views/body/sj/logistics/logisticscontrol'),
-        name: 'logistics',
-        meta: { title: '大物流发货对照表', roles: ['系统管理员', '总经理', '物流管理员'] }
-      }
-    ]
-  },
-  {
-    path: '/reportforms',
-    component: Layout,
-    redirect: '/chart/reportforms',
-    alwaysShow: true, // will always show the root menu
-    name: 'chart',
-    meta: {
-      title: '报表',
-      icon: 'chart',
-      roles: ['系统管理员', '总经理'] // you can set roles in root nav
-    },
-    children: [
-      {
-        path: 'statement',
-        component: () => import('@/views/body/sj/reportforms/reportforms'),
-        name: 'statement',
-        meta: { title: '报表', roles: ['系统管理员', '总经理'] }
-      }
-    ]
-  },
-  // 廖嘉威
-  {
-    path: '/pac',
-    component: Layout,
-    redirect: '/pac',
-    alwaysShow: true, // will always show the root menu
-    name: 'pac',
-    meta: {
-      title: '包装材料管理',
-      icon: 'table',
-      roles: ['系统管理员', '总经理', '包装管理员'] // you can set roles in root nav
-    },
-    children: [
-      {
-        path: 'packaging',
-        component: () => import('@/views/body/ljw/packaging'),
-        name: 'packaging',
-        meta: { title: '包装材料物品管理', roles: ['系统管理员', '总经理', '包装管理员'] }
-      },
-      {
-        path: 'stock',
-        component: () => import('@/views/body/ljw/PacStock'),
-        name: 'stock',
-        meta: { title: '入库管理', roles: ['系统管理员', '总经理', '包装管理员'] }
-      },
-      {
-        path: 'stockout',
-        component: () => import('@/views/body/ljw/pacStockOut'),
-        name: 'stockout',
-        meta: { title: '出库管理', roles: ['系统管理员', '总经理', '包装管理员'] }
-      },
-      {
-        path: 'stockItem',
-        component: () => import('@/views/body/ljw/inventory'),
-        name: 'stockItem',
-        meta: { title: '库存管理', roles: ['系统管理员', '总经理', '包装管理员'] }
+        path: 'CreateReturnInvoice',
+        component: () => import('@/views/body/lyb/CreateReturnInvoice'),
+        name: '返货单信息查询',
+        meta: { title: '返货单信息查询', roles: ['系统管理员', '总经理', '返货管理员'] }
       }
     ]
   },
@@ -515,6 +474,47 @@ export const asyncRoutes = [
         component: () => import('@/views/body/ljw/lineresource'),
         name: 'lineResource',
         meta: { title: '出港配载查询', roles: ['系统管理员', '总经理', '进出港管理员'] }
+      }
+    ]
+  },
+  // lj 罗晶
+  {
+    path: '/logistics',
+    component: Layout,
+    redirect: '/logistics',
+    alwaysShow: true, // will always show the root menu
+    name: 'logistics',
+    meta: {
+      title: '大物流管理',
+      icon: 'tree-table',
+      roles: ['系统管理员', '总经理', '物流管理员']// you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'logistics',
+        component: () => import('@/views/body/sj/logistics/logisticscontrol'),
+        name: 'logistics',
+        meta: { title: '大物流发货对照表', roles: ['系统管理员', '总经理', '物流管理员'] }
+      }
+    ]
+  },
+  {
+    path: '/reportforms',
+    component: Layout,
+    redirect: '/chart/reportforms',
+    alwaysShow: true, // will always show the root menu
+    name: 'chart',
+    meta: {
+      title: '报表',
+      icon: 'chart',
+      roles: ['系统管理员', '总经理', '基础管理员', '包装管理员', '返货管理员', '分拣管理员', '受理调度员', '物流管理员', '进出港管理员'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'statement',
+        component: () => import('@/views/body/sj/reportforms/reportforms'),
+        name: 'statement',
+        meta: { title: '报表', roles: ['系统管理员', '总经理', '基础管理员', '包装管理员', '返货管理员', '分拣管理员', '受理调度员', '物流管理员', '进出港管理员'] }
       }
     ]
   },

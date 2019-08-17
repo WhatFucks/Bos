@@ -25,6 +25,11 @@ public class SysDeptServiceImpl implements SysDeptService {
     }
 
     @Override
+    public List<SysDept> AllDept() {
+        return sysDeptMapper.selectByExample(null);
+    }
+
+    @Override
     public SysDept findById(Integer id) {
         return sysDeptMapper.selectByPrimaryKey(id);
     }

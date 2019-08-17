@@ -119,4 +119,13 @@ public class SysDeptController {
         result.getData().put("success",success);
         return result;
     }
+    // 获取所有的Dept
+    @RequestMapping("Alldept")
+    public ResponseResult AllDept(){
+        ResponseResult result = new ResponseResult();
+        List<SysDept> list = sysDeptService.AllDept();
+        result.getData().put("AllDept",list);
+        return result ;
+    }
+
 }

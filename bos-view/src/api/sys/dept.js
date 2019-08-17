@@ -15,6 +15,13 @@ export function updateDept(dept) {
     data: dept
   })
 }
+export function AllDept(dept) {
+  return request({
+    url: '/dept/Alldept',
+    method: 'post',
+    data: dept
+  })
+}
 
 export function deleteDept(id) {
   return request({

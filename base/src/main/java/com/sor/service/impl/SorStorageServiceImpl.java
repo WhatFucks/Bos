@@ -139,7 +139,7 @@ public class SorStorageServiceImpl implements SorStorageService {
             }
         }
         sorStorageMapper.insert(sorStorage);
-        sorStorageDetailsService.insertSorStorageDetailsBySorStorageId(list);
+        sorStorageDetailsService.insertSorStorageDetailsBySorStorageId(sorStorage,list);
     }
 
     @Override
