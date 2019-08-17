@@ -16,6 +16,12 @@ import java.util.Map;
 public class DisWorkOrderSignServiceImpl implements DisWorkOrderSignService {
   @Autowired
   private DisWorkOrderSignMapper disWorkOrderSignMapper;
+
+  @Override
+  public DisWorkOrderSign SelectSelectMaxNo() {
+    return disWorkOrderSignMapper.SelectSelectMaxNo();
+  }
+
   @Override
   public Map getList(Integer page, Integer limit) {
     DisWorkOrderSignExample example=new DisWorkOrderSignExample();
