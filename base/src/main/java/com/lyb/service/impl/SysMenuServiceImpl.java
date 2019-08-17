@@ -44,9 +44,8 @@ public class SysMenuServiceImpl implements SysMenuService {
     public Map<String,Object> findAllMenu(PageEntity entity) {
         Map<String,Object> map = new HashMap<>();
         PageHelper.startPage(entity.getPageNum(),entity.getPageSize(),true);
-        SysMenuExample example = null;
+        SysMenuExample  example = new SysMenuExample();;
         if(entity.getName()!=null && entity.getName().trim()!=""){
-            example = new SysMenuExample();
             example.createCriteria().andNameLike("%"+entity.getName()+"%");
         }
         example.setOrderByClause("create_time desc");
