@@ -247,14 +247,7 @@
           label="入库交接单号"
         >
           <el-input v-model="sorOutBoundForm.id" style="width: 120px;" placeholder="入库交接单号" :disabled="true"></el-input>
-          发货单位:<el-input v-model="sorOutBoundForm.deliverycompany" style="width: 120px;" placeholder="发货单位" ></el-input>
-          接收单位<el-input v-model="sorOutBoundForm.acceptcompany" style="width: 120px;" placeholder="接收单位" :disabled="true"></el-input>
-        </el-form-item>
-        <el-form-item
-          prop="email"
-          label="出货单位"
-        >
-          <el-input v-model="sorOutBoundForm.deliverycompany" style="width: 120px;" placeholder="接收单位" ></el-input>
+          接收单位<el-input v-model="sorOutBoundForm.acceptcompany" style="width: 120px;" placeholder="接收单位" ></el-input>
           接货人:<el-select v-model="sorOutBoundForm.acceptperson" placeholder="请选择" style="width: 120px;">
           <el-option
             v-for="item in users"
@@ -264,6 +257,13 @@
             :disabled="item.status==1? false:true">
           </el-option>
         </el-select>
+        </el-form-item>
+        <el-form-item
+          prop="email"
+          label="出货单位"
+        >
+          <el-input v-model="sorOutBoundForm.deliverycompany" style="width: 120px;" placeholder="接收单位" ></el-input>
+
 
           发货人:<el-select v-model="sorOutBoundForm.deliveryperson" placeholder="请选择" style="width: 120px;">
           <el-option

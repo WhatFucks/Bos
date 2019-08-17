@@ -38,16 +38,16 @@ export default {
   },
   data() {
     return {
-      list: null
+      //list: null
     }
   },
   created() {
-    this.fetchData()
+   // this.fetchData()
   },
   methods: {
     fetchData() {
       transactionList().then(response => {
-        this.list = response.data.items.slice(0, 8)
+       // this.list = response.data.items.slice(0, 8)
       })
     }
   }

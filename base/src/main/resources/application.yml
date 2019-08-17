@@ -5,7 +5,7 @@ server:
 spring:
   datasource:
     username: root
-    password: 1234
+    password: root
     url: jdbc:mysql://localhost:3306/bos?useSSL=true&characterEncoding=UTF-8
     driver-class-name: com.mysql.jdbc.Driver
 mybatis:
