@@ -72,7 +72,7 @@
       </el-table-column>
       <el-table-column label="确认时间" fit="true" align="center">
         <template slot-scope="scope">
-          <span>{{ scope.row.confirmationtime | parseTime('{y}-{m}-{d} {h}:{i}:{s}') }}</span>
+          <span v-show="scope.row.confirmationtime != null">{{ scope.row.confirmationtime | parseTime('{y}-{m}-{d}') }}</span>
         </template>
       </el-table-column>
       <el-table-column label="操作" align="center" width="220" class-name="small-padding fixed-width">
