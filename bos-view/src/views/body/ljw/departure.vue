@@ -35,11 +35,11 @@
         </template>
       </el-table-column>
 
-      <el-table-column label="入库时间" align="center" min-width="150px">
-        <template slot-scope="scope">
-          <span>{{ scope.row.sorCheckbounddetails.storagedate | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
-        </template>
-      </el-table-column>
+<!--      <el-table-column label="入库时间" align="center" min-width="150px">-->
+<!--        <template slot-scope="scope">-->
+<!--          <span>{{ scope.row.sorCheckbounddetails.storagedate | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>-->
+<!--        </template>-->
+<!--      </el-table-column>-->
 
       <el-table-column label="到达地" align="center" min-width="150px">
         <template slot-scope="{row}">
