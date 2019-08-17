@@ -13,7 +13,7 @@
         <el-input
           ref="username"
           v-model="loginForm.username"
-          placeholder="Username"
+          placeholder="用户名"
           name="username"
           type="text"
           tabindex="1"
@@ -31,7 +31,7 @@
             ref="password"
             v-model="loginForm.password"
             :type="passwordType"
-            placeholder="Password"
+            placeholder="密码"
             name="password"
             tabindex="2"
             autocomplete="on"
@@ -77,11 +77,11 @@ export default {
     },
     text:{
       type:String,
-      default:'向右滑动进行解锁'
+      default:'向右滑动进行登陆'
     },
     successText:{
       type:String,
-      default:'解锁成功'
+      default:'登陆成功'
     },
     background:{
       type:String,
@@ -179,8 +179,8 @@ export default {
       x:0,
       isPassing : false,
       loginForm: {
-        username: 'admin',
-        password: '123456'
+        username: '',
+        password: ''
       },
       loginRules: {
         username: [{ required: true, trigger: 'blur', message:'请输入用户名！' }],
@@ -252,6 +252,7 @@ export default {
       }
     },
     passVerify: function(){
+      this.handleLogin(); // 滑动登陆
       this.isPassing = true;
       this.isMoving = false;
       var handler = this.$refs.handler;

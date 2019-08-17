@@ -98,6 +98,7 @@ public class SorStorageController {
                sorAbnormalService.insertSorAbnormal(sorAbnormal2);
                result.getData().put("message","新增异常信息成功");
            }
+
        }
 
         return result;

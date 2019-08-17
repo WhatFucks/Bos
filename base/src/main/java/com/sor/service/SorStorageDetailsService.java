@@ -18,7 +18,7 @@ public interface SorStorageDetailsService {
      * 新增入库时新增入库详情
      * @param list
      */
-    public void insertSorStorageDetailsBySorStorageId(List<SorStorageDetails> list);
+    public void insertSorStorageDetailsBySorStorageId(SorStorage sorStorage,List<SorStorageDetails> list);
     /**
      * 根据入库交接单查询入库详情
      * @param storageid

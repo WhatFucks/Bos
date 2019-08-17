@@ -3,6 +3,7 @@ package com.sor.mapper;
 import com.sor.entity.SorStorageDetails;
 import com.sor.entity.SorStorageDetailsExample;
 import com.sor.entity.SorWorksheet;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -30,15 +31,16 @@ public interface SorStorageDetailsMapper {
      * @return
      */
     @Update("update sor_storagedetails set State=2 where id=#{id}")
-    SorStorageDetails updateDetailByIdTo2(String id);
+    void updateDetailByIdTo2(String id);
 
-    @Update("update sor_storagedetails set State=1 where id=#{id}")
-    SorStorageDetails updateDetailByIdTo1(String id);
+    @Update("update sor_storagedetails set State=#{state},storageid=#{storageid} where id=#{id}")
+    void updateDetailByIdTo1(SorStorageDetails sorStorageDetails);
 
     @Update("update sor_storagedetails set State=0 where id=#{id}")
-    SorStorageDetails updateDetailByIdTo0(String id);
+    void updateDetailByIdTo0(String id);
 
-
+    @Delete("delete from sor_storagedetails where id=#{id}")
+    void deleteDetailById(String id);
 
     @Select("select id,PackageID,weight,OutBoundID,State,storageid from sor_storagedetails where id=#{id} ")
     SorStorageDetails getDetailById(String id);

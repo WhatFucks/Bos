@@ -117,7 +117,7 @@ public class SorStorageServiceImpl implements SorStorageService {
 
             SorAbnormal sorAbnormal = new SorAbnormal();
 
-            if(sd.getId()==null){
+            if(sd.getId()!=null && sd.getState()==3){
 
                 // 监控异常
                 sorAbnormal.setLaunchdate(new Date());
@@ -139,7 +139,7 @@ public class SorStorageServiceImpl implements SorStorageService {
             }
         }
         sorStorageMapper.insert(sorStorage);
-        sorStorageDetailsService.insertSorStorageDetailsBySorStorageId(list);
+        sorStorageDetailsService.insertSorStorageDetailsBySorStorageId(sorStorage,list);
     }
 
     @Override

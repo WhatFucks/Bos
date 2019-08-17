@@ -155,6 +155,7 @@
             message: response.data.message,
             duration: 2000
           })
+          this.dialogFormVisible=false;
         })
       },
       //重发
