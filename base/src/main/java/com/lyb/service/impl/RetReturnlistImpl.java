@@ -71,6 +71,7 @@ public class RetReturnlistImpl implements RetReturnlistService {
                 example.createCriteria().andApreturnstatusEqualTo(ret.getApreturnstatus());
             }
         }
+        example.setOrderByClause("EntryTime desc");
         List<RetReturnlist> list = retReturnlistMapper.selectByExample(example);
         PageInfo info = new PageInfo(list);
         map.put("items",info.getList());

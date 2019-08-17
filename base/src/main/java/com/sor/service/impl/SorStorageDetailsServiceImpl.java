@@ -128,34 +128,37 @@ public class SorStorageDetailsServiceImpl implements SorStorageDetailsService {
      * @param list
      */
     @Override
-    public void insertSorStorageDetailsBySorStorageId(List<SorStorageDetails> list) {
-        for(SorStorageDetails sd : list){
+    public void insertSorStorageDetailsBySorStorageId(SorStorage sorStorage,List<SorStorageDetails> list) {
+        SorStorageDetails sds=new SorStorageDetails();
+        sds.setStorageid(sorStorage.getId());
 
-                if(sd.getId()==null){
-                    continue;
-                }
-            SorStorageDetails details= sorStorageDetailsMapper.getDetailById(sd.getId());
-                    sd.setState(4);
-// 业务处理：如果单号初始入库（先查询数据库里是否有该单号的信息，没有就默认为初始入库）
-                   if(details==null){
-                       sd.setState(2);
+        for(SorStorageDetails sd:list){
+            sd.setStorageid(sorStorage.getId());
+           SorStorageDetails Dlist =sorStorageDetailsMapper.getDetailById(sd.getId());
+// 如果系统里有该单号，那么就二次入库
+               if(Dlist!=null && sd.getState()!=3){
+
+                   if(sd.getState()==0 || sd.getState()==2 || sd.getState()==1){
+                       sd.setState(1);
+                       sorStorageDetailsMapper.updateDetailByIdTo1(sd);
                    }
-                   // 业务处理：如果该单号在我们数据库里，那么就添加一次入库的次数
-                   if(details!=null){
-                       if(details.getState()==0){
-                           details.setState(1);
-                           sorStorageDetailsMapper.updateDetailByIdTo1(sd.getId());
-                       }else if(details.getState()==2){
-                           details.setState(1);
-                           sorStorageDetailsMapper.updateDetailByIdTo1(sd.getId());
-                       }
+// 否则，没有进入我们系统，我们就会给出初始入库
+               }
+
+               if(Dlist==null && sd.getState()!=3){
+                   if(sd.getState()==2){
+                       sorStorageDetailsMapper.insert(sd);
                    }else{
-                       if(sd.getId()==null){
-                           sd.setState(4);
-                       }
+                       sd.setState(0);
                        sorStorageDetailsMapper.insert(sd);
                    }
+
+               }
+
+
+
         }
+
     }
 
     /**

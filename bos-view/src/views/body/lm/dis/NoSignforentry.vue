@@ -9,7 +9,7 @@
       <el-table-column label="序号" align="center" type="index" width="50px" prop="id"></el-table-column>
       <el-table-column label="工作单号" align="center" prop="worksheetno" width="110px"></el-table-column>
       <el-table-column label="申请单号" align="center" prop="applicationno" width="100px"></el-table-column>
-      <el-table-column label="签收时间" align="center" prop="signtime" width="100px" :formatter="workordertypes"></el-table-column>
+      <el-table-column label="签收类型" align="center" prop="signtime" width="100px" :formatter="workordertypes"></el-table-column>
       <el-table-column label="签收状态" align="center" prop="signtype" width="100px" :formatter="signtypes"></el-table-column>
       <el-table-column label="签收单位" align="center" prop="inputid" width="105px" :formatter="inputids"></el-table-column>
       <el-table-column label="申请人" align="center" prop="applicatioperson" width="100px"></el-table-column>
@@ -26,6 +26,7 @@
       </el-table-column>
     </el-table>
     <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
+    <!--新增-->
     <el-dialog :title="title" :visible.sync="dialogFormVisible">
       <el-form ref="dataForm" :rules="rules" :model="temp" label-width="120px" style="width: 700px; margin-left:0px; height: 234px">
         <el-col :span="8"><el-form-item label="工作单号:"><el-input  v-model="temp.worksheetno"></el-input></el-form-item></el-col>
@@ -54,6 +55,7 @@
         <el-button type="primary" @click="dialogStatus==='create'?createData():updateData()">确认</el-button>
       </div>
     </el-dialog>
+    <!--// 详情-->
     <el-dialog :title="title" :visible.sync="dialogForms">
       <el-form ref="dataForms" :rules="rules" :model="temp" label-width="120px" style="width: 700px; margin-left:0px; height: 321px">
         <el-col :span="8"><el-form-item label="工作单号:"><el-input  v-model="temp.worksheetno"></el-input></el-form-item></el-col>
@@ -194,6 +196,7 @@
         this.temp =  Object.assign({}, row) // copy obj
         this.dialogStatus = 'update'
         this.dialogFormVisible = true
+
         this.title='新增'
         this.$nextTick(() => {
           this.$refs['dataForm'].clearValidate()
@@ -268,9 +271,12 @@
         }
       },
       // 签收类型
-      signtypes(val){
-        if(val.signtype=1){return "正常签收"}
-        else {return "反向签收"}
+      signtypes(row, column){
+        switch(row.signtype){
+          case 1:return '正常签收';break;
+          case 2:return '取货签收';break;
+          default:return '未知';
+        }
       },
       // 录入单位
       inputids(row){

@@ -10,7 +10,7 @@
     <result column="ActualNum" jdbcType="INTEGER" property="actualnum" />
     <result column="PlannedPrice" jdbcType="REAL" property="plannedprice" />
     <result column="Specifications" jdbcType="VARCHAR" property="specifications" />
-    <result column="type" jdbcType="BIT" property="type" />
+    <result column="type" jdbcType="INTEGER" property="type" />
     <result column="Status" jdbcType="INTEGER" property="status" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -112,7 +112,7 @@
       Status)
     values (#{id,jdbcType=INTEGER}, #{warehouseno,jdbcType=VARCHAR}, #{goodscode,jdbcType=VARCHAR}, 
       #{goodsname,jdbcType=VARCHAR}, #{storagenum,jdbcType=INTEGER}, #{actualnum,jdbcType=INTEGER}, 
-      #{plannedprice,jdbcType=REAL}, #{specifications,jdbcType=VARCHAR}, #{type,jdbcType=BIT}, 
+      #{plannedprice,jdbcType=REAL}, #{specifications,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER},
       #{status,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.lyb.entity.PacStockitem">
@@ -175,7 +175,7 @@
         #{specifications,jdbcType=VARCHAR},
       </if>
       <if test="type != null">
-        #{type,jdbcType=BIT},
+        #{type,jdbcType=INTEGER},
       </if>
       <if test="status != null">
         #{status,jdbcType=INTEGER},
@@ -216,7 +216,7 @@
         Specifications = #{record.specifications,jdbcType=VARCHAR},
       </if>
       <if test="record.type != null">
-        type = #{record.type,jdbcType=BIT},
+        type = #{record.type,jdbcType=INTEGER},
       </if>
       <if test="record.status != null">
         Status = #{record.status,jdbcType=INTEGER},
@@ -236,7 +236,7 @@
       ActualNum = #{record.actualnum,jdbcType=INTEGER},
       PlannedPrice = #{record.plannedprice,jdbcType=REAL},
       Specifications = #{record.specifications,jdbcType=VARCHAR},
-      type = #{record.type,jdbcType=BIT},
+      type = #{record.type,jdbcType=INTEGER},
       Status = #{record.status,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -267,7 +267,7 @@
         Specifications = #{specifications,jdbcType=VARCHAR},
       </if>
       <if test="type != null">
-        type = #{type,jdbcType=BIT},
+        type = #{type,jdbcType=INTEGER},
       </if>
       <if test="status != null">
         Status = #{status,jdbcType=INTEGER},
@@ -284,7 +284,7 @@
       ActualNum = #{actualnum,jdbcType=INTEGER},
       PlannedPrice = #{plannedprice,jdbcType=REAL},
       Specifications = #{specifications,jdbcType=VARCHAR},
-      type = #{type,jdbcType=BIT},
+      type = #{type,jdbcType=INTEGER},
       Status = #{status,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>

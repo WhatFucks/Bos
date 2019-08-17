@@ -48,8 +48,10 @@
           <el-select v-model="temp.inputpersonid" placeholder="请选择">
             <el-option v-for="item in lururen" :key="item.value" :label="item.label" :value="item.value"></el-option>
           </el-select>
+         <!-- <el-input  v-model="temp.inputpersonid"></el-input>-->
         </el-form-item></el-col>
         <el-col :span="10"><el-form-item label="录入单位:">
+         <!-- <el-input  v-model="temp.inputid"></el-input>-->
           <el-select v-model="temp.inputid" placeholder="请选择" >
             <el-option v-for="item in lurudanwei" :key="item.value" :label="item.label" :value="item.value"></el-option>
           </el-select>
@@ -139,7 +141,7 @@
     data() {
       return {
         options: [{value: 1, label: '返单'},{value: 2, label: '调单'},{value: 3, label: '正常单据'}],
-        signtypeAll: [{value: 1, label: '正常签收'},{value: 2, label: '反向签收'}],
+        signtypeAll: [{value: 1, label: '正常签收'},{value: 2, label: '取货签收'}],
         lururen: [{value: 1, label: 'admin'},{value: 2, label: 'liming'}],
         lurudanwei: [{value: 1, label: '长沙分公司'},{value: 2, label: '天心区分公司'},{value: 3, label: '岳麓分公司'},],
         value: '',
@@ -155,6 +157,7 @@
           limit: 5,
         },
         temp: {
+          inputpersonid:'',
           worksheetno: '',
           workorderid: '',
           workordertype: '',
@@ -162,7 +165,6 @@
           recipient: '',
           courierint: '',
           couriername:'',
-          inputpersonid: '',
           inputid:'',
         },
         dialogFormVisible: false,
@@ -194,6 +196,8 @@
         this.resetuser()
         this.dialogStatus = 'create'
         this.dialogFormVisibleAdd = true
+        this.temp.inputpersonid =  2
+        this.temp.inputid = 3
         this.title='添加'
         this.$nextTick(() => {
           this.$refs['dataForm'].clearValidate()
@@ -205,11 +209,18 @@
           if (valid) {
             this.temp.createBy=getToken()
             add(this.temp).then((response) => {
-              if(response.data.title=='成功'){
+              /*if(response.data.title=='成功'){
                 this.list.unshift(this.temp)
-                this.dialogFormVisible = false
+                this.dialogFormVisibleAdd = true
                 this.getList()
               }
+              this.$notify({
+                title: response.data.title,
+                message: response.data.message,
+                duration: 2000
+              })*/
+              this.dialogFormVisibleAdd = true
+              this.getList()
               this.$notify({
                 title: response.data.title,
                 message: response.data.message,
@@ -271,7 +282,7 @@
       signtypes(row,column){
         switch(row.signtype){
           case 1:return '正常签收';break;
-          default:return '反向签收';
+          default:return '取货签收';
         }
       },
       // 录入单位
@@ -284,9 +295,12 @@
         }
       },
       // 录入人姓名
-      inputpersonids(val){
-        if(val.inputpersonid=1){return "admin"}
-        else{return "lm"}
+      inputpersonids(row,column){
+        switch(row.inputpersonid){
+          case 1:return 'admin';break;
+          case 2:return 'liming';break;
+          default:return 'lm';
+        }
       },
       // 查询所有
       getList() {

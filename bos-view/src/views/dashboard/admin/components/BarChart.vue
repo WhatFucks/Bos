@@ -1,102 +1,71 @@
 <template>
-  <div :class="className" :style="{height:height,width:width}" />
+  <!--为echarts准备一个具备大小的容器dom-->
+  <div id="main" style="width: 300px;height: 300px;"></div>
 </template>
-
 <script>
-import echarts from 'echarts'
-require('echarts/theme/macarons') // echarts theme
-import resize from './mixins/resize'
-
-const animationDuration = 6000
-
-export default {
-  mixins: [resize],
-  props: {
-    className: {
-      type: String,
-      default: 'chart'
+  import echarts from 'echarts'
+  export default {
+    name: '',
+    data() {
+      return {
+        charts: '',
+        /*  opinion: ["1", "3", "3", "4", "5"],*/
+        opinionData: ["3", "2", "4", "4", "5"]
+      }
     },
-    width: {
-      type: String,
-      default: '100%'
-    },
-    height: {
-      type: String,
-      default: '300px'
-    }
-  },
-  data() {
-    return {
-      chart: null
-    }
-  },
-  mounted() {
-    this.$nextTick(() => {
-      this.initChart()
-    })
-  },
-  beforeDestroy() {
-    if (!this.chart) {
-      return
-    }
-    this.chart.dispose()
-    this.chart = null
-  },
-  methods: {
-    initChart() {
-      this.chart = echarts.init(this.$el, 'macarons')
+    methods: {
+      drawLine(id) {
+        this.charts = echarts.init(document.getElementById(id))
+        this.charts.setOption({
+          tooltip: {
+            trigger: 'axis'
+          },
+          legend: {
+            data: ['近七日收益']
+          },
+          grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+          },
 
-      this.chart.setOption({
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: { // 坐标轴指示器，坐标轴触发有效
-            type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
-          }
-        },
-        grid: {
-          top: 10,
-          left: '2%',
-          right: '2%',
-          bottom: '3%',
-          containLabel: true
-        },
-        xAxis: [{
-          type: 'category',
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-          axisTick: {
-            alignWithLabel: true
-          }
-        }],
-        yAxis: [{
-          type: 'value',
-          axisTick: {
-            show: false
-          }
-        }],
-        series: [{
-          name: 'pageA',
-          type: 'bar',
-          stack: 'vistors',
-          barWidth: '60%',
-          data: [79, 52, 200, 334, 390, 330, 220],
-          animationDuration
-        }, {
-          name: 'pageB',
-          type: 'bar',
-          stack: 'vistors',
-          barWidth: '60%',
-          data: [80, 52, 200, 334, 390, 330, 220],
-          animationDuration
-        }, {
-          name: 'pageC',
-          type: 'bar',
-          stack: 'vistors',
-          barWidth: '60%',
-          data: [30, 52, 200, 334, 390, 330, 220],
-          animationDuration
-        }]
+          toolbox: {
+            feature: {
+              saveAsImage: {}
+            }
+          },
+          xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: ["1","2","3","4","5"]
+
+          },
+          yAxis: {
+            type: 'value'
+          },
+
+          series: [{
+            name: '近七日收益',
+            type: 'line',
+            stack: '总量',
+            data: this.opinionData
+          }]
+        })
+      }
+    },
+    //调用
+    mounted() {
+      this.$nextTick(function() {
+        this.drawLine('main')
       })
     }
   }
-}
 </script>
+<style scoped>
+  * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+</style>
