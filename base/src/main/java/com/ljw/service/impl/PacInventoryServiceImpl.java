@@ -17,7 +17,7 @@ public class PacInventoryServiceImpl implements PacInventoryService {
     @Autowired
     private PacInventoryMapper pacInventoryMapper;
     @Override
-    public Map<String,Object> select(String goodsnumber, String affiliatedunit, Integer page, Integer limit){
+    public Map<String,Object> select(String goodsnumber, String goodsname, Integer page, Integer limit){
         Map<String,Object> map=new HashMap<>();
         PageHelper helper=new PageHelper();
         Page p=helper.startPage(page,limit);
@@ -26,8 +26,8 @@ public class PacInventoryServiceImpl implements PacInventoryService {
         if (goodsnumber!=null && goodsnumber.trim()!=""){
             criteria.andGoodsnumberLike("%"+goodsnumber+"%");
         }
-        if (affiliatedunit!=null && affiliatedunit.trim()!=""){
-            criteria.andAffiliatedunitEqualTo(affiliatedunit);
+        if (goodsname!=null && goodsname.trim()!=""){
+            criteria.andGoodsnameLike("%"+goodsname+"%");
         }
         List<PacInventory> list=pacInventoryMapper.selectByExample(example);
         if (list.size()>0){
@@ -41,7 +41,7 @@ public class PacInventoryServiceImpl implements PacInventoryService {
         pacInventoryMapper.insert(pacInventory);
     }
     @Override
-    public List<PacInventory> Listinventory(String goodsName){
+    public PacInventory Listinventory(String goodsName){
         return pacInventoryMapper.Listinventory(goodsName);
     }
     @Override

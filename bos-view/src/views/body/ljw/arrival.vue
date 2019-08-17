@@ -63,7 +63,7 @@
 
           <el-table-column label="入库时间" align="center" min-width="150px">
             <template slot-scope="{row}">
-              <span class="link-type">{{ row.storagedate }}</span>
+              <span class="link-type">{{ row.storagedate | yyyy }}</span>
             </template>
           </el-table-column>
 

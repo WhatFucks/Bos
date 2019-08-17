@@ -37,6 +37,11 @@ public class LjwPacStockItemController {
         String delpt=pacStockOutService.selectdept(new Long(loginUser.getDeptId()));
         //根据入库详情的货物名称查询包装材料表
         List<PacPackaging> list= ljwPacPackagingService.selectPackaging(pacStockitem.getGoodsname());
+
+        // PacPackaging pacPackaging= ljwPacStockItemService.selectcode(pacStockitem.getGoodscode(),pacStockitem.getGoodsname());
+//        if (pacPackaging!=null){
+//
+//        }
         if (list.size()>0){
             //添加入库详情
             pacStockitem.setWarehouseno(pacStockitem.getWarehouseno());
@@ -46,16 +51,16 @@ public class LjwPacStockItemController {
             result.getData().put("title","成功");
             result.getData().put("type","success");
             PacInventory pacInventory=new PacInventory();
-            List<PacInventory> Plist=pacInventoryService.Listinventory(pacStockitem.getGoodsname());
+            PacInventory Plist=pacInventoryService.Listinventory(pacStockitem.getGoodsname());
             //判断库存是否有相同的货物名称
-            if (Plist.size()>0){
-                    //如果货物相同修改金额、数量、价钱
-                for (PacInventory p:Plist){
-                    p.setMoney(pacStockitem.getPlannedprice()*pacStockitem.getStoragenum());
-                    p.setStocknum(p.getStocknum()+pacStockitem.getStoragenum());
-                    p.setPlannedprice(pacStockitem.getPlannedprice());
-                    pacInventoryService.update(p);
-                }
+            if (Plist!=null){
+                //如果货物相同修改金额、数量、价钱
+                Integer sun=Plist.getStocknum()+pacStockitem.getStoragenum();
+                Plist.setSpecifications(pacStockitem.getSpecifications());
+                Plist.setMoney(pacStockitem.getPlannedprice()*sun);
+                Plist.setStocknum(Plist.getStocknum()+pacStockitem.getStoragenum());
+                Plist.setPlannedprice(pacStockitem.getPlannedprice());
+                pacInventoryService.update(Plist);
             }else {
                 //添加库存
                 pacInventory.setGoodsname(pacStockitem.getGoodsname());
@@ -64,7 +69,7 @@ public class LjwPacStockItemController {
                 pacInventory.setPlannedprice(pacStockitem.getPlannedprice());
                 pacInventory.setSpecifications(pacStockitem.getSpecifications());
                 pacInventory.setAffiliatedunit(delpt);
-                pacInventory.setMoney(pacStockitem.getPlannedprice()*pacStockitem.getStoragenum());
+                pacInventory.setMoney(pacStockitem.getPlannedprice() *pacStockitem.getStoragenum());
                 pacInventory.setType(pacStockitem.getType());
                 pacInventory.setMeasure("台");
                 pacInventoryService.insert(pacInventory);
@@ -81,11 +86,25 @@ public class LjwPacStockItemController {
     public ResponseResult update(PacStockitem pacStockitem){
         ResponseResult result=new ResponseResult();
         List<PacPackaging> list= ljwPacPackagingService.selectPackaging(pacStockitem.getGoodsname());
+
+        //判断材料管理是否有该货物名称
         if (list.size()>0){
-            ljwPacStockItemService.updateitem(pacStockitem);
-            result.getData().put("message","修改成功");
-            result.getData().put("title","成功");
-            result.getData().put("type","success");
+            PacInventory Plist=pacInventoryService.Listinventory(pacStockitem.getGoodsname());
+            //如果货物相同修改金额、数量、价钱
+            if (Plist!=null){
+                //数量
+                Integer sun=Plist.getStocknum()+pacStockitem.getStoragenum();
+                Plist.setSpecifications(pacStockitem.getSpecifications());
+                Plist.setMoney(pacStockitem.getPlannedprice()*sun);
+                Plist.setStocknum(Plist.getStocknum()+pacStockitem.getStoragenum());
+                Plist.setPlannedprice(pacStockitem.getPlannedprice());
+                pacInventoryService.update(Plist);
+
+                ljwPacStockItemService.updateitem(pacStockitem);
+                result.getData().put("message","修改成功");
+                result.getData().put("title","成功");
+                result.getData().put("type","success");
+            }
         }else {
             result.getData().put("message","修改失败,没有【"+pacStockitem.getGoodsname()+"】此包装盒!");
             result.getData().put("title","提示");
@@ -93,4 +112,15 @@ public class LjwPacStockItemController {
         }
         return result;
     }
+//    @RequestMapping("selectpacking")
+//    public ResponseResult selectpacking(String GoodsCode){
+//        System.out.println("GoodsCode=="+GoodsCode);
+//        ResponseResult result=new ResponseResult();
+//        PacPackaging pacPackaging=ljwPacStockItemService.selectcode(GoodsCode);
+//        System.out.println("pacPackaging=="+pacPackaging);
+//        if (pacPackaging!=null){
+//            result.getData().put("Packs",pacPackaging);
+//        }
+//        return result;
+//    }
 }

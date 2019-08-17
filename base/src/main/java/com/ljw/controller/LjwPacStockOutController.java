@@ -56,6 +56,13 @@ public class LjwPacStockOutController {
         s2=s2==1000?1:s2;   //这里将规定最大数字设定为小于1000  如果对生成的数字没有特定要求可以注释掉    我这里没有要求所以进行了注释
         String resluts2=s2>=10?(s2>=100?s2+"":"0"+s2):"00"+s2; // 计算 转型
         String CK = "CK1"+resluts2;
+
+        //下发单位
+        String deptname1=pacStockOutService.selectdept(Long.valueOf(pacStockout.getIssuedbytheunit()).longValue());
+        //经办人单位
+        String deptname2=pacStockOutService.selectdept(Long.valueOf(pacStockout.getHandlingunit()).longValue());
+        pacStockout.setIssuedbytheunit(deptname1);
+        pacStockout.setHandlingunit(deptname2);
         pacStockout.setBillingtime(new Date());
         pacStockout.setRecipienttime(new Date());
         pacStockout.setWarehouseorderno(CK);

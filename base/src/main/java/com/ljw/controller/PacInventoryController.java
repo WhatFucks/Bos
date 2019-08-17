@@ -14,9 +14,9 @@ public class PacInventoryController {
     private PacInventoryService pacInventoryService;
     @RequestMapping("list")
     //库存查询
-    public ResponseResult list(String goodsnumber, String affiliatedunit, Integer page, Integer limit){
+    public ResponseResult list(String goodsnumber, String goodsname, Integer page, Integer limit){
         ResponseResult result=new ResponseResult();
-        Map<String,Object> map = pacInventoryService.select(goodsnumber,affiliatedunit,page,limit);
+        Map<String,Object> map = pacInventoryService.select(goodsnumber,goodsname,page,limit);
         if (map!=null){
             result.getData().putAll(map);
         }

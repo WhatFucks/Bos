@@ -51,8 +51,8 @@ public class LjwPacPackagingController {
         ResponseResult result=new ResponseResult();
         SysUser loginUser = (SysUser) session.getAttribute("USER_SESSION");
         PacPackaging list=ljwPacPackagingService.selectById(id);
-        List<PacInventory> troylist=pacInventoryService.Listinventory(list.getItemname());
-        if (troylist.size()>0){
+        PacInventory troylist=pacInventoryService.Listinventory(list.getItemname());
+        if (troylist!=null){
             result.getData().put("message","库存里有【"+list.getItemname()+"】该货物，不能作废");
             result.getData().put("title","提示");
             result.getData().put("type","warning");

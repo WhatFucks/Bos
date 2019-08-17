@@ -164,7 +164,7 @@
           rules:校验规则
           model:数据绑定
       -->
-      <el-form ref="dataForm" :rules="rules" :model="temp" label-position="left" label-width="70px" style="width: 200px; margin-left:50px;">
+      <el-form ref="dataForm" :rules="myrule" :model="temp" label-position="left" label-width="70px" style="width: 200px; margin-left:50px;">
 
         <el-form-item label="入库类型" prop="reservoirtype" label-width="100px" maxlength="8" >
           <template>
@@ -222,7 +222,7 @@
           rules:校验规则
           model:数据绑定
       -->
-      <el-form ref="dataForm" :rules="rules" :model="temp" label-position="left" label-width="70px" style="width: 200px; margin-left:50px;">
+      <el-form ref="dataForm" :rules="rules" :model="temptwo" label-position="left" label-width="70px" style="width: 200px; margin-left:50px;">
 
         <el-form-item label="货物编码" prop="goodscode" label-width="100px">
           <el-input v-model="temptwo.goodscode" placeholder="请输入货物编码" style="width: 300px" />
@@ -327,7 +327,8 @@
         listQuery: {
           page: 1, // 分页需要的当前页
           limit: 20, // 分页需要的每页显示多少条
-          warehouseno: ''
+          warehouseno: '',
+          reservoirtype:''
 
         },
         temp: { // 添加、修改时绑定的表单数据
@@ -368,20 +369,21 @@
         dialogitemStatus:'',
         //验证
         rules: {
-          // goodscode: [{ required: true, message: '货物编码必填', trigger: 'blur' }],
-          // goodsname: [{ required: true, message: '货物名称必填', trigger: 'blur' }],
-          // storagenum: [{ required: true, message: '入库数量必填', trigger: 'blur' }],
-          // actualnum: [{ required: true, message: '实际数量必填', trigger: 'blur' }],
-          // plannedprice: [{ required: true, message: '计划价格必填', trigger: 'blur' }],
-          // specifications: [{ required: true, message: '规格必填', trigger: 'blur' }],
-          // type: [{ required: true, message: '类型必选', trigger: 'change' }],
-          //
-          // reservoirtype: [{ required: true, message: '入库类型必填', trigger: 'blur' }],
-          // transport: [{ required: true, message: '运输单号必填', trigger: 'blur' }],
-          // subordinateunit: [{ required: true, message: '所属单位必填', trigger: 'blur' }],
-          // drawerno: [{ required: true, message: '开单人工号必填', trigger: 'blur' }],
-          // drawername: [{ required: true, message: '开单人姓名必填', trigger: 'blur' }]
+          goodscode: [{ required: true, message: '货物编码必填', trigger: 'blur' }],
+          goodsname: [{ required: true, message: '货物名称必填', trigger: 'blur' }],
+          storagenum: [{ required: true, message: '入库数量必填', trigger: 'blur' }],
+          actualnum: [{ required: true, message: '实际数量必填', trigger: 'blur' }],
+          plannedprice: [{ required: true, message: '计划价格必填', trigger: 'blur' }],
+          specifications: [{ required: true, message: '规格必填', trigger: 'blur' }],
+          type: [{ required: true, message: '类型必选', trigger: 'change' }],
       },
+        myrule:{
+          reservoirtype: [{ required: true, message: '入库类型必填', trigger: 'blur' }],
+          transport: [{ required: true, message: '运输单号必填', trigger: 'blur' }],
+          subordinateunit: [{ required: true, message: '所属单位必填', trigger: 'blur' }],
+          drawerno: [{ required: true, message: '开单人工号必填', trigger: 'blur' }],
+          drawername: [{ required: true, message: '开单人姓名必填', trigger: 'blur' }]
+        },
         wno: '',
         SetList:[]
       }
@@ -430,7 +432,9 @@
       // 去后台取数据的
       getList() {
         this.listLoading = true
+        console.debug("这是入库查询")
         list(this.listQuery).then(response => {
+          console.debug(response.data.items)
           this.list = response.data.items
           this.total = response.data.total
           this.uid = response.data.uid
