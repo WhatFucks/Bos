@@ -64,6 +64,7 @@ public class SysRoleServiceImpl implements SysRoleService {
         if(entity.getName()!=null && entity.getName().trim()!=""){
             example.createCriteria().andNameLike("%"+entity.getName()+"%");
         }
+        example.setOrderByClause("create_time desc");
         List<SysRole> list = sysRoleMapper.selectByExample(example);
         PageInfo page = new PageInfo(list);
         map.put("items",page.getList());

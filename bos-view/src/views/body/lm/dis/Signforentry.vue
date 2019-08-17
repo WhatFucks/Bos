@@ -27,9 +27,10 @@
       </el-table-column>
     </el-table>
     <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
+    <!--新增-->
     <el-dialog :title="title" :visible.sync="dialogFormVisibleAdd">
       <el-form ref="dataForm" :rules="rules" :model="temp" label-width="120px" style="width: 700px; margin-left:0px; height: 200px">
-        <el-col :span="8"><el-form-item label="工作单号:"><el-input  v-model="temp.workorderid"></el-input></el-form-item></el-col>
+        <el-col :span="8"><el-form-item label="工作单号:"><el-input  v-model="temp.worksheetno"></el-input></el-form-item></el-col>
         <el-col :span="8"><el-form-item label="工作单类型:">
           <el-select v-model="temp.workordertype" placeholder="请选择">
             <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
@@ -59,6 +60,7 @@
         <el-button type="primary" @click="dialogStatus==='create'?createData():updateData()">确认</el-button>
       </div>
     </el-dialog>
+   <!-- 修改-->
     <el-dialog :title="title" :visible.sync="dialogFormVisible">
       <el-form ref="dataForm" :rules="rules" :model="temp" label-width="120px" style="width: 700px; margin-left:0px; height: 200px">
         <el-col :span="8"><el-form-item label="工作单号:"><el-input  :disabled="true" v-model="temp.workorderid"></el-input></el-form-item></el-col>
@@ -91,6 +93,7 @@
         <el-button type="primary" @click="dialogStatus==='create'?createData():updateData()">确认</el-button>
       </div>
     </el-dialog>
+    <!--查看详情-->
     <el-dialog :title="title" :visible.sync="dialogFormVisibles">
       <el-form ref="dataForms" :rules="rules" :model="temp" label-width="120px" style="width: 700px; margin-left:0px; height: 200px">
         <el-col :span="8"><el-form-item label="工作单号:" ><el-input  :disabled="true" v-model="temp.workorderid"></el-input></el-form-item></el-col>
@@ -152,6 +155,7 @@
           limit: 5,
         },
         temp: {
+          worksheetno: '',
           workorderid: '',
           workordertype: '',
           signtype:'',

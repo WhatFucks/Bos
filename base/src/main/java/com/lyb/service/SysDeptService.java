@@ -7,7 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 public interface SysDeptService {
-
+    // 查询所有的dept
+    List<SysDept> AllDept();
     public SysDept findById(Integer id);
 
     public Boolean isExistSubset(Integer id);
